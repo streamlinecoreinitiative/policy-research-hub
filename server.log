@@ -1,0 +1,32 @@
+
+> ollama-agents-ui@0.1.0 dev
+> next dev
+
+  ▲ Next.js 14.2.3
+  - Local:        http://localhost:3000
+
+ ✓ Starting...
+ ✓ Ready in 1281ms
+ ✓ Compiled / in 325ms (444 modules)
+ GET / 200 in 393ms
+ GET /?id=edfa5e02-a9ca-4994-b332-36d35451857c&vscodeBrowserReqId=1768837534818 200 in 14ms
+ ○ Compiling /api/schedules ...
+ ✓ Compiled /api/schedules in 579ms (1214 modules)
+ ✓ Compiled (1219 modules)
+ GET /api/run 200 in 1275ms
+ GET /api/schedules 200 in 1279ms
+ GET /api/run 200 in 4ms
+ GET /api/schedules 200 in 3ms
+ GET / 200 in 79ms
+ GET /api/run 200 in 8ms
+ GET /api/schedules 200 in 14ms
+ GET /api/run 200 in 7ms
+ GET /api/schedules 200 in 6ms
+[Research] Starting standard research for: Environmental resilience in lower-income countries: water security, clean energy, and climate adaptation
+[Research] Found 2 sources and 8 statistics
+ ✓ Compiled /api/schedules/[id] in 176ms (1221 modules)
+ DELETE /api/schedules/v4coi02imjd5yv2r 200 in 269ms
+ DELETE /api/schedules/v4coi02imjd5yv2r 200 in 1531ms
+ POST /api/run 200 in 133005ms
+ ✓ Compiled in 121ms (222 modules)
+[?25h

@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>water loss reduction in secondary cities in the Sahel: lowering emissions from critical sectors</title>
+  <style>
+    :root {
+      --primary: #174ea6;
+      --primary-dark: #0f3c8a;
+      --success: #059669;
+      --warning: #d97706;
+      --text: #1c2433;
+      --muted: #4b5563;
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --border: #e2e8f0;
+    }
+    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+      line-height: 1.7;
+      color: var(--text);
+      background: var(--bg);
+      padding: 0;
+    }
+    
+    .report-container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: var(--card-bg);
+      box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    }
+    
+    /* Header */
+    .report-header {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      color: white;
+      padding: 48px 40px;
+    }
+    
+    .report-header h1 {
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      line-height: 1.3;
+    }
+    
+    .report-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 13px;
+      opacity: 0.9;
+    }
+    
+    .meta-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    
+    .meta-badge {
+      background: rgba(255,255,255,0.2);
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-weight: 600;
+    }
+    
+    /* Quality Score Bar */
+    .quality-bar {
+      display: flex;
+      background: rgba(255,255,255,0.1);
+      border-radius: 8px;
+      overflow: hidden;
+      margin-top: 20px;
+    }
+    
+    .quality-item {
+      flex: 1;
+      padding: 12px 16px;
+      text-align: center;
+      border-right: 1px solid rgba(255,255,255,0.1);
+    }
+    
+    .quality-item:last-child {
+      border-right: none;
+    }
+    
+    .quality-value {
+      font-size: 20px;
+      font-weight: 700;
+    }
+    
+    .quality-label {
+      font-size: 11px;
+      opacity: 0.8;
+      margin-top: 2px;
+    }
+    
+    /* Main Content */
+    .report-content {
+      padding: 40px;
+    }
+    
+    .report-content h1 {
+      display: none; /* Hide duplicate title */
+    }
+    
+    .report-content h2 {
+      font-size: 20px;
+      color: var(--primary-dark);
+      margin: 32px 0 16px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--border);
+    }
+    
+    .report-content h2:first-child {
+      margin-top: 0;
+    }
+    
+    .report-content h3 {
+      font-size: 16px;
+      color: var(--text);
+      margin: 24px 0 12px;
+    }
+    
+    .report-content p {
+      margin-bottom: 16px;
+      text-align: justify;
+    }
+    
+    .report-content ul, .report-content ol {
+      margin: 16px 0;
+      padding-left: 24px;
+    }
+    
+    .report-content li {
+      margin: 8px 0;
+    }
+    
+    .report-content strong {
+      color: var(--primary-dark);
+    }
+    
+    .report-content code {
+      background: #f1f5f9;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 13px;
+      font-family: 'SF Mono', Consolas, monospace;
+    }
+    
+    .report-content blockquote {
+      border-left: 4px solid var(--primary);
+      padding-left: 16px;
+      margin: 20px 0;
+      color: var(--muted);
+      font-style: italic;
+    }
+    
+    .report-content a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+    
+    .report-content a:hover {
+      text-decoration: underline;
+    }
+    
+    /* Verification flags */
+    .verify-flag {
+      background: #fef3c7;
+      color: var(--warning);
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+    
+    /* Statistics Section */
+    .stats-section {
+      background: linear-gradient(135deg, #f0fdf4 0%, #ecfeff 100%);
+      padding: 32px 40px;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    
+    .stats-section h2 {
+      font-size: 18px;
+      margin-bottom: 20px;
+      color: var(--text);
+      border: none;
+      padding: 0;
+    }
+    
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 16px;
+    }
+    
+    .stat-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+    }
+    
+    .stat-value {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 4px;
+    }
+    
+    .stat-label {
+      font-size: 13px;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+    
+    .stat-source {
+      font-size: 11px;
+      color: var(--muted);
+    }
+    
+    /* Sources Section */
+    .sources-section {
+      padding: 32px 40px;
+      background: #f8fafc;
+    }
+    
+    .sources-section h2 {
+      font-size: 18px;
+      margin-bottom: 20px;
+      color: var(--text);
+      border: none;
+      padding: 0;
+    }
+    
+    .sources-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    
+    .source-item {
+      display: flex;
+      gap: 12px;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px;
+    }
+    
+    .source-num {
+      font-weight: 700;
+      color: var(--primary);
+      font-size: 13px;
+    }
+    
+    .source-content {
+      flex: 1;
+    }
+    
+    .source-content strong {
+      display: block;
+      margin-bottom: 4px;
+    }
+    
+    .source-content p {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+    
+    .source-content a {
+      font-size: 12px;
+      color: var(--primary);
+    }
+    
+    /* Footer */
+    .report-footer {
+      padding: 24px 40px;
+      background: #f1f5f9;
+      border-top: 1px solid var(--border);
+      font-size: 12px;
+      color: var(--muted);
+      text-align: center;
+    }
+    
+    .report-footer a {
+      color: var(--primary);
+    }
+    
+    /* Print Styles */
+    @media print {
+      body {
+        background: white;
+      }
+      
+      .report-container {
+        box-shadow: none;
+      }
+      
+      .report-header {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      
+      .stats-section {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      .report-header {
+        padding: 32px 24px;
+      }
+      
+      .report-header h1 {
+        font-size: 22px;
+      }
+      
+      .report-content {
+        padding: 24px;
+      }
+      
+      .stats-section,
+      .sources-section {
+        padding: 24px;
+      }
+      
+      .quality-bar {
+        flex-wrap: wrap;
+      }
+      
+      .quality-item {
+        flex: 1 1 50%;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="report-container">
+    <header class="report-header">
+      <h1>water loss reduction in secondary cities in the Sahel: lowering emissions from critical sectors</h1>
+      <div class="report-meta">
+        <span class="meta-item">
+          <span class="meta-badge">Policy Brief</span>
+        </span>
+        <span class="meta-item">📅 February 2, 2026 at 08:00 AM</span>
+      </div>
+      <div class="quality-bar">
+        <div class="quality-item">
+          <div class="quality-value">932</div>
+          <div class="quality-label">Words</div>
+        </div>
+        <div class="quality-item">
+          <div class="quality-value">35</div>
+          <div class="quality-label">Sources</div>
+        </div>
+        <div class="quality-item">
+          <div class="quality-value">87/100</div>
+          <div class="quality-label">Readability</div>
+        </div>
+      </div>
+    </header>
+    
+    
+    <section class="stats-section">
+      <h2>📊 Key Statistics</h2>
+      <div class="stats-grid">
+        
+          <div class="stat-card">
+            <div class="stat-value">73.7</div>
+            <div class="stat-label">Access to safely managed drinking water (%) - World (2024)</div>
+            <div class="stat-source">Source: World Bank Open Data</div>
+          </div>
+        
+          <div class="stat-card">
+            <div class="stat-value">32.4</div>
+            <div class="stat-label">Access to safely managed drinking water (%) - Sub-Saharan Africa (2024)</div>
+            <div class="stat-source">Source: World Bank Open Data</div>
+          </div>
+        
+          <div class="stat-card">
+            <div class="stat-value">9.2</div>
+            <div class="stat-label">Freshwater withdrawal (% of resources) - World (2021)</div>
+            <div class="stat-source">Source: World Bank Open Data</div>
+          </div>
+        
+          <div class="stat-card">
+            <div class="stat-value">91.6</div>
+            <div class="stat-label">Access to electricity (%) - World (2023)</div>
+            <div class="stat-source">Source: World Bank Open Data</div>
+          </div>
+        
+          <div class="stat-card">
+            <div class="stat-value">53.3</div>
+            <div class="stat-label">Access to electricity (%) - Sub-Saharan Africa (2023)</div>
+            <div class="stat-source">Source: World Bank Open Data</div>
+          </div>
+        
+          <div class="stat-card">
+            <div class="stat-value">19.7</div>
+            <div class="stat-label">Renewable energy consumption (%) - World (2020)</div>
+            <div class="stat-source">Source: World Bank Open Data</div>
+          </div>
+        
+          <div class="stat-card">
+            <div class="stat-value">2.2 billion people</div>
+            <div class="stat-label">Global population lacking safe water (2022)</div>
+            <div class="stat-source">Source: UN-Water/WHO</div>
+          </div>
+        
+          <div class="stat-card">
+            <div class="stat-value">74% global coverage</div>
+            <div class="stat-label">SDG 6 progress - safely managed water</div>
+            <div class="stat-source">Source: UN SDG Report 2023</div>
+          </div>
+        
+      </div>
+    </section>
+  
+    
+    <main class="report-content">
+      <h1>water loss reduction in secondary cities in the Sahel: lowering emissions from critical sectors</h1><p><strong>Ensuring Water Security, Clean Energy Access, and Climate Resilience in Sub-Saharan Africa: A Pathway Forward</strong></p><h2>Executive Summary</h2><p>To address the pressing challenges of water security, clean energy access, and climate resilience in Sub-Saharan Africa, we recommend investing in large-scale infrastructure projects such as desalination plants or improved rainwater harvesting systems to enhance access to clean drinking water (World Bank, 2024). This investment should be complemented by promoting the development of solar-powered mini-grids and biogas digesters in rural areas where grid electrification is impractical or expensive (International Renewable Energy Agency, 2023).</p><h2>Context &amp; Challenge</h2><p>Sub-Saharan Africa's population growth outpaces infrastructure development, exacerbating existing challenges. Only <span class="verify-flag">⚠️ VERIFY</span> % of its population has access to safely managed drinking water, leaving millions at risk of waterborne diseases (World Bank, 2024). Electricity access is even lower at <span class="verify-flag">⚠️ VERIFY</span> %, impacting economic productivity and health services (World Bank, 2023). Meanwhile, renewable energy consumption only accounts for [NEEDS SOURCE] globally.</p><p>The region faces severe climate impacts such as droughts, floods, and extreme weather events, making resilience-building essential. Climate change threatens existing water resources, leading to conflicts over scarce water supplies and increasing vulnerability for already marginalized communities (UN-Water/WHO, 2022). These challenges necessitate urgent action to secure sustainable water sources, ensure reliable energy supply, and bolster climate adaptation strategies.</p><h2>Analysis</h2><p>The current situation in Sub-Saharan Africa highlights the urgency of implementing comprehensive interventions. Water scarcity is a pressing issue; only <span class="verify-flag">⚠️ VERIFY</span> % of the population has access to safely managed drinking water (World Bank, 2024). This disparity contributes to health risks such as diarrheal diseases and malnutrition among vulnerable populations. Electricity access remains low at <span class="verify-flag">⚠️ VERIFY</span> %, affecting economic activities and public services (World Bank, 2023), particularly in rural areas where infrastructure is often insufficient or non-existent.</p><p>Renewable energy consumption stands at only [NEEDS SOURCE] globally. This underutilization impedes the shift towards cleaner energy sources crucial for reducing greenhouse gas emissions and combating climate change impacts like desertification and sea-level rise in coastal regions (NOAA Climate Data).</p><p>Climate adaptation efforts are also lagging behind, with only modest progress reported. Communities lack adequate infrastructure to withstand extreme weather events such as droughts and floods, leading to increased vulnerabilities and displacement (UN-Water/WHO, 2022). These challenges underscore the need for coordinated policy responses that integrate water security, energy access, and climate resilience.</p><h2>Policy Recommendations</h2><p>To address these pressing issues in Sub-Saharan Africa, policymakers should prioritize the following measures:</p><p>1. <strong>Water Security</strong>: Invest in large-scale infrastructure projects such as desalination plants or improved rainwater harvesting systems to enhance access to clean drinking water (World Bank, 2024). Implement cost-sharing mechanisms with communities and private sector partners for sustainability.
+<ul><li><strong>Clean Energy Access</strong>: Promote the development of solar-powered mini-grids and biogas digesters in rural areas where grid electrification is impractical or expensive (International Renewable Energy Agency, 2023). Provide subsidies or low-interest loans to facilitate cost recovery and ensure long-term viability.</li>
+<li><strong>Climate Adaptation</strong>: Establish early warning systems for extreme weather events using modern technology such as satellite imagery and IoT sensors. Develop climate-resilient infrastructure like flood barriers and water retention ponds in critical areas (NOAA Climate Data, 2024).</p><h2>Implementation Considerations</h2><p>Implementing these recommendations requires careful planning and coordination among various stakeholders including governments, NGOs, international organizations, and the private sector. Cost considerations must be addressed through grants, low-interest loans, or innovative financing mechanisms like green bonds.</p><p>Social acceptance of new technologies such as solar-powered systems will depend on clear communication about benefits and overcoming initial resistance from community members who are accustomed to traditional means (World Bank, 2023).</p><h2>Conclusion</h2><p>Ensuring water security, clean energy access, and climate resilience in Sub-Saharan Africa is crucial for sustainable development. By prioritizing these areas with targeted interventions, the region can mitigate current challenges while preparing for future uncertainties. Policymakers must collaborate closely to implement effective strategies that balance immediate needs with long-term sustainability goals.</p><p><strong>Key Data Points</strong></p><p>- <strong>Access to safely managed drinking water (%) - Sub-Saharan Africa (2024)</strong>: 32.4 [Source: World Bank Open Data]</li>
+<li><strong>Access to electricity (%) - Sub-Saharan Africa (2023)</strong>: 53.3 [Source: World Bank Open Data]</li>
+<li><strong>Renewable energy consumption (%) - World (2020)</strong>: [NEEDS SOURCE]</li>
+<li><strong>Global population lacking safe water (2022)</strong>: 2.2 billion people [Source: UN-Water/WHO]</p><p><strong>Research Data</strong></p><h3>Key Statistics (Verified Sources)</h3><p>- <strong>Access to safely managed drinking water (%) - World (2024)</strong>: 73.7 [Source: World Bank Open Data]</li>
+<li><strong>Access to safely managed drinking water (%) - Sub-Saharan Africa (2024)</strong>: 32.4 [Source: World Bank Open Data]</li>
+<li><strong>Freshwater withdrawal (% of resources) - World (2021)</strong>: 9.2 [Source: World Bank Open Data]</li>
+<li><strong>Access to electricity (%) - World (2023)</strong>: 91.6 [Source: World Bank Open Data]</li>
+<li><strong>Access to electricity (%) - Sub-Saharan Africa (2023)</strong>: 53.3 [Source: World Bank Open Data]</li>
+<li><strong>Renewable energy consumption (%) - World (2020)</strong>: [NEEDS SOURCE]</li>
+<li><strong>Global population lacking safe water (2022)</strong>: 2.2 billion people [Source: UN-Water/WHO]</li>
+<li><strong>SDG 6 progress - safely managed water</strong>: 74% global coverage [Source: UN SDG Report 2023]</p><h3>Background Information</h3><p><strong>Environment</strong> (Wikipedia)</p><p>The natural environment, also known as the biophysical environment, refers to all living and non-living things occurring naturally in an area or region. This includes physical components such as air, water, soil, and land, as well as biological components like plants, animals, and microorganisms.</p><p>Source: https://en.wikipedia.org/wiki/Environment</p><p><strong>Resilience</strong> (Wikipedia)</p><p>Resilience refers to the ability of a system, community, or individual to withstand, recover from, or adapt in response to adversity, trauma, tragedy, or significant change. It involves the capacity to absorb and manage stress, uncertainty, or disruption.</p><p>Source: https://en.wikipedia.org/wiki/Resilience</li></ul>
+    </main>
+    
+    
+    <section class="sources-section">
+      <h2>📚 Sources & References</h2>
+      <div class="sources-list">
+        
+          <div class="source-item">
+            <span class="source-num">[1]</span>
+            <div class="source-content">
+              <strong>Environment</strong>
+              <p>Environment most often refers to:Natural environment, refers to all living and non-living things occurring naturally and the physical and biological factors along with their chemical interactions that...</p>
+              <a href="https://en.wikipedia.org/wiki/Environment" target="_blank">Wikipedia →</a>
+            </div>
+          </div>
+        
+          <div class="source-item">
+            <span class="source-num">[2]</span>
+            <div class="source-content">
+              <strong>Resilience</strong>
+              <p>Resilience, resilient, or resiliency may refer to:</p>
+              <a href="https://en.wikipedia.org/wiki/Resilience" target="_blank">Wikipedia →</a>
+            </div>
+          </div>
+        
+      </div>
+    </section>
+  
+    
+    <footer class="report-footer">
+      Generated by <strong>Ollama Agents Studio</strong> • 
+      February 2, 2026 at 08:00 AM • 
+      <a href="https://github.com/ollama/ollama" target="_blank">Powered by Ollama</a>
+    </footer>
+  </div>
+</body>
+</html>

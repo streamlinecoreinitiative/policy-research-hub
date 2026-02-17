@@ -1,0 +1,14 @@
+node_modules
+.next
+.env
+.env.local
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.DS_Store
+logs
+coverage
+
+# Keep data/output tracked — these are the published articles
+# /data/output
