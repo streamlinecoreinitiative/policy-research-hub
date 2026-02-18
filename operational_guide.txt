@@ -1,0 +1,396 @@
+================================================================================
+OPERATIONAL GUIDE — Policy Research Hub
+================================================================================
+Last updated: 2026-02-18
+For: AI agents or developers who need to understand, operate, or extend this system.
+
+================================================================================
+1. WHAT THIS PROJECT IS
+================================================================================
+
+This is a Next.js 14 web application that:
+  (a) Generates AI-powered policy research briefs/reports using LOCAL LLMs via Ollama
+  (b) Serves them publicly via a website deployed on Vercel
+  (c) Has ~2,855+ articles on climate, water, energy, and sustainable development
+
+There are TWO interfaces:
+  - PUBLIC SITE: Landing page (/), Library (/library), Article reader (/article/[slug]),
+    About (/about), RSS feed (/feed.xml), REST API (/api/articles)
+  - ADMIN TOOL: Report generator at /admin — only works locally (needs Ollama)
+
+The public site is deployed at: https://policy-research-hub.vercel.app
+The repo is at: https://github.com/streamlinecoreinitiative/policy-research-hub
+
+================================================================================
+2. TECHNOLOGY STACK
+================================================================================
+
+Framework:     Next.js 14.2.3 (App Router), React 18.2.0, TypeScript 5.4.5
+AI Backend:    Ollama (local) — NO cloud API keys needed
+  - Planner model: qwen2.5:3b (generates outlines/plans)
+  - Writer model:  llama3.1:8b (writes full articles)
+  - Ollama runs at: http://localhost:11434 (configurable via OLLAMA_HOST env var)
+Research APIs: DuckDuckGo Instant API, Wikipedia API, World Bank API (all free, no keys)
+Hosting:       Vercel (free tier) — auto-deploys on push to main branch
+Source Control: GitHub — streamlinecoreinitiative/policy-research-hub
+DNS (future):  GoDaddy subdomain environment.monroyasesores.com.mx (not yet configured)
+
+Key packages (package.json):
+  - next, react, react-dom (core framework)
+  - googleapis (Google Drive upload — optional)
+  - zod (schema validation)
+  - No external AI SDKs — all AI goes through Ollama's HTTP API
+
+================================================================================
+3. DIRECTORY STRUCTURE
+================================================================================
+
+/
+├── app/                          # Next.js App Router pages
+│   ├── page.tsx                  # Public landing page (hero, stats, newsletter)
+│   ├── layout.tsx                # Root layout (SEO metadata, fonts, RSS link)
+│   ├── globals.css               # All styles (public + admin)
+│   ├── admin/page.tsx            # Admin report generator UI (original tool)
+│   ├── library/page.tsx          # Searchable article library with filters
+│   ├── about/page.tsx            # About/mission page
+│   ├── article/[slug]/           # Dynamic article pages
+│   │   ├── page.tsx              # Server component (SSG, metadata)
+│   │   └── ArticleView.tsx       # Client component (reader, sharing)
+│   ├── feed.xml/route.ts         # RSS 2.0 feed (latest 50 articles)
+│   └── api/
+│       ├── run/route.ts          # POST: generate a new article (needs Ollama)
+│       ├── articles/route.ts     # GET: list articles (search, filter, paginate)
+│       ├── articles/tags/route.ts# GET: all tags with counts
+│       ├── articles/[slug]/route.ts # GET: single article by slug
+│       ├── subscribe/route.ts    # POST: newsletter email signup
+│       ├── schedules/route.ts    # GET/POST: scheduled recurring generation
+│       ├── drive/route.ts        # POST: upload to Google Drive
+│       └── refine/route.ts       # POST: refine/improve existing article
+│
+├── src/lib/                      # Core business logic
+│   ├── agents-v2.ts              # Main AI pipeline (research → plan → write → check)
+│   ├── articleIndex.ts           # Article indexing for public library
+│   ├── ollama.ts                 # Ollama HTTP client (chat completions)
+│   ├── webSearch.ts              # DuckDuckGo + Wikipedia research
+│   ├── dataSources.ts            # World Bank API integration
+│   ├── templates.ts              # Report templates (policy-brief, technical, etc.)
+│   ├── htmlReport.ts             # Markdown-to-HTML conversion
+│   ├── scheduler.ts              # Recurring article generation scheduler
+│   ├── drive.ts                  # Google Drive upload logic
+│   └── storage.ts                # JSON file storage helpers
+│
+├── data/                         # Data directory
+│   ├── articles-index.json       # Master index of all published articles
+│   ├── subscribers.json          # Newsletter email list
+│   ├── schedules.json            # Scheduled generation tasks
+│   ├── recent_titles.json        # Last 12 titles (deduplication)
+│   ├── recent_outlines.json      # Last 10 outlines (deduplication)
+│   └── output/                   # All generated articles (~2,855+ files)
+│       ├── *.md                  # Markdown versions
+│       └── *.html                # HTML versions
+│
+├── scripts/
+│   ├── auto-publish.sh           # Daily cron script: git push new articles
+│   └── bootstrap-index.ts        # One-time script to index existing articles
+│
+├── next.config.mjs               # Next.js config (output: standalone when needed)
+├── tsconfig.json                 # TypeScript config (target: es2015, downlevelIteration)
+└── package.json                  # Dependencies and scripts
+
+================================================================================
+4. HOW TO RUN LOCALLY
+================================================================================
+
+Prerequisites:
+  - Node.js 18+ installed
+  - Ollama installed and running (https://ollama.ai)
+  - Models pulled: `ollama pull qwen2.5:3b` and `ollama pull llama3.1:8b`
+
+Steps:
+  1. cd "/Users/anon/Downloads/agents workign"
+  2. npm install
+  3. Make sure Ollama is running: `ollama serve` (or it may auto-start)
+  4. npm run dev
+  5. Open http://localhost:3000 for the public site
+  6. Open http://localhost:3000/admin to generate new articles
+
+Environment variables (all optional):
+  - OLLAMA_HOST: Override Ollama URL (default: http://localhost:11434)
+  - NEXT_PUBLIC_SITE_URL: Public URL for RSS/sharing links
+  - No API keys are needed — everything runs locally
+
+================================================================================
+5. HOW ARTICLE GENERATION WORKS (The Pipeline)
+================================================================================
+
+When a user submits a topic via /admin or via API POST /api/run:
+
+  Step 1 — RESEARCH (webSearch.ts, dataSources.ts)
+    - Queries DuckDuckGo Instant API for topic context
+    - Searches Wikipedia for background information
+    - Pulls World Bank data if relevant economic/development indicators found
+    - Research depth: quick (3 queries), standard (5), or deep (8+)
+
+  Step 2 — PLANNING (qwen2.5:3b via ollama.ts)
+    - Receives research + topic + template
+    - Generates structured outline with sections
+    - Checks against recent_titles.json to avoid duplicates
+    - Checks against recent_outlines.json to avoid repetitive structure
+
+  Step 3 — WRITING (llama3.1:8b via ollama.ts)
+    - Receives outline + research data + template structure
+    - Writes full article section by section
+    - Targets word count specified by template (e.g., 3000-5000 words)
+
+  Step 4 — FACT-CHECKING & QUALITY
+    - Validates source citations
+    - Calculates quality metrics (word count, sources used, readability)
+    - Flags claims needing verification
+
+  Step 5 — SAVE & INDEX
+    - Saves .md and .html files to data/output/
+    - Calls indexArticle() to add to data/articles-index.json
+    - Article immediately appears on the public site (locally)
+
+  Step 6 — AUTO-PUBLISH (daily cron)
+    - scripts/auto-publish.sh runs at 6:00 AM daily
+    - Checks git status for changes in data/output/
+    - Commits and pushes to GitHub
+    - Vercel auto-deploys from the push
+
+The pipeline is in: src/lib/agents-v2.ts (function: runAgents)
+
+================================================================================
+6. ARTICLE INDEX SYSTEM
+================================================================================
+
+File: src/lib/articleIndex.ts
+
+Core data structure (ArticleMeta):
+  - slug: URL-safe identifier
+  - title: Article title
+  - summary: ~2 sentence extract
+  - topic: Original topic used for generation
+  - template: Which template was used
+  - tags: Auto-extracted keywords (climate, water, energy, etc.)
+  - wordCount, sourcesUsed, readabilityScore: Quality metrics
+  - publishedAt, updatedAt: ISO timestamps
+  - status: 'draft' | 'published'
+  - mdFile, htmlFile: Filenames in data/output/
+  - region: Auto-detected geographic region
+
+Key functions:
+  - indexArticle(params) — Add a new article to the index
+  - getPublishedArticles(options) — Query articles with filter/search/pagination
+  - getArticleBySlug(slug) — Get single article with full content
+  - getAllTags() — Get all tags with article counts
+  - bootstrapIndex() — Scan data/output/ and index any unindexed articles
+
+The index is stored at: data/articles-index.json
+
+================================================================================
+7. AUTO-PUBLISH SYSTEM
+================================================================================
+
+Script: scripts/auto-publish.sh
+Cron schedule: 0 6 * * * (daily at 6:00 AM local time)
+Log file: data/auto-publish.log
+
+What it does:
+  1. cd to the project directory
+  2. Check `git status --porcelain` for changes in data/output/, 
+     data/articles-index.json, data/subscribers.json
+  3. If changes exist: git add, commit with timestamp, push to origin/main
+  4. Vercel detects the push and auto-redeploys
+
+To view the cron job:
+  crontab -l
+
+To edit the cron schedule:
+  crontab -e
+  # Change "0 6" to desired hour/minute (e.g., "0 8" for 8 AM, "*/6 * * *" every 6 hours)
+
+To run manually:
+  bash "/Users/anon/Downloads/agents workign/scripts/auto-publish.sh"
+
+To check logs:
+  cat "/Users/anon/Downloads/agents workign/data/auto-publish.log"
+
+IMPORTANT: The cron job requires the Mac to be ON and the user logged in.
+If the Mac sleeps at cron time, the job will NOT run. Consider launchd for 
+sleep-wake awareness, or simply run the script manually after generating articles.
+
+================================================================================
+8. PUBLIC API REFERENCE
+================================================================================
+
+All endpoints are at the deployed URL or localhost:3000.
+
+GET /api/articles
+  Query params: tag, search, limit (default 20), offset (default 0)
+  Returns: { articles: ArticleMeta[], total: number, offset, limit }
+
+GET /api/articles/tags
+  Returns: { tags: [{ tag: string, count: number }] }
+
+GET /api/articles/[slug]
+  Returns: { article: ArticleMeta & { content: string, htmlContent: string } }
+
+POST /api/run
+  Body: { topic, plannerModel, writerModel, templateId?, researchDepth?, 
+          customInstructions?, autoUpload?, drive? }
+  Returns: Full AgentRunResult with article content, logs, quality scores
+  NOTE: Only works locally (needs Ollama running)
+
+POST /api/subscribe
+  Body: { email: string }
+  Returns: { success: true, message: string }
+
+GET /api/schedules
+  Returns: { schedules: StoredSchedule[] }
+
+POST /api/schedules
+  Body: { topic, plannerModel, writerModel, intervalMinutes, autoUpload?, drive? }
+  Returns: { schedule: StoredSchedule }
+
+GET /feed.xml
+  Returns: RSS 2.0 XML feed (latest 50 articles)
+
+================================================================================
+9. DEPLOYMENT (VERCEL)
+================================================================================
+
+Current deployment: https://policy-research-hub.vercel.app
+GitHub repo: https://github.com/streamlinecoreinitiative/policy-research-hub
+
+Deploy flow:
+  git push origin main → Vercel auto-builds and deploys
+
+To redeploy manually:
+  Go to https://vercel.com → project → Deployments → Redeploy
+
+IMPORTANT: Vercel's filesystem is READ-ONLY and ephemeral.
+Articles must be committed to the git repo to appear on the deployed site.
+The bootstrapIndex() function re-indexes from data/output/ files checked into git.
+
+Future domain setup (when ready):
+  1. In Vercel dashboard → Settings → Domains → Add "environment.monroyasesores.com.mx"
+  2. In GoDaddy DNS → Add CNAME record:
+     Name: environment
+     Value: cname.vercel-dns.com
+     TTL: 600
+  3. Set NEXT_PUBLIC_SITE_URL=https://environment.monroyasesores.com.mx in Vercel env vars
+
+================================================================================
+10. COMMON TASKS
+================================================================================
+
+Generate a new article (locally):
+  1. Ensure Ollama is running
+  2. Open http://localhost:3000/admin
+  3. Enter topic, select models (qwen2.5:3b planner, llama3.1:8b writer)
+  4. Click Generate — takes 2-5 minutes
+  5. Article appears in data/output/ and is auto-indexed
+
+Push new articles to production:
+  bash "/Users/anon/Downloads/agents workign/scripts/auto-publish.sh"
+  # Or wait for the 6 AM daily cron
+
+Re-index all articles (if index gets corrupted):
+  cd "/Users/anon/Downloads/agents workign"
+  npx -y tsx scripts/bootstrap-index.ts
+
+Check article count:
+  cat data/articles-index.json | python3 -c "import sys,json; d=json.load(sys.stdin); print(d['totalPublished'])"
+
+Check Ollama status:
+  curl http://localhost:11434/api/tags
+
+Pull/update models:
+  ollama pull qwen2.5:3b
+  ollama pull llama3.1:8b
+
+================================================================================
+11. TROUBLESHOOTING
+================================================================================
+
+"Ollama connection refused":
+  → Start Ollama: `ollama serve` or open the Ollama app
+  → Check: curl http://localhost:11434/api/tags
+
+Articles not appearing on Vercel:
+  → Articles must be git-committed and pushed. Run auto-publish.sh manually.
+  → Check Vercel dashboard for build errors.
+
+Index shows 0 articles:
+  → Run: npx -y tsx scripts/bootstrap-index.ts
+  → Ensure data/output/ contains .md files
+
+Build fails on Vercel:
+  → Check tsconfig.json has target: "es2015" and downlevelIteration: true
+  → Run `npm run build` locally to see errors
+
+Cron job not running:
+  → Mac must be awake and user logged in at 6 AM
+  → Verify: crontab -l
+  → Check logs: cat data/auto-publish.log
+  → Test manually: bash scripts/auto-publish.sh
+
+Git push fails:
+  → Check SSH key or token auth: ssh -T git@github.com
+  → Or: git remote -v (ensure origin points to correct repo)
+
+================================================================================
+12. KEY CONFIGURATION FILES
+================================================================================
+
+tsconfig.json:
+  - target: "es2015" (changed from es5 to fix Set iteration)
+  - downlevelIteration: true
+  - paths: "@/*" → "./src/*"
+
+next.config.mjs:
+  - Minimal config, outputs standard Next.js build
+
+.gitignore:
+  - data/output/ is NOT ignored (articles must be in git for Vercel)
+  - node_modules/, .next/ are ignored as usual
+
+================================================================================
+13. EXTENDING THE SYSTEM
+================================================================================
+
+To add a new report template:
+  → Edit src/lib/templates.ts — add a new entry to the templates array
+  → Follow the existing pattern (sections, word targets, instructions)
+
+To add a new research source:
+  → Edit src/lib/webSearch.ts or src/lib/dataSources.ts
+  → Add the fetch logic and integrate into conductResearch()
+
+To change AI models:
+  → Pull new models with Ollama: `ollama pull <model>`
+  → Select them in the admin UI, or change defaults in agents-v2.ts
+
+To add a new page:
+  → Create app/<pagename>/page.tsx (Next.js App Router convention)
+  → Link from layout.tsx or navigation components
+
+To change auto-publish frequency:
+  → crontab -e
+  → Modify the schedule line (cron syntax: min hour day month weekday)
+
+================================================================================
+14. SECURITY NOTES
+================================================================================
+
+- No API keys or secrets in the codebase (everything is local Ollama)
+- Google Drive integration requires credentials but is optional
+- Newsletter emails stored in plaintext in data/subscribers.json
+- The /admin route is not password-protected — relies on being local-only
+- On Vercel, /admin exists but won't function (no Ollama connection)
+- No user authentication system — all public content is open access
+
+================================================================================
+END OF GUIDE
+================================================================================
