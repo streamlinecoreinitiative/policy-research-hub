@@ -449,8 +449,27 @@ Instructions:
   });
 
   // Save files (both MD and HTML)
+  // Deduplicate: if an article with the same slug already exists, replace it
   await fs.mkdir(OUTPUT_DIR, { recursive: true });
-  const baseFileName = `${slugify(articleTitle)}-${Date.now()}`;
+  const slug = slugify(articleTitle);
+  
+  // Check for existing files with the same slug (different timestamps)
+  let baseFileName = `${slug}-${Date.now()}`;
+  try {
+    const existingFiles = await fs.readdir(OUTPUT_DIR);
+    const oldVersions = existingFiles.filter(f => f.startsWith(slug + '-') && f.endsWith('.md'));
+    if (oldVersions.length > 0) {
+      // Remove old versions to prevent duplicates
+      for (const oldFile of oldVersions) {
+        const oldMd = path.join(OUTPUT_DIR, oldFile);
+        const oldHtml = path.join(OUTPUT_DIR, oldFile.replace('.md', '.html'));
+        try { await fs.unlink(oldMd); } catch {}
+        try { await fs.unlink(oldHtml); } catch {}
+      }
+      log.push(`[${timestamp()}] Replaced ${oldVersions.length} older version(s) of this article`);
+    }
+  } catch {}
+  
   const mdFileName = `${baseFileName}.md`;
   const htmlFileName = `${baseFileName}.html`;
   const mdPath = path.join(OUTPUT_DIR, mdFileName);
