@@ -1,6 +1,32 @@
 {
   "articles": [
     {
+      "slug": "clean-cooking-transition-for-peri-urban-households-in-the-central-america-dry-co-1771988526013",
+      "title": "clean cooking transition for peri-urban households in the Central America dry corridor: improving health outcomes in heatwaves",
+      "summary": "Clean Cooking Transition for Peri-Urban Households in the Central America Dry Corridor: Improving Health Outcomes in Heatwaves This policy brief highlights the need for a clean cooking transition in peri-urban households of the Central America dry corridor to improve health outcomes during heatwaves.",
+      "topic": "Environmental resilience in lower-income countries: water security, clean energy, and climate adaptation",
+      "template": "Policy Brief",
+      "tags": [
+        "climate",
+        "water",
+        "energy",
+        "health",
+        "policy",
+        "finance",
+        "resilience",
+        "urbanization"
+      ],
+      "wordCount": 690,
+      "sourcesUsed": 31,
+      "readabilityScore": 87,
+      "publishedAt": "2026-02-25T03:02:06.020Z",
+      "updatedAt": "2026-02-25T03:02:06.020Z",
+      "status": "published",
+      "mdFile": "clean-cooking-transition-for-peri-urban-households-in-the-central-america-dry-co-1771988526013.md",
+      "htmlFile": "clean-cooking-transition-for-peri-urban-households-in-the-central-america-dry-co-1771988526013.html",
+      "region": "Sub-Saharan Africa"
+    },
+    {
       "slug": "watershed-co-management-with-indigenous-councils-in-the-sudano-sahelian-belt-sup-1769954162127",
       "title": "watershed co-management with indigenous councils in the Sudano-Sahelian belt: supporting adaptation targets in NDCs",
       "summary": "Strengthening Water Security, Clean Energy Adoption, and Climate Resilience in Sub-Saharan Africa To address the pressing issues of water security, clean energy access, and climate resilience in Sub-Saharan Africa, we recommend implementing targeted interventions for improved water management, renewable energy adoption, and climate adaptation.",
@@ -22332,6 +22358,6 @@
       "region": "Sub-Saharan Africa"
     }
   ],
-  "lastUpdated": "2026-02-25T02:55:12.391Z",
-  "totalPublished": 859
+  "lastUpdated": "2026-02-25T03:02:06.028Z",
+  "totalPublished": 860
 }
