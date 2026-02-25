@@ -1,6 +1,32 @@
 {
   "articles": [
     {
+      "slug": "solar-cold-chain-for-fisheries-in-the-sahel-lowering-emissions-from-critical-sec-1771989142673",
+      "title": "solar cold-chain for fisheries in the Sahel: lowering emissions from critical sectors",
+      "summary": "Solar Cold-Chain for Fisheries in the Sahel: Lowering Emissions from Critical Sectors This policy brief highlights the urgent need to enhance environmental resilience in Sub-Saharan Africa through water security, clean energy provision, and climate adaptation measures.",
+      "topic": "Environmental resilience in lower-income countries: water security, clean energy, and climate adaptation",
+      "template": "Policy Brief",
+      "tags": [
+        "climate",
+        "water",
+        "energy",
+        "agriculture",
+        "health",
+        "policy",
+        "finance",
+        "resilience"
+      ],
+      "wordCount": 875,
+      "sourcesUsed": 35,
+      "readabilityScore": 94,
+      "publishedAt": "2026-02-25T03:12:22.675Z",
+      "updatedAt": "2026-02-25T03:12:22.675Z",
+      "status": "published",
+      "mdFile": "solar-cold-chain-for-fisheries-in-the-sahel-lowering-emissions-from-critical-sec-1771989142673.md",
+      "htmlFile": "solar-cold-chain-for-fisheries-in-the-sahel-lowering-emissions-from-critical-sec-1771989142673.html",
+      "region": "Sub-Saharan Africa"
+    },
+    {
       "slug": "clean-cooking-transition-for-peri-urban-households-in-the-central-america-dry-co-1771988526013",
       "title": "clean cooking transition for peri-urban households in the Central America dry corridor: improving health outcomes in heatwaves",
       "summary": "Clean Cooking Transition for Peri-Urban Households in the Central America Dry Corridor: Improving Health Outcomes in Heatwaves This policy brief highlights the need for a clean cooking transition in peri-urban households of the Central America dry corridor to improve health outcomes during heatwaves.",
@@ -22358,6 +22384,6 @@
       "region": "Sub-Saharan Africa"
     }
   ],
-  "lastUpdated": "2026-02-25T03:02:06.028Z",
-  "totalPublished": 860
+  "lastUpdated": "2026-02-25T03:12:22.687Z",
+  "totalPublished": 861
 }
