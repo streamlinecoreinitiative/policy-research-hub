@@ -91,8 +91,9 @@ function renderMarkdown(md: string): string {
 
 export default function HomePage() {
   const [topic, setTopic] = useState(starterTopic);
-  const [plannerModel, setPlannerModel] = useState('qwen2.5:3b');
-  const [writerModel, setWriterModel] = useState('llama3.1:8b');
+  const [plannerModel, setPlannerModel] = useState('qwen3:4b');
+  const [writerModel, setWriterModel] = useState('qwen3:8b');
+  const [factCheckerModel, setFactCheckerModel] = useState('bespoke-minicheck:7b');
   const [templateId, setTemplateId] = useState('policy-brief');
   const [researchDepth, setResearchDepth] = useState<'quick' | 'standard' | 'deep'>('standard');
   const [customInstructions, setCustomInstructions] = useState('');
@@ -185,6 +186,7 @@ export default function HomePage() {
           topic,
           plannerModel,
           writerModel,
+          factCheckerModel,
           templateId,
           researchDepth,
           customInstructions,
@@ -261,6 +263,7 @@ export default function HomePage() {
           topic: schedTopic,
           plannerModel,
           writerModel,
+          factCheckerModel,
           intervalMinutes: minutes,
           autoUpload: schedAutoUpload,
           drive: schedAutoUpload ? driveConfig : undefined
@@ -331,7 +334,7 @@ export default function HomePage() {
             <div className="badge">Research-backed AI Studio</div>
             <h1>Policy & Research Brief Generator</h1>
             <div className="small">
-              Three-phase pipeline: Research → Plan → Write. Now with web search, templates, and quality scoring.
+              Five-phase pipeline: Research → Plan → Write → Fact-Check (bespoke-minicheck) → QA Gate. Powered by Qwen3 + Ollama.
             </div>
           </div>
         </div>
@@ -397,21 +400,29 @@ export default function HomePage() {
 
           <div className="section">
             <label>Models</label>
-            <div className="grid" style={{ gridTemplateColumns: '1fr 1fr', gap: 8 }}>
+            <div className="grid" style={{ gridTemplateColumns: '1fr 1fr 1fr', gap: 8 }}>
               <div>
-                <div className="small">Planner (fast/light)</div>
+                <div className="small">Planner</div>
                 <input
                   value={plannerModel}
                   onChange={(e) => setPlannerModel(e.target.value)}
-                  placeholder="qwen2.5:3b"
+                  placeholder="qwen3:4b"
                 />
               </div>
               <div>
-                <div className="small">Writer (quality)</div>
+                <div className="small">Writer</div>
                 <input
                   value={writerModel}
                   onChange={(e) => setWriterModel(e.target.value)}
-                  placeholder="llama3.1:8b"
+                  placeholder="qwen3:8b"
+                />
+              </div>
+              <div>
+                <div className="small">Fact-Checker</div>
+                <input
+                  value={factCheckerModel}
+                  onChange={(e) => setFactCheckerModel(e.target.value)}
+                  placeholder="bespoke-minicheck:7b"
                 />
               </div>
             </div>

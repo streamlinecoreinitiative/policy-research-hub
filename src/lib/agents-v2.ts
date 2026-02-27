@@ -17,6 +17,7 @@ export type AgentRunParams = {
   topic: string;
   plannerModel: string;
   writerModel: string;
+  factCheckerModel?: string;
   templateId?: string;
   researchDepth?: 'quick' | 'standard' | 'deep';
   customInstructions?: string;
@@ -212,6 +213,7 @@ export async function runAgents(params: AgentRunParams): Promise<AgentRunResult>
     topic, 
     plannerModel, 
     writerModel, 
+    factCheckerModel = 'bespoke-minicheck:7b',
     templateId = 'policy-brief',
     researchDepth = 'standard',
     customInstructions = ''
@@ -263,7 +265,8 @@ ${template.systemPrompt}
 For EACH run, generate a fresh, specific angle and a distinct title.
 Vary geography, sector, and evidence focus across runs.
 Always include a line formatted exactly as: "Title: <your title>".
-Do NOT fabricate numbers - use only the research data provided.`
+Do NOT fabricate numbers - use only the research data provided.
+/no_think`
     },
     {
       role: 'user',
@@ -295,12 +298,14 @@ Deliver:
     }
   ];
 
-  const plannerPlan = await callOllamaChat({ 
+  let plannerPlan = await callOllamaChat({ 
     model: plannerModel, 
     messages: plannerMessages, 
     temperature: 0.55, 
     topP: 0.9 
   });
+  // Strip Qwen3 thinking tags if present
+  plannerPlan = plannerPlan.replace(/<think>[\s\S]*?<\/think>/g, '').trim();
   
   log.push('--- Planner output ---');
   log.push(plannerPlan.trim());
@@ -359,66 +364,142 @@ Include inline citations for all statistics.`
     }
   ];
 
-  const writerDraft = await callOllamaChat({ 
+  let writerDraft = await callOllamaChat({ 
     model: writerModel, 
     messages: writerMessages, 
-    temperature: 0.4, 
+    temperature: 0.35, 
     topP: 0.9 
   });
+  // Strip Qwen3 thinking tags if present
+  writerDraft = writerDraft.replace(/<think>[\s\S]*?<\/think>/g, '').trim();
   
   log.push('--- Writer draft ---');
   log.push(writerDraft.trim().slice(0, 500) + '...');
 
-  // Phase 4: Fact-checking and Editing
-  log.push(`[${timestamp()}] Phase 4: Fact-checking and editing...`);
+  // Phase 4: Fact-checking with bespoke-minicheck
+  log.push(`[${timestamp()}] Phase 4: Fact-checking with ${factCheckerModel}...`);
+
+  // Extract claims (sentences with numbers/statistics) from the draft
+  const draftSentences = writerDraft
+    .split(/\n/)
+    .filter(line => !line.startsWith('#') && line.trim().length > 20);
+  
+  const claimsToCheck = draftSentences.filter(s => 
+    /\d+/.test(s) || /percent|million|billion|thousand|growth|decline|increase|decrease/i.test(s)
+  ).slice(0, 15); // Check up to 15 statistical claims
+
+  const researchDoc = researchPrompt.slice(0, 6000); // Fit within context
+  let flaggedClaims: string[] = [];
+
+  if (claimsToCheck.length > 0) {
+    log.push(`[${timestamp()}] Checking ${claimsToCheck.length} statistical claims...`);
+    
+    for (const claim of claimsToCheck) {
+      try {
+        const checkResult = await callOllamaChat({
+          model: factCheckerModel,
+          messages: [{ role: 'user', content: `Document: ${researchDoc}\nClaim: ${claim.trim()}` }],
+          temperature: 0.0,
+          topP: 1.0
+        });
+        const verdict = checkResult.trim().toLowerCase();
+        if (verdict.startsWith('no')) {
+          flaggedClaims.push(claim.trim());
+        }
+      } catch (err) {
+        log.push(`[${timestamp()}] Fact-check error for claim: ${(err as Error).message}`);
+      }
+    }
+
+    log.push(`[${timestamp()}] Fact-check results: ${claimsToCheck.length - flaggedClaims.length} verified, ${flaggedClaims.length} flagged`);
+  } else {
+    log.push(`[${timestamp()}] No statistical claims found to verify`);
+  }
+
+  // Phase 4b: Edit pass — apply fact-check flags and tighten prose
+  log.push(`[${timestamp()}] Phase 4b: Editorial pass with ${writerModel}...`);
+  
+  const flaggedSection = flaggedClaims.length > 0
+    ? `\n\nThe following claims could NOT be verified against the research data. Mark each with [VERIFY] or remove them:\n${flaggedClaims.map((c, i) => `${i + 1}. "${c}"`).join('\n')}`
+    : '';
 
   const factMessages: ChatMessage[] = [
     {
       role: 'system',
       content: `You are a fact-checker and editor. Your job is to:
-1. Verify all statistics match the research data provided
+1. Apply the fact-check flags listed below
 2. Flag any unsourced claims as [NEEDS SOURCE]
 3. Remove or flag fabricated numbers
 4. Ensure proper attribution for all data points
 5. Maintain formal, neutral tone
 6. Keep the structure intact
 7. Tighten language for clarity
+/no_think
 
 Return the revised document with:
 - Verified claims properly cited
-- Unverified claims flagged
+- Unverified claims flagged with [VERIFY]
 - No fabricated statistics
 - Same structure and approximate length`
     },
     {
       role: 'user',
-      content: `Draft to fact-check:
-${writerDraft}
-
-Research data for verification:
-${researchPrompt}
-
-Instructions:
-- Flag numbers not in research as "[VERIFY]"
-- Add source citations where missing
-- Remove clearly fabricated statistics
-- Keep the title unless it's generic
-- Preserve the ${template.name} format`
+      content: `Draft to edit:\n${writerDraft}\n\nResearch data for reference:\n${researchPrompt}${flaggedSection}\n\nInstructions:\n- Apply [VERIFY] tags to flagged claims\n- Add source citations where missing\n- Remove clearly fabricated statistics\n- Keep the title unless it's generic\n- Preserve the ${template.name} format`
     }
   ];
 
-  const factCheckedDraft = await callOllamaChat({ 
+  let factCheckedDraft = await callOllamaChat({ 
     model: writerModel, 
     messages: factMessages, 
     temperature: 0.2, 
     topP: 0.9 
   });
+  // Strip Qwen3 thinking tags if present
+  factCheckedDraft = factCheckedDraft.replace(/<think>[\s\S]*?<\/think>/g, '').trim();
   
   log.push('--- Fact-checked draft ---');
   log.push(factCheckedDraft.trim().slice(0, 500) + '...');
 
-  // Finalize title — never accept generic section headings
-  let articleTitle = proposedTitle || deriveTitle(factCheckedDraft, topic) || fallbackTitle(topic);
+  // Phase 4c: Title validation agent
+  log.push(`[${timestamp()}] Phase 4c: Validating title with ${plannerModel}...`);
+  let articleTitle = proposedTitle || deriveTitle(factCheckedDraft, topic) || '';
+  
+  if (articleTitle) {
+    try {
+      const titleCheckMessages: ChatMessage[] = [
+        {
+          role: 'system',
+          content: `You validate titles for policy research articles. Given a title and topic, respond with ONLY one of:\n- "GOOD" if the title is specific, descriptive, and relates to the topic\n- A better title if the original is generic, vague, or a section heading\n\nA good title: names a specific issue, region, or policy lever. 8-20 words.\nA bad title: "Executive Summary", "Policy Brief", "Overview", or anything too generic.\n/no_think`
+        },
+        {
+          role: 'user',
+          content: `Topic: ${topic}\nTitle: ${articleTitle}\n\nIs this a good article title? Reply GOOD or provide a better one.`
+        }
+      ];
+      let titleResponse = await callOllamaChat({
+        model: plannerModel,
+        messages: titleCheckMessages,
+        temperature: 0.3,
+        topP: 0.9
+      });
+      titleResponse = titleResponse.replace(/<think>[\s\S]*?<\/think>/g, '').trim();
+      
+      if (!titleResponse.toUpperCase().startsWith('GOOD')) {
+        // The model suggested a better title
+        const suggestedTitle = titleResponse.replace(/^["']|["']$/g, '').trim();
+        if (suggestedTitle.length >= 15 && suggestedTitle.split(/\s+/).length >= 4) {
+          log.push(`[${timestamp()}] Title improved: "${articleTitle}" → "${suggestedTitle}"`);
+          articleTitle = suggestedTitle;
+        }
+      } else {
+        log.push(`[${timestamp()}] Title validated: "${articleTitle}"`);
+      }
+    } catch (err) {
+      log.push(`[${timestamp()}] Title validation skipped: ${(err as Error).message}`);
+    }
+  }
+  
+  if (!articleTitle) articleTitle = fallbackTitle(topic);
   const genericTitles = ['executive summary', 'policy brief', 'introduction', 'overview', 'report'];
   if (genericTitles.some(g => articleTitle.toLowerCase().trim() === g)) {
     log.push(`[${timestamp()}] Title "${articleTitle}" is generic — using fallback`);
@@ -498,12 +579,14 @@ Instructions:
     ];
 
     try {
-      const retryDraft = await callOllamaChat({
+      let retryDraft = await callOllamaChat({
         model: writerModel,
         messages: retryMessages,
         temperature: 0.3,
         topP: 0.9
       });
+      // Strip Qwen3 thinking tags if present
+      retryDraft = retryDraft.replace(/<think>[\s\S]*?<\/think>/g, '').trim();
 
       // Re-evaluate the retry
       const retryContent = retryDraft.trim().startsWith('#')

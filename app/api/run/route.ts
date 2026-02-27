@@ -13,6 +13,7 @@ export async function POST(req: Request) {
     const topic = body?.topic as string;
     const plannerModel = body?.plannerModel as string;
     const writerModel = body?.writerModel as string;
+    const factCheckerModel = (body?.factCheckerModel as string) || 'bespoke-minicheck:7b';
     const templateId = (body?.templateId as string) || 'policy-brief';
     const researchDepth = (body?.researchDepth as 'quick' | 'standard' | 'deep') || 'standard';
     const customInstructions = body?.customInstructions as string;
@@ -30,6 +31,7 @@ export async function POST(req: Request) {
       topic,
       plannerModel,
       writerModel,
+      factCheckerModel,
       templateId,
       researchDepth,
       customInstructions
