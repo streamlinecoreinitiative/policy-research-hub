@@ -147,12 +147,28 @@ When a user submits a topic via /admin or via API POST /api/run:
     - Calculates quality metrics (word count, sources used, readability)
     - Flags claims needing verification
 
-  Step 5 — SAVE & INDEX
-    - Saves .md and .html files to data/output/
-    - Calls indexArticle() to add to data/articles-index.json
-    - Article immediately appears on the public site (locally)
+  Step 5 — QA VALIDATION GATE (qaGate.ts) *** NEW ***
+    - Runs 7 automated checks before publishing:
+      1. title_quality: Rejects generic titles like "Executive Summary"
+      2. word_count: Must reach 70% of template target
+      3. sections_complete: All required template sections present
+      4. source_citations: Minimum 3 source references
+      5. h1_consistency: H1 heading matches article title (not a section heading)
+      6. no_repetition: Less than 10% repeated sentences
+      7. not_a_stub: At least 4 substantive paragraphs
+    - Critical checks (title, word count, sections) must ALL pass
+    - Overall score must be >= 60/100
+    - If QA fails: triggers ONE corrective retry with specific feedback
+    - If retry still fails: article saved as DRAFT (not published)
+    - QA result included in the API response for transparency
 
-  Step 6 — AUTO-PUBLISH (daily cron)
+  Step 6 — SAVE & INDEX
+    - Saves .md and .html files to data/output/
+    - Calls indexArticle() — status depends on QA result:
+      - PASSED: published (visible on public site)
+      - FAILED: saved as draft (not visible publicly)
+
+  Step 7 — AUTO-PUBLISH (daily cron)
     - scripts/auto-publish.sh runs at 6:00 AM daily
     - Checks git status for changes in data/output/
     - Commits and pushes to GitHub
