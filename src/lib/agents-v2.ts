@@ -6,6 +6,7 @@ import { conductResearch, formatResearchForPrompt, ResearchData } from './webSea
 import { getTemplate, ReportTemplate, templates } from './templates';
 import { generateHTMLReport } from './htmlReport';
 import { indexArticle } from './articleIndex';
+import { runQAGate, QAResult } from './qaGate';
 
 const OUTPUT_DIR = path.join(process.cwd(), 'data/output');
 const RECENT_TITLES_PATH = path.join(process.cwd(), 'data/recent_titles.json');
@@ -36,6 +37,8 @@ export type AgentRunResult = {
     sectionsComplete: number;
     readabilityScore: number;
   };
+  qaResult?: QAResult;
+  status: 'published' | 'draft';
 };
 
 function slugify(text: string) {
@@ -52,8 +55,20 @@ function timestamp() {
 
 function deriveTitle(content: string, topic: string) {
   const heading = content.split('\n').find((line) => line.trim().startsWith('#'));
-  if (heading) return heading.replace(/^#+\s*/, '').trim();
-  return `Brief: ${topic.slice(0, 120)}`;
+  if (heading) {
+    const title = heading.replace(/^#+\s*/, '').trim();
+    // Reject generic section headings as titles
+    const genericTitles = ['executive summary', 'policy brief', 'introduction', 'overview', 'report', 'analysis', 'conclusion', 'background'];
+    if (genericTitles.some(g => title.toLowerCase() === g || title.toLowerCase().startsWith(g + ':'))) {
+      // Try finding a more specific title in bold text or second heading
+      const boldMatch = content.match(/\*\*([^*]{20,120})\*\*/);
+      if (boldMatch) return boldMatch[1].trim();
+      // Fallback to topic-based title
+      return '';
+    }
+    return title;
+  }
+  return '';
 }
 
 function extractPlannerTitle(plan: string) {
@@ -402,11 +417,32 @@ Instructions:
   log.push('--- Fact-checked draft ---');
   log.push(factCheckedDraft.trim().slice(0, 500) + '...');
 
-  // Finalize
-  const articleTitle = proposedTitle || deriveTitle(factCheckedDraft, topic) || fallbackTitle(topic);
-  const contentWithHeading = factCheckedDraft.trim().startsWith('#')
-    ? factCheckedDraft.trim()
-    : `# ${articleTitle}\n\n${factCheckedDraft.trim()}`;
+  // Finalize title — never accept generic section headings
+  let articleTitle = proposedTitle || deriveTitle(factCheckedDraft, topic) || fallbackTitle(topic);
+  const genericTitles = ['executive summary', 'policy brief', 'introduction', 'overview', 'report'];
+  if (genericTitles.some(g => articleTitle.toLowerCase().trim() === g)) {
+    log.push(`[${timestamp()}] Title "${articleTitle}" is generic — using fallback`);
+    articleTitle = fallbackTitle(topic);
+  }
+
+  // Ensure H1 heading uses the proper title, not a section heading
+  let contentWithHeading: string;
+  const firstLine = factCheckedDraft.trim().split('\n')[0];
+  if (firstLine.startsWith('# ')) {
+    const existingH1 = firstLine.replace(/^#\s+/, '').trim();
+    if (genericTitles.some(g => existingH1.toLowerCase() === g)) {
+      // Replace the generic H1 with our proper title
+      contentWithHeading = factCheckedDraft.trim().replace(/^#\s+.+/, `# ${articleTitle}`);
+    } else {
+      contentWithHeading = factCheckedDraft.trim();
+      // Update articleTitle to match the H1 if it's better
+      if (existingH1.length > articleTitle.length && existingH1.split(/\s+/).length >= 5) {
+        articleTitle = existingH1;
+      }
+    }
+  } else {
+    contentWithHeading = `# ${articleTitle}\n\n${factCheckedDraft.trim()}`;
+  }
 
   // Calculate quality metrics
   const wordCount = contentWithHeading.split(/\s+/).length;
@@ -426,6 +462,95 @@ Instructions:
   log.push(`  - Sources cited: ${sourcesUsed}`);
   log.push(`  - Sections: ${sectionsInContent}/${template.sections.length}`);
   log.push(`  - Readability: ${readabilityScore}/100`);
+
+  // Phase 5: QA Gate — validate before publishing
+  log.push(`[${timestamp()}] Phase 5: Running QA validation gate...`);
+  const requiredSections = template.sections
+    .filter(s => s.required)
+    .map(s => s.title);
+
+  let qaResult = runQAGate({
+    title: articleTitle,
+    content: contentWithHeading,
+    topic,
+    targetWordCount: template.totalWordTarget,
+    requiredSections,
+  });
+
+  log.push(`[${timestamp()}] QA Score: ${qaResult.score}/100 — ${qaResult.passed ? 'PASSED' : 'FAILED'}`);
+  for (const check of qaResult.checks) {
+    log.push(`  ${check.passed ? '✓' : '✗'} ${check.name}: ${check.detail}`);
+  }
+
+  // If QA fails, attempt ONE retry with corrective feedback
+  if (!qaResult.passed && qaResult.suggestions.length > 0) {
+    log.push(`[${timestamp()}] QA failed — attempting corrective retry...`);
+
+    const retryMessages: ChatMessage[] = [
+      {
+        role: 'system',
+        content: `${template.systemPrompt}\n\nYou are rewriting a ${template.name} that failed quality checks. Fix ALL the issues listed below.`
+      },
+      {
+        role: 'user',
+        content: `The following article FAILED quality validation. Fix these issues:\n\n${qaResult.suggestions.map((s, i) => `${i + 1}. ${s}`).join('\n')}\n\nOriginal article:\n${contentWithHeading}\n\n${researchPrompt}\n\nREWRITE the full article fixing all issues. Start with "# ${articleTitle}" as the H1 heading. Include ALL required sections: ${requiredSections.join(', ')}. Target: ${template.totalWordTarget} words minimum.`
+      }
+    ];
+
+    try {
+      const retryDraft = await callOllamaChat({
+        model: writerModel,
+        messages: retryMessages,
+        temperature: 0.3,
+        topP: 0.9
+      });
+
+      // Re-evaluate the retry
+      const retryContent = retryDraft.trim().startsWith('#')
+        ? retryDraft.trim()
+        : `# ${articleTitle}\n\n${retryDraft.trim()}`;
+
+      // Fix H1 if still generic
+      const retryFirstLine = retryContent.split('\n')[0];
+      const retryH1 = retryFirstLine.replace(/^#\s+/, '').trim();
+      let finalRetryContent = retryContent;
+      if (genericTitles.some(g => retryH1.toLowerCase() === g)) {
+        finalRetryContent = retryContent.replace(/^#\s+.+/, `# ${articleTitle}`);
+      }
+
+      const retryQA = runQAGate({
+        title: articleTitle,
+        content: finalRetryContent,
+        topic,
+        targetWordCount: template.totalWordTarget,
+        requiredSections,
+      });
+
+      log.push(`[${timestamp()}] Retry QA Score: ${retryQA.score}/100 — ${retryQA.passed ? 'PASSED' : 'STILL FAILED'}`);
+
+      if (retryQA.score > qaResult.score) {
+        log.push(`[${timestamp()}] Retry improved quality (${qaResult.score} → ${retryQA.score}), using retry version`);
+        contentWithHeading = finalRetryContent;
+        qaResult = retryQA;
+        // Recalculate metrics for the retry
+        const retryWordCount = finalRetryContent.split(/\s+/).length;
+        const retrySources = countSources(finalRetryContent);
+        const retrySections = (finalRetryContent.match(/^##\s+/gm) || []).length;
+        const retryReadability = calculateReadability(finalRetryContent);
+        qualityScore.wordCount = retryWordCount;
+        qualityScore.sourcesUsed = retrySources;
+        qualityScore.sectionsComplete = Math.min(retrySections, template.sections.length);
+        qualityScore.readabilityScore = retryReadability;
+      }
+    } catch (retryErr) {
+      log.push(`[${timestamp()}] Retry failed: ${(retryErr as Error).message}`);
+    }
+  }
+
+  const publishStatus: 'published' | 'draft' = qaResult.passed ? 'published' : 'draft';
+  if (!qaResult.passed) {
+    warnings.push(`QA validation failed (score: ${qaResult.score}/100). Article saved as DRAFT. Issues: ${qaResult.failReasons.join('; ')}`);
+  }
 
   // Generate HTML report
   const htmlReport = generateHTMLReport({
@@ -493,9 +618,9 @@ Instructions:
       wordCount,
       sourcesUsed,
       readabilityScore,
-      autoPublish: true,
+      autoPublish: publishStatus === 'published',
     });
-    log.push(`[${timestamp()}] Published to public library`);
+    log.push(`[${timestamp()}] ${publishStatus === 'published' ? 'Published to public library' : 'Saved as DRAFT (failed QA)'}`);
   } catch (indexErr) {
     log.push(`[${timestamp()}] Warning: failed to index article: ${(indexErr as Error).message}`);
   }
@@ -523,6 +648,8 @@ Instructions:
     log: log.join('\n\n'),
     warnings,
     research,
-    qualityScore
+    qualityScore,
+    qaResult,
+    status: publishStatus,
   };
 }
