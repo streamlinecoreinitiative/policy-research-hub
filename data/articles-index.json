@@ -1,6 +1,84 @@
 {
   "articles": [
     {
+      "slug": "mekong-river-basin-water-security-addressing-the-12-billion-climate-adaptation-f-1772166800265",
+      "title": "Mekong River Basin Water Security: Addressing the $12 Billion Climate Adaptation Funding Gap in Southeast Asia",
+      "summary": "Southeast Asia’s Mekong River basin faces an urgent $12 billion annual climate adaptation funding gap for water security, jeopardizing food systems and livelihoods for 600 million people.",
+      "topic": "Climate adaptation funding gaps in Southeast Asia",
+      "template": "Policy Brief",
+      "tags": [
+        "climate",
+        "water",
+        "energy",
+        "agriculture",
+        "policy",
+        "finance",
+        "resilience",
+        "biodiversity"
+      ],
+      "wordCount": 719,
+      "sourcesUsed": 10,
+      "readabilityScore": 94,
+      "publishedAt": "2026-02-27T04:33:20.300Z",
+      "updatedAt": "2026-02-27T04:33:20.300Z",
+      "status": "draft",
+      "mdFile": "mekong-river-basin-water-security-addressing-the-12-billion-climate-adaptation-f-1772166800265.md",
+      "htmlFile": "mekong-river-basin-water-security-addressing-the-12-billion-climate-adaptation-f-1772166800265.html",
+      "region": "Southeast Asia"
+    },
+    {
+      "slug": "agricultural-adaptation-finance-gaps-in-southeast-asia-why-climate-smart-farming-1772165499849",
+      "title": "Agricultural Adaptation Finance Gaps in Southeast Asia: Why Climate-Smart Farming Needs Immediate Investment",
+      "summary": "Southeast Asia’s agricultural sector—employing 600 million people and producing 40% of global food exports—faces acute climate threats. Recent monsoons caused 30% crop losses across the region in 2023 (WMO), yet only 1.",
+      "topic": "Climate adaptation funding gaps in Southeast Asia",
+      "template": "Policy Brief",
+      "tags": [
+        "climate",
+        "water",
+        "agriculture",
+        "policy",
+        "finance",
+        "resilience",
+        "biodiversity",
+        "urbanization"
+      ],
+      "wordCount": 996,
+      "sourcesUsed": 25,
+      "readabilityScore": 93,
+      "publishedAt": "2026-02-27T04:11:39.896Z",
+      "updatedAt": "2026-02-27T04:11:39.896Z",
+      "status": "published",
+      "mdFile": "agricultural-adaptation-finance-gaps-in-southeast-asia-why-climate-smart-farming-1772165499849.md",
+      "htmlFile": "agricultural-adaptation-finance-gaps-in-southeast-asia-why-climate-smart-farming-1772165499849.html",
+      "region": "Southeast Asia"
+    },
+    {
+      "slug": "flood-resilient-infrastructure-financing-gaps-in-southeast-asia-s-urban-centers-1772163378007",
+      "title": "Flood-Resilient Infrastructure Financing Gaps in Southeast Asia's Urban Centers",
+      "summary": "Southeast Asia’s urban centers face acute climate adaptation funding gaps, with [VERIFY] claims about $1.2 trillion in unmet infrastructure needs by 2030—60% below the $2.",
+      "topic": "Climate adaptation funding gaps in Southeast Asia",
+      "template": "Policy Brief",
+      "tags": [
+        "climate",
+        "water",
+        "health",
+        "policy",
+        "finance",
+        "resilience",
+        "urbanization",
+        "education"
+      ],
+      "wordCount": 877,
+      "sourcesUsed": 8,
+      "readabilityScore": 96,
+      "publishedAt": "2026-02-27T03:36:18.037Z",
+      "updatedAt": "2026-02-27T03:36:18.037Z",
+      "status": "published",
+      "mdFile": "flood-resilient-infrastructure-financing-gaps-in-southeast-asia-s-urban-centers-1772163378007.md",
+      "htmlFile": "flood-resilient-infrastructure-financing-gaps-in-southeast-asia-s-urban-centers-1772163378007.html",
+      "region": "Southeast Asia"
+    },
+    {
       "slug": "clean-cooking-transition-for-peri-urban-households-in-the-sahel-raising-resilien-1772157278279",
       "title": "clean cooking transition for peri-urban households in the Sahel: raising resilience finance for communities",
       "summary": "Clean Cooking Transition for Peri-Urban Households in the Sahel: Raising Resilience Finance for Communities We recommend that governments, NGOs, and international organizations prioritize investments in water security, clean energy access, and climate adaptation to build resilient systems in Sub-Saharan Africa.",
@@ -22540,6 +22618,6 @@
       "region": "Sub-Saharan Africa"
     }
   ],
-  "lastUpdated": "2026-02-27T01:54:38.307Z",
-  "totalPublished": 867
+  "lastUpdated": "2026-02-27T04:33:20.341Z",
+  "totalPublished": 869
 }

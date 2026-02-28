@@ -7,6 +7,7 @@ import { getTemplate, ReportTemplate, templates } from './templates';
 import { generateHTMLReport } from './htmlReport';
 import { indexArticle } from './articleIndex';
 import { runQAGate, QAResult } from './qaGate';
+import { generateSocialPosts } from './socialPostAgent';
 
 const OUTPUT_DIR = path.join(process.cwd(), 'data/output');
 const RECENT_TITLES_PATH = path.join(process.cwd(), 'data/recent_titles.json');
@@ -706,6 +707,21 @@ Return the revised document with:
     log.push(`[${timestamp()}] ${publishStatus === 'published' ? 'Published to public library' : 'Saved as DRAFT (failed QA)'}`);
   } catch (indexErr) {
     log.push(`[${timestamp()}] Warning: failed to index article: ${(indexErr as Error).message}`);
+  }
+
+  // Auto-generate social media posts for published articles
+  if (publishStatus === 'published') {
+    try {
+      const slug = mdFileName.replace(/\.md$/, '');
+      const socialPosts = await generateSocialPosts(
+        { title: articleTitle, topic, template: template.name, slug },
+        contentWithHeading,
+        plannerModel
+      );
+      log.push(`[${timestamp()}] Generated ${socialPosts.length} social media posts (queued for review)`);
+    } catch (socialErr) {
+      log.push(`[${timestamp()}] Warning: social post generation failed: ${(socialErr as Error).message}`);
+    }
   }
 
   // Generate warnings

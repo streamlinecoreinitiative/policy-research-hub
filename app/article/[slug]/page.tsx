@@ -77,12 +77,42 @@ export default async function ArticlePage({ params }: Props) {
     .sort((a, b) => b.relevance - a.relevance)
     .slice(0, 3);
 
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://policy-research-hub.vercel.app';
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: article.meta.title,
+    description: article.meta.summary,
+    datePublished: article.meta.publishedAt,
+    dateModified: article.meta.updatedAt,
+    author: {
+      '@type': 'Organization',
+      name: 'Open Policy Research Hub',
+      url: siteUrl,
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'Open Policy Research Hub',
+      url: siteUrl,
+    },
+    mainEntityOfPage: `${siteUrl}/article/${article.meta.slug}`,
+    keywords: article.meta.tags.join(', '),
+    wordCount: article.meta.wordCount,
+    articleSection: article.meta.template,
+  };
+
   return (
-    <ArticleView
-      meta={article.meta}
-      content={article.content}
-      htmlContent={article.htmlContent}
-      related={related}
-    />
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <ArticleView
+        meta={article.meta}
+        content={article.content}
+        htmlContent={article.htmlContent}
+        related={related}
+      />
+    </>
   );
 }
