@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server';
 import { runAgents, AgentRunParams } from '@/lib/agents-v2';
 import { uploadFileToDrive } from '@/lib/drive';
 import { getTemplateList } from '@/lib/templates';
+import { addLogEntry } from '@/lib/processLog';
 import path from 'path';
 
 export const runtime = 'nodejs';
@@ -61,6 +62,12 @@ export async function POST(req: Request) {
     return NextResponse.json({ ...result, drive: driveResult });
   } catch (err) {
     console.error('run API error', err);
+    addLogEntry({
+      type: 'pipeline-run',
+      status: 'error',
+      title: 'Pipeline failed',
+      details: (err as Error).message,
+    }).catch(() => {});
     return NextResponse.json({ error: (err as Error).message }, { status: 500 });
   }
 }

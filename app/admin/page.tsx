@@ -1,37 +1,39 @@
 'use client';
 
-import { useEffect, useState, useMemo } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 
-type ResearchData = {
-  query: string;
-  results: { title: string; snippet: string; url: string; source: string }[];
-  statistics: { label: string; value: string; source: string }[];
-  timestamp: string;
-};
+// ─── Types ─────────────────────────────────────────────────────
 
-type QualityScore = {
-  sourcesUsed: number;
-  wordCount: number;
-  sectionsComplete: number;
-  readabilityScore: number;
-};
-
-type RunResponse = {
-  articlePath: string;
+type SocialPost = {
+  id: string;
+  articleSlug: string;
   articleTitle: string;
-  articleContent: string;
-  log: string;
-  warnings?: string[];
-  research?: ResearchData;
-  qualityScore?: QualityScore;
-  drive?: { fileId?: string; fileName?: string; webViewLink?: string };
+  platform: 'twitter' | 'linkedin' | 'bluesky';
+  content: string;
+  hashtags: string[];
+  url: string;
+  status: 'pending' | 'posted' | 'skipped';
+  createdAt: string;
+  postedAt?: string;
 };
 
-type DriveConfig = {
-  clientId: string;
-  clientSecret: string;
-  refreshToken: string;
-  folderId: string;
+type NewsletterDraft = {
+  id: string;
+  subject: string;
+  introText: string;
+  articles: { title: string; summary: string; url: string; tags: string[] }[];
+  htmlContent: string;
+  createdAt: string;
+  status: 'draft' | 'sent';
+};
+
+type LogEntry = {
+  id: string;
+  timestamp: string;
+  type: string;
+  status: string;
+  title: string;
+  details?: string;
 };
 
 type Schedule = {
@@ -39,698 +41,798 @@ type Schedule = {
   topic: string;
   plannerModel: string;
   writerModel: string;
+  factCheckerModel?: string;
   autoUpload: boolean;
   intervalMinutes: number;
   nextRunAt: number;
   lastRunAt?: number;
   lastResult?: {
     articlePath?: string;
-    fileId?: string;
-    webViewLink?: string;
     error?: string;
     ranAt: number;
   };
 };
 
-type Template = {
-  id: string;
-  name: string;
-  description: string;
+type AdminData = {
+  isLocal: boolean;
+  system: {
+    ollamaRunning: boolean;
+    ollamaModels: string[];
+    lastAutoPublish: string | null;
+    autoPublishLog: string[];
+  };
+  articles: {
+    total: number;
+    recent: { title: string; slug: string; publishedAt: string; status: string; wordCount: number }[];
+  };
+  social: {
+    total: number;
+    pending: number;
+    posted: number;
+    skipped: number;
+    posts: SocialPost[];
+  };
+  newsletters: {
+    total: number;
+    drafts: number;
+    sent: number;
+    list: NewsletterDraft[];
+  };
+  subscribers: { count: number };
+  schedules: { active: number; list: Schedule[] };
+  logs: {
+    stats: {
+      total: number;
+      last24h: number;
+      last7d: number;
+      byType: Record<string, number>;
+      byStatus: Record<string, number>;
+      lastActivity: string | null;
+    };
+    recent: LogEntry[];
+  };
 };
 
-const starterTopic = 'Environmental resilience in lower-income countries: water security, clean energy, and climate adaptation';
+type Tab = 'overview' | 'social' | 'newsletters' | 'schedules' | 'logs' | 'generate';
 
-// Simple markdown to HTML converter
-function renderMarkdown(md: string): string {
-  return md
-    // Headers
-    .replace(/^### (.*$)/gim, '<h3>$1</h3>')
-    .replace(/^## (.*$)/gim, '<h2>$1</h2>')
-    .replace(/^# (.*$)/gim, '<h1>$1</h1>')
-    // Bold
-    .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-    // Italic
-    .replace(/\*(.*?)\*/g, '<em>$1</em>')
-    // Bullet lists
-    .replace(/^\s*[-*]\s+(.*$)/gim, '<li>$1</li>')
-    // Numbered lists
-    .replace(/^\d+\.\s+(.*$)/gim, '<li>$1</li>')
-    // Links
-    .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noreferrer">$1</a>')
-    // Code blocks
-    .replace(/`([^`]+)`/g, '<code>$1</code>')
-    // Paragraphs
-    .replace(/\n\n/g, '</p><p>')
-    // Line breaks
-    .replace(/\n/g, '<br/>')
-    // Wrap lists
-    .replace(/(<li>.*<\/li>)/s, '<ul>$1</ul>')
-    // Wrap in paragraph
-    .replace(/^(.*)$/, '<p>$1</p>');
+// ─── Helpers ───────────────────────────────────────────────────
+
+function timeAgo(dateStr: string): string {
+  const diff = Date.now() - new Date(dateStr).getTime();
+  const mins = Math.floor(diff / 60000);
+  if (mins < 1) return 'just now';
+  if (mins < 60) return `${mins}m ago`;
+  const hours = Math.floor(mins / 60);
+  if (hours < 24) return `${hours}h ago`;
+  const days = Math.floor(hours / 24);
+  return `${days}d ago`;
 }
 
-export default function HomePage() {
-  const [topic, setTopic] = useState(starterTopic);
-  const [plannerModel, setPlannerModel] = useState('qwen3:4b');
-  const [writerModel, setWriterModel] = useState('qwen3:8b');
-  const [factCheckerModel, setFactCheckerModel] = useState('bespoke-minicheck:7b');
-  const [templateId, setTemplateId] = useState('policy-brief');
-  const [researchDepth, setResearchDepth] = useState<'quick' | 'standard' | 'deep'>('standard');
-  const [customInstructions, setCustomInstructions] = useState('');
-  const [templates, setTemplates] = useState<Template[]>([]);
-  
-  const [status, setStatus] = useState('Idle');
-  const [log, setLog] = useState('');
-  const [articleContent, setArticleContent] = useState('');
-  const [articleTitle, setArticleTitle] = useState('');
-  const [articlePath, setArticlePath] = useState('');
-  const [warnings, setWarnings] = useState<string[]>([]);
-  const [research, setResearch] = useState<ResearchData | null>(null);
-  const [qualityScore, setQualityScore] = useState<QualityScore | null>(null);
-  const [running, setRunning] = useState(false);
-  
-  const [viewMode, setViewMode] = useState<'preview' | 'raw' | 'edit'>('preview');
-  const [editContent, setEditContent] = useState('');
-  const [activeTab, setActiveTab] = useState<'draft' | 'research' | 'log'>('draft');
-  
-  const [driveConfig, setDriveConfig] = useState<DriveConfig>({
-    clientId: '',
-    clientSecret: '',
-    refreshToken: '',
-    folderId: ''
-  });
-  const [autoUploadManual, setAutoUploadManual] = useState(false);
-  const [uploadStatus, setUploadStatus] = useState('');
-  const [schedules, setSchedules] = useState<Schedule[]>([]);
-  const [schedTopic, setSchedTopic] = useState(starterTopic);
-  const [schedIntervalMinutes, setSchedIntervalMinutes] = useState(240);
-  const [schedAutoUpload, setSchedAutoUpload] = useState(true);
-  const [loadingSchedules, setLoadingSchedules] = useState(false);
-  const [showAdvanced, setShowAdvanced] = useState(false);
+function platformIcon(p: string) {
+  if (p === 'twitter') return '𝕏';
+  if (p === 'linkedin') return 'in';
+  if (p === 'bluesky') return '🦋';
+  return '•';
+}
 
-  // Fetch templates on load
-  useEffect(() => {
-    fetch('/api/run')
-      .then(res => res.json())
-      .then(data => {
-        if (data.templates) setTemplates(data.templates);
-      })
-      .catch(() => {
-        // Fallback templates
-        setTemplates([
-          { id: 'policy-brief', name: 'Policy Brief', description: 'Concise document for policymakers' },
-          { id: 'research-summary', name: 'Research Summary', description: 'Academic-style summary' },
-          { id: 'grant-proposal', name: 'Grant Proposal', description: 'Framework for funding applications' },
-          { id: 'executive-briefing', name: 'Executive Briefing', description: 'Quick-read for leaders' },
-          { id: 'situation-report', name: 'Situation Report', description: 'Status update on issues' }
-        ]);
-      });
+function statusColor(s: string) {
+  if (s === 'success' || s === 'posted' || s === 'published') return '#059669';
+  if (s === 'warning' || s === 'pending' || s === 'draft') return '#d97706';
+  if (s === 'error' || s === 'skipped') return '#dc2626';
+  return '#6b7280';
+}
+
+// ─── Component ─────────────────────────────────────────────────
+
+export default function AdminDashboard() {
+  const [data, setData] = useState<AdminData | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState('');
+  const [activeTab, setActiveTab] = useState<Tab>('overview');
+  const [actionStatus, setActionStatus] = useState('');
+
+  // Generate page state
+  const [genTopic, setGenTopic] = useState('Environmental resilience in lower-income countries: water security, clean energy, and climate adaptation');
+  const [genTemplate, setGenTemplate] = useState('policy-brief');
+  const [genDepth, setGenDepth] = useState<'quick' | 'standard' | 'deep'>('standard');
+  const [genPlannerModel, setGenPlannerModel] = useState('qwen3:4b');
+  const [genWriterModel, setGenWriterModel] = useState('qwen3:8b');
+  const [genFactModel, setGenFactModel] = useState('bespoke-minicheck:7b');
+  const [genRunning, setGenRunning] = useState(false);
+  const [genResult, setGenResult] = useState<{ title?: string; status?: string; log?: string; warnings?: string[] } | null>(null);
+
+  // Newsletter preview
+  const [previewHtml, setPreviewHtml] = useState('');
+
+  const fetchData = useCallback(async () => {
+    try {
+      const res = await fetch('/api/admin/status');
+      if (!res.ok) throw new Error('Failed to load admin data');
+      const json = await res.json();
+      setData(json);
+      setError('');
+    } catch (err) {
+      setError((err as Error).message);
+    } finally {
+      setLoading(false);
+    }
   }, []);
 
-  const fetchSchedules = async () => {
-    setLoadingSchedules(true);
+  useEffect(() => {
+    fetchData();
+    const interval = setInterval(fetchData, 30000);
+    return () => clearInterval(interval);
+  }, [fetchData]);
+
+  // ─── Actions ──────────────────────────────────────────────────
+
+  const updateSocialPost = async (postId: string, status: 'posted' | 'skipped') => {
+    setActionStatus('Updating post...');
     try {
-      const res = await fetch('/api/schedules');
-      const data = await res.json();
-      if (res.ok) {
-        setSchedules(data.schedules || []);
-      }
+      await fetch('/api/social', {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ postId, status }),
+      });
+      await fetchData();
+      setActionStatus(`Post marked as ${status}`);
     } catch {
-      // ignore load errors
-    } finally {
-      setLoadingSchedules(false);
+      setActionStatus('Failed to update post');
     }
+    setTimeout(() => setActionStatus(''), 3000);
   };
 
-  useEffect(() => {
-    fetchSchedules();
-  }, []);
+  const doGenerateNewsletter = async () => {
+    setActionStatus('Generating newsletter draft...');
+    try {
+      const res = await fetch('/api/newsletter', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ model: 'qwen3:4b', daysBack: 7 }),
+      });
+      const json = await res.json();
+      if (!res.ok) throw new Error(json.error);
+      setActionStatus(`Newsletter drafted: "${json.newsletter.subject}"`);
+      await fetchData();
+    } catch (err) {
+      setActionStatus(`Newsletter failed: ${(err as Error).message}`);
+    }
+    setTimeout(() => setActionStatus(''), 5000);
+  };
 
-  const runAgents = async () => {
-    setRunning(true);
-    setStatus('Researching & generating...');
-    setWarnings([]);
-    setLog('');
-    setArticleContent('');
-    setArticleTitle('');
-    setArticlePath('');
-    setUploadStatus('');
-    setResearch(null);
-    setQualityScore(null);
+  const fixSchedules = async () => {
+    setActionStatus('Fixing schedule models...');
+    try {
+      const res = await fetch('/api/admin/status', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ action: 'fix-schedule' }),
+      });
+      const json = await res.json();
+      setActionStatus(`Fixed ${json.fixed} model references`);
+      await fetchData();
+    } catch {
+      setActionStatus('Failed to fix schedules');
+    }
+    setTimeout(() => setActionStatus(''), 3000);
+  };
 
+  const deleteSchedule = async (id: string) => {
+    try {
+      await fetch(`/api/schedules/${id}`, { method: 'DELETE' });
+      await fetchData();
+      setActionStatus('Schedule deleted');
+    } catch {
+      setActionStatus('Failed to delete schedule');
+    }
+    setTimeout(() => setActionStatus(''), 3000);
+  };
+
+  const runGenerate = async () => {
+    setGenRunning(true);
+    setGenResult(null);
     try {
       const res = await fetch('/api/run', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          topic,
-          plannerModel,
-          writerModel,
-          factCheckerModel,
-          templateId,
-          researchDepth,
-          customInstructions,
-          autoUpload: autoUploadManual,
-          drive: autoUploadManual ? driveConfig : undefined
-        })
+          topic: genTopic,
+          plannerModel: genPlannerModel,
+          writerModel: genWriterModel,
+          factCheckerModel: genFactModel,
+          templateId: genTemplate,
+          researchDepth: genDepth,
+        }),
       });
-
-      if (!res.ok) {
-        const text = await res.text();
-        throw new Error(text || 'Agent run failed');
-      }
-
-      const data: RunResponse = await res.json();
-      setStatus(autoUploadManual ? 'Draft saved + uploaded' : 'Draft ready');
-      setLog(data.log);
-      setArticleContent(data.articleContent);
-      setEditContent(data.articleContent);
-      setArticleTitle(data.articleTitle);
-      setArticlePath(data.articlePath);
-      setWarnings(data.warnings || []);
-      setResearch(data.research || null);
-      setQualityScore(data.qualityScore || null);
-      if (data.drive?.fileName) {
-        setUploadStatus(`Uploaded as ${data.drive.fileName}`);
-      }
+      const json = await res.json();
+      if (!res.ok) throw new Error(json.error);
+      setGenResult({
+        title: json.articleTitle,
+        status: json.status,
+        log: json.log,
+        warnings: json.warnings,
+      });
+      await fetchData();
     } catch (err) {
-      setStatus('Failed');
-      setLog(`Error: ${(err as Error).message}`);
+      setGenResult({ title: 'Error', status: 'error', log: (err as Error).message });
     } finally {
-      setRunning(false);
+      setGenRunning(false);
     }
   };
 
-  const uploadToDrive = async () => {
-    if (!articlePath) {
-      setUploadStatus('No article file to upload yet.');
-      return;
-    }
-    setUploadStatus('Uploading to Drive...');
+  // ─── Render ───────────────────────────────────────────────────
 
-    try {
-      const res = await fetch('/api/drive/upload', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          filePath: articlePath,
-          drive: driveConfig
-        })
-      });
+  if (loading) {
+    return (
+      <main className="admin-dash">
+        <div className="admin-loading">
+          <div className="spinner" />
+          <p>Loading Command Center...</p>
+        </div>
+      </main>
+    );
+  }
 
-      const data = await res.json();
-      if (!res.ok) {
-        throw new Error(data?.error || 'Upload failed');
-      }
+  if (error) {
+    return (
+      <main className="admin-dash">
+        <div className="admin-error">
+          <h2>Connection Error</h2>
+          <p>{error}</p>
+          <button onClick={fetchData} className="admin-btn primary">Retry</button>
+        </div>
+      </main>
+    );
+  }
 
-      setUploadStatus(`Uploaded as ${data.fileName}`);
-    } catch (err) {
-      setUploadStatus(`Upload failed: ${(err as Error).message}`);
-    }
-  };
-
-  const handleDriveChange = (key: keyof DriveConfig, value: string) => {
-    setDriveConfig((prev) => ({ ...prev, [key]: value }));
-  };
-
-  const createSchedule = async () => {
-    const minutes = Math.max(15, schedIntervalMinutes);
-    try {
-      const res = await fetch('/api/schedules', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          topic: schedTopic,
-          plannerModel,
-          writerModel,
-          factCheckerModel,
-          intervalMinutes: minutes,
-          autoUpload: schedAutoUpload,
-          drive: schedAutoUpload ? driveConfig : undefined
-        })
-      });
-      const data = await res.json();
-      if (!res.ok) {
-        throw new Error(data?.error || 'Failed to create schedule');
-      }
-      setSchedules((prev) => [...prev, data.schedule]);
-    } catch (err) {
-      setUploadStatus(`Schedule error: ${(err as Error).message}`);
-    }
-  };
-
-  const deleteSchedule = async (id: string) => {
-    try {
-      const res = await fetch(`/api/schedules/${id}`, { method: 'DELETE' });
-      if (!res.ok) return;
-      setSchedules((prev) => prev.filter((s) => s.id !== id));
-    } catch {
-      // ignore
-    }
-  };
-
-  const exportAs = (format: 'md' | 'txt' | 'html') => {
-    const content = viewMode === 'edit' ? editContent : articleContent;
-    let blob: Blob;
-    let filename: string;
-    
-    if (format === 'html') {
-      const html = `<!DOCTYPE html>
-<html>
-<head><title>${articleTitle}</title>
-<style>body{font-family:system-ui;max-width:800px;margin:40px auto;padding:0 20px;line-height:1.6}h1,h2,h3{color:#1a202c}ul{margin:1em 0}li{margin:0.5em 0}</style>
-</head>
-<body>${renderMarkdown(content)}</body>
-</html>`;
-      blob = new Blob([html], { type: 'text/html' });
-      filename = `${articleTitle.slice(0, 50)}.html`;
-    } else if (format === 'txt') {
-      const text = content.replace(/[#*`\[\]]/g, '');
-      blob = new Blob([text], { type: 'text/plain' });
-      filename = `${articleTitle.slice(0, 50)}.txt`;
-    } else {
-      blob = new Blob([content], { type: 'text/markdown' });
-      filename = `${articleTitle.slice(0, 50)}.md`;
-    }
-    
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = filename;
-    a.click();
-    URL.revokeObjectURL(url);
-  };
-
-  const renderedContent = useMemo(() => {
-    if (!articleContent) return '';
-    return renderMarkdown(articleContent);
-  }, [articleContent]);
+  if (!data) return null;
 
   return (
-    <main>
-      <div className="panel" style={{ marginBottom: 16 }}>
-        <div className="card-title">
-          <div>
-            <div className="badge">Research-backed AI Studio</div>
-            <h1>Policy & Research Brief Generator</h1>
-            <div className="small">
-              Five-phase pipeline: Research → Plan → Write → Fact-Check (bespoke-minicheck) → QA Gate. Powered by Qwen3 + Ollama.
-            </div>
-          </div>
+    <main className="admin-dash">
+      {/* Header */}
+      <div className="admin-header">
+        <div>
+          <h1>Command Center</h1>
+          <p className="admin-subtitle">
+            {data.isLocal ? '🟢 Running locally' : '🌐 Remote access'} • Last refresh: {new Date().toLocaleTimeString()}
+          </p>
+        </div>
+        <div className="admin-header-actions">
+          {actionStatus && <span className="admin-toast">{actionStatus}</span>}
+          <button onClick={fetchData} className="admin-btn secondary">↻ Refresh</button>
         </div>
       </div>
 
-      <div className="grid">
-        <div className="panel">
-          <h2>Topic & Configuration</h2>
-          <div className="section">
-            <label htmlFor="topic">What should the report cover?</label>
-            <textarea
-              id="topic"
-              value={topic}
-              onChange={(e) => setTopic(e.target.value)}
-              placeholder="e.g., Climate adaptation funding gaps in Southeast Asia"
-            />
-          </div>
+      {/* Tabs */}
+      <nav className="admin-tabs">
+        {([
+          ['overview', '📊 Overview'],
+          ['generate', '🚀 Generate'],
+          ['social', '📱 Social Queue'],
+          ['newsletters', '📧 Newsletters'],
+          ['schedules', '⏰ Schedules'],
+          ['logs', '📋 Activity Log'],
+        ] as [Tab, string][]).map(([tab, label]) => (
+          <button
+            key={tab}
+            className={`admin-tab ${activeTab === tab ? 'active' : ''}`}
+            onClick={() => setActiveTab(tab)}
+          >
+            {label}
+            {tab === 'social' && data.social.pending > 0 && (
+              <span className="admin-badge">{data.social.pending}</span>
+            )}
+          </button>
+        ))}
+      </nav>
 
-          <div className="section">
-            <label>Report Template</label>
-            <select value={templateId} onChange={(e) => setTemplateId(e.target.value)}>
-              {templates.map(t => (
-                <option key={t.id} value={t.id}>{t.name} - {t.description}</option>
-              ))}
-            </select>
-          </div>
+      {/* Tab Content */}
+      <div className="admin-content">
 
-          <div className="section">
-            <label>Research Depth</label>
-            <div className="radio-group">
-              <label className="radio-label">
-                <input
-                  type="radio"
-                  name="depth"
-                  value="quick"
-                  checked={researchDepth === 'quick'}
-                  onChange={() => setResearchDepth('quick')}
-                />
-                Quick (basic data)
-              </label>
-              <label className="radio-label">
-                <input
-                  type="radio"
-                  name="depth"
-                  value="standard"
-                  checked={researchDepth === 'standard'}
-                  onChange={() => setResearchDepth('standard')}
-                />
-                Standard (recommended)
-              </label>
-              <label className="radio-label">
-                <input
-                  type="radio"
-                  name="depth"
-                  value="deep"
-                  checked={researchDepth === 'deep'}
-                  onChange={() => setResearchDepth('deep')}
-                />
-                Deep (comprehensive)
-              </label>
-            </div>
-          </div>
-
-          <div className="section">
-            <label>Models</label>
-            <div className="grid" style={{ gridTemplateColumns: '1fr 1fr 1fr', gap: 8 }}>
-              <div>
-                <div className="small">Planner</div>
-                <input
-                  value={plannerModel}
-                  onChange={(e) => setPlannerModel(e.target.value)}
-                  placeholder="qwen3:4b"
-                />
+        {/* ═══════ OVERVIEW ═══════ */}
+        {activeTab === 'overview' && (
+          <div className="admin-overview">
+            <div className="admin-stat-grid">
+              <div className="admin-stat-card">
+                <div className="stat-number">{data.articles.total}</div>
+                <div className="stat-label">Published Articles</div>
               </div>
-              <div>
-                <div className="small">Writer</div>
-                <input
-                  value={writerModel}
-                  onChange={(e) => setWriterModel(e.target.value)}
-                  placeholder="qwen3:8b"
-                />
+              <div className="admin-stat-card">
+                <div className="stat-number">{data.subscribers.count}</div>
+                <div className="stat-label">Subscribers</div>
               </div>
-              <div>
-                <div className="small">Fact-Checker</div>
-                <input
-                  value={factCheckerModel}
-                  onChange={(e) => setFactCheckerModel(e.target.value)}
-                  placeholder="bespoke-minicheck:7b"
-                />
+              <div className="admin-stat-card">
+                <div className="stat-number" style={{ color: data.social.pending > 0 ? '#d97706' : '#059669' }}>
+                  {data.social.pending}
+                </div>
+                <div className="stat-label">Pending Social Posts</div>
+              </div>
+              <div className="admin-stat-card">
+                <div className="stat-number">{data.newsletters.drafts}</div>
+                <div className="stat-label">Newsletter Drafts</div>
+              </div>
+              <div className="admin-stat-card">
+                <div className="stat-number">{data.logs.stats.last24h}</div>
+                <div className="stat-label">Activity (24h)</div>
+              </div>
+              <div className="admin-stat-card">
+                <div className="stat-number" style={{ color: data.system.ollamaRunning ? '#059669' : '#dc2626' }}>
+                  {data.system.ollamaRunning ? '●' : '○'}
+                </div>
+                <div className="stat-label">Ollama {data.system.ollamaRunning ? 'Online' : 'Offline'}</div>
               </div>
             </div>
-          </div>
 
-          <div className="section">
-            <button 
-              className="toggle-btn"
-              onClick={() => setShowAdvanced(!showAdvanced)}
-            >
-              {showAdvanced ? '▼' : '▶'} Advanced Options
-            </button>
-            {showAdvanced && (
-              <div style={{ marginTop: 12 }}>
-                <label>Custom Instructions (optional)</label>
-                <textarea
-                  value={customInstructions}
-                  onChange={(e) => setCustomInstructions(e.target.value)}
-                  placeholder="e.g., Focus on Sub-Saharan Africa, include cost-benefit analysis..."
-                  style={{ minHeight: 80 }}
-                />
+            <div className="admin-section-grid">
+              <div className="admin-panel">
+                <h3>System Status</h3>
+                <div className="admin-info-list">
+                  <div className="info-row">
+                    <span className="info-label">Ollama</span>
+                    <span className={`info-value ${data.system.ollamaRunning ? 'good' : 'bad'}`}>
+                      {data.system.ollamaRunning ? '● Running' : '○ Not running'}
+                    </span>
+                  </div>
+                  <div className="info-row">
+                    <span className="info-label">Models Installed</span>
+                    <span className="info-value">{data.system.ollamaModels.length}</span>
+                  </div>
+                  {data.system.ollamaModels.map(m => (
+                    <div key={m} className="info-row sub">
+                      <span className="info-label">  └ {m}</span>
+                    </div>
+                  ))}
+                  <div className="info-row">
+                    <span className="info-label">Auto-Publish</span>
+                    <span className="info-value">
+                      {data.system.lastAutoPublish || 'No activity recorded'}
+                    </span>
+                  </div>
+                  <div className="info-row">
+                    <span className="info-label">Active Schedules</span>
+                    <span className="info-value">{data.schedules.active}</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="admin-panel">
+                <h3>Recent Articles</h3>
+                {data.articles.recent.length === 0 ? (
+                  <p className="admin-empty">No recent articles</p>
+                ) : (
+                  <div className="admin-article-list">
+                    {data.articles.recent.map(a => (
+                      <div key={a.slug} className="admin-article-item">
+                        <div className="admin-article-title">{a.title}</div>
+                        <div className="admin-article-meta">
+                          <span className="admin-pill" style={{ background: a.status === 'published' ? '#d1fae5' : '#fef3c7', color: a.status === 'published' ? '#065f46' : '#92400e' }}>
+                            {a.status}
+                          </span>
+                          <span>{a.wordCount} words</span>
+                          <span>{timeAgo(a.publishedAt)}</span>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
+            </div>
+
+            <div className="admin-panel">
+              <h3>Quick Actions</h3>
+              <div className="admin-actions-row">
+                <button className="admin-btn primary" onClick={() => setActiveTab('generate')}>
+                  🚀 Generate New Article
+                </button>
+                <button className="admin-btn secondary" onClick={doGenerateNewsletter}>
+                  📧 Generate Newsletter
+                </button>
+                <button className="admin-btn secondary" onClick={() => setActiveTab('social')}>
+                  📱 Review Social Posts ({data.social.pending} pending)
+                </button>
+                {data.schedules.list.some(s => s.lastResult?.error) && (
+                  <button className="admin-btn warning" onClick={fixSchedules}>
+                    ⚠️ Fix Broken Schedules
+                  </button>
+                )}
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* ═══════ GENERATE ═══════ */}
+        {activeTab === 'generate' && (
+          <div className="admin-generate">
+            <div className="admin-panel">
+              <h3>Generate New Article</h3>
+              <div className="admin-form">
+                <div className="form-group">
+                  <label>Topic</label>
+                  <textarea
+                    value={genTopic}
+                    onChange={e => setGenTopic(e.target.value)}
+                    placeholder="What should the report cover?"
+                    rows={3}
+                  />
+                </div>
+                <div className="form-row-3">
+                  <div className="form-group">
+                    <label>Template</label>
+                    <select value={genTemplate} onChange={e => setGenTemplate(e.target.value)}>
+                      <option value="policy-brief">Policy Brief</option>
+                      <option value="research-summary">Research Summary</option>
+                      <option value="grant-proposal">Grant Proposal</option>
+                      <option value="executive-briefing">Executive Briefing</option>
+                      <option value="situation-report">Situation Report</option>
+                    </select>
+                  </div>
+                  <div className="form-group">
+                    <label>Research Depth</label>
+                    <select value={genDepth} onChange={e => setGenDepth(e.target.value as 'quick' | 'standard' | 'deep')}>
+                      <option value="quick">Quick</option>
+                      <option value="standard">Standard</option>
+                      <option value="deep">Deep</option>
+                    </select>
+                  </div>
+                  <div className="form-group">
+                    <label>Fact-Checker</label>
+                    <input value={genFactModel} onChange={e => setGenFactModel(e.target.value)} />
+                  </div>
+                </div>
+                <div className="form-row-2">
+                  <div className="form-group">
+                    <label>Planner Model</label>
+                    <input value={genPlannerModel} onChange={e => setGenPlannerModel(e.target.value)} />
+                  </div>
+                  <div className="form-group">
+                    <label>Writer Model</label>
+                    <input value={genWriterModel} onChange={e => setGenWriterModel(e.target.value)} />
+                  </div>
+                </div>
+                <button
+                  className="admin-btn primary large"
+                  onClick={runGenerate}
+                  disabled={genRunning || !genTopic.trim()}
+                >
+                  {genRunning ? '⏳ Generating...' : '🚀 Generate Report'}
+                </button>
+              </div>
+            </div>
+
+            {genResult && (
+              <div className="admin-panel" style={{ marginTop: 16 }}>
+                <h3>
+                  Result: <span style={{ color: statusColor(genResult.status || '') }}>{genResult.status}</span>
+                </h3>
+                {genResult.title && <p style={{ fontSize: 18, fontWeight: 600 }}>{genResult.title}</p>}
+                {genResult.warnings && genResult.warnings.length > 0 && (
+                  <div className="admin-warnings">
+                    {genResult.warnings.map((w, i) => (
+                      <div key={i} className="warning-item">⚠️ {w}</div>
+                    ))}
+                  </div>
+                )}
+                {genResult.log && (
+                  <details>
+                    <summary className="admin-details-toggle">View Full Pipeline Log</summary>
+                    <pre className="admin-log-block">{genResult.log}</pre>
+                  </details>
+                )}
               </div>
             )}
           </div>
+        )}
 
-          <div className="section inline" style={{ marginTop: 18 }}>
-            <button onClick={runAgents} disabled={running} className="primary-btn">
-              {running ? '⏳ Researching & Writing...' : '🚀 Generate Report'}
-            </button>
-            <div className="badge">Status: {status}</div>
-          </div>
-          <div className="section" style={{ marginTop: 6 }}>
-            <label>
-              <input
-                type="checkbox"
-                checked={autoUploadManual}
-                onChange={(e) => setAutoUploadManual(e.target.checked)}
-                style={{ width: 'auto', marginRight: 8 }}
-              />
-              Auto-upload to Drive
-            </label>
-          </div>
-        </div>
-
-        <div className="panel">
-          <h2>Drive Upload</h2>
-          <div className="small" style={{ marginBottom: 12 }}>
-            Google OAuth credentials for Drive integration.
-          </div>
-
-          <label>Client ID</label>
-          <input value={driveConfig.clientId} onChange={(e) => handleDriveChange('clientId', e.target.value)} />
-
-          <label style={{ marginTop: 10 }}>Client Secret</label>
-          <input value={driveConfig.clientSecret} onChange={(e) => handleDriveChange('clientSecret', e.target.value)} />
-
-          <label style={{ marginTop: 10 }}>Refresh Token</label>
-          <input value={driveConfig.refreshToken} onChange={(e) => handleDriveChange('refreshToken', e.target.value)} />
-
-          <label style={{ marginTop: 10 }}>Folder ID (target)</label>
-          <input value={driveConfig.folderId} onChange={(e) => handleDriveChange('folderId', e.target.value)} />
-
-          <div className="section inline" style={{ marginTop: 14 }}>
-            <button onClick={uploadToDrive} disabled={!articlePath}>
-              Upload to Drive
-            </button>
-            <div className="badge">{uploadStatus || 'Awaiting draft'}</div>
-          </div>
-        </div>
-      </div>
-
-      {/* Quality Score Panel */}
-      {qualityScore && (
-        <div className="panel quality-panel" style={{ marginTop: 16 }}>
-          <h2>📊 Quality Score</h2>
-          <div className="quality-grid">
-            <div className="quality-item">
-              <div className="quality-value">{qualityScore.wordCount}</div>
-              <div className="quality-label">Words</div>
-            </div>
-            <div className="quality-item">
-              <div className="quality-value">{qualityScore.sourcesUsed}</div>
-              <div className="quality-label">Sources Cited</div>
-            </div>
-            <div className="quality-item">
-              <div className="quality-value">{qualityScore.sectionsComplete}</div>
-              <div className="quality-label">Sections</div>
-            </div>
-            <div className="quality-item">
-              <div className={`quality-value ${qualityScore.readabilityScore >= 70 ? 'good' : qualityScore.readabilityScore >= 50 ? 'ok' : 'low'}`}>
-                {qualityScore.readabilityScore}
+        {/* ═══════ SOCIAL QUEUE ═══════ */}
+        {activeTab === 'social' && (
+          <div className="admin-social">
+            <div className="admin-section-header">
+              <h3>Social Media Queue</h3>
+              <div className="admin-filter-pills">
+                <span className="admin-pill">All ({data.social.total})</span>
+                <span className="admin-pill" style={{ color: '#d97706' }}>Pending ({data.social.pending})</span>
+                <span className="admin-pill" style={{ color: '#059669' }}>Posted ({data.social.posted})</span>
+                <span className="admin-pill" style={{ color: '#dc2626' }}>Skipped ({data.social.skipped})</span>
               </div>
-              <div className="quality-label">Readability</div>
             </div>
+
+            <div className="admin-info-box">
+              <strong>How it works:</strong> Social posts are auto-generated when articles pass QA and get published.
+              Posts go into this queue for your review. Copy the content to your social media accounts,
+              then mark as &quot;Posted&quot;. Skip posts you don&apos;t want to use.
+            </div>
+
+            {data.social.posts.length === 0 ? (
+              <div className="admin-empty-state">
+                <p>No social posts yet. They&apos;ll appear here after articles are published.</p>
+              </div>
+            ) : (
+              <div className="admin-social-grid">
+                {data.social.posts.map(post => (
+                  <div key={post.id} className={`admin-social-card ${post.status}`}>
+                    <div className="social-card-header">
+                      <span className="platform-badge" data-platform={post.platform}>
+                        {platformIcon(post.platform)} {post.platform}
+                      </span>
+                      <span className="admin-pill" style={{ background: statusColor(post.status) + '20', color: statusColor(post.status) }}>
+                        {post.status}
+                      </span>
+                    </div>
+                    <div className="social-card-article">{post.articleTitle}</div>
+                    <div className="social-card-content">{post.content}</div>
+                    <div className="social-card-hashtags">
+                      {post.hashtags.map(h => (
+                        <span key={h} className="hashtag">#{h}</span>
+                      ))}
+                    </div>
+                    <div className="social-card-footer">
+                      <span className="social-card-time">{timeAgo(post.createdAt)}</span>
+                      <a href={post.url} target="_blank" rel="noreferrer" className="social-card-link">View article →</a>
+                    </div>
+                    {post.status === 'pending' && (
+                      <div className="social-card-actions">
+                        <button
+                          className="admin-btn small copy"
+                          onClick={() => {
+                            const text = `${post.content}\n\n${post.hashtags.map(h => '#' + h).join(' ')}\n\n${post.url}`;
+                            navigator.clipboard.writeText(text);
+                            setActionStatus('Copied to clipboard!');
+                            setTimeout(() => setActionStatus(''), 2000);
+                          }}
+                        >
+                          📋 Copy
+                        </button>
+                        <button
+                          className="admin-btn small success"
+                          onClick={() => updateSocialPost(post.id, 'posted')}
+                        >
+                          ✓ Posted
+                        </button>
+                        <button
+                          className="admin-btn small danger"
+                          onClick={() => updateSocialPost(post.id, 'skipped')}
+                        >
+                          ✕ Skip
+                        </button>
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
-        </div>
-      )}
+        )}
 
-      {/* Tabs for Draft/Research/Log */}
-      <div className="panel" style={{ marginTop: 16 }}>
-        <div className="tabs">
-          <button 
-            className={`tab ${activeTab === 'draft' ? 'active' : ''}`}
-            onClick={() => setActiveTab('draft')}
-          >
-            📄 Draft
-          </button>
-          <button 
-            className={`tab ${activeTab === 'research' ? 'active' : ''}`}
-            onClick={() => setActiveTab('research')}
-          >
-            🔍 Research Data
-          </button>
-          <button 
-            className={`tab ${activeTab === 'log' ? 'active' : ''}`}
-            onClick={() => setActiveTab('log')}
-          >
-            📋 Log
-          </button>
-        </div>
-
-        {activeTab === 'draft' && (
-          <div className="tab-content">
-            <div className="card-title">
+        {/* ═══════ NEWSLETTERS ═══════ */}
+        {activeTab === 'newsletters' && (
+          <div className="admin-newsletters">
+            <div className="admin-section-header">
+              <h3>Newsletter Management</h3>
               <div>
-                {articleTitle && <h3 style={{ margin: 0 }}>{articleTitle}</h3>}
-                {articlePath && <span className="badge small">Saved: {articlePath}</span>}
+                <span style={{ marginRight: 12 }}>📬 {data.subscribers.count} subscribers</span>
+                <button className="admin-btn primary" onClick={doGenerateNewsletter}>
+                  Generate New Digest
+                </button>
               </div>
-              {articleContent && (
-                <div className="view-controls">
-                  <button 
-                    className={`view-btn ${viewMode === 'preview' ? 'active' : ''}`}
-                    onClick={() => setViewMode('preview')}
-                  >
-                    Preview
-                  </button>
-                  <button 
-                    className={`view-btn ${viewMode === 'raw' ? 'active' : ''}`}
-                    onClick={() => setViewMode('raw')}
-                  >
-                    Markdown
-                  </button>
-                  <button 
-                    className={`view-btn ${viewMode === 'edit' ? 'active' : ''}`}
-                    onClick={() => { setViewMode('edit'); setEditContent(articleContent); }}
-                  >
-                    Edit
-                  </button>
-                </div>
+            </div>
+
+            <div className="admin-info-box">
+              <strong>How it works:</strong> The Newsletter Agent compiles recent articles into a weekly digest
+              with an AI-written intro. Click &quot;Generate New Digest&quot; to create a draft. Preview the HTML,
+              copy it, and paste into your email sender (Mailchimp, Buttondown, etc).
+            </div>
+
+            {data.newsletters.list.length === 0 ? (
+              <div className="admin-empty-state">
+                <p>No newsletters yet. Generate your first digest above.</p>
+              </div>
+            ) : (
+              <div className="admin-newsletter-list">
+                {data.newsletters.list.map(nl => (
+                  <div key={nl.id} className="admin-newsletter-card">
+                    <div className="newsletter-card-header">
+                      <h4>{nl.subject}</h4>
+                      <span className="admin-pill" style={{ background: nl.status === 'draft' ? '#fef3c7' : '#d1fae5', color: nl.status === 'draft' ? '#92400e' : '#065f46' }}>
+                        {nl.status}
+                      </span>
+                    </div>
+                    <p className="newsletter-intro">{nl.introText.slice(0, 200)}...</p>
+                    <div className="newsletter-meta">
+                      <span>{nl.articles.length} articles</span>
+                      <span>{timeAgo(nl.createdAt)}</span>
+                    </div>
+                    <div className="newsletter-actions">
+                      <button
+                        className="admin-btn small secondary"
+                        onClick={() => setPreviewHtml(previewHtml === nl.id ? '' : nl.id)}
+                      >
+                        {previewHtml === nl.id ? 'Hide Preview' : '👁 Preview'}
+                      </button>
+                      <button
+                        className="admin-btn small copy"
+                        onClick={() => {
+                          navigator.clipboard.writeText(nl.htmlContent);
+                          setActionStatus('HTML copied to clipboard!');
+                          setTimeout(() => setActionStatus(''), 2000);
+                        }}
+                      >
+                        📋 Copy HTML
+                      </button>
+                    </div>
+                    {previewHtml === nl.id && (
+                      <div className="newsletter-preview">
+                        <iframe
+                          srcDoc={nl.htmlContent}
+                          title="Newsletter Preview"
+                          style={{ width: '100%', height: 500, border: '1px solid #e5e7eb', borderRadius: 8, marginTop: 12 }}
+                        />
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+        )}
+
+        {/* ═══════ SCHEDULES ═══════ */}
+        {activeTab === 'schedules' && (
+          <div className="admin-schedules">
+            <div className="admin-section-header">
+              <h3>Automated Schedules</h3>
+              {data.schedules.list.some(s => s.lastResult?.error) && (
+                <button className="admin-btn warning" onClick={fixSchedules}>
+                  ⚠️ Fix Broken Models
+                </button>
               )}
             </div>
-            
-            {articleContent ? (
-              <div className="draft-container">
-                {viewMode === 'preview' && (
-                  <div 
-                    className="markdown-preview"
-                    dangerouslySetInnerHTML={{ __html: renderedContent }}
-                  />
-                )}
-                {viewMode === 'raw' && (
-                  <pre className="raw-view">{articleContent}</pre>
-                )}
-                {viewMode === 'edit' && (
-                  <textarea
-                    className="edit-view"
-                    value={editContent}
-                    onChange={(e) => setEditContent(e.target.value)}
-                  />
-                )}
-                
-                <div className="export-controls">
-                  <span className="small">Export as:</span>
-                  <button onClick={() => exportAs('md')}>Markdown</button>
-                  <button onClick={() => exportAs('html')}>HTML</button>
-                  <button onClick={() => exportAs('txt')}>Plain Text</button>
-                </div>
-              </div>
-            ) : (
-              <div className="small">Generate a report to see the draft here.</div>
-            )}
 
-            {warnings.length > 0 && (
-              <div className="warnings-panel">
-                <div className="badge warning">⚠️ Warnings</div>
-                <ul>
-                  {warnings.map((w, i) => (
-                    <li key={i} className="small">{w}</li>
-                  ))}
-                </ul>
-              </div>
-            )}
-          </div>
-        )}
-
-        {activeTab === 'research' && (
-          <div className="tab-content">
-            {research ? (
-              <div className="research-panel">
-                <h3>📊 Statistics Found</h3>
-                {research.statistics.length > 0 ? (
-                  <div className="stats-grid">
-                    {research.statistics.map((stat, i) => (
-                      <div key={i} className="stat-card">
-                        <div className="stat-value">{stat.value}</div>
-                        <div className="stat-label">{stat.label}</div>
-                        <div className="stat-source">Source: {stat.source}</div>
-                      </div>
-                    ))}
-                  </div>
-                ) : (
-                  <div className="small">No statistics retrieved.</div>
-                )}
-
-                <h3 style={{ marginTop: 24 }}>📚 Sources Found</h3>
-                {research.results.length > 0 ? (
-                  <div className="sources-list">
-                    {research.results.map((result, i) => (
-                      <div key={i} className="source-card">
-                        <div className="source-title">{result.title}</div>
-                        <div className="source-snippet">{result.snippet.slice(0, 200)}...</div>
-                        {result.url && (
-                          <a href={result.url} target="_blank" rel="noreferrer" className="source-link">
-                            {result.source} →
-                          </a>
-                        )}
-                      </div>
-                    ))}
-                  </div>
-                ) : (
-                  <div className="small">No sources retrieved.</div>
-                )}
-              </div>
-            ) : (
-              <div className="small">Run a report to see research data.</div>
-            )}
-          </div>
-        )}
-
-        {activeTab === 'log' && (
-          <div className="tab-content">
-            <div className="log">{log || 'No log yet.'}</div>
-          </div>
-        )}
-      </div>
-
-      {/* Scheduling Panel */}
-      <div className="panel" style={{ marginTop: 16 }}>
-        <h2>⏰ Scheduling</h2>
-        <div className="small" style={{ marginBottom: 10 }}>
-          Create recurring runs. Schedules are stored in <code>data/schedules.json</code>.
-        </div>
-        <div className="grid" style={{ gridTemplateColumns: '2fr 1fr 1fr', gap: 12 }}>
-          <div>
-            <label>Topic</label>
-            <textarea value={schedTopic} onChange={(e) => setSchedTopic(e.target.value)} />
-          </div>
-          <div>
-            <label>Every (minutes)</label>
-            <input
-              type="number"
-              min={15}
-              value={schedIntervalMinutes}
-              onChange={(e) => setSchedIntervalMinutes(Number(e.target.value))}
-            />
-            <div className="small">Minimum 15 minutes</div>
-          </div>
-          <div>
-            <label>Auto-upload?</label>
-            <label className="checkbox-label">
-              <input
-                type="checkbox"
-                checked={schedAutoUpload}
-                onChange={(e) => setSchedAutoUpload(e.target.checked)}
-              />
-              Yes, upload each run
-            </label>
-            <button onClick={createSchedule} style={{ marginTop: 8 }}>Create Schedule</button>
-          </div>
-        </div>
-        
-        <div className="section" style={{ marginTop: 12 }}>
-          <h3>Existing Schedules</h3>
-          {loadingSchedules ? (
-            <div className="small">Loading…</div>
-          ) : schedules.length === 0 ? (
-            <div className="small">No schedules yet.</div>
-          ) : (
-            <div className="grid" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 10 }}>
-              {schedules.map((s) => (
-                <div key={s.id} className="schedule-card">
-                  <div className="small">Next: {new Date(s.nextRunAt).toLocaleString()}</div>
-                  <div className="schedule-topic">{s.topic.slice(0, 100)}</div>
-                  <div className="small">Every {s.intervalMinutes} min | Upload: {s.autoUpload ? 'Yes' : 'No'}</div>
-                  {s.lastResult?.ranAt && (
-                    <div className="small" style={{ marginTop: 6 }}>
-                      Last: {new Date(s.lastResult.ranAt).toLocaleString()}
-                      {s.lastResult.error && <div className="error-text">Error: {s.lastResult.error}</div>}
-                    </div>
-                  )}
-                  <button onClick={() => deleteSchedule(s.id)} className="delete-btn">
-                    Delete
-                  </button>
-                </div>
-              ))}
+            <div className="admin-info-box">
+              <strong>How scheduling works:</strong> Schedules run articles on an interval while the dev server is running.
+              The auto-publish script (<code>scripts/auto-publish.sh</code>) commits and pushes to GitHub,
+              triggering Vercel deploys.
             </div>
-          )}
-        </div>
+
+            <div className="admin-panel" style={{ marginBottom: 16 }}>
+              <h4>Auto-Publish Status</h4>
+              <div className="admin-info-list">
+                <div className="info-row">
+                  <span className="info-label">Script</span>
+                  <span className="info-value">scripts/auto-publish.sh</span>
+                </div>
+                <div className="info-row">
+                  <span className="info-label">Last Activity</span>
+                  <span className="info-value">{data.system.lastAutoPublish || 'No activity recorded'}</span>
+                </div>
+                <div className="info-row">
+                  <span className="info-label">Status</span>
+                  <span className="info-value" style={{ color: '#d97706' }}>
+                    ⚠️ Needs launchd plist — see setup below
+                  </span>
+                </div>
+              </div>
+
+              <details style={{ marginTop: 12 }}>
+                <summary className="admin-details-toggle">Setup Instructions (macOS launchd)</summary>
+                <div className="admin-code-block">
+                  <p>To set up daily auto-publish at 6 AM, run these commands in Terminal:</p>
+                  <pre>{`# 1. Create the launchd plist
+cat > ~/Library/LaunchAgents/com.policyresearchhub.autopublish.plist << 'EOF'
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
+"http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>com.policyresearchhub.autopublish</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/bin/bash</string>
+    <string>/Users/anon/Downloads/agents workign/scripts/auto-publish.sh</string>
+  </array>
+  <key>StartCalendarInterval</key>
+  <dict>
+    <key>Hour</key><integer>6</integer>
+    <key>Minute</key><integer>0</integer>
+  </dict>
+  <key>StandardOutPath</key>
+  <string>/tmp/autopublish.stdout.log</string>
+  <key>StandardErrorPath</key>
+  <string>/tmp/autopublish.stderr.log</string>
+</dict>
+</plist>
+EOF
+
+# 2. Load it
+launchctl load ~/Library/LaunchAgents/com.policyresearchhub.autopublish.plist
+
+# 3. Verify
+launchctl list | grep policyresearchhub`}</pre>
+                </div>
+              </details>
+
+              {data.system.autoPublishLog.length > 0 && (
+                <details style={{ marginTop: 8 }}>
+                  <summary className="admin-details-toggle">Auto-Publish Log ({data.system.autoPublishLog.length} entries)</summary>
+                  <pre className="admin-log-block">{data.system.autoPublishLog.join('\n')}</pre>
+                </details>
+              )}
+            </div>
+
+            {data.schedules.list.length === 0 ? (
+              <div className="admin-empty-state">
+                <p>No active schedules.</p>
+              </div>
+            ) : (
+              <div className="admin-schedule-list">
+                {data.schedules.list.map(s => (
+                  <div key={s.id} className={`admin-schedule-card ${s.lastResult?.error ? 'error' : ''}`}>
+                    <div className="schedule-card-header">
+                      <span className="schedule-interval">Every {s.intervalMinutes} min</span>
+                      {s.lastResult?.error && <span className="admin-pill" style={{ background: '#fee2e2', color: '#991b1b' }}>Error</span>}
+                    </div>
+                    <div className="schedule-topic">{s.topic.slice(0, 120)}</div>
+                    <div className="schedule-meta">
+                      <div>Planner: <code>{s.plannerModel}</code></div>
+                      <div>Writer: <code>{s.writerModel}</code></div>
+                      {s.factCheckerModel && <div>Fact-checker: <code>{s.factCheckerModel}</code></div>}
+                      <div>Next run: {new Date(s.nextRunAt).toLocaleString()}</div>
+                      {s.lastRunAt && <div>Last run: {new Date(s.lastRunAt).toLocaleString()}</div>}
+                    </div>
+                    {s.lastResult?.error && (
+                      <div className="schedule-error">{s.lastResult.error}</div>
+                    )}
+                    <div className="schedule-actions">
+                      <button className="admin-btn small danger" onClick={() => deleteSchedule(s.id)}>Delete</button>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+        )}
+
+        {/* ═══════ ACTIVITY LOG ═══════ */}
+        {activeTab === 'logs' && (
+          <div className="admin-logs">
+            <div className="admin-section-header">
+              <h3>Activity Log</h3>
+              <div className="admin-log-stats">
+                <span>Total: {data.logs.stats.total}</span>
+                <span>24h: {data.logs.stats.last24h}</span>
+                <span>7d: {data.logs.stats.last7d}</span>
+              </div>
+            </div>
+
+            {data.logs.stats.total > 0 && (
+              <div className="admin-log-type-pills">
+                {Object.entries(data.logs.stats.byType).map(([type, count]) => (
+                  <span key={type} className="admin-pill">{type}: {count}</span>
+                ))}
+              </div>
+            )}
+
+            {data.logs.recent.length === 0 ? (
+              <div className="admin-empty-state">
+                <p>No activity logged yet. Logs will appear here as agents run.</p>
+              </div>
+            ) : (
+              <div className="admin-log-list">
+                {data.logs.recent.map(entry => (
+                  <div key={entry.id} className={`admin-log-entry ${entry.status}`}>
+                    <div className="log-entry-header">
+                      <span className="log-dot" style={{ background: statusColor(entry.status) }} />
+                      <span className="log-type">{entry.type}</span>
+                      <span className="log-time">{timeAgo(entry.timestamp)}</span>
+                    </div>
+                    <div className="log-title">{entry.title}</div>
+                    {entry.details && <div className="log-details">{entry.details}</div>}
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+        )}
       </div>
     </main>
   );

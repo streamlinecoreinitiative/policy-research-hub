@@ -8,6 +8,7 @@ import { generateHTMLReport } from './htmlReport';
 import { indexArticle } from './articleIndex';
 import { runQAGate, QAResult } from './qaGate';
 import { generateSocialPosts } from './socialPostAgent';
+import { addLogEntry } from './processLog';
 
 const OUTPUT_DIR = path.join(process.cwd(), 'data/output');
 const RECENT_TITLES_PATH = path.join(process.cwd(), 'data/recent_titles.json');
@@ -223,6 +224,14 @@ export async function runAgents(params: AgentRunParams): Promise<AgentRunResult>
   if (!topic?.trim()) throw new Error('Topic is required.');
   if (!plannerModel?.trim()) throw new Error('Planner model is required.');
   if (!writerModel?.trim()) throw new Error('Writer model is required.');
+
+  // Log pipeline start
+  addLogEntry({
+    type: 'pipeline-run',
+    status: 'running',
+    title: `Generating: ${topic.substring(0, 80)}`,
+    details: `Models: ${plannerModel} (planner), ${writerModel} (writer), ${factCheckerModel} (fact-checker). Template: ${templateId}. Depth: ${researchDepth}.`,
+  }).catch(() => {});
 
   const log: string[] = [];
   const warnings: string[] = [];
@@ -737,6 +746,15 @@ Return the revised document with:
   if (wordCount < template.totalWordTarget * 0.7) {
     warnings.push(`Word count (${wordCount}) below target (${template.totalWordTarget}). Consider expanding.`);
   }
+
+  // Log pipeline completion
+  addLogEntry({
+    type: 'pipeline-run',
+    status: publishStatus === 'published' ? 'success' : 'warning',
+    title: articleTitle,
+    details: `${publishStatus === 'published' ? 'Published' : 'Saved as draft'}. ${wordCount} words, quality score: ${qualityScore}. ${sourcesUsed} sources.`,
+    meta: { wordCount, qualityScore, sourcesUsed, publishStatus, warnings: warnings.length },
+  }).catch(() => {});
 
   return {
     articlePath: path.relative(process.cwd(), mdPath),

@@ -2,6 +2,7 @@ import path from 'path';
 import { runAgents } from './agents-v2';
 import { uploadFileToDrive } from './drive';
 import { readSchedules, writeSchedules, StoredSchedule } from './storage';
+import { addLogEntry } from './processLog';
 
 const CHECK_INTERVAL_MS = 60_000;
 
@@ -24,6 +25,13 @@ async function processSchedule(s: StoredSchedule) {
   runningIds.add(s.id);
 
   try {
+    addLogEntry({
+      type: 'schedule',
+      status: 'running',
+      title: `Schedule run: ${s.topic.substring(0, 60)}`,
+      details: `Schedule ${s.id} triggered. Models: ${s.plannerModel}/${s.writerModel}`,
+    }).catch(() => {});
+
     const result = await runAgents({
       topic: s.topic,
       plannerModel: s.plannerModel,
@@ -67,6 +75,12 @@ async function processSchedule(s: StoredSchedule) {
       ranAt: now
     };
   } catch (err) {
+    addLogEntry({
+      type: 'schedule',
+      status: 'error',
+      title: `Schedule failed: ${s.topic.substring(0, 60)}`,
+      details: (err as Error).message,
+    }).catch(() => {});
     s.lastRunAt = now;
     s.lastResult = {
       error: (err as Error).message,
