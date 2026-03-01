@@ -81,7 +81,7 @@ export async function generateSocialPosts(
   articleContent: string,
   model: string = 'qwen3:4b'
 ): Promise<SocialPost[]> {
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://policy-research-hub.vercel.app';
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://baseflow.institute';
   const articleUrl = `${siteUrl}/article/${meta.slug}`;
 
   // Extract key points from the article (first 2000 chars for context)

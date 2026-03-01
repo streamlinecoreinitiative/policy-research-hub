@@ -9,17 +9,17 @@ type Props = {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const article = await getArticleBySlug(params.slug);
   if (!article) {
-    return { title: 'Article Not Found — Open Policy Research Hub' };
+    return { title: 'Article Not Found — Baseflow Institute' };
   }
 
   const { meta } = article;
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
 
   return {
-    title: `${meta.title} — Open Policy Research Hub`,
+    title: `${meta.title} — Baseflow Institute`,
     description: meta.summary,
     keywords: meta.tags.join(', '),
-    authors: [{ name: 'Open Policy Research Hub' }],
+    authors: [{ name: 'Baseflow Institute' }],
     openGraph: {
       title: meta.title,
       description: meta.summary,
@@ -28,7 +28,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       modifiedTime: meta.updatedAt,
       tags: meta.tags,
       url: `${siteUrl}/article/${meta.slug}`,
-      siteName: 'Open Policy Research Hub',
+      siteName: 'Baseflow Institute',
     },
     twitter: {
       card: 'summary_large_image',
@@ -77,7 +77,7 @@ export default async function ArticlePage({ params }: Props) {
     .sort((a, b) => b.relevance - a.relevance)
     .slice(0, 3);
 
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://policy-research-hub.vercel.app';
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://baseflow.institute';
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Article',
@@ -87,12 +87,12 @@ export default async function ArticlePage({ params }: Props) {
     dateModified: article.meta.updatedAt,
     author: {
       '@type': 'Organization',
-      name: 'Open Policy Research Hub',
+      name: 'Baseflow Institute',
       url: siteUrl,
     },
     publisher: {
       '@type': 'Organization',
-      name: 'Open Policy Research Hub',
+      name: 'Baseflow Institute',
       url: siteUrl,
     },
     mainEntityOfPage: `${siteUrl}/article/${article.meta.slug}`,

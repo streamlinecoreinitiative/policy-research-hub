@@ -13,7 +13,7 @@ export default function AboutPage() {
         <Link href="/">Home</Link> <span>/</span> <span>About</span>
       </nav>
 
-      <h1>About Open Policy Research Hub</h1>
+      <h1>About Baseflow Institute</h1>
 
       <div className="about-section">
         <p>

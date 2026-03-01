@@ -1,5 +1,5 @@
 ================================================================================
-OPERATIONAL GUIDE — Policy Research Hub
+OPERATIONAL GUIDE — Baseflow Institute
 ================================================================================
 Last updated: 2026-02-18
 For: AI agents or developers who need to understand, operate, or extend this system.
@@ -18,7 +18,7 @@ There are TWO interfaces:
     About (/about), RSS feed (/feed.xml), REST API (/api/articles)
   - ADMIN TOOL: Report generator at /admin — only works locally (needs Ollama)
 
-The public site is deployed at: https://policy-research-hub.vercel.app
+The public site is deployed at: https://policy-research-hub.vercel.app (migrating to baseflow.institute)
 The repo is at: https://github.com/streamlinecoreinitiative/policy-research-hub
 
 ================================================================================
@@ -32,7 +32,7 @@ AI Backend:    Ollama (local) — NO cloud API keys needed
   - Ollama runs at: http://localhost:11434 (configurable via OLLAMA_HOST env var)
 Research APIs: DuckDuckGo Instant API, Wikipedia API, World Bank API (all free, no keys)
 Hosting:       Vercel (free tier) — auto-deploys on push to main branch
-Source Control: GitHub — streamlinecoreinitiative/policy-research-hub
+Source Control: GitHub — streamlinecoreinitiative/policy-research-hub (Baseflow Institute)
 DNS (future):  GoDaddy subdomain environment.monroyasesores.com.mx (not yet configured)
 
 Key packages (package.json):
@@ -276,7 +276,7 @@ GET /feed.xml
 9. DEPLOYMENT (VERCEL)
 ================================================================================
 
-Current deployment: https://policy-research-hub.vercel.app
+Current deployment: https://policy-research-hub.vercel.app (migrating to baseflow.institute)
 GitHub repo: https://github.com/streamlinecoreinitiative/policy-research-hub
 
 Deploy flow:

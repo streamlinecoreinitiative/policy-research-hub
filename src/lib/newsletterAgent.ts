@@ -67,7 +67,7 @@ export async function generateNewsletter(
   model: string = 'qwen3:4b',
   daysBack: number = 7
 ): Promise<NewsletterDraft> {
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://policy-research-hub.vercel.app';
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://baseflow.institute';
   const cutoff = new Date(Date.now() - daysBack * 24 * 60 * 60 * 1000);
 
   // Get recently published articles
@@ -88,7 +88,7 @@ export async function generateNewsletter(
   const messages = [
     {
       role: 'system' as const,
-      content: `You write weekly newsletter intros for the Open Policy Research Hub. 
+      content: `You write weekly newsletter intros for the Baseflow Institute. 
 Write a 2-3 paragraph engaging intro that highlights themes across the articles listed.
 Be professional, warm, and concise. Mention 2-3 key findings or themes.
 Also suggest a catchy email subject line.
@@ -180,7 +180,7 @@ function buildNewsletterHTML(
           <!-- Header -->
           <tr>
             <td style="background: #1a56db; padding: 32px; text-align: center;">
-              <h1 style="color: #ffffff; margin: 0; font-size: 22px;">Open Policy Research Hub</h1>
+              <h1 style="color: #ffffff; margin: 0; font-size: 22px;">Baseflow Institute</h1>
               <p style="color: #bfdbfe; margin: 8px 0 0; font-size: 14px;">Weekly Research Digest</p>
             </td>
           </tr>
@@ -210,7 +210,7 @@ function buildNewsletterHTML(
           <tr>
             <td style="background: #f9fafb; padding: 24px 32px; text-align: center; border-top: 1px solid #e5e7eb;">
               <p style="color: #9ca3af; font-size: 12px; margin: 0;">
-                Open Policy Research Hub — AI-powered policy research for the public good.<br/>
+                Baseflow Institute — Sustained research for global resilience.<br/>
                 <a href="${siteUrl}" style="color: #6b7280;">${siteUrl}</a>
               </p>
             </td>

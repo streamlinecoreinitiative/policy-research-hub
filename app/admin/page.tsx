@@ -903,7 +903,7 @@ export default function AdminDashboard() {
                     <ol style={{ margin: '8px 0 0 20px', lineHeight: 1.8 }}>
                       <li>Go to <a href="https://bsky.app/settings/app-passwords" target="_blank" rel="noreferrer">bsky.app/settings/app-passwords</a></li>
                       <li>Click &quot;Add App Password&quot;</li>
-                      <li>Name it &quot;Policy Research Hub&quot;</li>
+                      <li>Name it &quot;Baseflow Institute&quot;</li>
                       <li>Copy the generated password and paste it above</li>
                     </ol>
                   </div>

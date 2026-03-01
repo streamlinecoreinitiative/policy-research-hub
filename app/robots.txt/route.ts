@@ -1,7 +1,7 @@
 export async function GET() {
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://policy-research-hub.vercel.app';
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://baseflow.institute';
 
-  const robotsTxt = `# Open Policy Research Hub
+  const robotsTxt = `# Baseflow Institute
 User-agent: *
 Allow: /
 

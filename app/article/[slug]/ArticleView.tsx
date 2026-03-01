@@ -73,7 +73,7 @@ export default function ArticleView({
   });
 
   const shareUrl = typeof window !== 'undefined' ? window.location.href : '';
-  const shareText = `${meta.title} — Open Policy Research Hub`;
+  const shareText = `${meta.title} — Baseflow Institute`;
 
   const copyLink = () => {
     navigator.clipboard.writeText(shareUrl);

@@ -1,7 +1,7 @@
 import { readIndex } from '@/lib/articleIndex';
 
 export async function GET() {
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://policy-research-hub.vercel.app';
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://baseflow.institute';
   const index = await readIndex();
   const published = index.articles.filter(a => a.status === 'published');
 
