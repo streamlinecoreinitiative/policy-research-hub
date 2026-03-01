@@ -1,10 +1,14 @@
 import { NextResponse } from 'next/server';
 import { generateNewsletter, getNewsletters, getSubscriberCount } from '@/lib/newsletterAgent';
+import { requireLocalhost } from '@/lib/adminGuard';
 
 export const runtime = 'nodejs';
 
 // GET — list newsletter drafts and subscriber count
-export async function GET() {
+export async function GET(req: Request) {
+  const blocked = requireLocalhost(req);
+  if (blocked) return blocked;
+
   try {
     const newsletters = await getNewsletters();
     const subscriberCount = await getSubscriberCount();
@@ -23,6 +27,9 @@ export async function GET() {
 
 // POST — generate a new newsletter draft
 export async function POST(req: Request) {
+  const blocked = requireLocalhost(req);
+  if (blocked) return blocked;
+
   try {
     const body = await req.json().catch(() => ({}));
     const model = (body?.model as string) || 'qwen3:4b';

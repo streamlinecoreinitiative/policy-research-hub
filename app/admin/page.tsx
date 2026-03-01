@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState, useCallback } from 'react';
+import { useRouter } from 'next/navigation';
 
 // ─── Types ─────────────────────────────────────────────────────
 
@@ -180,9 +181,16 @@ export default function AdminDashboard() {
   const [bskySaving, setBskySaving] = useState(false);
   const [bskyTestResult, setBskyTestResult] = useState<{ success?: boolean; error?: string } | null>(null);
 
+  const router = useRouter();
+
   const fetchData = useCallback(async () => {
     try {
       const res = await fetch('/api/admin/status');
+      if (res.status === 403) {
+        // Not on localhost — redirect to home
+        router.replace('/');
+        return;
+      }
       if (!res.ok) throw new Error('Failed to load admin data');
       const json = await res.json();
       setData(json);
@@ -192,7 +200,7 @@ export default function AdminDashboard() {
     } finally {
       setLoading(false);
     }
-  }, []);
+  }, [router]);
 
   useEffect(() => {
     fetchData();

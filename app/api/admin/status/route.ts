@@ -18,6 +18,10 @@ export async function GET(req: Request) {
   const host = req.headers.get('host') || '';
   const isLocal = host.startsWith('localhost') || host.startsWith('127.0.0.1');
 
+  if (!isLocal) {
+    return NextResponse.json({ error: 'Admin access is only available on localhost' }, { status: 403 });
+  }
+
   try {
     // Parallel fetch of all data
     const [
@@ -193,6 +197,12 @@ async function checkOllamaStatus(): Promise<{ running: boolean; models: string[]
  * POST /api/admin/status — Log a manual entry or trigger actions
  */
 export async function POST(req: Request) {
+  const host = req.headers.get('host') || '';
+  const isLocal = host.startsWith('localhost') || host.startsWith('127.0.0.1');
+  if (!isLocal) {
+    return NextResponse.json({ error: 'Admin access is only available on localhost' }, { status: 403 });
+  }
+
   try {
     const body = await req.json();
     const { action } = body;

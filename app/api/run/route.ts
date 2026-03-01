@@ -3,12 +3,16 @@ import { runAgents, AgentRunParams } from '@/lib/agents-v2';
 import { uploadFileToDrive } from '@/lib/drive';
 import { getTemplateList } from '@/lib/templates';
 import { addLogEntry } from '@/lib/processLog';
+import { requireLocalhost } from '@/lib/adminGuard';
 import path from 'path';
 
 export const runtime = 'nodejs';
 export const maxDuration = 300; // 5 minutes for longer research
 
 export async function POST(req: Request) {
+  const blocked = requireLocalhost(req);
+  if (blocked) return blocked;
+
   try {
     const body = await req.json();
     const topic = body?.topic as string;

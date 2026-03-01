@@ -1,15 +1,22 @@
 import { NextResponse } from 'next/server';
 import { addSchedule, listSchedules, initScheduler } from '@/lib/scheduler';
+import { requireLocalhost } from '@/lib/adminGuard';
 
 export const runtime = 'nodejs';
 
-export async function GET() {
+export async function GET(req: Request) {
+  const blocked = requireLocalhost(req);
+  if (blocked) return blocked;
+
   await initScheduler();
   const schedules = await listSchedules();
   return NextResponse.json({ schedules });
 }
 
 export async function POST(req: Request) {
+  const blocked = requireLocalhost(req);
+  if (blocked) return blocked;
+
   try {
     const body = await req.json();
     const topic = body?.topic as string;

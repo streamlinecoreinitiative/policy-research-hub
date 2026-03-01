@@ -32,7 +32,7 @@ export default function SiteFooter() {
         </div>
         <div className="ft-col">
           <h4>Connect</h4>
-          <Link href="/admin">Admin</Link>
+          <a href="mailto:contact@baseflow.institute">Contact</a>
         </div>
       </div>
       <div className="ft-bottom">

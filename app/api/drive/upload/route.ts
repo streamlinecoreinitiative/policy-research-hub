@@ -1,10 +1,14 @@
 import path from 'path';
 import { NextResponse } from 'next/server';
 import { uploadFileToDrive } from '@/lib/drive';
+import { requireLocalhost } from '@/lib/adminGuard';
 
 export const runtime = 'nodejs';
 
 export async function POST(req: Request) {
+  const blocked = requireLocalhost(req);
+  if (blocked) return blocked;
+
   try {
     const body = await req.json();
     const filePath = body?.filePath as string;

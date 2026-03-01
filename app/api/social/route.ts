@@ -1,10 +1,14 @@
 import { NextResponse } from 'next/server';
 import { getQueuedPosts, updatePostStatus } from '@/lib/socialPostAgent';
+import { requireLocalhost } from '@/lib/adminGuard';
 
 export const runtime = 'nodejs';
 
 // GET — retrieve social post queue
 export async function GET(req: Request) {
+  const blocked = requireLocalhost(req);
+  if (blocked) return blocked;
+
   try {
     const { searchParams } = new URL(req.url);
     const platform = searchParams.get('platform') || undefined;
@@ -26,6 +30,9 @@ export async function GET(req: Request) {
 
 // PATCH — update post status (mark as posted/skipped)
 export async function PATCH(req: Request) {
+  const blocked = requireLocalhost(req);
+  if (blocked) return blocked;
+
   try {
     const body = await req.json();
     const { postId, status } = body;

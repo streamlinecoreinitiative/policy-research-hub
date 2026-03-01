@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { callOllamaChat, ChatMessage } from '@/lib/ollama';
+import { requireLocalhost } from '@/lib/adminGuard';
 
 export const runtime = 'nodejs';
 
@@ -20,6 +21,9 @@ const ACTIONS: Record<string, string> = {
 };
 
 export async function POST(req: Request) {
+  const blocked = requireLocalhost(req);
+  if (blocked) return blocked;
+
   try {
     const body: RefineRequest = await req.json();
     const { content, action, section, customPrompt, model = 'llama3.1:8b' } = body;
