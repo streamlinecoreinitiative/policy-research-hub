@@ -40,7 +40,12 @@ export type SocialQueue = {
 async function readQueue(): Promise<SocialQueue> {
   try {
     const raw = await fs.readFile(QUEUE_PATH, 'utf8');
-    return JSON.parse(raw);
+    const parsed = JSON.parse(raw);
+    // Handle both formats: raw array or { posts: [...] }
+    if (Array.isArray(parsed)) {
+      return { posts: parsed, lastUpdated: new Date().toISOString() };
+    }
+    return { posts: parsed.posts || [], lastUpdated: parsed.lastUpdated || new Date().toISOString() };
   } catch {
     return { posts: [], lastUpdated: new Date().toISOString() };
   }
