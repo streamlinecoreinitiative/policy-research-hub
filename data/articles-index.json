@@ -1,6 +1,32 @@
 {
   "articles": [
     {
+      "slug": "water-energy-nexus-constraints-in-sub-saharan-africa-accelerating-climate-adapta-1772334601130",
+      "title": "Water-Energy Nexus Constraints in Sub-Saharan Africa: Accelerating Climate Adaptation Through Integrated Infrastructure",
+      "summary": "The water-energy nexus in Sub-Saharan Africa represents a critical barrier to climate resilience and sustainable development. Over 32.4% of the population lacks access to safely managed drinking water (World Bank, 2024), while 53.",
+      "topic": "Environmental resilience in lower-income countries: water security, clean energy, and climate adaptation",
+      "template": "Policy Brief",
+      "tags": [
+        "climate",
+        "water",
+        "energy",
+        "agriculture",
+        "health",
+        "policy",
+        "finance",
+        "resilience"
+      ],
+      "wordCount": 714,
+      "sourcesUsed": 12,
+      "readabilityScore": 96,
+      "publishedAt": "2026-03-01T03:10:01.156Z",
+      "updatedAt": "2026-03-01T03:10:01.156Z",
+      "status": "published",
+      "mdFile": "water-energy-nexus-constraints-in-sub-saharan-africa-accelerating-climate-adapta-1772334601130.md",
+      "htmlFile": "water-energy-nexus-constraints-in-sub-saharan-africa-accelerating-climate-adapta-1772334601130.html",
+      "region": "Sub-Saharan Africa"
+    },
+    {
       "slug": "mekong-river-basin-water-security-addressing-the-12-billion-climate-adaptation-f-1772166800265",
       "title": "Mekong River Basin Water Security: Addressing the $12 Billion Climate Adaptation Funding Gap in Southeast Asia",
       "summary": "Southeast Asia’s Mekong River basin faces an urgent $12 billion annual climate adaptation funding gap for water security, jeopardizing food systems and livelihoods for 600 million people.",
@@ -22618,6 +22644,6 @@
       "region": "Sub-Saharan Africa"
     }
   ],
-  "lastUpdated": "2026-02-27T04:33:20.341Z",
-  "totalPublished": 869
+  "lastUpdated": "2026-03-01T03:10:01.182Z",
+  "totalPublished": 870
 }

@@ -105,6 +105,29 @@ export async function initScheduler() {
   if (initialized) return;
   initialized = true;
   schedules = await readSchedules();
+
+  // Auto-fix model names if they reference removed models
+  let needsPersist = false;
+  for (const s of schedules) {
+    if (!s.plannerModel.startsWith('qwen3')) {
+      s.plannerModel = 'qwen3:4b';
+      needsPersist = true;
+    }
+    if (!s.writerModel.startsWith('qwen3')) {
+      s.writerModel = 'qwen3:8b';
+      needsPersist = true;
+    }
+  }
+  if (needsPersist) {
+    await persist();
+    addLogEntry({
+      type: 'system',
+      status: 'warning',
+      title: 'Auto-fixed schedule model references',
+      details: 'Updated stale model names to qwen3:4b/qwen3:8b on scheduler init',
+    }).catch(() => {});
+  }
+
   setInterval(() => void tick(), CHECK_INTERVAL_MS);
 }
 

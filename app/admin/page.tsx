@@ -66,6 +66,13 @@ type Schedule = {
     error?: string;
     ranAt: number;
   };
+  drive?: {
+    clientId: string;
+    clientSecret: string;
+    refreshToken: string;
+    folderId: string;
+    configured: boolean;
+  };
 };
 
 type AdminData = {
@@ -830,6 +837,44 @@ export default function AdminDashboard() {
                   <div className="account-last-post">Last posted: {timeAgo(data.socialCredentials.bluesky.lastPosted)}</div>
                 )}
               </div>
+
+              {/* Google Drive */}
+              {(() => {
+                const driveConfig = data.schedules?.list?.[0]?.drive;
+                const isConfigured = driveConfig?.configured;
+                return (
+                  <div className={`admin-account-card ${isConfigured ? 'connected' : 'disconnected'}`}>
+                    <div className="account-card-header">
+                      <span className="account-icon">📁</span>
+                      <span className="account-name">Google Drive</span>
+                      <span className={`account-method-badge ${isConfigured ? 'auto' : 'manual'}`}>
+                        {isConfigured ? 'Connected' : 'Not Configured'}
+                      </span>
+                    </div>
+                    {isConfigured ? (
+                      <>
+                        <div className="account-status-text">
+                          Auto-uploads articles to Drive after generation.
+                        </div>
+                        <table style={{ width: '100%', fontSize: 13, marginTop: 8, borderCollapse: 'collapse' }}>
+                          <tbody>
+                            <tr><td style={{ color: '#9ca3af', padding: '3px 8px 3px 0', whiteSpace: 'nowrap' }}>Client ID</td><td style={{ fontFamily: 'monospace', padding: '3px 0' }}>{driveConfig.clientId}</td></tr>
+                            <tr><td style={{ color: '#9ca3af', padding: '3px 8px 3px 0', whiteSpace: 'nowrap' }}>Client Secret</td><td style={{ fontFamily: 'monospace', padding: '3px 0' }}>{driveConfig.clientSecret}</td></tr>
+                            <tr><td style={{ color: '#9ca3af', padding: '3px 8px 3px 0', whiteSpace: 'nowrap' }}>Refresh Token</td><td style={{ fontFamily: 'monospace', padding: '3px 0' }}>{driveConfig.refreshToken}</td></tr>
+                            <tr><td style={{ color: '#9ca3af', padding: '3px 8px 3px 0', whiteSpace: 'nowrap' }}>Folder ID</td><td style={{ fontFamily: 'monospace', padding: '3px 0' }}>
+                              <a href={`https://drive.google.com/drive/folders/${driveConfig.folderId}`} target="_blank" rel="noreferrer" style={{ color: '#3b82f6' }}>{driveConfig.folderId}</a>
+                            </td></tr>
+                          </tbody>
+                        </table>
+                      </>
+                    ) : (
+                      <div className="account-status-text">
+                        No Drive credentials configured. Update <code>data/schedules.json</code> with clientId, clientSecret, refreshToken, and folderId.
+                      </div>
+                    )}
+                  </div>
+                );
+              })()}
             </div>
 
             {/* Bluesky Setup Form (local only) */}

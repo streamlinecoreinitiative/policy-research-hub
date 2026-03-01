@@ -131,7 +131,16 @@ export async function GET(req: Request) {
       },
       schedules: {
         active: schedules.length,
-        list: schedules,
+        list: schedules.map((s: any) => ({
+          ...s,
+          drive: s.drive ? {
+            clientId: s.drive.clientId ? s.drive.clientId.substring(0, 12) + '...' : '',
+            clientSecret: s.drive.clientSecret ? '••••' + s.drive.clientSecret.slice(-4) : '',
+            refreshToken: s.drive.refreshToken ? '••••' + s.drive.refreshToken.slice(-8) : '',
+            folderId: s.drive.folderId || '',
+            configured: !!(s.drive.clientId && s.drive.clientSecret && s.drive.refreshToken),
+          } : null,
+        })),
       },
       logs: {
         stats: logStats,
