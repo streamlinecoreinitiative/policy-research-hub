@@ -4,6 +4,7 @@ import { getQueuedPosts } from '@/lib/socialPostAgent';
 import { getNewsletters, getSubscriberCount } from '@/lib/newsletterAgent';
 import { getPublishedArticles } from '@/lib/articleIndex';
 import { maskCredentials, readCredentials } from '@/lib/socialCredentials';
+import { getEnvDriveCredentials } from '@/lib/drive';
 import fs from 'fs/promises';
 import path from 'path';
 
@@ -135,6 +136,7 @@ export async function GET(req: Request) {
       },
       schedules: {
         active: schedules.length,
+        envDriveConfigured: !!getEnvDriveCredentials(),
         list: schedules.map((s: any) => ({
           ...s,
           drive: s.drive ? {
@@ -143,7 +145,7 @@ export async function GET(req: Request) {
             refreshToken: s.drive.refreshToken ? '••••' + s.drive.refreshToken.slice(-8) : '',
             folderId: s.drive.folderId || '',
             configured: !!(s.drive.clientId && s.drive.clientSecret && s.drive.refreshToken),
-          } : null,
+          } : { configured: !!getEnvDriveCredentials(), source: 'env' },
         })),
       },
       logs: {

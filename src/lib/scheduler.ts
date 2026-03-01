@@ -1,6 +1,6 @@
 import path from 'path';
 import { runAgents } from './agents-v2';
-import { uploadFileToDrive } from './drive';
+import { uploadFileToDrive, getEnvDriveCredentials } from './drive';
 import { readSchedules, writeSchedules, StoredSchedule } from './storage';
 import { addLogEntry } from './processLog';
 
@@ -42,7 +42,7 @@ async function processSchedule(s: StoredSchedule) {
       | { fileId?: string; webViewLink?: string; fileName?: string }
       | undefined;
 
-    if (s.autoUpload && s.drive) {
+    if (s.autoUpload && (s.drive || getEnvDriveCredentials())) {
       try {
         // Upload the HTML version for better formatting
         const htmlPath = result.articlePathHTML;
@@ -51,7 +51,7 @@ async function processSchedule(s: StoredSchedule) {
           : path.join(process.cwd(), htmlPath);
         const uploaded = await uploadFileToDrive({
           filePath: resolved,
-          drive: s.drive,
+          drive: s.drive || undefined,
           mimeType: 'text/html'
         });
         driveRes = {

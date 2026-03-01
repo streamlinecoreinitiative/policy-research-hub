@@ -9,12 +9,27 @@ export type DriveCredentials = {
   folderId?: string;
 };
 
-export async function uploadFileToDrive(params: { filePath: string; drive: DriveCredentials; mimeType?: string }) {
-  const { filePath, drive, mimeType } = params;
+/** Return Drive credentials from env vars, or undefined if not configured */
+export function getEnvDriveCredentials(): DriveCredentials | undefined {
+  const clientId = process.env.GOOGLE_CLIENT_ID;
+  const clientSecret = process.env.GOOGLE_CLIENT_SECRET;
+  const refreshToken = process.env.GOOGLE_REFRESH_TOKEN;
+  const folderId = process.env.GOOGLE_DRIVE_FOLDER_ID;
+  if (!clientId || !clientSecret || !refreshToken) return undefined;
+  return { clientId, clientSecret, refreshToken, folderId };
+}
+
+export async function uploadFileToDrive(params: { filePath: string; drive?: DriveCredentials; mimeType?: string }) {
+  const { filePath, mimeType } = params;
+  // Use provided credentials, fall back to env vars
+  const drive = params.drive ?? getEnvDriveCredentials();
+  if (!drive) {
+    throw new Error('Missing Drive credentials. Set GOOGLE_CLIENT_ID/SECRET/REFRESH_TOKEN env vars or pass credentials.');
+  }
   const { clientId, clientSecret, refreshToken, folderId } = drive;
 
   if (!clientId || !clientSecret || !refreshToken) {
-    throw new Error('Missing Drive credentials. Provide clientId, clientSecret, and refreshToken.');
+    throw new Error('Missing Drive credentials. Set GOOGLE_CLIENT_ID/SECRET/REFRESH_TOKEN env vars or pass credentials.');
   }
 
   if (!fs.existsSync(filePath)) {
