@@ -44,27 +44,27 @@ export async function GET(req: Request) {
       readCredentials().catch(() => ({ updatedAt: '' })),
     ]);
 
-    const pendingSocial = socialPosts.filter(p => p.status === 'pending').length;
-    const postedSocial = socialPosts.filter(p => p.status === 'posted').length;
-    const skippedSocial = socialPosts.filter(p => p.status === 'skipped').length;
+    const pendingSocial = (socialPosts as any[]).filter((p: any) => p.status === 'pending').length;
+    const postedSocial = (socialPosts as any[]).filter((p: any) => p.status === 'posted').length;
+    const skippedSocial = (socialPosts as any[]).filter((p: any) => p.status === 'skipped').length;
 
     // Determine agent statuses from recent logs
-    const runningLogs = recentLogs.filter(l => l.status === 'running');
-    const writerRunning = runningLogs.some(l =>
+    const runningLogs = (recentLogs as any[]).filter((l: any) => l.status === 'running');
+    const writerRunning = runningLogs.some((l: any) =>
       l.type === 'pipeline-run' || l.type === 'schedule'
     );
-    const reviewerRunning = runningLogs.some(l =>
+    const reviewerRunning = runningLogs.some((l: any) =>
       l.title?.toLowerCase().includes('fact-check') || l.title?.toLowerCase().includes('qa')
     );
-    const socialRunning = runningLogs.some(l =>
+    const socialRunning = runningLogs.some((l: any) =>
       l.type === 'social-post'
     );
 
     // Check last activity times
-    const allLogs = recentLogs;
-    const lastWriterLog = allLogs.find(l => l.type === 'pipeline-run' || l.type === 'schedule');
-    const lastReviewerLog = allLogs.find(l => l.type === 'pipeline-run' && l.details?.includes('quality'));
-    const lastSocialLog = allLogs.find(l => l.type === 'social-post' || (l.type === 'pipeline-run' && l.details?.includes('social')));
+    const allLogs = recentLogs as any[];
+    const lastWriterLog = allLogs.find((l: any) => l.type === 'pipeline-run' || l.type === 'schedule');
+    const lastReviewerLog = allLogs.find((l: any) => l.type === 'pipeline-run' && l.details?.includes('quality'));
+    const lastSocialLog = allLogs.find((l: any) => l.type === 'social-post' || (l.type === 'pipeline-run' && l.details?.includes('social')));
 
     return NextResponse.json({
       isLocal,
@@ -105,7 +105,7 @@ export async function GET(req: Request) {
       },
       articles: {
         total: articlesData.total,
-        recent: articlesData.articles.map(a => ({
+        recent: (articlesData as any).articles.map((a: any) => ({
           title: a.title,
           slug: a.slug,
           publishedAt: a.publishedAt,
@@ -122,8 +122,8 @@ export async function GET(req: Request) {
       },
       newsletters: {
         total: newsletters.length,
-        drafts: newsletters.filter(n => n.status === 'draft').length,
-        sent: newsletters.filter(n => n.status === 'sent').length,
+        drafts: (newsletters as any[]).filter((n: any) => n.status === 'draft').length,
+        sent: (newsletters as any[]).filter((n: any) => n.status === 'sent').length,
         list: newsletters.slice(0, 10),
       },
       subscribers: {

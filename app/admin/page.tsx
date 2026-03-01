@@ -47,9 +47,7 @@ type AgentInfo = {
 };
 
 type SocialCredentialsMasked = {
-  twitter: { enabled: boolean; apiKey: string; hasSecret: boolean; hasAccessToken: boolean; lastPosted?: string } | null;
-  linkedin: { enabled: boolean; hasAccessToken: boolean; organizationId: string | null; lastPosted?: string } | null;
-  bluesky: { enabled: boolean; handle: string; hasAppPassword: boolean; lastPosted?: string } | null;
+  bluesky: { enabled: boolean; handle: string; hasAppPassword: boolean; lastPosted?: string; totalPosted?: number } | null;
   updatedAt: string;
 };
 
@@ -167,11 +165,12 @@ export default function AdminDashboard() {
   // Newsletter preview
   const [previewHtml, setPreviewHtml] = useState('');
 
-  // Credentials form state
-  const [credsPlatform, setCredsPlatform] = useState<'twitter' | 'linkedin' | 'bluesky'>('twitter');
-  const [credsForm, setCredsForm] = useState<Record<string, string>>({});
-  const [credsEnabled, setCredsEnabled] = useState(true);
-  const [credsSaving, setCredsSaving] = useState(false);
+  // Bluesky credentials state
+  const [bskyHandle, setBskyHandle] = useState('');
+  const [bskyAppPassword, setBskyAppPassword] = useState('');
+  const [bskyEnabled, setBskyEnabled] = useState(true);
+  const [bskySaving, setBskySaving] = useState(false);
+  const [bskyTestResult, setBskyTestResult] = useState<{ success?: boolean; error?: string } | null>(null);
 
   const fetchData = useCallback(async () => {
     try {
@@ -195,30 +194,63 @@ export default function AdminDashboard() {
 
   // ─── Actions ──────────────────────────────────────────────────
 
-  const saveCredentials = async () => {
-    setCredsSaving(true);
-    setActionStatus(`Saving ${credsPlatform} credentials...`);
+  const saveBluesky = async () => {
+    setBskySaving(true);
+    setActionStatus('Saving Bluesky credentials...');
     try {
       const res = await fetch('/api/admin/credentials', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          platform: credsPlatform,
-          credentials: credsForm,
-          enabled: credsEnabled,
-        }),
+        body: JSON.stringify({ action: 'save', handle: bskyHandle, appPassword: bskyAppPassword, enabled: bskyEnabled }),
       });
       const json = await res.json();
       if (!res.ok) throw new Error(json.error);
-      setActionStatus(`${credsPlatform} credentials saved!`);
-      setCredsForm({});
+      setActionStatus('Bluesky credentials saved!');
+      setBskyAppPassword('');
       await fetchData();
     } catch (err) {
       setActionStatus(`Failed: ${(err as Error).message}`);
     } finally {
-      setCredsSaving(false);
+      setBskySaving(false);
     }
     setTimeout(() => setActionStatus(''), 3000);
+  };
+
+  const testBluesky = async () => {
+    setBskyTestResult(null);
+    setActionStatus('Testing Bluesky connection...');
+    try {
+      const res = await fetch('/api/admin/credentials', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ action: 'test', handle: bskyHandle, appPassword: bskyAppPassword }),
+      });
+      const json = await res.json();
+      setBskyTestResult(json);
+      setActionStatus(json.success ? '✓ Bluesky connection works!' : `✗ ${json.error}`);
+    } catch (err) {
+      setBskyTestResult({ success: false, error: (err as Error).message });
+      setActionStatus(`Test failed: ${(err as Error).message}`);
+    }
+    setTimeout(() => setActionStatus(''), 5000);
+  };
+
+  const postToBluesky = async (text: string, url: string) => {
+    setActionStatus('Posting to Bluesky...');
+    try {
+      const res = await fetch('/api/admin/credentials', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ action: 'post', text, url }),
+      });
+      const json = await res.json();
+      if (!res.ok) throw new Error(json.error);
+      setActionStatus('✓ Posted to Bluesky!');
+      await fetchData();
+    } catch (err) {
+      setActionStatus(`Bluesky post failed: ${(err as Error).message}`);
+    }
+    setTimeout(() => setActionStatus(''), 4000);
   };
 
   const updateSocialPost = async (postId: string, status: 'posted' | 'skipped') => {
@@ -622,9 +654,9 @@ export default function AdminDashboard() {
             </div>
 
             <div className="admin-info-box">
-              <strong>How it works:</strong> Social posts are auto-generated when articles pass QA and get published.
-              Posts go into this queue for your review. Copy the content to your social media accounts,
-              then mark as &quot;Posted&quot;. Skip posts you don&apos;t want to use.
+              <strong>How it works:</strong> Posts are auto-generated when articles pass QA.
+              <strong>Bluesky</strong> — auto-posts directly if connected (set up in Accounts tab).
+              <strong>Twitter/X &amp; LinkedIn</strong> — click the share button to open the platform with your post pre-filled.
             </div>
 
             {data.social.posts.length === 0 ? (
@@ -656,6 +688,59 @@ export default function AdminDashboard() {
                     </div>
                     {post.status === 'pending' && (
                       <div className="social-card-actions">
+                        {/* Platform-specific share actions */}
+                        {post.platform === 'twitter' && (
+                          <a
+                            className="admin-btn small share-x"
+                            href={`https://x.com/intent/tweet?text=${encodeURIComponent(post.content)}&url=${encodeURIComponent(post.url)}&hashtags=${encodeURIComponent(post.hashtags.join(','))}`}
+                            target="_blank"
+                            rel="noreferrer"
+                            onClick={() => {
+                              setTimeout(() => updateSocialPost(post.id, 'posted'), 1000);
+                            }}
+                          >
+                            𝕏 Share on X
+                          </a>
+                        )}
+                        {post.platform === 'linkedin' && (
+                          <a
+                            className="admin-btn small share-linkedin"
+                            href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(post.url)}`}
+                            target="_blank"
+                            rel="noreferrer"
+                            onClick={() => {
+                              navigator.clipboard.writeText(`${post.content}\n\n${post.hashtags.map(h => '#' + h).join(' ')}`);
+                              setActionStatus('Post text copied — paste it into LinkedIn!');
+                              setTimeout(() => {
+                                setActionStatus('');
+                                updateSocialPost(post.id, 'posted');
+                              }, 2000);
+                            }}
+                          >
+                            in Share on LinkedIn
+                          </a>
+                        )}
+                        {post.platform === 'bluesky' && data.socialCredentials?.bluesky?.enabled && (
+                          <button
+                            className="admin-btn small share-bluesky"
+                            onClick={() => {
+                              const fullText = `${post.content}\n\n${post.hashtags.map(h => '#' + h).join(' ')}`;
+                              postToBluesky(fullText, post.url).then(() => {
+                                updateSocialPost(post.id, 'posted');
+                              });
+                            }}
+                          >
+                            🦋 Auto-Post
+                          </button>
+                        )}
+                        {post.platform === 'bluesky' && !data.socialCredentials?.bluesky?.enabled && (
+                          <button
+                            className="admin-btn small secondary"
+                            onClick={() => setActiveTab('accounts')}
+                          >
+                            🦋 Set up Bluesky
+                          </button>
+                        )}
                         <button
                           className="admin-btn small copy"
                           onClick={() => {
@@ -692,53 +777,39 @@ export default function AdminDashboard() {
         {activeTab === 'accounts' && (
           <div className="admin-accounts">
             <div className="admin-section-header">
-              <h3>Social Media Accounts</h3>
+              <h3>Social Media Posting</h3>
             </div>
 
-            <div className="admin-info-box">
-              <strong>Connect your accounts:</strong> Add API credentials for each platform to enable auto-posting
-              in the future. Credentials are stored locally only and never sent to Vercel.
-              {!data.isLocal && (
-                <span style={{ color: '#dc2626', display: 'block', marginTop: 8 }}>
-                  ⚠️ Credentials can only be configured when running locally.
-                </span>
-              )}
-            </div>
-
-            {/* Current connection status */}
+            {/* Platform Reality */}
             <div className="admin-accounts-grid">
               {/* Twitter/X */}
-              <div className={`admin-account-card ${data.socialCredentials?.twitter?.enabled ? 'connected' : 'disconnected'}`}>
+              <div className="admin-account-card disconnected">
                 <div className="account-card-header">
                   <span className="account-icon">𝕏</span>
                   <span className="account-name">Twitter / X</span>
-                  <span className={`account-status-dot ${data.socialCredentials?.twitter?.enabled ? 'on' : 'off'}`} />
+                  <span className="account-method-badge manual">Manual</span>
                 </div>
                 <div className="account-status-text">
-                  {data.socialCredentials?.twitter?.enabled
-                    ? `Connected • Key: ${data.socialCredentials.twitter.apiKey}`
-                    : 'Not connected'}
+                  API posting requires $100+/month. Use one-click share links instead.
                 </div>
-                {data.socialCredentials?.twitter?.lastPosted && (
-                  <div className="account-last-post">Last posted: {timeAgo(data.socialCredentials.twitter.lastPosted)}</div>
-                )}
+                <div className="account-method-info">
+                  Posts are generated automatically. Click &quot;Share on X&quot; in the Social Queue to open X with the text pre-filled.
+                </div>
               </div>
 
               {/* LinkedIn */}
-              <div className={`admin-account-card ${data.socialCredentials?.linkedin?.enabled ? 'connected' : 'disconnected'}`}>
+              <div className="admin-account-card disconnected">
                 <div className="account-card-header">
                   <span className="account-icon">in</span>
                   <span className="account-name">LinkedIn</span>
-                  <span className={`account-status-dot ${data.socialCredentials?.linkedin?.enabled ? 'on' : 'off'}`} />
+                  <span className="account-method-badge manual">Manual</span>
                 </div>
                 <div className="account-status-text">
-                  {data.socialCredentials?.linkedin?.enabled
-                    ? `Connected • Token: ✓`
-                    : 'Not connected'}
+                  API requires approved developer app. Use one-click share links instead.
                 </div>
-                {data.socialCredentials?.linkedin?.lastPosted && (
-                  <div className="account-last-post">Last posted: {timeAgo(data.socialCredentials.linkedin.lastPosted)}</div>
-                )}
+                <div className="account-method-info">
+                  Click &quot;Share on LinkedIn&quot; in the Social Queue to open LinkedIn with the article link pre-filled.
+                </div>
               </div>
 
               {/* Bluesky */}
@@ -746,12 +817,14 @@ export default function AdminDashboard() {
                 <div className="account-card-header">
                   <span className="account-icon">🦋</span>
                   <span className="account-name">Bluesky</span>
-                  <span className={`account-status-dot ${data.socialCredentials?.bluesky?.enabled ? 'on' : 'off'}`} />
+                  <span className={`account-method-badge ${data.socialCredentials?.bluesky?.enabled ? 'auto' : 'manual'}`}>
+                    {data.socialCredentials?.bluesky?.enabled ? 'Auto-Post' : 'Not Set Up'}
+                  </span>
                 </div>
                 <div className="account-status-text">
                   {data.socialCredentials?.bluesky?.enabled
-                    ? `Connected • ${data.socialCredentials.bluesky.handle}`
-                    : 'Not connected'}
+                    ? <>Connected as <strong>@{data.socialCredentials.bluesky.handle}</strong> • {data.socialCredentials.bluesky.totalPosted || 0} posts sent</>
+                    : 'Free & open API — full auto-posting supported!'}
                 </div>
                 {data.socialCredentials?.bluesky?.lastPosted && (
                   <div className="account-last-post">Last posted: {timeAgo(data.socialCredentials.bluesky.lastPosted)}</div>
@@ -759,147 +832,81 @@ export default function AdminDashboard() {
               </div>
             </div>
 
-            {/* Credentials form (local only) */}
+            {/* Bluesky Setup Form (local only) */}
             {data.isLocal && (
               <div className="admin-panel" style={{ marginTop: 20 }}>
-                <h3>Configure Platform</h3>
-                <div className="admin-form">
-                  <div className="form-group">
-                    <label>Platform</label>
-                    <select
-                      value={credsPlatform}
-                      onChange={e => {
-                        setCredsPlatform(e.target.value as 'twitter' | 'linkedin' | 'bluesky');
-                        setCredsForm({});
-                      }}
-                    >
-                      <option value="twitter">Twitter / X</option>
-                      <option value="linkedin">LinkedIn</option>
-                      <option value="bluesky">Bluesky</option>
-                    </select>
+                <h3>🦋 Connect Bluesky</h3>
+                <div className="admin-info-box">
+                  Bluesky uses the open AT Protocol — auto-posting is completely free, no API keys needed.
+                  Just create an <a href="https://bsky.app/settings/app-passwords" target="_blank" rel="noreferrer">App Password</a> in your Bluesky settings.
+                </div>
+                <div className="admin-form" style={{ marginTop: 12 }}>
+                  <div className="form-row-2">
+                    <div className="form-group">
+                      <label>Bluesky Handle</label>
+                      <input
+                        type="text"
+                        placeholder="yourname.bsky.social"
+                        value={bskyHandle}
+                        onChange={e => setBskyHandle(e.target.value)}
+                      />
+                    </div>
+                    <div className="form-group">
+                      <label>App Password</label>
+                      <input
+                        type="password"
+                        placeholder="xxxx-xxxx-xxxx-xxxx"
+                        value={bskyAppPassword}
+                        onChange={e => setBskyAppPassword(e.target.value)}
+                      />
+                    </div>
                   </div>
 
-                  {credsPlatform === 'twitter' && (
-                    <>
-                      <div className="form-row-2">
-                        <div className="form-group">
-                          <label>API Key</label>
-                          <input
-                            type="text"
-                            placeholder="Your Twitter API key"
-                            value={credsForm.apiKey || ''}
-                            onChange={e => setCredsForm({ ...credsForm, apiKey: e.target.value })}
-                          />
-                        </div>
-                        <div className="form-group">
-                          <label>API Secret</label>
-                          <input
-                            type="password"
-                            placeholder="Your Twitter API secret"
-                            value={credsForm.apiSecret || ''}
-                            onChange={e => setCredsForm({ ...credsForm, apiSecret: e.target.value })}
-                          />
-                        </div>
-                      </div>
-                      <div className="form-row-2">
-                        <div className="form-group">
-                          <label>Access Token</label>
-                          <input
-                            type="text"
-                            placeholder="OAuth access token"
-                            value={credsForm.accessToken || ''}
-                            onChange={e => setCredsForm({ ...credsForm, accessToken: e.target.value })}
-                          />
-                        </div>
-                        <div className="form-group">
-                          <label>Access Token Secret</label>
-                          <input
-                            type="password"
-                            placeholder="OAuth access token secret"
-                            value={credsForm.accessTokenSecret || ''}
-                            onChange={e => setCredsForm({ ...credsForm, accessTokenSecret: e.target.value })}
-                          />
-                        </div>
-                      </div>
-                      <div className="admin-info-box" style={{ marginTop: 8 }}>
-                        Get these from <a href="https://developer.x.com/en/portal/dashboard" target="_blank" rel="noreferrer">X Developer Portal</a> → Your app → Keys and tokens
-                      </div>
-                    </>
-                  )}
-
-                  {credsPlatform === 'linkedin' && (
-                    <>
-                      <div className="form-group">
-                        <label>Access Token</label>
-                        <input
-                          type="password"
-                          placeholder="LinkedIn OAuth2 access token"
-                          value={credsForm.accessToken || ''}
-                          onChange={e => setCredsForm({ ...credsForm, accessToken: e.target.value })}
-                        />
-                      </div>
-                      <div className="form-group">
-                        <label>Organization ID (optional, for company pages)</label>
-                        <input
-                          type="text"
-                          placeholder="e.g. 12345678"
-                          value={credsForm.organizationId || ''}
-                          onChange={e => setCredsForm({ ...credsForm, organizationId: e.target.value })}
-                        />
-                      </div>
-                      <div className="admin-info-box" style={{ marginTop: 8 }}>
-                        Get token from <a href="https://www.linkedin.com/developers/apps" target="_blank" rel="noreferrer">LinkedIn Developers</a> → Your app → Auth → Generate token
-                      </div>
-                    </>
-                  )}
-
-                  {credsPlatform === 'bluesky' && (
-                    <>
-                      <div className="form-row-2">
-                        <div className="form-group">
-                          <label>Handle</label>
-                          <input
-                            type="text"
-                            placeholder="yourname.bsky.social"
-                            value={credsForm.handle || ''}
-                            onChange={e => setCredsForm({ ...credsForm, handle: e.target.value })}
-                          />
-                        </div>
-                        <div className="form-group">
-                          <label>App Password</label>
-                          <input
-                            type="password"
-                            placeholder="App-specific password"
-                            value={credsForm.appPassword || ''}
-                            onChange={e => setCredsForm({ ...credsForm, appPassword: e.target.value })}
-                          />
-                        </div>
-                      </div>
-                      <div className="admin-info-box" style={{ marginTop: 8 }}>
-                        Go to <a href="https://bsky.app/settings/app-passwords" target="_blank" rel="noreferrer">Bluesky Settings</a> → App Passwords → Add App Password
-                      </div>
-                    </>
-                  )}
-
-                  <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginTop: 12 }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginTop: 8 }}>
                     <label style={{ display: 'flex', alignItems: 'center', gap: 6, cursor: 'pointer' }}>
                       <input
                         type="checkbox"
-                        checked={credsEnabled}
-                        onChange={e => setCredsEnabled(e.target.checked)}
+                        checked={bskyEnabled}
+                        onChange={e => setBskyEnabled(e.target.checked)}
                       />
-                      Enable auto-posting for {credsPlatform}
+                      Enable auto-posting to Bluesky
                     </label>
                   </div>
 
-                  <button
-                    className="admin-btn primary"
-                    onClick={saveCredentials}
-                    disabled={credsSaving}
-                    style={{ marginTop: 12 }}
-                  >
-                    {credsSaving ? '⏳ Saving...' : '💾 Save Credentials'}
-                  </button>
+                  {bskyTestResult && (
+                    <div className={`admin-info-box ${bskyTestResult.success ? 'success' : 'error'}`} style={{ marginTop: 8 }}>
+                      {bskyTestResult.success
+                        ? '✅ Connection successful! Your credentials work.'
+                        : `❌ Connection failed: ${bskyTestResult.error}`}
+                    </div>
+                  )}
+
+                  <div className="admin-actions-row" style={{ marginTop: 12 }}>
+                    <button
+                      className="admin-btn secondary"
+                      onClick={testBluesky}
+                      disabled={!bskyHandle || !bskyAppPassword || bskySaving}
+                    >
+                      🧪 Test Connection
+                    </button>
+                    <button
+                      className="admin-btn primary"
+                      onClick={saveBluesky}
+                      disabled={!bskyHandle || !bskyAppPassword || bskySaving}
+                    >
+                      {bskySaving ? '⏳ Saving...' : '💾 Save & Enable'}
+                    </button>
+                  </div>
+
+                  <div className="admin-info-box" style={{ marginTop: 16 }}>
+                    <strong>How to get an App Password:</strong>
+                    <ol style={{ margin: '8px 0 0 20px', lineHeight: 1.8 }}>
+                      <li>Go to <a href="https://bsky.app/settings/app-passwords" target="_blank" rel="noreferrer">bsky.app/settings/app-passwords</a></li>
+                      <li>Click &quot;Add App Password&quot;</li>
+                      <li>Name it &quot;Policy Research Hub&quot;</li>
+                      <li>Copy the generated password and paste it above</li>
+                    </ol>
+                  </div>
                 </div>
               </div>
             )}
