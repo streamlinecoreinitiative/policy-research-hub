@@ -153,8 +153,8 @@ function fallbackTitle(baseTheme: string) {
 function keywords(str: string) {
   return str
     .toLowerCase()
-    .replace(/[^a-z0-9\\s]/g, ' ')
-    .split(/\\s+/)
+    .replace(/[^a-z0-9\s]/g, ' ')
+    .split(/\s+/)
     .filter(Boolean);
 }
 
@@ -345,7 +345,7 @@ Deliver:
   if (proposedTitle) {
     log.push(`[${timestamp()}] Proposed title: ${proposedTitle}`);
   } else {
-    log.push('[${timestamp()}] No explicit title found; will derive/fallback.');
+    log.push(`[${timestamp()}] No explicit title found; will derive/fallback.`);
   }
 
   if (tooSimilar(plannerPlan, recentOutlines)) {
@@ -450,16 +450,21 @@ Include inline citations for all statistics.`
           model: factCheckerModel,
           messages: [{ role: 'user', content: `Document: ${researchDoc}\nClaim: ${claim.trim()}` }],
           temperature: 0.0,
-          topP: 1.0
+          topP: 1.0,
+          timeoutMs: 30000  // 30s timeout per claim check
         });
         const verdict = checkResult.trim().toLowerCase();
-        if (verdict.startsWith('no')) {
+        // bespoke-minicheck returns "Yes" (supported) or "No" (not supported)
+        // Handle variations: "no", "no,", "not supported", "no.", etc.
+        const isUnsupported = /^no\b/i.test(verdict) || /not supported/i.test(verdict) || /cannot be verified/i.test(verdict);
+        if (isUnsupported) {
           flaggedClaims.push(claim.trim());
         } else {
           verifiedClaims.push(claim.trim());
         }
       } catch (err) {
         log.push(`[${timestamp()}] Fact-check error for claim: ${(err as Error).message}`);
+        // Don't flag on error — just skip and note it
       }
     }
 

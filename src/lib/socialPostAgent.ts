@@ -149,10 +149,10 @@ Article URL: ${articleUrl}`
 
     // Parse Twitter
     const twitterMatch = response.match(/---TWITTER---\s*([\s\S]*?)(?=HASHTAGS:)/i);
-    const twitterHashMatch = response.match(/---TWITTER---[\s\S]*?HASHTAGS:\s*(.+?)(?=\n|---)/i);
+    const twitterHashMatch = response.match(/---TWITTER---[\s\S]*?HASHTAGS:\s*(.+?)(?=\n|---|\s*$)/i);
     if (twitterMatch) {
       const content = twitterMatch[1].trim().slice(0, 280);
-      const hashtags = twitterHashMatch?.[1]?.split(',').map(t => t.trim().replace(/^#/, '')) || [meta.topic];
+      const hashtags = twitterHashMatch?.[1]?.split(',').map(t => t.trim().replace(/^#/, '')).filter(Boolean) || [meta.topic];
       posts.push({
         id: `${baseId}-tw`,
         articleSlug: meta.slug,
@@ -168,10 +168,10 @@ Article URL: ${articleUrl}`
 
     // Parse LinkedIn
     const linkedinMatch = response.match(/---LINKEDIN---\s*([\s\S]*?)(?=HASHTAGS:)/i);
-    const linkedinHashMatch = response.match(/---LINKEDIN---[\s\S]*?HASHTAGS:\s*(.+?)(?=\n|---)/i);
+    const linkedinHashMatch = response.match(/---LINKEDIN---[\s\S]*?HASHTAGS:\s*(.+?)(?=\n|---|\s*$)/i);
     if (linkedinMatch) {
       const content = linkedinMatch[1].trim();
-      const hashtags = linkedinHashMatch?.[1]?.split(',').map(t => t.trim().replace(/^#/, '')) || [meta.topic];
+      const hashtags = linkedinHashMatch?.[1]?.split(',').map(t => t.trim().replace(/^#/, '')).filter(Boolean) || [meta.topic];
       posts.push({
         id: `${baseId}-li`,
         articleSlug: meta.slug,
@@ -187,10 +187,10 @@ Article URL: ${articleUrl}`
 
     // Parse Bluesky
     const blueskyMatch = response.match(/---BLUESKY---\s*([\s\S]*?)(?=HASHTAGS:)/i);
-    const blueskyHashMatch = response.match(/---BLUESKY---[\s\S]*?HASHTAGS:\s*(.+?)(?=\n|$)/i);
+    const blueskyHashMatch = response.match(/---BLUESKY---[\s\S]*?HASHTAGS:\s*(.+?)(?=\n|---|\s*$)/i);
     if (blueskyMatch) {
       const content = blueskyMatch[1].trim().slice(0, 300);
-      const hashtags = blueskyHashMatch?.[1]?.split(',').map(t => t.trim().replace(/^#/, '')) || [meta.topic];
+      const hashtags = blueskyHashMatch?.[1]?.split(',').map(t => t.trim().replace(/^#/, '')).filter(Boolean) || [meta.topic];
       posts.push({
         id: `${baseId}-bs`,
         articleSlug: meta.slug,

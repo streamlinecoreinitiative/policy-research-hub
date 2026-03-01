@@ -36,20 +36,51 @@ const tagLabels: Record<string, string> = {
 };
 
 function renderMarkdown(md: string): string {
-  return md
-    .replace(/^### (.*$)/gim, '<h3>$1</h3>')
-    .replace(/^## (.*$)/gim, '<h2>$1</h2>')
-    .replace(/^# (.*$)/gim, '<h1>$1</h1>')
+  let html = md
+    // Headers (h3 first to avoid conflicts)
+    .replace(/^### (.*$)/gim, '</p><h3>$1</h3><p>')
+    .replace(/^## (.*$)/gim, '</p><h2>$1</h2><p>')
+    .replace(/^# (.*$)/gim, '</p><h1>$1</h1><p>')
+    // Bold & italic (bold first to avoid conflicts)
+    .replace(/\*\*\*(.*?)\*\*\*/g, '<strong><em>$1</em></strong>')
     .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
     .replace(/\*(.*?)\*/g, '<em>$1</em>')
-    .replace(/^\s*[-*]\s+(.*$)/gim, '<li>$1</li>')
-    .replace(/^\d+\.\s+(.*$)/gim, '<li>$1</li>')
+    // Links (before line break conversion)
     .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noreferrer">$1</a>')
+    // Inline code
     .replace(/`([^`]+)`/g, '<code>$1</code>')
+    // Verification flags
+    .replace(/\[VERIFY\]/gi, '<span style="color:#d97706;font-weight:600">⚠️ VERIFY</span>')
+    .replace(/\[needs verification\]/gi, '<span style="color:#d97706;font-weight:600">⚠️ VERIFY</span>')
+    .replace(/\[NEEDS SOURCE\]/gi, '<span style="color:#d97706;font-weight:600">⚠️ NEEDS SOURCE</span>')
+    // Bullet lists — mark with data attribute
+    .replace(/^\s*[-*]\s+(.*$)/gim, '<li data-list="ul">$1</li>')
+    // Numbered lists
+    .replace(/^\d+\.\s+(.*$)/gim, '<li data-list="ol">$1</li>')
+    // Paragraphs
     .replace(/\n\n/g, '</p><p>')
-    .replace(/\n/g, '<br/>')
-    .replace(/(<li>.*<\/li>)/s, '<ul>$1</ul>')
-    .replace(/^(.*)$/, '<p>$1</p>');
+    .replace(/\n/g, '<br/>');
+
+  // Wrap consecutive list items by type
+  html = html.replace(/(<li data-list="ol">.*?<\/li>(?:<br\/>)?)+/g, (match) =>
+    '<ol>' + match.replace(/ data-list="ol"/g, '').replace(/<br\/>/g, '') + '</ol>'
+  );
+  html = html.replace(/(<li data-list="ul">.*?<\/li>(?:<br\/>)?)+/g, (match) =>
+    '<ul>' + match.replace(/ data-list="ul"/g, '').replace(/<br\/>/g, '') + '</ul>'
+  );
+
+  // Wrap in paragraph
+  html = '<p>' + html + '</p>';
+
+  // Clean up empty/invalid paragraph nesting
+  html = html
+    .replace(/<p>\s*<\/p>/g, '')
+    .replace(/<p>\s*(<h[1-3]>)/g, '$1')
+    .replace(/(<\/h[1-3]>)\s*<\/p>/g, '$1')
+    .replace(/<p>\s*(<[uo]l>)/g, '$1')
+    .replace(/(<\/[uo]l>)\s*<\/p>/g, '$1');
+
+  return html;
 }
 
 export default function ArticleView({
