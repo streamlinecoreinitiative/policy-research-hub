@@ -1773,9 +1773,187 @@ button:disabled { opacity: 0.6; cursor: not-allowed; }
   .form-row-3 { grid-template-columns: 1fr; }
   .form-row-2 { grid-template-columns: 1fr; }
   .admin-social-grid { grid-template-columns: 1fr; }
+  .agent-avatars { flex-direction: column; }
+  .admin-accounts-grid { grid-template-columns: 1fr; }
 }
 @media (max-width: 600px) {
   .admin-stat-grid { grid-template-columns: repeat(2, 1fr); }
   .admin-tabs { flex-wrap: nowrap; overflow-x: auto; }
   .admin-header { flex-direction: column; gap: 12px; }
+  .agent-avatar { flex-direction: column; text-align: center; }
+  .agent-avatar-info { align-items: center; }
+}
+
+/* ─── Agent Avatars ─────────────────────────────────────────── */
+.agent-avatars {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 24px;
+  padding: 0 4px;
+}
+.agent-avatar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #fff;
+  border: 2px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 14px 20px;
+  flex: 1;
+  transition: all 0.3s ease;
+  position: relative;
+  cursor: default;
+}
+.agent-avatar.active {
+  border-color: #10b981;
+  background: linear-gradient(135deg, #ecfdf5 0%, #fff 100%);
+  box-shadow: 0 0 16px rgba(16, 185, 129, 0.15);
+}
+.agent-avatar.idle {
+  border-color: #f87171;
+  background: linear-gradient(135deg, #fef2f2 0%, #fff 100%);
+}
+.agent-avatar-icon {
+  position: relative;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  flex-shrink: 0;
+}
+.agent-avatar.active .agent-avatar-icon {
+  background: #d1fae5;
+  animation: agent-pulse 2s infinite;
+}
+.agent-avatar.idle .agent-avatar-icon {
+  background: #fee2e2;
+}
+@keyframes agent-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4); }
+  50% { box-shadow: 0 0 0 8px rgba(16, 185, 129, 0); }
+}
+.agent-status-dot {
+  position: absolute;
+  bottom: 2px;
+  right: 2px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+}
+.agent-status-dot.active {
+  background: #10b981;
+  animation: dot-pulse 1.5s infinite;
+}
+.agent-status-dot.idle {
+  background: #ef4444;
+}
+@keyframes dot-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+.agent-avatar-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+.agent-name {
+  font-weight: 700;
+  font-size: 14px;
+  color: #111827;
+}
+.agent-status-label {
+  font-size: 12px;
+  font-weight: 600;
+}
+.agent-status-label.active {
+  color: #059669;
+}
+.agent-status-label.idle {
+  color: #dc2626;
+}
+.agent-last-active {
+  font-size: 11px;
+  color: #9ca3af;
+  margin-left: auto;
+  white-space: nowrap;
+}
+
+/* ─── Accounts Tab ──────────────────────────────────────────── */
+.admin-accounts-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 16px;
+}
+.admin-account-card {
+  background: #fff;
+  border: 2px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  transition: all 0.2s ease;
+}
+.admin-account-card.connected {
+  border-color: #10b981;
+  background: linear-gradient(135deg, #ecfdf5 0%, #fff 100%);
+}
+.admin-account-card.disconnected {
+  border-color: #e5e7eb;
+}
+.account-card-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+.account-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: #f3f4f6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 16px;
+  color: #374151;
+}
+.admin-account-card.connected .account-icon {
+  background: #d1fae5;
+  color: #065f46;
+}
+.account-name {
+  font-weight: 700;
+  font-size: 15px;
+  color: #111827;
+  flex: 1;
+}
+.account-status-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+.account-status-dot.on {
+  background: #10b981;
+  box-shadow: 0 0 6px rgba(16, 185, 129, 0.5);
+}
+.account-status-dot.off {
+  background: #d1d5db;
+}
+.account-status-text {
+  font-size: 13px;
+  color: #6b7280;
+  margin-bottom: 4px;
+}
+.admin-account-card.connected .account-status-text {
+  color: #059669;
+}
+.account-last-post {
+  font-size: 11px;
+  color: #9ca3af;
+  margin-top: 4px;
 }

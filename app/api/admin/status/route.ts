@@ -3,6 +3,7 @@ import { getLogEntries, getLogStats, addLogEntry } from '@/lib/processLog';
 import { getQueuedPosts } from '@/lib/socialPostAgent';
 import { getNewsletters, getSubscriberCount } from '@/lib/newsletterAgent';
 import { getPublishedArticles } from '@/lib/articleIndex';
+import { maskCredentials, readCredentials } from '@/lib/socialCredentials';
 import fs from 'fs/promises';
 import path from 'path';
 
@@ -29,6 +30,7 @@ export async function GET(req: Request) {
       schedules,
       autoPublishLog,
       ollamaStatus,
+      socialCreds,
     ] = await Promise.all([
       getLogStats(),
       getLogEntries({ limit: 50 }),
@@ -39,14 +41,61 @@ export async function GET(req: Request) {
       readSchedules(),
       readAutoPublishLog(),
       checkOllamaStatus(),
+      readCredentials().catch(() => ({ updatedAt: '' })),
     ]);
 
     const pendingSocial = socialPosts.filter(p => p.status === 'pending').length;
     const postedSocial = socialPosts.filter(p => p.status === 'posted').length;
     const skippedSocial = socialPosts.filter(p => p.status === 'skipped').length;
 
+    // Determine agent statuses from recent logs
+    const runningLogs = recentLogs.filter(l => l.status === 'running');
+    const writerRunning = runningLogs.some(l =>
+      l.type === 'pipeline-run' || l.type === 'schedule'
+    );
+    const reviewerRunning = runningLogs.some(l =>
+      l.title?.toLowerCase().includes('fact-check') || l.title?.toLowerCase().includes('qa')
+    );
+    const socialRunning = runningLogs.some(l =>
+      l.type === 'social-post'
+    );
+
+    // Check last activity times
+    const allLogs = recentLogs;
+    const lastWriterLog = allLogs.find(l => l.type === 'pipeline-run' || l.type === 'schedule');
+    const lastReviewerLog = allLogs.find(l => l.type === 'pipeline-run' && l.details?.includes('quality'));
+    const lastSocialLog = allLogs.find(l => l.type === 'social-post' || (l.type === 'pipeline-run' && l.details?.includes('social')));
+
     return NextResponse.json({
       isLocal,
+      agents: {
+        writer: {
+          name: 'Writer Agent',
+          status: writerRunning ? 'active' : 'idle',
+          model: 'qwen3:4b / qwen3:8b',
+          role: 'Research, planning & writing articles',
+          lastActivity: lastWriterLog?.timestamp || null,
+          lastTitle: lastWriterLog?.title || null,
+        },
+        reviewer: {
+          name: 'Review Agent',
+          status: writerRunning ? 'active' : 'idle', // reviewer runs during pipeline
+          model: 'bespoke-minicheck:7b',
+          role: 'Fact-checking & QA validation',
+          lastActivity: lastReviewerLog?.timestamp || lastWriterLog?.timestamp || null,
+          lastTitle: lastReviewerLog?.title || null,
+        },
+        social: {
+          name: 'Social Agent',
+          status: socialRunning ? 'active' : 'idle',
+          model: 'qwen3:4b',
+          role: 'Generates social media posts',
+          lastActivity: lastSocialLog?.timestamp || null,
+          lastTitle: lastSocialLog?.title || null,
+          pendingPosts: pendingSocial,
+        },
+      },
+      socialCredentials: isLocal ? maskCredentials(socialCreds as any) : null,
       system: {
         ollamaRunning: ollamaStatus.running,
         ollamaModels: ollamaStatus.models,

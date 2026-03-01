@@ -13,3 +13,5 @@ coverage
 # Keep data/output tracked — these are the published articles
 # /data/output
 data/schedules.json
+data/social-credentials.json
+data/process-log.json

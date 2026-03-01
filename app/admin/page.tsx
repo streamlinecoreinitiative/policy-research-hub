@@ -36,6 +36,23 @@ type LogEntry = {
   details?: string;
 };
 
+type AgentInfo = {
+  name: string;
+  status: 'active' | 'idle';
+  model: string;
+  role: string;
+  lastActivity: string | null;
+  lastTitle: string | null;
+  pendingPosts?: number;
+};
+
+type SocialCredentialsMasked = {
+  twitter: { enabled: boolean; apiKey: string; hasSecret: boolean; hasAccessToken: boolean; lastPosted?: string } | null;
+  linkedin: { enabled: boolean; hasAccessToken: boolean; organizationId: string | null; lastPosted?: string } | null;
+  bluesky: { enabled: boolean; handle: string; hasAppPassword: boolean; lastPosted?: string } | null;
+  updatedAt: string;
+};
+
 type Schedule = {
   id: string;
   topic: string;
@@ -55,6 +72,12 @@ type Schedule = {
 
 type AdminData = {
   isLocal: boolean;
+  agents: {
+    writer: AgentInfo;
+    reviewer: AgentInfo;
+    social: AgentInfo;
+  };
+  socialCredentials: SocialCredentialsMasked | null;
   system: {
     ollamaRunning: boolean;
     ollamaModels: string[];
@@ -93,7 +116,7 @@ type AdminData = {
   };
 };
 
-type Tab = 'overview' | 'social' | 'newsletters' | 'schedules' | 'logs' | 'generate';
+type Tab = 'overview' | 'social' | 'newsletters' | 'schedules' | 'logs' | 'generate' | 'accounts';
 
 // ─── Helpers ───────────────────────────────────────────────────
 
@@ -144,6 +167,12 @@ export default function AdminDashboard() {
   // Newsletter preview
   const [previewHtml, setPreviewHtml] = useState('');
 
+  // Credentials form state
+  const [credsPlatform, setCredsPlatform] = useState<'twitter' | 'linkedin' | 'bluesky'>('twitter');
+  const [credsForm, setCredsForm] = useState<Record<string, string>>({});
+  const [credsEnabled, setCredsEnabled] = useState(true);
+  const [credsSaving, setCredsSaving] = useState(false);
+
   const fetchData = useCallback(async () => {
     try {
       const res = await fetch('/api/admin/status');
@@ -165,6 +194,32 @@ export default function AdminDashboard() {
   }, [fetchData]);
 
   // ─── Actions ──────────────────────────────────────────────────
+
+  const saveCredentials = async () => {
+    setCredsSaving(true);
+    setActionStatus(`Saving ${credsPlatform} credentials...`);
+    try {
+      const res = await fetch('/api/admin/credentials', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          platform: credsPlatform,
+          credentials: credsForm,
+          enabled: credsEnabled,
+        }),
+      });
+      const json = await res.json();
+      if (!res.ok) throw new Error(json.error);
+      setActionStatus(`${credsPlatform} credentials saved!`);
+      setCredsForm({});
+      await fetchData();
+    } catch (err) {
+      setActionStatus(`Failed: ${(err as Error).message}`);
+    } finally {
+      setCredsSaving(false);
+    }
+    setTimeout(() => setActionStatus(''), 3000);
+  };
 
   const updateSocialPost = async (postId: string, status: 'posted' | 'skipped') => {
     setActionStatus('Updating post...');
@@ -289,7 +344,7 @@ export default function AdminDashboard() {
 
   return (
     <main className="admin-dash">
-      {/* Header */}
+      {/* Header with Agent Avatars */}
       <div className="admin-header">
         <div>
           <h1>Command Center</h1>
@@ -303,12 +358,42 @@ export default function AdminDashboard() {
         </div>
       </div>
 
+      {/* Agent Avatars */}
+      <div className="agent-avatars">
+        {([
+          { key: 'writer', icon: '✍️', data: data.agents.writer },
+          { key: 'reviewer', icon: '🔍', data: data.agents.reviewer },
+          { key: 'social', icon: '📢', data: data.agents.social },
+        ] as const).map(agent => (
+          <div
+            key={agent.key}
+            className={`agent-avatar ${agent.data.status}`}
+            title={`${agent.data.name}: ${agent.data.role}\nModel: ${agent.data.model}${agent.data.lastActivity ? '\nLast activity: ' + timeAgo(agent.data.lastActivity) : ''}`}
+          >
+            <div className="agent-avatar-icon">
+              <span className="agent-emoji">{agent.icon}</span>
+              <span className={`agent-status-dot ${agent.data.status}`} />
+            </div>
+            <div className="agent-avatar-info">
+              <span className="agent-name">{agent.data.name}</span>
+              <span className={`agent-status-label ${agent.data.status}`}>
+                {agent.data.status === 'active' ? '● Working' : '○ Resting'}
+              </span>
+            </div>
+            {agent.data.lastActivity && (
+              <span className="agent-last-active">{timeAgo(agent.data.lastActivity)}</span>
+            )}
+          </div>
+        ))}
+      </div>
+
       {/* Tabs */}
       <nav className="admin-tabs">
         {([
           ['overview', '📊 Overview'],
           ['generate', '🚀 Generate'],
           ['social', '📱 Social Queue'],
+          ['accounts', '🔑 Accounts'],
           ['newsletters', '📧 Newsletters'],
           ['schedules', '⏰ Schedules'],
           ['logs', '📋 Activity Log'],
@@ -598,6 +683,224 @@ export default function AdminDashboard() {
                     )}
                   </div>
                 ))}
+              </div>
+            )}
+          </div>
+        )}
+
+        {/* ═══════ ACCOUNTS ═══════ */}
+        {activeTab === 'accounts' && (
+          <div className="admin-accounts">
+            <div className="admin-section-header">
+              <h3>Social Media Accounts</h3>
+            </div>
+
+            <div className="admin-info-box">
+              <strong>Connect your accounts:</strong> Add API credentials for each platform to enable auto-posting
+              in the future. Credentials are stored locally only and never sent to Vercel.
+              {!data.isLocal && (
+                <span style={{ color: '#dc2626', display: 'block', marginTop: 8 }}>
+                  ⚠️ Credentials can only be configured when running locally.
+                </span>
+              )}
+            </div>
+
+            {/* Current connection status */}
+            <div className="admin-accounts-grid">
+              {/* Twitter/X */}
+              <div className={`admin-account-card ${data.socialCredentials?.twitter?.enabled ? 'connected' : 'disconnected'}`}>
+                <div className="account-card-header">
+                  <span className="account-icon">𝕏</span>
+                  <span className="account-name">Twitter / X</span>
+                  <span className={`account-status-dot ${data.socialCredentials?.twitter?.enabled ? 'on' : 'off'}`} />
+                </div>
+                <div className="account-status-text">
+                  {data.socialCredentials?.twitter?.enabled
+                    ? `Connected • Key: ${data.socialCredentials.twitter.apiKey}`
+                    : 'Not connected'}
+                </div>
+                {data.socialCredentials?.twitter?.lastPosted && (
+                  <div className="account-last-post">Last posted: {timeAgo(data.socialCredentials.twitter.lastPosted)}</div>
+                )}
+              </div>
+
+              {/* LinkedIn */}
+              <div className={`admin-account-card ${data.socialCredentials?.linkedin?.enabled ? 'connected' : 'disconnected'}`}>
+                <div className="account-card-header">
+                  <span className="account-icon">in</span>
+                  <span className="account-name">LinkedIn</span>
+                  <span className={`account-status-dot ${data.socialCredentials?.linkedin?.enabled ? 'on' : 'off'}`} />
+                </div>
+                <div className="account-status-text">
+                  {data.socialCredentials?.linkedin?.enabled
+                    ? `Connected • Token: ✓`
+                    : 'Not connected'}
+                </div>
+                {data.socialCredentials?.linkedin?.lastPosted && (
+                  <div className="account-last-post">Last posted: {timeAgo(data.socialCredentials.linkedin.lastPosted)}</div>
+                )}
+              </div>
+
+              {/* Bluesky */}
+              <div className={`admin-account-card ${data.socialCredentials?.bluesky?.enabled ? 'connected' : 'disconnected'}`}>
+                <div className="account-card-header">
+                  <span className="account-icon">🦋</span>
+                  <span className="account-name">Bluesky</span>
+                  <span className={`account-status-dot ${data.socialCredentials?.bluesky?.enabled ? 'on' : 'off'}`} />
+                </div>
+                <div className="account-status-text">
+                  {data.socialCredentials?.bluesky?.enabled
+                    ? `Connected • ${data.socialCredentials.bluesky.handle}`
+                    : 'Not connected'}
+                </div>
+                {data.socialCredentials?.bluesky?.lastPosted && (
+                  <div className="account-last-post">Last posted: {timeAgo(data.socialCredentials.bluesky.lastPosted)}</div>
+                )}
+              </div>
+            </div>
+
+            {/* Credentials form (local only) */}
+            {data.isLocal && (
+              <div className="admin-panel" style={{ marginTop: 20 }}>
+                <h3>Configure Platform</h3>
+                <div className="admin-form">
+                  <div className="form-group">
+                    <label>Platform</label>
+                    <select
+                      value={credsPlatform}
+                      onChange={e => {
+                        setCredsPlatform(e.target.value as 'twitter' | 'linkedin' | 'bluesky');
+                        setCredsForm({});
+                      }}
+                    >
+                      <option value="twitter">Twitter / X</option>
+                      <option value="linkedin">LinkedIn</option>
+                      <option value="bluesky">Bluesky</option>
+                    </select>
+                  </div>
+
+                  {credsPlatform === 'twitter' && (
+                    <>
+                      <div className="form-row-2">
+                        <div className="form-group">
+                          <label>API Key</label>
+                          <input
+                            type="text"
+                            placeholder="Your Twitter API key"
+                            value={credsForm.apiKey || ''}
+                            onChange={e => setCredsForm({ ...credsForm, apiKey: e.target.value })}
+                          />
+                        </div>
+                        <div className="form-group">
+                          <label>API Secret</label>
+                          <input
+                            type="password"
+                            placeholder="Your Twitter API secret"
+                            value={credsForm.apiSecret || ''}
+                            onChange={e => setCredsForm({ ...credsForm, apiSecret: e.target.value })}
+                          />
+                        </div>
+                      </div>
+                      <div className="form-row-2">
+                        <div className="form-group">
+                          <label>Access Token</label>
+                          <input
+                            type="text"
+                            placeholder="OAuth access token"
+                            value={credsForm.accessToken || ''}
+                            onChange={e => setCredsForm({ ...credsForm, accessToken: e.target.value })}
+                          />
+                        </div>
+                        <div className="form-group">
+                          <label>Access Token Secret</label>
+                          <input
+                            type="password"
+                            placeholder="OAuth access token secret"
+                            value={credsForm.accessTokenSecret || ''}
+                            onChange={e => setCredsForm({ ...credsForm, accessTokenSecret: e.target.value })}
+                          />
+                        </div>
+                      </div>
+                      <div className="admin-info-box" style={{ marginTop: 8 }}>
+                        Get these from <a href="https://developer.x.com/en/portal/dashboard" target="_blank" rel="noreferrer">X Developer Portal</a> → Your app → Keys and tokens
+                      </div>
+                    </>
+                  )}
+
+                  {credsPlatform === 'linkedin' && (
+                    <>
+                      <div className="form-group">
+                        <label>Access Token</label>
+                        <input
+                          type="password"
+                          placeholder="LinkedIn OAuth2 access token"
+                          value={credsForm.accessToken || ''}
+                          onChange={e => setCredsForm({ ...credsForm, accessToken: e.target.value })}
+                        />
+                      </div>
+                      <div className="form-group">
+                        <label>Organization ID (optional, for company pages)</label>
+                        <input
+                          type="text"
+                          placeholder="e.g. 12345678"
+                          value={credsForm.organizationId || ''}
+                          onChange={e => setCredsForm({ ...credsForm, organizationId: e.target.value })}
+                        />
+                      </div>
+                      <div className="admin-info-box" style={{ marginTop: 8 }}>
+                        Get token from <a href="https://www.linkedin.com/developers/apps" target="_blank" rel="noreferrer">LinkedIn Developers</a> → Your app → Auth → Generate token
+                      </div>
+                    </>
+                  )}
+
+                  {credsPlatform === 'bluesky' && (
+                    <>
+                      <div className="form-row-2">
+                        <div className="form-group">
+                          <label>Handle</label>
+                          <input
+                            type="text"
+                            placeholder="yourname.bsky.social"
+                            value={credsForm.handle || ''}
+                            onChange={e => setCredsForm({ ...credsForm, handle: e.target.value })}
+                          />
+                        </div>
+                        <div className="form-group">
+                          <label>App Password</label>
+                          <input
+                            type="password"
+                            placeholder="App-specific password"
+                            value={credsForm.appPassword || ''}
+                            onChange={e => setCredsForm({ ...credsForm, appPassword: e.target.value })}
+                          />
+                        </div>
+                      </div>
+                      <div className="admin-info-box" style={{ marginTop: 8 }}>
+                        Go to <a href="https://bsky.app/settings/app-passwords" target="_blank" rel="noreferrer">Bluesky Settings</a> → App Passwords → Add App Password
+                      </div>
+                    </>
+                  )}
+
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginTop: 12 }}>
+                    <label style={{ display: 'flex', alignItems: 'center', gap: 6, cursor: 'pointer' }}>
+                      <input
+                        type="checkbox"
+                        checked={credsEnabled}
+                        onChange={e => setCredsEnabled(e.target.checked)}
+                      />
+                      Enable auto-posting for {credsPlatform}
+                    </label>
+                  </div>
+
+                  <button
+                    className="admin-btn primary"
+                    onClick={saveCredentials}
+                    disabled={credsSaving}
+                    style={{ marginTop: 12 }}
+                  >
+                    {credsSaving ? '⏳ Saving...' : '💾 Save Credentials'}
+                  </button>
+                </div>
               </div>
             )}
           </div>
