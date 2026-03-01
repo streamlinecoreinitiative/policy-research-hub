@@ -433,6 +433,16 @@ Include inline citations for all statistics.`
 
   if (claimsToCheck.length > 0) {
     log.push(`[${timestamp()}] Checking ${claimsToCheck.length} statistical claims...`);
+
+    addLogEntry({
+      type: 'pipeline-run',
+      status: 'info',
+      title: `🔍 Reviewer: fact-checking ${claimsToCheck.length} claims...`,
+      details: `Using ${factCheckerModel} to verify statistical claims against research data.\nClaims to verify:\n${claimsToCheck.map((c, i) => `${i + 1}. ${c.trim().slice(0, 100)}`).join('\n')}`,
+      meta: { phase: 'fact-check-start', model: factCheckerModel, claimCount: claimsToCheck.length },
+    }).catch(() => {});
+
+    const verifiedClaims: string[] = [];
     
     for (const claim of claimsToCheck) {
       try {
@@ -445,22 +455,27 @@ Include inline citations for all statistics.`
         const verdict = checkResult.trim().toLowerCase();
         if (verdict.startsWith('no')) {
           flaggedClaims.push(claim.trim());
+        } else {
+          verifiedClaims.push(claim.trim());
         }
       } catch (err) {
         log.push(`[${timestamp()}] Fact-check error for claim: ${(err as Error).message}`);
       }
     }
 
-    log.push(`[${timestamp()}] Fact-check results: ${claimsToCheck.length - flaggedClaims.length} verified, ${flaggedClaims.length} flagged`);
+    log.push(`[${timestamp()}] Fact-check results: ${verifiedClaims.length} verified, ${flaggedClaims.length} flagged`);
+
+    const verdictLines = [
+      ...verifiedClaims.map(c => `✓ ${c.slice(0, 120)}`),
+      ...flaggedClaims.map(c => `✗ ${c.slice(0, 120)}`),
+    ];
 
     addLogEntry({
       type: 'pipeline-run',
-      status: flaggedClaims.length > 3 ? 'warning' : 'info',
-      title: `🔍 Reviewer: ${claimsToCheck.length - flaggedClaims.length}/${claimsToCheck.length} claims verified`,
-      details: flaggedClaims.length > 0
-        ? `Flagged claims:\n${flaggedClaims.map((c, i) => `${i + 1}. ${c.slice(0, 120)}`).join('\n')}`
-        : 'All statistical claims passed fact-check.',
-      meta: { phase: 'fact-check', model: factCheckerModel, checked: claimsToCheck.length, flagged: flaggedClaims.length },
+      status: flaggedClaims.length > 3 ? 'warning' : flaggedClaims.length > 0 ? 'info' : 'success',
+      title: `🔍 Reviewer: ${verifiedClaims.length}/${claimsToCheck.length} claims verified, ${flaggedClaims.length} flagged`,
+      details: `Verdicts:\n${verdictLines.join('\n')}${flaggedClaims.length > 0 ? '\n\nFlagged claims will be marked [VERIFY] or removed in the editorial pass.' : '\nAll claims verified against research data.'}`,
+      meta: { phase: 'fact-check', model: factCheckerModel, checked: claimsToCheck.length, verified: verifiedClaims.length, flagged: flaggedClaims.length },
     }).catch(() => {});
   } else {
     log.push(`[${timestamp()}] No statistical claims found to verify`);
@@ -468,7 +483,8 @@ Include inline citations for all statistics.`
       type: 'pipeline-run',
       status: 'info',
       title: '🔍 Reviewer: no statistical claims to verify',
-      meta: { phase: 'fact-check' },
+      details: 'Draft does not contain statistical/numerical claims requiring verification.',
+      meta: { phase: 'fact-check', checked: 0, flagged: 0 },
     }).catch(() => {});
   }
 
@@ -520,12 +536,14 @@ Return the revised document with:
   const editWordCount = factCheckedDraft.split(/\s+/).length;
   const verifyTags = (factCheckedDraft.match(/\[VERIFY\]/gi) || []).length;
   const needsSourceTags = (factCheckedDraft.match(/\[NEEDS SOURCE\]/gi) || []).length;
+  const wordDelta = editWordCount - writerWordCount;
+  const editedSections = (factCheckedDraft.match(/^##\s+/gm) || []).length;
   addLogEntry({
     type: 'pipeline-run',
     status: verifyTags + needsSourceTags > 0 ? 'warning' : 'info',
     title: `✍️ Writer (edit pass): ${editWordCount} words${verifyTags > 0 ? `, ${verifyTags} [VERIFY]` : ''}${needsSourceTags > 0 ? `, ${needsSourceTags} [NEEDS SOURCE]` : ''}`,
-    details: `Editorial revision complete. ${verifyTags + needsSourceTags === 0 ? 'No claims flagged.' : `${verifyTags} verify tags, ${needsSourceTags} needs-source tags added.`}`,
-    meta: { phase: 'editorial', model: writerModel, wordCount: editWordCount, verifyTags, needsSourceTags },
+    details: `Editorial revision complete.\n- Words: ${writerWordCount} → ${editWordCount} (${wordDelta >= 0 ? '+' : ''}${wordDelta})\n- Sections: ${editedSections}\n- Verify tags: ${verifyTags}\n- Needs-source tags: ${needsSourceTags}\n${verifyTags + needsSourceTags === 0 ? '✓ No claims flagged — clean edit.' : `⚠ ${verifyTags + needsSourceTags} claims need attention.`}`,
+    meta: { phase: 'editorial', model: writerModel, wordCount: editWordCount, wordDelta, verifyTags, needsSourceTags },
   }).catch(() => {});
 
   // Phase 4c: Title validation agent
@@ -633,15 +651,23 @@ Return the revised document with:
 
   addLogEntry({
     type: 'pipeline-run',
-    status: qaResult.passed ? 'info' : 'warning',
-    title: `🔍 Reviewer QA: ${qaResult.score}/100 — ${qaResult.passed ? 'PASSED' : 'FAILED'}`,
-    details: qaResult.checks.map(c => `${c.passed ? '✓' : '✗'} ${c.name}: ${c.detail}`).join('\n'),
-    meta: { phase: 'qa-gate', score: qaResult.score, passed: qaResult.passed, checks: qaResult.checks.length },
+    status: qaResult.passed ? 'success' : 'warning',
+    title: `🔍 Reviewer QA: ${qaResult.score}/100 — ${qaResult.passed ? 'PASSED ✓' : 'FAILED ✗'}`,
+    details: `Quality Gate Results:\n${qaResult.checks.map(c => `${c.passed ? '✓' : '✗'} ${c.name} (weight: ${c.weight}): ${c.detail}`).join('\n')}\n\nOverall: ${qaResult.passed ? 'All critical checks passed' : `Failed — ${qaResult.failReasons.length} issue(s)`}${!qaResult.passed && qaResult.suggestions.length > 0 ? '\n\nSuggestions for improvement:\n' + qaResult.suggestions.map((s, i) => `${i + 1}. ${s}`).join('\n') : ''}`,
+    meta: { phase: 'qa-gate', score: qaResult.score, passed: qaResult.passed, checks: qaResult.checks.length, failed: qaResult.failReasons.length },
   }).catch(() => {});
 
   // If QA fails, attempt ONE retry with corrective feedback
   if (!qaResult.passed && qaResult.suggestions.length > 0) {
     log.push(`[${timestamp()}] QA failed — attempting corrective retry...`);
+
+    addLogEntry({
+      type: 'pipeline-run',
+      status: 'warning',
+      title: `♻️ Retry: rewriting to fix ${qaResult.failReasons.length} QA issue(s)`,
+      details: `QA scored ${qaResult.score}/100 (need 60+ to pass). Sending ${qaResult.suggestions.length} improvement suggestions to ${writerModel}:\n${qaResult.suggestions.map((s, i) => `${i + 1}. ${s}`).join('\n')}`,
+      meta: { phase: 'qa-retry-start', score: qaResult.score, suggestions: qaResult.suggestions.length },
+    }).catch(() => {});
 
     const retryMessages: ChatMessage[] = [
       {
@@ -687,12 +713,16 @@ Return the revised document with:
 
       log.push(`[${timestamp()}] Retry QA Score: ${retryQA.score}/100 — ${retryQA.passed ? 'PASSED' : 'STILL FAILED'}`);
 
+      const retryChecksDetail = retryQA.checks.map(c => `${c.passed ? '✓' : '✗'} ${c.name}: ${c.detail}`).join('\n');
+      const scoreImproved = retryQA.score > qaResult.score;
+      const scoreDelta = retryQA.score - qaResult.score;
+
       addLogEntry({
         type: 'pipeline-run',
-        status: retryQA.passed ? 'info' : 'warning',
-        title: `✍️ Writer (retry): QA ${qaResult.score} → ${retryQA.score}`,
-        details: `Retry ${retryQA.passed ? 'fixed' : 'improved but still failed'} quality issues.`,
-        meta: { phase: 'qa-retry', oldScore: qaResult.score, newScore: retryQA.score },
+        status: retryQA.passed ? 'success' : scoreImproved ? 'info' : 'warning',
+        title: `♻️ Retry result: QA ${qaResult.score} → ${retryQA.score}/100 (${scoreDelta >= 0 ? '+' : ''}${scoreDelta}) ${retryQA.passed ? '✓ PASSED' : '✗ STILL FAILED'}`,
+        details: `${retryQA.passed ? 'Retry fixed all quality issues!' : scoreImproved ? 'Retry improved quality but still below threshold.' : 'Retry did not improve quality.'}\n\nRetry QA Checks:\n${retryChecksDetail}`,
+        meta: { phase: 'qa-retry', oldScore: qaResult.score, newScore: retryQA.score, delta: scoreDelta, passed: retryQA.passed },
       }).catch(() => {});
 
       if (retryQA.score > qaResult.score) {
@@ -822,12 +852,14 @@ Return the revised document with:
   }
 
   // Log pipeline completion
+  const qaScoreStr = `${qaResult.score}/100`;
+  const checksDetail = qaResult.checks.map(c => `${c.passed ? '✓' : '✗'} ${c.name}: ${c.detail}`).join('\n');
   addLogEntry({
     type: 'pipeline-run',
     status: publishStatus === 'published' ? 'success' : 'warning',
     title: articleTitle,
-    details: `${publishStatus === 'published' ? 'Published' : 'Saved as draft'}. ${wordCount} words, quality score: ${qualityScore}. ${sourcesUsed} sources.`,
-    meta: { wordCount, qualityScore, sourcesUsed, publishStatus, warnings: warnings.length },
+    details: `${publishStatus === 'published' ? 'Published' : 'Saved as draft'}. ${wordCount} words, QA ${qaScoreStr} (${qaResult.passed ? 'PASSED' : 'FAILED'}). ${sourcesUsed} sources, readability ${qualityScore.readabilityScore}/100.\n\nQA Checks:\n${checksDetail}${warnings.length > 0 ? '\n\nWarnings:\n' + warnings.map((w, i) => `${i + 1}. ${w}`).join('\n') : ''}`,
+    meta: { wordCount, score: qaResult.score, passed: qaResult.passed, sourcesUsed, publishStatus, readability: qualityScore.readabilityScore, warnings: warnings.length },
   }).catch(() => {});
 
   return {

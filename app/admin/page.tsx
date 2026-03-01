@@ -1189,16 +1189,33 @@ launchctl list | grep policyresearchhub`}</pre>
                     : phase === 'writing' ? '✍️ Writer'
                     : phase === 'editorial' ? '✍️ Writer (Edit)'
                     : phase === 'fact-check' ? '🔍 Reviewer'
+                    : phase === 'fact-check-start' ? '🔍 Reviewer'
                     : phase === 'qa-gate' ? '🔍 Reviewer (QA)'
-                    : phase === 'qa-retry' ? '✍️ Writer (Retry)'
+                    : phase === 'qa-retry-start' ? '♻️ Retry'
+                    : phase === 'qa-retry' ? '♻️ Retry Result'
                     : null;
+
+                  const badgeClass = phase === 'qa-retry-start' || phase === 'qa-retry' ? 'retry'
+                    : phase?.startsWith('writing') || phase?.startsWith('editorial') || phase === 'planning' ? 'writer'
+                    : 'reviewer';
+
+                  // Score bar for QA entries
+                  const showScoreBar = (phase === 'qa-gate' || phase === 'qa-retry') && entry.meta?.score !== undefined;
+                  const qaScore = Number(entry.meta?.score || 0);
+                  const qaPassed = !!entry.meta?.passed;
+
+                  // Score delta for retry entries
+                  const showDelta = phase === 'qa-retry' && entry.meta?.oldScore !== undefined;
+                  const oldScore = Number(entry.meta?.oldScore || 0);
+                  const newScore = Number(entry.meta?.newScore || 0);
+                  const delta = newScore - oldScore;
 
                   return (
                     <div key={entry.id} className={`admin-log-entry ${entry.status}`}>
                       <div className="log-entry-header">
                         <span className="log-dot" style={{ background: statusColor(entry.status) }} />
                         {agentBadge ? (
-                          <span className={`log-agent-badge ${phase?.startsWith('writing') || phase?.startsWith('editorial') || phase === 'qa-retry' || phase === 'planning' ? 'writer' : 'reviewer'}`}>
+                          <span className={`log-agent-badge ${badgeClass}`}>
                             {agentBadge}
                           </span>
                         ) : (
@@ -1206,11 +1223,50 @@ launchctl list | grep policyresearchhub`}</pre>
                         )}
                         <span className="log-time">{timeAgo(entry.timestamp)}</span>
                         {entry.meta?.wordCount ? <span className="log-meta-pill">{String(entry.meta.wordCount)} words</span> : null}
-                        {entry.meta?.score !== undefined ? <span className="log-meta-pill">QA: {String(entry.meta.score)}/100</span> : null}
+                        {entry.meta?.score !== undefined ? (
+                          <span className={`log-meta-pill ${qaPassed ? 'qa-pass' : 'qa-fail'}`}>
+                            QA: {String(entry.meta.score)}/100
+                          </span>
+                        ) : null}
+                        {entry.meta?.flagged !== undefined && Number(entry.meta.flagged) > 0 ? (
+                          <span className="log-meta-pill qa-fail">{String(entry.meta.flagged)} flagged</span>
+                        ) : null}
+                        {entry.meta?.verified !== undefined ? (
+                          <span className="log-meta-pill qa-pass">{String(entry.meta.verified)} verified</span>
+                        ) : null}
+                        {entry.meta?.verifyTags !== undefined && Number(entry.meta.verifyTags) > 0 ? (
+                          <span className="log-meta-pill qa-fail">{String(entry.meta.verifyTags)} [VERIFY]</span>
+                        ) : null}
+                        {showDelta ? (
+                          <span className={`log-meta-pill ${delta > 0 ? 'qa-pass' : 'qa-fail'}`}>
+                            {delta > 0 ? '↑' : '↓'}{Math.abs(delta)} pts
+                          </span>
+                        ) : null}
                       </div>
                       <div className="log-title">{entry.title}</div>
+                      {showScoreBar && (
+                        <div className="qa-score-bar-container">
+                          <div className="qa-score-bar">
+                            <div
+                              className={`qa-score-fill ${qaPassed ? 'passed' : qaScore >= 40 ? 'partial' : 'failed'}`}
+                              style={{ width: `${qaScore}%` }}
+                            />
+                          </div>
+                          <span className="qa-score-label">{qaScore}/100 {qaPassed ? '✓' : '✗'}</span>
+                        </div>
+                      )}
+                      {showDelta && (
+                        <div className="qa-delta-row">
+                          <span className="qa-delta-before">{oldScore}</span>
+                          <span className="qa-delta-arrow">→</span>
+                          <span className={`qa-delta-after ${newScore > oldScore ? 'improved' : ''}`}>{newScore}</span>
+                          <span className={`qa-delta-badge ${delta > 0 ? 'up' : 'down'}`}>
+                            {delta > 0 ? `+${delta}` : delta}
+                          </span>
+                        </div>
+                      )}
                       {entry.details && (
-                        <details className="log-details-expand">
+                        <details className="log-details-expand" open={phase === 'qa-gate' || phase === 'qa-retry'}>
                           <summary>Details</summary>
                           <pre className="log-details-pre">{entry.details}</pre>
                         </details>
