@@ -2017,3 +2017,56 @@ button:disabled { opacity: 0.6; cursor: not-allowed; }
 .admin-btn.share-bluesky:hover {
   background: #0066cc;
 }
+
+/* --- Agent Log Badges --- */
+.log-agent-badge {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+.log-agent-badge.writer {
+  background: #ede9fe;
+  color: #6d28d9;
+}
+.log-agent-badge.reviewer {
+  background: #ecfdf5;
+  color: #059669;
+}
+.log-meta-pill {
+  font-size: 11px;
+  background: #f3f4f6;
+  color: #6b7280;
+  padding: 1px 6px;
+  border-radius: 3px;
+  margin-left: 4px;
+  font-weight: 500;
+}
+.log-details-expand {
+  margin-top: 4px;
+}
+.log-details-expand summary {
+  font-size: 12px;
+  color: #6b7280;
+  cursor: pointer;
+  user-select: none;
+}
+.log-details-expand summary:hover {
+  color: #374151;
+}
+.log-details-pre {
+  font-size: 12px;
+  line-height: 1.5;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  padding: 12px;
+  margin-top: 6px;
+  white-space: pre-wrap;
+  word-break: break-word;
+  max-height: 300px;
+  overflow-y: auto;
+  color: #374151;
+  font-family: 'SF Mono', SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace;
+}

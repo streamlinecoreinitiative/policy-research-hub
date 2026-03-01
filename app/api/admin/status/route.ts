@@ -33,7 +33,7 @@ export async function GET(req: Request) {
       socialCreds,
     ] = await Promise.all([
       getLogStats(),
-      getLogEntries({ limit: 50 }),
+      getLogEntries({ limit: 100 }),
       getQueuedPosts().catch(() => []),
       getNewsletters().catch(() => []),
       getSubscriberCount().catch(() => 0),

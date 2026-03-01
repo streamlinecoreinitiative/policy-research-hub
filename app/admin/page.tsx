@@ -34,6 +34,7 @@ type LogEntry = {
   status: string;
   title: string;
   details?: string;
+  meta?: Record<string, unknown>;
 };
 
 type AgentInfo = {
@@ -1173,17 +1174,42 @@ launchctl list | grep policyresearchhub`}</pre>
               </div>
             ) : (
               <div className="admin-log-list">
-                {data.logs.recent.map(entry => (
-                  <div key={entry.id} className={`admin-log-entry ${entry.status}`}>
-                    <div className="log-entry-header">
-                      <span className="log-dot" style={{ background: statusColor(entry.status) }} />
-                      <span className="log-type">{entry.type}</span>
-                      <span className="log-time">{timeAgo(entry.timestamp)}</span>
+                {data.logs.recent.map(entry => {
+                  const phase = entry.meta?.phase as string | undefined;
+                  const agentBadge = phase === 'research' ? '🔍 Researcher'
+                    : phase === 'planning' ? '📋 Planner'
+                    : phase === 'writing' ? '✍️ Writer'
+                    : phase === 'editorial' ? '✍️ Writer (Edit)'
+                    : phase === 'fact-check' ? '🔍 Reviewer'
+                    : phase === 'qa-gate' ? '🔍 Reviewer (QA)'
+                    : phase === 'qa-retry' ? '✍️ Writer (Retry)'
+                    : null;
+
+                  return (
+                    <div key={entry.id} className={`admin-log-entry ${entry.status}`}>
+                      <div className="log-entry-header">
+                        <span className="log-dot" style={{ background: statusColor(entry.status) }} />
+                        {agentBadge ? (
+                          <span className={`log-agent-badge ${phase?.startsWith('writing') || phase?.startsWith('editorial') || phase === 'qa-retry' || phase === 'planning' ? 'writer' : 'reviewer'}`}>
+                            {agentBadge}
+                          </span>
+                        ) : (
+                          <span className="log-type">{entry.type}</span>
+                        )}
+                        <span className="log-time">{timeAgo(entry.timestamp)}</span>
+                        {entry.meta?.wordCount ? <span className="log-meta-pill">{String(entry.meta.wordCount)} words</span> : null}
+                        {entry.meta?.score !== undefined ? <span className="log-meta-pill">QA: {String(entry.meta.score)}/100</span> : null}
+                      </div>
+                      <div className="log-title">{entry.title}</div>
+                      {entry.details && (
+                        <details className="log-details-expand">
+                          <summary>Details</summary>
+                          <pre className="log-details-pre">{entry.details}</pre>
+                        </details>
+                      )}
                     </div>
-                    <div className="log-title">{entry.title}</div>
-                    {entry.details && <div className="log-details">{entry.details}</div>}
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             )}
           </div>

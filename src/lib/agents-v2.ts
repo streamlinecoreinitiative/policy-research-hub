@@ -246,10 +246,22 @@ export async function runAgents(params: AgentRunParams): Promise<AgentRunResult>
   try {
     research = await conductResearch(topic, researchDepth);
     log.push(`[${timestamp()}] Found ${research.results.length} sources and ${research.statistics.length} statistics`);
+    addLogEntry({
+      type: 'pipeline-run',
+      status: 'info',
+      title: `🔍 Researcher: ${research.results.length} sources, ${research.statistics.length} stats`,
+      details: `Sources: ${research.results.slice(0, 5).map(r => r.title || r.url).join(' | ')}`,
+      meta: { phase: 'research', sourceCount: research.results.length, statCount: research.statistics.length },
+    }).catch(() => {});
   } catch (error) {
     log.push(`[${timestamp()}] Research failed: ${(error as Error).message}`);
     warnings.push('Web research failed - using fallback data sources');
     research = { query: topic, results: [], statistics: [], timestamp: new Date().toISOString() };
+    addLogEntry({
+      type: 'pipeline-run',
+      status: 'warning',
+      title: `🔍 Researcher: failed — ${(error as Error).message}`,
+    }).catch(() => {});
   }
 
   const researchPrompt = formatResearchForPrompt(research);
@@ -321,6 +333,14 @@ Deliver:
   log.push(plannerPlan.trim());
   await recordOutline(plannerPlan);
 
+  addLogEntry({
+    type: 'pipeline-run',
+    status: 'info',
+    title: `📋 Planner: outline ready`,
+    details: plannerPlan.slice(0, 400),
+    meta: { phase: 'planning', model: plannerModel },
+  }).catch(() => {});
+
   let proposedTitle = extractPlannerTitle(plannerPlan);
   if (proposedTitle) {
     log.push(`[${timestamp()}] Proposed title: ${proposedTitle}`);
@@ -383,8 +403,18 @@ Include inline citations for all statistics.`
   // Strip Qwen3 thinking tags if present
   writerDraft = writerDraft.replace(/<think>[\s\S]*?<\/think>/g, '').trim();
   
+  const writerWordCount = writerDraft.split(/\s+/).length;
+  const writerSections = (writerDraft.match(/^##\s+/gm) || []).length;
   log.push('--- Writer draft ---');
   log.push(writerDraft.trim().slice(0, 500) + '...');
+
+  addLogEntry({
+    type: 'pipeline-run',
+    status: 'info',
+    title: `✍️ Writer: ${writerWordCount} words, ${writerSections} sections`,
+    details: `Draft preview: ${writerDraft.slice(0, 300).replace(/\n/g, ' ')}...`,
+    meta: { phase: 'writing', model: writerModel, wordCount: writerWordCount, sections: writerSections },
+  }).catch(() => {});
 
   // Phase 4: Fact-checking with bespoke-minicheck
   log.push(`[${timestamp()}] Phase 4: Fact-checking with ${factCheckerModel}...`);
@@ -422,8 +452,24 @@ Include inline citations for all statistics.`
     }
 
     log.push(`[${timestamp()}] Fact-check results: ${claimsToCheck.length - flaggedClaims.length} verified, ${flaggedClaims.length} flagged`);
+
+    addLogEntry({
+      type: 'pipeline-run',
+      status: flaggedClaims.length > 3 ? 'warning' : 'info',
+      title: `🔍 Reviewer: ${claimsToCheck.length - flaggedClaims.length}/${claimsToCheck.length} claims verified`,
+      details: flaggedClaims.length > 0
+        ? `Flagged claims:\n${flaggedClaims.map((c, i) => `${i + 1}. ${c.slice(0, 120)}`).join('\n')}`
+        : 'All statistical claims passed fact-check.',
+      meta: { phase: 'fact-check', model: factCheckerModel, checked: claimsToCheck.length, flagged: flaggedClaims.length },
+    }).catch(() => {});
   } else {
     log.push(`[${timestamp()}] No statistical claims found to verify`);
+    addLogEntry({
+      type: 'pipeline-run',
+      status: 'info',
+      title: '🔍 Reviewer: no statistical claims to verify',
+      meta: { phase: 'fact-check' },
+    }).catch(() => {});
   }
 
   // Phase 4b: Edit pass — apply fact-check flags and tighten prose
@@ -469,6 +515,18 @@ Return the revised document with:
   
   log.push('--- Fact-checked draft ---');
   log.push(factCheckedDraft.trim().slice(0, 500) + '...');
+
+  // Diff summary: compare writer draft vs fact-checked version
+  const editWordCount = factCheckedDraft.split(/\s+/).length;
+  const verifyTags = (factCheckedDraft.match(/\[VERIFY\]/gi) || []).length;
+  const needsSourceTags = (factCheckedDraft.match(/\[NEEDS SOURCE\]/gi) || []).length;
+  addLogEntry({
+    type: 'pipeline-run',
+    status: verifyTags + needsSourceTags > 0 ? 'warning' : 'info',
+    title: `✍️ Writer (edit pass): ${editWordCount} words${verifyTags > 0 ? `, ${verifyTags} [VERIFY]` : ''}${needsSourceTags > 0 ? `, ${needsSourceTags} [NEEDS SOURCE]` : ''}`,
+    details: `Editorial revision complete. ${verifyTags + needsSourceTags === 0 ? 'No claims flagged.' : `${verifyTags} verify tags, ${needsSourceTags} needs-source tags added.`}`,
+    meta: { phase: 'editorial', model: writerModel, wordCount: editWordCount, verifyTags, needsSourceTags },
+  }).catch(() => {});
 
   // Phase 4c: Title validation agent
   log.push(`[${timestamp()}] Phase 4c: Validating title with ${plannerModel}...`);
@@ -573,6 +631,14 @@ Return the revised document with:
     log.push(`  ${check.passed ? '✓' : '✗'} ${check.name}: ${check.detail}`);
   }
 
+  addLogEntry({
+    type: 'pipeline-run',
+    status: qaResult.passed ? 'info' : 'warning',
+    title: `🔍 Reviewer QA: ${qaResult.score}/100 — ${qaResult.passed ? 'PASSED' : 'FAILED'}`,
+    details: qaResult.checks.map(c => `${c.passed ? '✓' : '✗'} ${c.name}: ${c.detail}`).join('\n'),
+    meta: { phase: 'qa-gate', score: qaResult.score, passed: qaResult.passed, checks: qaResult.checks.length },
+  }).catch(() => {});
+
   // If QA fails, attempt ONE retry with corrective feedback
   if (!qaResult.passed && qaResult.suggestions.length > 0) {
     log.push(`[${timestamp()}] QA failed — attempting corrective retry...`);
@@ -620,6 +686,14 @@ Return the revised document with:
       });
 
       log.push(`[${timestamp()}] Retry QA Score: ${retryQA.score}/100 — ${retryQA.passed ? 'PASSED' : 'STILL FAILED'}`);
+
+      addLogEntry({
+        type: 'pipeline-run',
+        status: retryQA.passed ? 'info' : 'warning',
+        title: `✍️ Writer (retry): QA ${qaResult.score} → ${retryQA.score}`,
+        details: `Retry ${retryQA.passed ? 'fixed' : 'improved but still failed'} quality issues.`,
+        meta: { phase: 'qa-retry', oldScore: qaResult.score, newScore: retryQA.score },
+      }).catch(() => {});
 
       if (retryQA.score > qaResult.score) {
         log.push(`[${timestamp()}] Retry improved quality (${qaResult.score} → ${retryQA.score}), using retry version`);
