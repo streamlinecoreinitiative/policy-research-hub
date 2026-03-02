@@ -1,1 +1,65 @@
-[]
+{
+  "posts": [
+    {
+      "id": "mm8fmeli-tw",
+      "articleSlug": "water-loss-reduction-in-secondary-cities-in-the-sahel-raising-resilience-finance-1772410584522",
+      "articleTitle": "water loss reduction in secondary cities in the Sahel: raising resilience finance for communities",
+      "platform": "twitter",
+      "content": "Sahel secondary cities face 40% water loss from aging infrastructure. Decentralized solar water purification and microgrids can reduce loss while improving energy access. Prioritizing public-private partnerships by 2025 is critical for resilience in Niger, Chad, Burkina Faso.",
+      "hashtags": [
+        "WaterSecurity",
+        "ClimateAction",
+        "Sahel"
+      ],
+      "url": "https://baseflow.institute/article/water-loss-reduction-in-secondary-cities-in-the-sahel-raising-resilience-finance-1772410584522",
+      "status": "pending",
+      "createdAt": "2026-03-02T00:19:50.502Z"
+    },
+    {
+      "id": "mm8eydtx-tw",
+      "articleSlug": "micro-insurance-for-smallholder-drought-risk-in-the-andean-highlands-supporting--1772409451112",
+      "articleTitle": "micro-insurance for smallholder drought risk in the Andean highlands: supporting adaptation targets in NDCs",
+      "platform": "twitter",
+      "content": "In the Andean Highlands, droughts have increased 30% since the 1980s, threatening 15M people. Pilot micro-insurance in Bolivia and Peru reduced income losses by 40% during droughts. Scaling up by 2024 could protect livelihoods and advance NDCs. Action now is critical.",
+      "hashtags": [
+        "ClimateResilience",
+        "MicroInsurance",
+        "NDCs"
+      ],
+      "url": "https://baseflow.institute/article/micro-insurance-for-smallholder-drought-risk-in-the-andean-highlands-supporting--1772409451112",
+      "status": "pending",
+      "createdAt": "2026-03-02T00:01:09.765Z"
+    },
+    {
+      "id": "mm8eydtx-li",
+      "articleSlug": "micro-insurance-for-smallholder-drought-risk-in-the-andean-highlands-supporting--1772409451112",
+      "articleTitle": "micro-insurance for smallholder drought risk in the Andean highlands: supporting adaptation targets in NDCs",
+      "platform": "linkedin",
+      "content": "Smallholder farmers in the Andean Highlands — home to 15 million people — face drought risks that have surged 30% since the 1980s, with projected annual losses exceeding $1.2 billion by 2030. Traditional coping mechanisms are failing to protect livelihoods.\n\nOur research reveals that weather-indexed micro-insurance pilots in Bolivia and Peru have reduced income losses by 40% during droughts. However, adoption remains low due to data gaps and premiums that exceed 10% of annual income.\n\nTo advance Nationally Determined Contributions (NDCs) and build climate resilience, we recommend scaling these programs by 2024, integrating them into national frameworks, and leveraging public-private partnerships. By 2026, this could protect 60% of the population from climate shocks. Immediate action is critical.",
+      "hashtags": [
+        "ClimateResilience",
+        "MicroInsurance",
+        "NDCs"
+      ],
+      "url": "https://baseflow.institute/article/micro-insurance-for-smallholder-drought-risk-in-the-andean-highlands-supporting--1772409451112",
+      "status": "pending",
+      "createdAt": "2026-03-02T00:01:09.765Z"
+    },
+    {
+      "id": "mm8eydtx-bs",
+      "articleSlug": "micro-insurance-for-smallholder-drought-risk-in-the-andean-highlands-supporting--1772409451112",
+      "articleTitle": "micro-insurance for smallholder drought risk in the Andean highlands: supporting adaptation targets in NDCs",
+      "platform": "bluesky",
+      "content": "Andean droughts have surged 30% since the 1980s — threatening 15M people. Pilot micro-insurance in Bolivia and Peru reduced income losses by 40% during droughts. Let’s scale up by 2024 to protect livelihoods and advance NDCs. Action now!",
+      "hashtags": [
+        "ClimateResilience",
+        "MicroInsurance",
+        "NDCs"
+      ],
+      "url": "https://baseflow.institute/article/micro-insurance-for-smallholder-drought-risk-in-the-andean-highlands-supporting--1772409451112",
+      "status": "pending",
+      "createdAt": "2026-03-02T00:01:09.765Z"
+    }
+  ],
+  "lastUpdated": "2026-03-02T00:19:50.505Z"
+}

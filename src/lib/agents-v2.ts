@@ -419,10 +419,14 @@ Include inline citations for all statistics.`
   // Phase 4: Fact-checking with bespoke-minicheck
   log.push(`[${timestamp()}] Phase 4: Fact-checking with ${factCheckerModel}...`);
 
-  // Extract claims (sentences with numbers/statistics) from the draft
+  // Extract individual sentences (not whole paragraphs) with statistical claims
   const draftSentences = writerDraft
     .split(/\n/)
-    .filter(line => !line.startsWith('#') && line.trim().length > 20);
+    .filter(line => !line.startsWith('#') && line.trim().length > 20)
+    // Split paragraphs into individual sentences
+    .flatMap(para => para.split(/(?<=[.!?])\s+/))
+    .map(s => s.trim())
+    .filter(s => s.length > 20 && s.length < 300); // Skip fragments and overly long blobs
   
   const claimsToCheck = draftSentences.filter(s => 
     /\d+/.test(s) || /percent|million|billion|thousand|growth|decline|increase|decrease/i.test(s)

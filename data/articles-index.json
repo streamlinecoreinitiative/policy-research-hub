@@ -1,1 +1,84 @@
-{"articles":[]}
+{
+  "articles": [
+    {
+      "slug": "climate-smart-irrigation-cooperatives-in-the-caribbean-sids-protecting-livelihoo-1772412185774",
+      "title": "climate-smart irrigation cooperatives in the Caribbean SIDS: protecting livelihoods under climate stress",
+      "summary": "The Caribbean Small Island Developing States (SIDS) face an escalating crisis of water insecurity and agricultural vulnerability, exacerbated by climate stress.",
+      "topic": "Environmental resilience in lower-income countries: water security, clean energy, and climate adaptation",
+      "template": "Policy Brief",
+      "tags": [
+        "climate",
+        "water",
+        "energy",
+        "agriculture",
+        "policy",
+        "finance",
+        "resilience",
+        "biodiversity"
+      ],
+      "wordCount": 603,
+      "sourcesUsed": 7,
+      "readabilityScore": 96,
+      "publishedAt": "2026-03-02T00:43:05.778Z",
+      "updatedAt": "2026-03-02T00:43:05.778Z",
+      "status": "published",
+      "mdFile": "climate-smart-irrigation-cooperatives-in-the-caribbean-sids-protecting-livelihoo-1772412185774.md",
+      "htmlFile": "climate-smart-irrigation-cooperatives-in-the-caribbean-sids-protecting-livelihoo-1772412185774.html",
+      "region": "Latin America & Caribbean"
+    },
+    {
+      "slug": "water-loss-reduction-in-secondary-cities-in-the-sahel-raising-resilience-finance-1772410584522",
+      "title": "water loss reduction in secondary cities in the Sahel: raising resilience finance for communities",
+      "summary": "Sub-Saharan Africa’s water-energy nexus is a critical vulnerability point for climate resilience. With only 32.4% of the population accessing safely managed drinking water (World Bank, 2024), the region faces compounded risks from climate-induced droughts and energy poverty.",
+      "topic": "Environmental resilience in lower-income countries: water security, clean energy, and climate adaptation",
+      "template": "Policy Brief",
+      "tags": [
+        "climate",
+        "water",
+        "energy",
+        "agriculture",
+        "health",
+        "policy",
+        "finance",
+        "resilience"
+      ],
+      "wordCount": 758,
+      "sourcesUsed": 12,
+      "readabilityScore": 91,
+      "publishedAt": "2026-03-02T00:16:24.526Z",
+      "updatedAt": "2026-03-02T00:16:24.526Z",
+      "status": "published",
+      "mdFile": "water-loss-reduction-in-secondary-cities-in-the-sahel-raising-resilience-finance-1772410584522.md",
+      "htmlFile": "water-loss-reduction-in-secondary-cities-in-the-sahel-raising-resilience-finance-1772410584522.html",
+      "region": "Sub-Saharan Africa"
+    },
+    {
+      "slug": "micro-insurance-for-smallholder-drought-risk-in-the-andean-highlands-supporting--1772409451112",
+      "title": "micro-insurance for smallholder drought risk in the Andean highlands: supporting adaptation targets in NDCs",
+      "summary": "Micro-insurance schemes for smallholder farmers in the Andean Highlands are critical to building climate resilience and achieving Nationally Determined Contributions (NDCs).",
+      "topic": "Environmental resilience in lower-income countries: water security, clean energy, and climate adaptation",
+      "template": "Policy Brief",
+      "tags": [
+        "climate",
+        "water",
+        "energy",
+        "agriculture",
+        "policy",
+        "finance",
+        "resilience",
+        "urbanization"
+      ],
+      "wordCount": 892,
+      "sourcesUsed": 25,
+      "readabilityScore": 89,
+      "publishedAt": "2026-03-01T23:57:31.116Z",
+      "updatedAt": "2026-03-01T23:57:31.116Z",
+      "status": "published",
+      "mdFile": "micro-insurance-for-smallholder-drought-risk-in-the-andean-highlands-supporting--1772409451112.md",
+      "htmlFile": "micro-insurance-for-smallholder-drought-risk-in-the-andean-highlands-supporting--1772409451112.html",
+      "region": "Sub-Saharan Africa"
+    }
+  ],
+  "lastUpdated": "2026-03-02T00:43:05.786Z",
+  "totalPublished": 3
+}

@@ -6,7 +6,8 @@ import { addLogEntry } from './processLog';
 
 const CHECK_INTERVAL_MS = 60_000;
 
-let initialized = false;
+// Use globalThis to survive Next.js hot reloads in dev mode
+const GLOBAL_KEY = '__scheduler_initialized__';
 let schedules: StoredSchedule[] = [];
 const runningIds = new Set<string>();
 
@@ -94,6 +95,11 @@ async function processSchedule(s: StoredSchedule) {
 }
 
 async function tick() {
+  // Re-read schedules from disk only if nothing is currently running
+  // (avoids overwriting in-memory refs that processSchedule is updating)
+  if (runningIds.size === 0) {
+    try { schedules = await readSchedules(); } catch {}
+  }
   const now = Date.now();
   const due = schedules.filter((s) => s.nextRunAt <= now);
   for (const s of due) {
@@ -102,9 +108,12 @@ async function tick() {
 }
 
 export async function initScheduler() {
-  if (initialized) return;
-  initialized = true;
+  // Always reload schedules from disk (survives hot reloads)
   schedules = await readSchedules();
+
+  // Only create the setInterval once (use globalThis to survive hot reloads)
+  if ((globalThis as any)[GLOBAL_KEY]) return;
+  (globalThis as any)[GLOBAL_KEY] = true;
 
   // Auto-fix model names if they reference removed models
   let needsPersist = false;
@@ -133,7 +142,8 @@ export async function initScheduler() {
 
 export async function listSchedules() {
   await initScheduler();
-  return schedules;
+  // Always return fresh from disk
+  return readSchedules();
 }
 
 export async function addSchedule(params: {
