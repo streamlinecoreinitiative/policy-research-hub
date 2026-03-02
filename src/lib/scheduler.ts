@@ -21,6 +21,7 @@ async function persist() {
 
 async function processSchedule(s: StoredSchedule) {
   if (runningIds.has(s.id)) return;
+  if (s.paused) return;
   const now = Date.now();
   if (s.nextRunAt > now) return;
   runningIds.add(s.id);
@@ -101,7 +102,7 @@ async function tick() {
     try { schedules = await readSchedules(); } catch {}
   }
   const now = Date.now();
-  const due = schedules.filter((s) => s.nextRunAt <= now);
+  const due = schedules.filter((s) => !s.paused && s.nextRunAt <= now);
   for (const s of due) {
     void processSchedule(s);
   }
@@ -170,6 +171,42 @@ export async function addSchedule(params: {
   schedules.push(newSchedule);
   await persist();
   return newSchedule;
+}
+
+export async function pauseSchedule(id: string) {
+  await initScheduler();
+  const fresh = await readSchedules();
+  const target = fresh.find((s) => s.id === id);
+  if (!target) throw new Error(`Schedule ${id} not found`);
+  target.paused = true;
+  schedules = fresh;
+  await persist();
+  addLogEntry({
+    type: 'schedule',
+    status: 'info',
+    title: `Schedule paused: ${target.topic.substring(0, 60)}`,
+    details: `Schedule ${id} paused by user.`,
+  }).catch(() => {});
+  return target;
+}
+
+export async function resumeSchedule(id: string) {
+  await initScheduler();
+  const fresh = await readSchedules();
+  const target = fresh.find((s) => s.id === id);
+  if (!target) throw new Error(`Schedule ${id} not found`);
+  target.paused = false;
+  // Reset nextRunAt so it doesn't fire immediately for all missed ticks
+  target.nextRunAt = Date.now() + target.intervalMinutes * 60_000;
+  schedules = fresh;
+  await persist();
+  addLogEntry({
+    type: 'schedule',
+    status: 'info',
+    title: `Schedule resumed: ${target.topic.substring(0, 60)}`,
+    details: `Schedule ${id} resumed. Next run in ${target.intervalMinutes} minutes.`,
+  }).catch(() => {});
+  return target;
 }
 
 export async function removeSchedule(id: string) {

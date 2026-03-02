@@ -1,6 +1,136 @@
 {
   "articles": [
     {
+      "slug": "agroforestry-value-chains-for-cash-crops-in-the-horn-of-africa-supporting-adapta-1772421007717",
+      "title": "agroforestry value chains for cash crops in the Horn of Africa: supporting adaptation targets in NDCs",
+      "summary": "The Horn of Africa faces escalating climate vulnerabilities, including prolonged droughts, desertification, and erratic rainfall, which threaten food security and livelihoods.",
+      "topic": "Environmental resilience in lower-income countries: water security, clean energy, and climate adaptation",
+      "template": "Policy Brief",
+      "tags": [
+        "climate",
+        "water",
+        "energy",
+        "agriculture",
+        "policy",
+        "finance",
+        "resilience",
+        "urbanization"
+      ],
+      "wordCount": 535,
+      "sourcesUsed": 14,
+      "readabilityScore": 95,
+      "publishedAt": "2026-03-02T03:10:07.719Z",
+      "updatedAt": "2026-03-02T03:10:07.719Z",
+      "status": "published",
+      "mdFile": "agroforestry-value-chains-for-cash-crops-in-the-horn-of-africa-supporting-adapta-1772421007717.md",
+      "htmlFile": "agroforestry-value-chains-for-cash-crops-in-the-horn-of-africa-supporting-adapta-1772421007717.html",
+      "region": "Sub-Saharan Africa"
+    },
+    {
+      "slug": "mangrove-restoration-and-blue-carbon-finance-in-the-mekong-basin-supporting-adap-1772418146180",
+      "title": "mangrove restoration and blue carbon finance in the Mekong basin: supporting adaptation targets in NDCs",
+      "summary": "The Mekong Basin, home to 65 million people, faces escalating climate risks due to deforestation, sea-level rise, and extreme weather events. Mangrove ecosystems, which cover 12,000 km² of the region, are critical for coastal protection, biodiversity, and carbon sequestration—yet they are being lost at an alarming rate.",
+      "topic": "Environmental resilience in lower-income countries: water security, clean energy, and climate adaptation",
+      "template": "Policy Brief",
+      "tags": [
+        "climate",
+        "water",
+        "energy",
+        "agriculture",
+        "policy",
+        "finance",
+        "resilience",
+        "biodiversity"
+      ],
+      "wordCount": 723,
+      "sourcesUsed": 4,
+      "readabilityScore": 91,
+      "publishedAt": "2026-03-02T02:22:26.182Z",
+      "updatedAt": "2026-03-02T02:22:26.182Z",
+      "status": "published",
+      "mdFile": "mangrove-restoration-and-blue-carbon-finance-in-the-mekong-basin-supporting-adap-1772418146180.md",
+      "htmlFile": "mangrove-restoration-and-blue-carbon-finance-in-the-mekong-basin-supporting-adap-1772418146180.html",
+      "region": "Southeast Asia"
+    },
+    {
+      "slug": "flood-resilient-transport-corridors-in-the-mekong-basin-safeguarding-freshwater--1772415200377",
+      "title": "flood-resilient transport corridors in the Mekong basin: safeguarding freshwater ecosystems",
+      "summary": "The Mekong Basin, home to 60 million people and a biodiversity hotspot, faces escalating threats from climate change, including intensified flooding, ecosystem degradation, and rising sea levels.",
+      "topic": "Environmental resilience in lower-income countries: water security, clean energy, and climate adaptation",
+      "template": "Policy Brief",
+      "tags": [
+        "climate",
+        "water",
+        "energy",
+        "agriculture",
+        "policy",
+        "finance",
+        "resilience",
+        "biodiversity"
+      ],
+      "wordCount": 590,
+      "sourcesUsed": 2,
+      "readabilityScore": 91,
+      "publishedAt": "2026-03-02T01:33:20.380Z",
+      "updatedAt": "2026-03-02T01:33:20.380Z",
+      "status": "published",
+      "mdFile": "flood-resilient-transport-corridors-in-the-mekong-basin-safeguarding-freshwater--1772415200377.md",
+      "htmlFile": "flood-resilient-transport-corridors-in-the-mekong-basin-safeguarding-freshwater--1772415200377.html",
+      "region": "Southeast Asia"
+    },
+    {
+      "slug": "microgrids-for-rural-clinics-in-the-ganges-brahmaputra-delta-cutting-disaster-lo-1772414199272",
+      "title": "microgrids for rural clinics in the Ganges-Brahmaputra delta: cutting disaster losses for vulnerable groups",
+      "summary": "The Ganges-Brahmaputra Delta, spanning parts of Bangladesh and India, is one of the most vulnerable regions to climate change, with over 50 million people living in areas prone to flooding, cyclones, and salinization.",
+      "topic": "Environmental resilience in lower-income countries: water security, clean energy, and climate adaptation",
+      "template": "Policy Brief",
+      "tags": [
+        "climate",
+        "water",
+        "energy",
+        "agriculture",
+        "health",
+        "policy",
+        "finance",
+        "resilience"
+      ],
+      "wordCount": 611,
+      "sourcesUsed": 13,
+      "readabilityScore": 91,
+      "publishedAt": "2026-03-02T01:16:39.274Z",
+      "updatedAt": "2026-03-02T01:16:39.274Z",
+      "status": "published",
+      "mdFile": "microgrids-for-rural-clinics-in-the-ganges-brahmaputra-delta-cutting-disaster-lo-1772414199272.md",
+      "htmlFile": "microgrids-for-rural-clinics-in-the-ganges-brahmaputra-delta-cutting-disaster-lo-1772414199272.html",
+      "region": "South Asia"
+    },
+    {
+      "slug": "retrofitting-water-infrastructure-for-climate-resilience-in-sub-saharan-africa-a-1772413328461",
+      "title": "Retrofitting Water Infrastructure for Climate Resilience in Sub-Saharan Africa: A Low-Cost Pathway to Water Security",
+      "summary": "Sub-Saharan Africa’s water crisis demands immediate, low-cost action. Retrofitting existing water infrastructure—such as boreholes and wells—offers a scalable solution to enhance climate resilience and improve water security.",
+      "topic": "Environmental resilience in lower-income countries: water security, clean energy, and climate adaptation",
+      "template": "Policy Brief",
+      "tags": [
+        "climate",
+        "water",
+        "energy",
+        "agriculture",
+        "health",
+        "policy",
+        "finance",
+        "resilience"
+      ],
+      "wordCount": 741,
+      "sourcesUsed": 13,
+      "readabilityScore": 100,
+      "publishedAt": "2026-03-02T01:02:08.464Z",
+      "updatedAt": "2026-03-02T01:02:08.464Z",
+      "status": "published",
+      "mdFile": "retrofitting-water-infrastructure-for-climate-resilience-in-sub-saharan-africa-a-1772413328461.md",
+      "htmlFile": "retrofitting-water-infrastructure-for-climate-resilience-in-sub-saharan-africa-a-1772413328461.html",
+      "region": "Sub-Saharan Africa"
+    },
+    {
       "slug": "climate-smart-irrigation-cooperatives-in-the-caribbean-sids-protecting-livelihoo-1772412185774",
       "title": "climate-smart irrigation cooperatives in the Caribbean SIDS: protecting livelihoods under climate stress",
       "summary": "The Caribbean Small Island Developing States (SIDS) face an escalating crisis of water insecurity and agricultural vulnerability, exacerbated by climate stress.",
@@ -79,6 +209,6 @@
       "region": "Sub-Saharan Africa"
     }
   ],
-  "lastUpdated": "2026-03-02T00:43:05.786Z",
-  "totalPublished": 3
+  "lastUpdated": "2026-03-02T03:10:07.719Z",
+  "totalPublished": 8
 }

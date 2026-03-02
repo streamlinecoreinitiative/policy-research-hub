@@ -135,7 +135,8 @@ export async function GET(req: Request) {
         count: subscriberCount,
       },
       schedules: {
-        active: schedules.length,
+        active: schedules.filter((s: any) => !s.paused).length,
+        paused: schedules.filter((s: any) => s.paused).length,
         envDriveConfigured: !!getEnvDriveCredentials(),
         list: schedules.map((s: any) => ({
           ...s,

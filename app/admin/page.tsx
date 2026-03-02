@@ -60,6 +60,7 @@ type Schedule = {
   writerModel: string;
   factCheckerModel?: string;
   autoUpload: boolean;
+  paused?: boolean;
   intervalMinutes: number;
   nextRunAt: number;
   lastRunAt?: number;
@@ -327,6 +328,23 @@ export default function AdminDashboard() {
       setActionStatus('Schedule deleted');
     } catch {
       setActionStatus('Failed to delete schedule');
+    }
+    setTimeout(() => setActionStatus(''), 3000);
+  };
+
+  const toggleSchedulePause = async (id: string, currentlyPaused: boolean) => {
+    const action = currentlyPaused ? 'resume' : 'pause';
+    setActionStatus(`${currentlyPaused ? 'Resuming' : 'Pausing'} schedule...`);
+    try {
+      await fetch(`/api/schedules/${id}`, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ action }),
+      });
+      await fetchData();
+      setActionStatus(`Schedule ${action}d`);
+    } catch {
+      setActionStatus(`Failed to ${action} schedule`);
     }
     setTimeout(() => setActionStatus(''), 3000);
   };
@@ -1130,10 +1148,13 @@ launchctl list | grep policyresearchhub`}</pre>
             ) : (
               <div className="admin-schedule-list">
                 {data.schedules.list.map(s => (
-                  <div key={s.id} className={`admin-schedule-card ${s.lastResult?.error ? 'error' : ''}`}>
+                  <div key={s.id} className={`admin-schedule-card ${s.lastResult?.error ? 'error' : ''} ${s.paused ? 'paused' : ''}`}>
                     <div className="schedule-card-header">
-                      <span className="schedule-interval">Every {s.intervalMinutes} min</span>
-                      {s.lastResult?.error && <span className="admin-pill" style={{ background: '#fee2e2', color: '#991b1b' }}>Error</span>}
+                      <span className="schedule-interval">
+                        {s.paused ? '⏸ Paused' : `Every ${s.intervalMinutes} min`}
+                      </span>
+                      {s.paused && <span className="admin-pill" style={{ background: '#fef3c7', color: '#92400e' }}>Paused</span>}
+                      {s.lastResult?.error && !s.paused && <span className="admin-pill" style={{ background: '#fee2e2', color: '#991b1b' }}>Error</span>}
                     </div>
                     <div className="schedule-topic">{s.topic.slice(0, 120)}</div>
                     <div className="schedule-meta">
@@ -1147,6 +1168,12 @@ launchctl list | grep policyresearchhub`}</pre>
                       <div className="schedule-error">{s.lastResult.error}</div>
                     )}
                     <div className="schedule-actions">
+                      <button
+                        className={`admin-btn small ${s.paused ? 'success' : 'warning'}`}
+                        onClick={() => toggleSchedulePause(s.id, !!s.paused)}
+                      >
+                        {s.paused ? '▶ Resume' : '⏸ Pause'}
+                      </button>
                       <button className="admin-btn small danger" onClick={() => deleteSchedule(s.id)}>Delete</button>
                     </div>
                   </div>

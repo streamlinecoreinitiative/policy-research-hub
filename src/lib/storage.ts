@@ -9,6 +9,7 @@ export type StoredSchedule = {
   plannerModel: string;
   writerModel: string;
   autoUpload: boolean;
+  paused?: boolean;
   drive?: {
     clientId: string;
     clientSecret: string;

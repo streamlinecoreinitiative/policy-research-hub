@@ -1686,6 +1686,7 @@ button:disabled { opacity: 0.6; cursor: not-allowed; }
 .admin-btn.large { padding: 12px 24px; font-size: 15px; }
 .admin-btn.success { background: #d1fae5; color: #065f46; border-color: #6ee7b7; }
 .admin-btn.danger { background: #fee2e2; color: #991b1b; border-color: #fca5a5; }
+.admin-btn.warning { background: #fef3c7; color: #92400e; border-color: #fcd34d; }
 .admin-btn.copy { background: #e7eefc; color: #1a56db; border-color: #93bbfd; }
 
 /* Stat Cards */
@@ -1967,6 +1968,8 @@ button:disabled { opacity: 0.6; cursor: not-allowed; }
   padding: 16px;
 }
 .admin-schedule-card.error { border-color: #fca5a5; background: #fef2f2; }
+.admin-schedule-card.paused { border-color: #fcd34d; background: #fffbeb; opacity: 0.85; }
+.admin-schedule-card.paused .schedule-interval { background: #fef3c7; color: #92400e; }
 .schedule-card-header {
   display: flex;
   justify-content: space-between;
