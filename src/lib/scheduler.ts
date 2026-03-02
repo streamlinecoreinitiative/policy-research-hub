@@ -3,6 +3,8 @@ import { runAgents } from './agents-v2';
 import { uploadFileToDrive, getEnvDriveCredentials } from './drive';
 import { readSchedules, writeSchedules, StoredSchedule } from './storage';
 import { addLogEntry } from './processLog';
+import { updateArticleDrive } from './articleIndex';
+import { autoCommitAndPush } from './autoPublish';
 
 const CHECK_INTERVAL_MS = 60_000;
 
@@ -61,6 +63,18 @@ async function processSchedule(s: StoredSchedule) {
           webViewLink: uploaded.webViewLink || undefined,
           fileName: uploaded.name || undefined
         };
+
+        // Update the article index with Drive metadata
+        if (driveRes.fileId) {
+          const slug = path.basename(result.articlePath, '.md');
+          try {
+            await updateArticleDrive(slug, driveRes.fileId, driveRes.webViewLink);
+          } catch (indexErr) {
+            result.warnings.push(
+              `Drive index update failed: ${(indexErr as Error).message}`
+            );
+          }
+        }
       } catch (err) {
         driveRes = { fileName: undefined, fileId: undefined, webViewLink: undefined };
         result.warnings.push(
@@ -92,6 +106,18 @@ async function processSchedule(s: StoredSchedule) {
     s.nextRunAt = Date.now() + s.intervalMinutes * 60_000;
     runningIds.delete(s.id);
     await persist();
+
+    // Auto-commit and push to GitHub → triggers Vercel deploy
+    try {
+      await autoCommitAndPush();
+    } catch (commitErr) {
+      addLogEntry({
+        type: 'system',
+        status: 'error',
+        title: 'Auto-commit failed',
+        details: (commitErr as Error).message,
+      }).catch(() => {});
+    }
   }
 }
 

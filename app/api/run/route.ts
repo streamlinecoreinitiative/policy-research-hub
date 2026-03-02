@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import { runAgents, AgentRunParams } from '@/lib/agents-v2';
 import { uploadFileToDrive } from '@/lib/drive';
+import { updateArticleDrive } from '@/lib/articleIndex';
 import { getTemplateList } from '@/lib/templates';
 import { addLogEntry } from '@/lib/processLog';
 import { requireLocalhost } from '@/lib/adminGuard';
@@ -61,6 +62,14 @@ export async function POST(req: Request) {
         : path.join(process.cwd(), result.articlePathHTML);
       const res = await uploadFileToDrive({ filePath: htmlPath, drive, mimeType: 'text/html' });
       driveResult = { fileId: res.id || undefined, fileName: res.name || undefined, webViewLink: res.webViewLink || undefined };
+
+      // Update article index with Drive metadata
+      if (driveResult.fileId) {
+        const slug = path.basename(result.articlePath, '.md');
+        try {
+          await updateArticleDrive(slug, driveResult.fileId, driveResult.webViewLink);
+        } catch {}
+      }
     }
 
     return NextResponse.json({ ...result, drive: driveResult });

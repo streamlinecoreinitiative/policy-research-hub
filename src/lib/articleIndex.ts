@@ -27,6 +27,8 @@ export type ArticleMeta = {
   htmlFile: string;
   region?: string;
   ogImage?: string;
+  driveFileId?: string;
+  driveWebViewLink?: string;
 };
 
 export type ArticlesIndex = {
@@ -239,6 +241,21 @@ export async function getArticleBySlug(slug: string): Promise<{
   } catch {
     return null;
   }
+}
+
+export async function updateArticleDrive(
+  slug: string,
+  driveFileId: string,
+  driveWebViewLink?: string
+): Promise<boolean> {
+  const index = await readIndex();
+  const article = index.articles.find(a => a.slug === slug);
+  if (!article) return false;
+  article.driveFileId = driveFileId;
+  if (driveWebViewLink) article.driveWebViewLink = driveWebViewLink;
+  article.updatedAt = new Date().toISOString();
+  await writeIndex(index);
+  return true;
 }
 
 export async function updateArticleStatus(slug: string, status: 'draft' | 'published'): Promise<boolean> {

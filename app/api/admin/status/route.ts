@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 import { getLogEntries, getLogStats, addLogEntry } from '@/lib/processLog';
 import { getQueuedPosts } from '@/lib/socialPostAgent';
 import { getNewsletters, getSubscriberCount } from '@/lib/newsletterAgent';
-import { getPublishedArticles } from '@/lib/articleIndex';
+import { getPublishedArticles, readIndex } from '@/lib/articleIndex';
 import { maskCredentials, readCredentials } from '@/lib/socialCredentials';
 import { getEnvDriveCredentials } from '@/lib/drive';
 import fs from 'fs/promises';
@@ -32,6 +32,7 @@ export async function GET(req: Request) {
       newsletters,
       subscriberCount,
       articlesData,
+      fullIndex,
       schedules,
       autoPublishLog,
       ollamaStatus,
@@ -43,6 +44,7 @@ export async function GET(req: Request) {
       getNewsletters().catch(() => []),
       getSubscriberCount().catch(() => 0),
       getPublishedArticles({ limit: 5 }).catch(() => ({ articles: [], total: 0 })),
+      readIndex().catch(() => ({ articles: [] as any[], lastUpdated: '', totalPublished: 0 })),
       readSchedules(),
       readAutoPublishLog(),
       checkOllamaStatus(),
@@ -110,6 +112,7 @@ export async function GET(req: Request) {
       },
       articles: {
         total: articlesData.total,
+        onDrive: (fullIndex as any).articles.filter((a: any) => a.driveFileId).length,
         recent: (articlesData as any).articles.map((a: any) => ({
           title: a.title,
           slug: a.slug,
