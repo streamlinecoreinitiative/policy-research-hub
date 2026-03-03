@@ -730,9 +730,6 @@ export default function AdminDashboard() {
                             href={`https://x.com/intent/tweet?text=${encodeURIComponent(post.content)}&url=${encodeURIComponent(post.url)}&hashtags=${encodeURIComponent(post.hashtags.join(','))}`}
                             target="_blank"
                             rel="noreferrer"
-                            onClick={() => {
-                              setTimeout(() => updateSocialPost(post.id, 'posted'), 1000);
-                            }}
                           >
                             𝕏 Share on X
                           </a>
@@ -746,10 +743,7 @@ export default function AdminDashboard() {
                             onClick={() => {
                               navigator.clipboard.writeText(`${post.content}\n\n${post.hashtags.map(h => '#' + h).join(' ')}`);
                               setActionStatus('Post text copied — paste it into LinkedIn!');
-                              setTimeout(() => {
-                                setActionStatus('');
-                                updateSocialPost(post.id, 'posted');
-                              }, 2000);
+                              setTimeout(() => setActionStatus(''), 2000);
                             }}
                           >
                             in Share on LinkedIn

@@ -1,6 +1,6 @@
 'use client';
 
-import { Suspense, useEffect, useState, useCallback } from 'react';
+import { Suspense, useEffect, useState, useCallback, useRef } from 'react';
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 
@@ -47,8 +47,18 @@ function LibraryContent() {
   const [loading, setLoading] = useState(true);
   const [activeTag, setActiveTag] = useState(initialTag);
   const [search, setSearch] = useState('');
+  const [debouncedSearch, setDebouncedSearch] = useState('');
   const [page, setPage] = useState(0);
   const PAGE_SIZE = 12;
+  const debounceRef = useRef<ReturnType<typeof setTimeout>>();
+
+  // Debounce search input — waits 350ms after user stops typing
+  const handleSearchChange = (value: string) => {
+    setSearch(value);
+    setPage(0);
+    if (debounceRef.current) clearTimeout(debounceRef.current);
+    debounceRef.current = setTimeout(() => setDebouncedSearch(value), 350);
+  };
 
   const fetchArticles = useCallback(async () => {
     setLoading(true);
@@ -56,7 +66,7 @@ function LibraryContent() {
     params.set('limit', String(PAGE_SIZE));
     params.set('offset', String(page * PAGE_SIZE));
     if (activeTag) params.set('tag', activeTag);
-    if (search.trim()) params.set('search', search.trim());
+    if (debouncedSearch.trim()) params.set('search', debouncedSearch.trim());
 
     try {
       const res = await fetch(`/api/articles?${params}`);
@@ -68,7 +78,7 @@ function LibraryContent() {
     } finally {
       setLoading(false);
     }
-  }, [activeTag, search, page]);
+  }, [activeTag, debouncedSearch, page]);
 
   useEffect(() => {
     fetchArticles();
@@ -112,7 +122,7 @@ function LibraryContent() {
             type="text"
             placeholder="Search reports..."
             value={search}
-            onChange={e => { setSearch(e.target.value); setPage(0); }}
+            onChange={e => handleSearchChange(e.target.value)}
           />
         </div>
         <div className="tag-filters">
@@ -142,7 +152,7 @@ function LibraryContent() {
           <h3>No reports found</h3>
           <p>{search || activeTag ? 'Try a different search or filter.' : 'Generate your first report from the admin panel.'}</p>
           {(search || activeTag) && (
-            <button className="btn-ghost" onClick={() => { setSearch(''); setActiveTag(''); }}>
+            <button className="btn-ghost" onClick={() => { handleSearchChange(''); setActiveTag(''); }}>
               Clear filters
             </button>
           )}
