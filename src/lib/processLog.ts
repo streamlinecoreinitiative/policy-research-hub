@@ -40,8 +40,13 @@ async function writeLog(log: ProcessLog): Promise<void> {
   if (log.entries.length > MAX_ENTRIES) {
     log.entries = log.entries.slice(0, MAX_ENTRIES);
   }
-  await fs.mkdir(path.dirname(LOG_PATH), { recursive: true });
-  await fs.writeFile(LOG_PATH, JSON.stringify(log, null, 2), 'utf8');
+  try {
+    await fs.mkdir(path.dirname(LOG_PATH), { recursive: true });
+    await fs.writeFile(LOG_PATH, JSON.stringify(log, null, 2), 'utf8');
+  } catch (err) {
+    // Vercel has read-only filesystem — log but don't crash
+    console.warn('writeLog: could not write (read-only fs?):', (err as Error).message);
+  }
 }
 
 export async function addLogEntry(entry: Omit<ProcessLogEntry, 'id' | 'timestamp'>): Promise<ProcessLogEntry> {

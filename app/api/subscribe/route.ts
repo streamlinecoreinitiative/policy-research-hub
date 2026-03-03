@@ -15,8 +15,13 @@ async function readSubscribers(): Promise<string[]> {
 }
 
 async function writeSubscribers(emails: string[]): Promise<void> {
-  await fs.mkdir(path.dirname(SUBSCRIBERS_PATH), { recursive: true });
-  await fs.writeFile(SUBSCRIBERS_PATH, JSON.stringify(emails, null, 2), 'utf8');
+  try {
+    await fs.mkdir(path.dirname(SUBSCRIBERS_PATH), { recursive: true });
+    await fs.writeFile(SUBSCRIBERS_PATH, JSON.stringify(emails, null, 2), 'utf8');
+  } catch (err) {
+    console.warn('writeSubscribers: could not write (read-only fs?):', (err as Error).message);
+    throw new Error('Subscriptions are not available in this environment.');
+  }
 }
 
 export async function POST(req: Request) {

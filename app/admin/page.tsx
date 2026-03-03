@@ -313,7 +313,8 @@ export default function AdminDashboard() {
         body: JSON.stringify({ action: 'fix-schedule' }),
       });
       const json = await res.json();
-      setActionStatus(`Fixed ${json.fixed} model references`);
+      if (!res.ok) throw new Error(json.error || 'Unknown error');
+      setActionStatus(`Fixed ${json.fixed ?? 0} model references`);
       await fetchData();
     } catch {
       setActionStatus('Failed to fix schedules');

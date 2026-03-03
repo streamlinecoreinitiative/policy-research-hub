@@ -26,7 +26,7 @@ export async function POST(req: Request) {
 
   try {
     const body: RefineRequest = await req.json();
-    const { content, action, section, customPrompt, model = 'llama3.1:8b' } = body;
+    const { content, action, section, customPrompt, model = 'qwen3.5:4b' } = body;
 
     if (!content) {
       return NextResponse.json({ error: 'Content is required' }, { status: 400 });

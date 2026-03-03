@@ -9,6 +9,7 @@ const nextConfig = {
     outputFileTracingIncludes: {
       '/api/**': ['./data/**/*'],
       '/library/**': ['./data/**/*'],
+      '/article/**': ['./data/**/*'],
     },
   },
 };

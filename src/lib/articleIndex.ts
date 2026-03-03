@@ -10,6 +10,15 @@ import path from 'path';
 const INDEX_PATH = path.join(process.cwd(), 'data/articles-index.json');
 const OUTPUT_DIR = path.join(process.cwd(), 'data/output');
 
+// Simple async mutex to prevent concurrent read-modify-write corruption
+let _writeLock: Promise<void> = Promise.resolve();
+function withWriteLock<T>(fn: () => Promise<T>): Promise<T> {
+  const prev = _writeLock;
+  let resolve: () => void;
+  _writeLock = new Promise<void>(r => { resolve = r; });
+  return prev.then(fn).finally(() => resolve!());
+}
+
 export type ArticleMeta = {
   slug: string;
   title: string;
@@ -154,40 +163,42 @@ export async function indexArticle(params: {
   readabilityScore: number;
   autoPublish?: boolean;
 }): Promise<ArticleMeta> {
-  const { title, topic, template, content, mdFile, htmlFile, wordCount, sourcesUsed, readabilityScore, autoPublish = true } = params;
+  return withWriteLock(async () => {
+    const { title, topic, template, content, mdFile, htmlFile, wordCount, sourcesUsed, readabilityScore, autoPublish = true } = params;
 
-  const slug = mdFile.replace('.md', '').replace(/\s+/g, '-');
-  const now = new Date().toISOString();
+    const slug = mdFile.replace('.md', '').replace(/\\s+/g, '-');
+    const now = new Date().toISOString();
 
-  const article: ArticleMeta = {
-    slug,
-    title,
-    summary: extractSummary(content),
-    topic,
-    template,
-    tags: extractTags(topic, content),
-    wordCount,
-    sourcesUsed,
-    readabilityScore,
-    publishedAt: now,
-    updatedAt: now,
-    status: autoPublish ? 'published' : 'draft',
-    mdFile,
-    htmlFile,
-    region: detectRegion(topic, content),
-  };
+    const article: ArticleMeta = {
+      slug,
+      title,
+      summary: extractSummary(content),
+      topic,
+      template,
+      tags: extractTags(topic, content),
+      wordCount,
+      sourcesUsed,
+      readabilityScore,
+      publishedAt: now,
+      updatedAt: now,
+      status: autoPublish ? 'published' : 'draft',
+      mdFile,
+      htmlFile,
+      region: detectRegion(topic, content),
+    };
 
-  const index = await readIndex();
-  
-  // Remove existing entry with same slug if re-generating
-  index.articles = index.articles.filter(a => a.slug !== slug);
-  
-  // Add new article at the beginning
-  index.articles.unshift(article);
-  
-  await writeIndex(index);
-  
-  return article;
+    const index = await readIndex();
+    
+    // Remove existing entry with same slug if re-generating
+    index.articles = index.articles.filter(a => a.slug !== slug);
+    
+    // Add new article at the beginning
+    index.articles.unshift(article);
+    
+    await writeIndex(index);
+    
+    return article;
+  });
 }
 
 export async function getPublishedArticles(options?: {
@@ -253,24 +264,28 @@ export async function updateArticleDrive(
   driveFileId: string,
   driveWebViewLink?: string
 ): Promise<boolean> {
-  const index = await readIndex();
-  const article = index.articles.find(a => a.slug === slug);
-  if (!article) return false;
-  article.driveFileId = driveFileId;
-  if (driveWebViewLink) article.driveWebViewLink = driveWebViewLink;
-  article.updatedAt = new Date().toISOString();
-  await writeIndex(index);
-  return true;
+  return withWriteLock(async () => {
+    const index = await readIndex();
+    const article = index.articles.find(a => a.slug === slug);
+    if (!article) return false;
+    article.driveFileId = driveFileId;
+    if (driveWebViewLink) article.driveWebViewLink = driveWebViewLink;
+    article.updatedAt = new Date().toISOString();
+    await writeIndex(index);
+    return true;
+  });
 }
 
 export async function updateArticleStatus(slug: string, status: 'draft' | 'published'): Promise<boolean> {
-  const index = await readIndex();
-  const article = index.articles.find(a => a.slug === slug);
-  if (!article) return false;
-  article.status = status;
-  article.updatedAt = new Date().toISOString();
-  await writeIndex(index);
-  return true;
+  return withWriteLock(async () => {
+    const index = await readIndex();
+    const article = index.articles.find(a => a.slug === slug);
+    if (!article) return false;
+    article.status = status;
+    article.updatedAt = new Date().toISOString();
+    await writeIndex(index);
+    return true;
+  });
 }
 
 export async function getAllTags(): Promise<{ tag: string; count: number }[]> {
