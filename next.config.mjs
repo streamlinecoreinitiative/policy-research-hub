@@ -5,8 +5,12 @@ const nextConfig = {
     instrumentationHook: true,
     serverActions: {
       allowedOrigins: ['localhost']
-    }
-  }
+    },
+    outputFileTracingIncludes: {
+      '/api/**': ['./data/**/*'],
+      '/library/**': ['./data/**/*'],
+    },
+  },
 };
 
 export default nextConfig;
