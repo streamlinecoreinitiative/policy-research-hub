@@ -133,8 +133,13 @@ export async function readIndex(): Promise<ArticlesIndex> {
 export async function writeIndex(index: ArticlesIndex): Promise<void> {
   index.lastUpdated = new Date().toISOString();
   index.totalPublished = index.articles.filter(a => a.status === 'published').length;
-  await fs.mkdir(path.dirname(INDEX_PATH), { recursive: true });
-  await fs.writeFile(INDEX_PATH, JSON.stringify(index, null, 2), 'utf8');
+  try {
+    await fs.mkdir(path.dirname(INDEX_PATH), { recursive: true });
+    await fs.writeFile(INDEX_PATH, JSON.stringify(index, null, 2), 'utf8');
+  } catch (err) {
+    // Vercel has read-only filesystem — log but don't crash
+    console.warn('writeIndex: could not write (read-only fs?):', (err as Error).message);
+  }
 }
 
 export async function indexArticle(params: {
@@ -285,7 +290,11 @@ export async function getAllTags(): Promise<{ tag: string; count: number }[]> {
 }
 
 // Bootstrap: scan existing output files and index any un-indexed ones
+// Skips on Vercel (read-only filesystem) — index is pre-built from git
 export async function bootstrapIndex(): Promise<number> {
+  // On Vercel the filesystem is read-only; index is already in git
+  if (process.env.VERCEL) return 0;
+
   const index = await readIndex();
   const existingSlugs = new Set(index.articles.map(a => a.slug));
   

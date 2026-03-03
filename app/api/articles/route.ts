@@ -6,8 +6,8 @@ export const dynamic = 'force-dynamic';
 
 export async function GET(req: Request) {
   try {
-    // Bootstrap index with any existing files not yet indexed
-    await bootstrapIndex();
+    // Bootstrap index with any existing files not yet indexed (no-op on Vercel)
+    try { await bootstrapIndex(); } catch { /* safe to skip */ }
 
     const { searchParams } = new URL(req.url);
     const tag = searchParams.get('tag') || undefined;
