@@ -84,7 +84,7 @@ export async function updatePostStatus(
 export async function generateSocialPosts(
   meta: SocialPostInput,
   articleContent: string,
-  model: string = 'qwen3:4b'
+  model: string = 'qwen3.5:4b'
 ): Promise<SocialPost[]> {
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://baseflow.institute';
   const articleUrl = `${siteUrl}/article/${meta.slug}`;

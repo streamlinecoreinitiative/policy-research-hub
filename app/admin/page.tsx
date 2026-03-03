@@ -166,8 +166,8 @@ export default function AdminDashboard() {
   const [genTopic, setGenTopic] = useState('Environmental resilience in lower-income countries: water security, clean energy, and climate adaptation');
   const [genTemplate, setGenTemplate] = useState('policy-brief');
   const [genDepth, setGenDepth] = useState<'quick' | 'standard' | 'deep'>('standard');
-  const [genPlannerModel, setGenPlannerModel] = useState('qwen3:4b');
-  const [genWriterModel, setGenWriterModel] = useState('qwen3:8b');
+  const [genPlannerModel, setGenPlannerModel] = useState('qwen3.5:4b');
+  const [genWriterModel, setGenWriterModel] = useState('qwen3.5:9b');
   const [genFactModel, setGenFactModel] = useState('bespoke-minicheck:7b');
   const [genRunning, setGenRunning] = useState(false);
   const [genResult, setGenResult] = useState<{ title?: string; status?: string; log?: string; warnings?: string[] } | null>(null);
@@ -292,7 +292,7 @@ export default function AdminDashboard() {
       const res = await fetch('/api/newsletter', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ model: 'qwen3:4b', daysBack: 7 }),
+        body: JSON.stringify({ model: 'qwen3.5:4b', daysBack: 7 }),
       });
       const json = await res.json();
       if (!res.ok) throw new Error(json.error);

@@ -79,7 +79,7 @@ export async function GET(req: Request) {
         writer: {
           name: 'Writer Agent',
           status: writerRunning ? 'active' : 'idle',
-          model: 'qwen3:4b / qwen3:8b',
+          model: 'qwen3.5:4b / qwen3.5:9b',
           role: 'Research, planning & writing articles',
           lastActivity: lastWriterLog?.timestamp || null,
           lastTitle: lastWriterLog?.title || null,
@@ -95,7 +95,7 @@ export async function GET(req: Request) {
         social: {
           name: 'Social Agent',
           status: socialRunning ? 'active' : 'idle',
-          model: 'qwen3:4b',
+          model: 'qwen3.5:4b',
           role: 'Generates social media posts',
           lastActivity: lastSocialLog?.timestamp || null,
           lastTitle: lastSocialLog?.title || null,
@@ -231,11 +231,11 @@ export async function POST(req: Request) {
       let fixed = 0;
       for (const s of schedules) {
         if (s.plannerModel === 'qwen2.5:3b' || !s.plannerModel.includes('qwen3')) {
-          s.plannerModel = 'qwen3:4b';
+          s.plannerModel = 'qwen3.5:4b';
           fixed++;
         }
-        if (s.writerModel === 'llama3.1:8b' || s.writerModel === 'llama3:8b') {
-          s.writerModel = 'qwen3:8b';
+        if (s.writerModel === 'llama3.1:8b' || s.writerModel === 'llama3:8b' || s.writerModel === 'qwen3:8b') {
+          s.writerModel = 'qwen3.5:9b';
           fixed++;
         }
         if (!s.factCheckerModel) {
@@ -248,7 +248,7 @@ export async function POST(req: Request) {
         type: 'system',
         status: 'success',
         title: `Fixed ${fixed} schedule model references`,
-        details: 'Updated to qwen3:4b (planner), qwen3:8b (writer), bespoke-minicheck:7b (fact-checker)',
+        details: 'Updated to qwen3.5:4b (planner), qwen3.5:9b (writer), bespoke-minicheck:7b (fact-checker)',
       });
       return NextResponse.json({ success: true, fixed, schedules });
     }

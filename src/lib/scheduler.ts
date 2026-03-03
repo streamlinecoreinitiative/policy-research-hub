@@ -146,11 +146,11 @@ export async function initScheduler() {
   let needsPersist = false;
   for (const s of schedules) {
     if (!s.plannerModel.startsWith('qwen3')) {
-      s.plannerModel = 'qwen3:4b';
+      s.plannerModel = 'qwen3.5:4b';
       needsPersist = true;
     }
     if (!s.writerModel.startsWith('qwen3')) {
-      s.writerModel = 'qwen3:8b';
+      s.writerModel = 'qwen3.5:9b';
       needsPersist = true;
     }
   }
@@ -160,7 +160,7 @@ export async function initScheduler() {
       type: 'system',
       status: 'warning',
       title: 'Auto-fixed schedule model references',
-      details: 'Updated stale model names to qwen3:4b/qwen3:8b on scheduler init',
+      details: 'Updated stale model names to qwen3.5:4b/qwen3.5:9b on scheduler init',
     }).catch(() => {});
   }
 

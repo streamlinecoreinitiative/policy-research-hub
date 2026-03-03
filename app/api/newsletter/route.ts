@@ -32,7 +32,7 @@ export async function POST(req: Request) {
 
   try {
     const body = await req.json().catch(() => ({}));
-    const model = (body?.model as string) || 'qwen3:4b';
+    const model = (body?.model as string) || 'qwen3.5:4b';
     const daysBack = (body?.daysBack as number) || 7;
 
     const draft = await generateNewsletter(model, daysBack);

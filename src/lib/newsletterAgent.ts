@@ -64,7 +64,7 @@ export async function getNewsletters(): Promise<NewsletterDraft[]> {
 }
 
 export async function generateNewsletter(
-  model: string = 'qwen3:4b',
+  model: string = 'qwen3.5:4b',
   daysBack: number = 7
 ): Promise<NewsletterDraft> {
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://baseflow.institute';
