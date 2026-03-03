@@ -32,8 +32,14 @@ async function ensureFile() {
   try {
     await fs.access(SCHEDULE_PATH);
   } catch {
-    await fs.mkdir(path.dirname(SCHEDULE_PATH), { recursive: true });
-    await fs.writeFile(SCHEDULE_PATH, '[]', 'utf8');
+    // On Vercel the filesystem is read-only — skip file creation
+    if (process.env.VERCEL) return;
+    try {
+      await fs.mkdir(path.dirname(SCHEDULE_PATH), { recursive: true });
+      await fs.writeFile(SCHEDULE_PATH, '[]', 'utf8');
+    } catch (err) {
+      console.warn('ensureFile: could not create schedules file:', (err as Error).message);
+    }
   }
 }
 
