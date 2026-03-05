@@ -1,6 +1,36 @@
 {
   "posts": [
     {
+      "id": "mmdeuk70-tw",
+      "articleSlug": "the-pumping-paradox-in-east-africa-decoupling-water-extraction-from-fossil-fuel--1772711794003",
+      "articleTitle": "The Pumping Paradox in East Africa: Decoupling Water Extraction from Fossil Fuel Dependency for Climate-Resilient Agriculture",
+      "platform": "twitter",
+      "content": "East Africa faces a hidden energy crisis as aquifer depletion outpaces recharge. Redirecting diesel irrigation subsidies to solar micro-grids is critical for climate-resilient agriculture. Without this shift, food security will collapse under rising operational costs and drying g",
+      "hashtags": [
+        "EastAfrica",
+        "ClimateResilience",
+        "GreenAgriculture"
+      ],
+      "url": "https://baseflow.institute/article/the-pumping-paradox-in-east-africa-decoupling-water-extraction-from-fossil-fuel--1772711794003",
+      "status": "pending",
+      "createdAt": "2026-03-05T11:57:02.268Z"
+    },
+    {
+      "id": "mmdeuk70-li",
+      "articleSlug": "the-pumping-paradox-in-east-africa-decoupling-water-extraction-from-fossil-fuel--1772711794003",
+      "articleTitle": "The Pumping Paradox in East Africa: Decoupling Water Extraction from Fossil Fuel Dependency for Climate-Resilient Agriculture",
+      "platform": "linkedin",
+      "content": "The link between water security and energy access is broken in East Africa. While global electricity access has reached 91.6%, Sub-Saharan agriculture remains paralyzed by unreliable power for irrigation. With global temperatures rising 1.1°C since pre-industrial times, farmers are over-reliant on groundwater, accelerating aquifer depletion through inefficient diesel pumps.\n\nOur latest research highlights a critical paradox: expanding water access without addressing energy inputs is failing. The evidence is clear—without integrating renewable energy into water infrastructure, agricultural productivity will collapse due to soaring operational costs and drying reserves. This is not merely an energy issue; it is a food security emergency threatening millions.\n\nPolicymakers must treat energy access as a prerequisite for sustainable water management, not an ancillary concern. Immediate intervention to redirect diesel subsidies toward decentralized solar micro-grids is required to decouple water availability from economic viability. The window to prevent regional instability and ensure resilient food systems is closing rapidly.",
+      "hashtags": [
+        "PolicyBrief",
+        "WaterEnergyLink",
+        "SustainableDevelopment"
+      ],
+      "url": "https://baseflow.institute/article/the-pumping-paradox-in-east-africa-decoupling-water-extraction-from-fossil-fuel--1772711794003",
+      "status": "pending",
+      "createdAt": "2026-03-05T11:57:02.268Z"
+    },
+    {
       "id": "mmddrww4-tw",
       "articleSlug": "the-thermal-threshold-trap-integrating-community-based-cooling-with-desalination-1772709987612",
       "articleTitle": "The Thermal Threshold Trap: Integrating Community-Based Cooling with Desalination for Climate-Resilient Water Security in Coastal Sub-Saharan Africa",
@@ -1417,5 +1447,5 @@
       "createdAt": "2026-03-02T00:01:09.765Z"
     }
   ],
-  "lastUpdated": "2026-03-05T11:26:59.144Z"
+  "lastUpdated": "2026-03-05T11:57:02.271Z"
 }

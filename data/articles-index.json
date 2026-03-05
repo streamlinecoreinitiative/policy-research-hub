@@ -1,6 +1,34 @@
 {
   "articles": [
     {
+      "slug": "the-pumping-paradox-in-east-africa-decoupling-water-extraction-from-fossil-fuel--1772711794003",
+      "title": "The Pumping Paradox in East Africa: Decoupling Water Extraction from Fossil Fuel Dependency for Climate-Resilient Agriculture",
+      "summary": "To secure food systems and groundwater reserves in East Africa, policymakers must redirect subsidies currently supporting diesel-powered irrigation pumps toward decentralized solar micro-grids.",
+      "topic": "Environmental resilience in lower-income countries: water security, clean energy, and climate adaptation",
+      "template": "Policy Brief",
+      "tags": [
+        "climate",
+        "water",
+        "energy",
+        "agriculture",
+        "policy",
+        "finance",
+        "resilience",
+        "biodiversity"
+      ],
+      "wordCount": 1186,
+      "sourcesUsed": 24,
+      "readabilityScore": 90,
+      "publishedAt": "2026-03-05T11:56:34.013Z",
+      "updatedAt": "2026-03-05T11:57:04.034Z",
+      "status": "published",
+      "mdFile": "the-pumping-paradox-in-east-africa-decoupling-water-extraction-from-fossil-fuel--1772711794003.md",
+      "htmlFile": "the-pumping-paradox-in-east-africa-decoupling-water-extraction-from-fossil-fuel--1772711794003.html",
+      "region": "Sub-Saharan Africa",
+      "driveFileId": "1DH0oiJ0GOsMYSW1_j8aIC_FWNDND7b43",
+      "driveWebViewLink": "https://drive.google.com/file/d/1DH0oiJ0GOsMYSW1_j8aIC_FWNDND7b43/view?usp=drivesdk"
+    },
+    {
       "slug": "the-thermal-threshold-trap-integrating-community-based-cooling-with-desalination-1772709987612",
       "title": "The Thermal Threshold Trap: Integrating Community-Based Cooling with Desalination for Climate-Resilient Water Security in Coastal Sub-Saharan Africa",
       "summary": "Coastal low-income nations face a crisis where rising sea levels threaten freshwater aquifers while extreme heat stresses existing water infrastructure.",
@@ -1417,6 +1445,6 @@
       "region": "Sub-Saharan Africa"
     }
   ],
-  "lastUpdated": "2026-03-05T11:27:00.559Z",
-  "totalPublished": 46
+  "lastUpdated": "2026-03-05T11:57:04.034Z",
+  "totalPublished": 47
 }
