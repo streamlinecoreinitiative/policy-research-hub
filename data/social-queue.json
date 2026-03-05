@@ -1,6 +1,45 @@
 {
   "posts": [
     {
+      "id": "mmdqnaht-tw",
+      "articleSlug": "breaking-the-intermittency-trap-decoupling-energy-poverty-from-water-security-in-1772731597704",
+      "articleTitle": "Breaking the Intermittency Trap: Decoupling Energy Poverty from Water Security in Sahelian Agriculture",
+      "platform": "twitter",
+      "content": "Sub-Saharan Africa isn't lacking water; it lacks reliable power to pump it. Intermittent solar can't run irrigation 24/7, trapping farmers in a cycle of energy poverty and food insecurity. The fix? Shift funding from standalone micro-grids to hybrid systems with storage or baselo",
+      "hashtags": [
+        "ClimateAction #EnergyPoverty #WaterSecurity #Agriculture"
+      ],
+      "url": "https://baseflow.institute/article/breaking-the-intermittency-trap-decoupling-energy-poverty-from-water-security-in-1772731597704",
+      "status": "pending",
+      "createdAt": "2026-03-05T17:27:18.497Z"
+    },
+    {
+      "id": "mmdqnaht-li",
+      "articleSlug": "breaking-the-intermittency-trap-decoupling-energy-poverty-from-water-security-in-1772731597704",
+      "articleTitle": "Breaking the Intermittency Trap: Decoupling Energy Poverty from Water Security in Sahelian Agriculture",
+      "platform": "linkedin",
+      "content": "Sub-Saharan Africa faces a critical dual crisis where energy poverty directly undermines water security, creating a self-reinforcing cycle of vulnerability. While global access to safely managed drinking water stands at 73.7%, the region lags significantly behind at just 32.4%. This disparity is driven not by freshwater scarcity, but by the inability to pump and distribute water reliably due to unstable electricity supply. With only 53.3% of the population having access to electricity compared to 91.6% globally, agricultural productivity remains stifled, leaving smallholder farmers unable to adapt to changing rainfall patterns.\n\nThe Sahel region is experiencing rapid desertification and erratic rainfall, threatening millions dependent on subsistence farming. In this context, water security is inextricably linked to energy access; without power, modern irrigation technologies cannot operate, forcing a retreat to low-yield rain-fed methods. The current reliance on diesel pumps for irrigation is unsustainable due to high fuel costs and carbon emissions. To break the intermittency trap, governments and development partners must shift funding from standalone solar micro-grids to hybrid energy systems that integrate battery storage or grid-connected baseload options. This transition ensures water pumping remains active during low-sunlight periods, directly supporting food security goals and reducing reliance on rain-fed agriculture. Without this intervention, the current feedback loop of vulnerability will persist, leaving millions unable to adapt to a changing climate.",
+      "hashtags": [
+        "PolicyBrief #ClimateResilience #SustainableDevelopment #WaterAndEnergy"
+      ],
+      "url": "https://baseflow.institute/article/breaking-the-intermittency-trap-decoupling-energy-poverty-from-water-security-in-1772731597704",
+      "status": "pending",
+      "createdAt": "2026-03-05T17:27:18.497Z"
+    },
+    {
+      "id": "mmdqnaht-bs",
+      "articleSlug": "breaking-the-intermittency-trap-decoupling-energy-poverty-from-water-security-in-1772731597704",
+      "articleTitle": "Breaking the Intermittency Trap: Decoupling Energy Poverty from Water Security in Sahelian Agriculture",
+      "platform": "bluesky",
+      "content": "We need to stop blaming farmers in the Sahel for not adapting to erratic rainfall. The real problem is that intermittent solar power just can't run irrigation pumps 24/7. This creates a vicious cycle: no electricity means no modern irrigation, which means low yields and more reliance on rain-fed far",
+      "hashtags": [
+        "ClimateAdaptation #EnergyAccess #FoodSecurity"
+      ],
+      "url": "https://baseflow.institute/article/breaking-the-intermittency-trap-decoupling-energy-poverty-from-water-security-in-1772731597704",
+      "status": "pending",
+      "createdAt": "2026-03-05T17:27:18.497Z"
+    },
+    {
       "id": "mmdpkxus-tw",
       "articleSlug": "the-grid-water-nexus-in-east-africa-leveraging-community-led-solar-pumping-for-r-1772729820801",
       "articleTitle": "The Grid-Water Nexus in East Africa: Leveraging Community-Led Solar Pumping for Resilient Agricultural Water Security",
@@ -1895,5 +1934,5 @@
       "createdAt": "2026-03-02T00:01:09.765Z"
     }
   ],
-  "lastUpdated": "2026-03-05T16:57:29.194Z"
+  "lastUpdated": "2026-03-05T17:27:18.501Z"
 }
