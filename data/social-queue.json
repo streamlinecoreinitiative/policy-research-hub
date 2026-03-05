@@ -1,6 +1,51 @@
 {
   "posts": [
     {
+      "id": "mmd1zcba-tw",
+      "articleSlug": "decoupling-energy-water-nexus-integrating-small-scale-hydropower-into-municipal--1772690181093",
+      "articleTitle": "Decoupling Energy-Water Nexus: Integrating Small-Scale Hydropower into Municipal Water Treatment in Sub-Saharan Africa",
+      "platform": "twitter",
+      "content": "Sub-Saharan Africa faces a dual crisis: 32.4% lacks safe water while only 53.3% has electricity. The solution isn't just grid expansion; it's retrofitting municipal plants with solar or small-scale hydropower to replace diesel generators. Treat water and energy as one system for ",
+      "hashtags": [
+        "WaterSecurity",
+        "CleanEnergy",
+        "ClimateAction"
+      ],
+      "url": "https://baseflow.institute/article/decoupling-energy-water-nexus-integrating-small-scale-hydropower-into-municipal--1772690181093",
+      "status": "pending",
+      "createdAt": "2026-03-05T05:56:50.326Z"
+    },
+    {
+      "id": "mmd1zcba-li",
+      "articleSlug": "decoupling-energy-water-nexus-integrating-small-scale-hydropower-into-municipal--1772690181093",
+      "articleTitle": "Decoupling Energy-Water Nexus: Integrating Small-Scale Hydropower into Municipal Water Treatment in Sub-Saharan Africa",
+      "platform": "linkedin",
+      "content": "Water security is the foundation of poverty alleviation in lower-income nations, yet Sub-Saharan Africa lags significantly behind global progress. With only 32.4% of the population having safely managed drinking water access, communities face exorbitant informal market prices and heightened vulnerability to climate shocks. The structural challenge lies in municipal utilities lacking funds for modernization while national grids remain unstable. Our latest policy brief argues that governments must pivot from centralized grid expansion to decentralized, renewable-energy-integrated systems. Specifically, we recommend allocating budgetary resources to retrofit existing water treatment plants with solar photovoltaic (PV) systems or small-scale hydropower units, replacing fossil-fuel-dependent diesel generators. By decoupling the energy-water nexus and treating these assets as interdependent, we can build systemic resilience against climate-induced droughts without waiting for unreliable national infrastructure. This approach directly addresses the dual crisis of water scarcity and carbon emissions.",
+      "hashtags": [
+        "PolicyBrief",
+        "WaterSecurity",
+        "RenewableEnergy"
+      ],
+      "url": "https://baseflow.institute/article/decoupling-energy-water-nexus-integrating-small-scale-hydropower-into-municipal--1772690181093",
+      "status": "pending",
+      "createdAt": "2026-03-05T05:56:50.326Z"
+    },
+    {
+      "id": "mmd1zcba-bs",
+      "articleSlug": "decoupling-energy-water-nexus-integrating-small-scale-hydropower-into-municipal--1772690181093",
+      "articleTitle": "Decoupling Energy-Water Nexus: Integrating Small-Scale Hydropower into Municipal Water Treatment in Sub-Saharan Africa",
+      "platform": "bluesky",
+      "content": "The gap is terrifying: while 73.7% of the world has safe drinking water, only 32.4% of Sub-Saharan Africa does. Why? Because water and energy are treated as separate sectors when they shouldn't be. Municipal plants rely on expensive, polluting diesel generators in regions where the grid doesn't exis",
+      "hashtags": [
+        "WaterEnergyNexus",
+        "ClimateResilience",
+        "PolicyResearch"
+      ],
+      "url": "https://baseflow.institute/article/decoupling-energy-water-nexus-integrating-small-scale-hydropower-into-municipal--1772690181093",
+      "status": "pending",
+      "createdAt": "2026-03-05T05:56:50.326Z"
+    },
+    {
       "id": "mmd0xlyk-tw",
       "articleSlug": "decentralized-micro-hydro-integration-in-the-andean-highlands-a-climate-resilien-1772688417939",
       "articleTitle": "Decentralized Micro-Hydro Integration in the Andean Highlands: A Climate-Resilient Water-Energy Solution for High-Altitude Communities",
@@ -933,5 +978,5 @@
       "createdAt": "2026-03-02T00:01:09.765Z"
     }
   ],
-  "lastUpdated": "2026-03-05T05:27:29.901Z"
+  "lastUpdated": "2026-03-05T05:56:50.331Z"
 }
