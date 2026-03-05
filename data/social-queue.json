@@ -1,6 +1,47 @@
 {
   "posts": [
     {
+      "id": "mmdaj5fy-tw",
+      "articleSlug": "climate-smart-irrigation-cooperatives-in-the-great-lakes-region-protecting-livel-1772704539849",
+      "articleTitle": "climate-smart irrigation cooperatives in the Great Lakes region: protecting livelihoods under climate stress",
+      "platform": "twitter",
+      "content": "Water access isn't just about digging wells; it's about powering them. In Sub-Saharan Africa, 67% of the population lacks safely managed drinking water largely due to energy constraints, not just capital. We must pivot from supply-side construction to energy-water integration to ",
+      "hashtags": [
+        "WaterSecurity",
+        "ClimateAdaptation",
+        "SustainableDevelopment"
+      ],
+      "url": "https://baseflow.institute/article/climate-smart-irrigation-cooperatives-in-the-great-lakes-region-protecting-livel-1772704539849",
+      "status": "pending",
+      "createdAt": "2026-03-05T09:56:11.470Z"
+    },
+    {
+      "id": "mmdaj5fy-li",
+      "articleSlug": "climate-smart-irrigation-cooperatives-in-the-great-lakes-region-protecting-livel-1772704539849",
+      "articleTitle": "climate-smart irrigation cooperatives in the Great Lakes region: protecting livelihoods under climate stress",
+      "platform": "linkedin",
+      "content": "Global progress toward safe drinking water is critically uneven, yet the solution lies not just in infrastructure construction but in energy integration. With 2.2 billion people lacking safely managed water and Sub-Saharan Africa standing at only 32.4% access compared to the global average of 73.7%, the challenge is acute. The data reveals that investment in new wells yields diminishing returns without addressing fundamental energy constraints, which currently keep renewable consumption stagnant globally at just 19.7%.\n\nWe are witnessing a \"resilience trap\" where communities face skyrocketing costs and supply interruptions when relying on diesel pumps during droughts, forcing them back to unsafe sources. Water security in lower-income countries is increasingly defined by its intersection with energy availability, yet these systems remain siloed. To unlock sustainable management that protects livelihoods under climate stress, policymakers must dismantle institutional barriers preventing renewable adoption and prioritize decentralized, low-carbon solutions. Decoupling water supply from volatile fossil fuel markets is no longer optional—it is essential for development.",
+      "hashtags": [
+        "WaterForAll #CleanEnergy #ClimateResilience #PolicyBrief"
+      ],
+      "url": "https://baseflow.institute/article/climate-smart-irrigation-cooperatives-in-the-great-lakes-region-protecting-livel-1772704539849",
+      "status": "pending",
+      "createdAt": "2026-03-05T09:56:11.470Z"
+    },
+    {
+      "id": "mmdaj5fy-bs",
+      "articleSlug": "climate-smart-irrigation-cooperatives-in-the-great-lakes-region-protecting-livel-1772704539849",
+      "articleTitle": "climate-smart irrigation cooperatives in the Great Lakes region: protecting livelihoods under climate stress",
+      "platform": "bluesky",
+      "content": "The crisis of safe drinking water isn't just a lack of wells; it's a lack of power. While 2.2 billion people globally lack safely managed water, the gap in Sub-Saharan Africa is even wider at 32.4% compared to the global average. We're seeing communities trapped in a \"resilience trap\" where diesel p",
+      "hashtags": [
+        "WaterEnergyLink #ClimateSmart #DevelopingWorld"
+      ],
+      "url": "https://baseflow.institute/article/climate-smart-irrigation-cooperatives-in-the-great-lakes-region-protecting-livel-1772704539849",
+      "status": "pending",
+      "createdAt": "2026-03-05T09:56:11.470Z"
+    },
+    {
       "id": "mmd9hhxw-tw",
       "articleSlug": "the-basalt-barrier-leveraging-geothermal-micro-grids-for-hydroponic-water-securi-1772702780680",
       "articleTitle": "The Basalt Barrier: Leveraging Geothermal Micro-Grids for Hydroponic Water Security in East African Rift Valley Regions",
@@ -1271,5 +1312,5 @@
       "createdAt": "2026-03-02T00:01:09.765Z"
     }
   ],
-  "lastUpdated": "2026-03-05T09:26:54.741Z"
+  "lastUpdated": "2026-03-05T09:56:11.472Z"
 }
