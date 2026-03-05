@@ -1,6 +1,51 @@
 {
   "posts": [
     {
+      "id": "mmdmcw0u-tw",
+      "articleSlug": "the-pumping-paradox-in-east-africa-decoupling-water-extraction-from-fossil-fuel--1772724402201",
+      "articleTitle": "The Pumping Paradox in East Africa: Decoupling Water Extraction from Fossil Fuel Dependency for Climate-Resilient Agriculture",
+      "platform": "twitter",
+      "content": "East Africa faces a critical bottleneck: diesel pumps are making water scarcity worse by fueling climate vulnerability. Shifting to solar micro-grids can decouple water extraction from fossil fuels, protecting smallholder farmers and stabilizing SDG 6 & 7 progress in the Horn of ",
+      "hashtags": [
+        "WaterSecurity",
+        "ClimateResilience",
+        "SustainableAgriculture"
+      ],
+      "url": "https://baseflow.institute/article/the-pumping-paradox-in-east-africa-decoupling-water-extraction-from-fossil-fuel--1772724402201",
+      "status": "pending",
+      "createdAt": "2026-03-05T15:27:14.718Z"
+    },
+    {
+      "id": "mmdmcw0u-li",
+      "articleSlug": "the-pumping-paradox-in-east-africa-decoupling-water-extraction-from-fossil-fuel--1772724402201",
+      "articleTitle": "The Pumping Paradox in East Africa: Decoupling Water Extraction from Fossil Fuel Dependency for Climate-Resilient Agriculture",
+      "platform": "linkedin",
+      "content": "The intersection of water scarcity and energy insecurity is creating a devastating cycle in East Africa. While global access to safely managed drinking water stands at 73.7%, Sub-Saharan Africa lags significantly behind at just 32.4%. This gap isn't just about infrastructure; it's fueled by the economic unsustainability of diesel-dependent pumping systems vulnerable to volatile fuel prices and supply chain disruptions.\n\nRising temperatures are intensifying evaporation rates, forcing communities to drill deeper and pump more frequently. We are witnessing a \"double trap\": low electricity access limits modernization, while high operational costs make small-scale irrigation economically unviable for poor farmers. Without intervention, progress on SDG 6 and SDG 7 may stall, leaving millions exposed to supply chain shocks.\n\nThe solution lies in decoupling water extraction from fossil fuel dependency. Governments and development partners must pivot funding toward decentralized renewable micro-grids. By adopting solar-powered pumping systems, stakeholders can reduce operational costs and insulate smallholder farmers from global oil price volatility. We urgently need co-financed transition programs targeting water-stressed basins in the Horn of Africa and Great Lakes region to break this cycle and build true climate resilience.",
+      "hashtags": [
+        "WaterSecurity",
+        "ClimateResilience",
+        "SustainableAgriculture"
+      ],
+      "url": "https://baseflow.institute/article/the-pumping-paradox-in-east-africa-decoupling-water-extraction-from-fossil-fuel--1772724402201",
+      "status": "pending",
+      "createdAt": "2026-03-05T15:27:14.718Z"
+    },
+    {
+      "id": "mmdmcw0u-bs",
+      "articleSlug": "the-pumping-paradox-in-east-africa-decoupling-water-extraction-from-fossil-fuel--1772724402201",
+      "articleTitle": "The Pumping Paradox in East Africa: Decoupling Water Extraction from Fossil Fuel Dependency for Climate-Resilient Agriculture",
+      "platform": "bluesky",
+      "content": "East Africa is facing a \"double trap\" where low electricity access and expensive diesel pumps are locking smallholder farmers into a cycle of vulnerability. Rising temperatures are drying up reservoirs, forcing deeper drilling that costs more to power with fossil fuels. We need to stop viewing water",
+      "hashtags": [
+        "WaterSecurity",
+        "ClimateResilience",
+        "SustainableAgriculture"
+      ],
+      "url": "https://baseflow.institute/article/the-pumping-paradox-in-east-africa-decoupling-water-extraction-from-fossil-fuel--1772724402201",
+      "status": "pending",
+      "createdAt": "2026-03-05T15:27:14.718Z"
+    },
+    {
       "id": "mmdla1fj-tw",
       "articleSlug": "the-decentralized-desalination-paradox-in-coastal-west-africa-overcoming-infrast-1772722583822",
       "articleTitle": "The Decentralized Desalination Paradox in Coastal West Africa: Overcoming Infrastructure Gaps for Climate-Resilient Water Security and Energy Access",
@@ -1711,5 +1756,5 @@
       "createdAt": "2026-03-02T00:01:09.765Z"
     }
   ],
-  "lastUpdated": "2026-03-05T14:57:02.146Z"
+  "lastUpdated": "2026-03-05T15:27:14.723Z"
 }

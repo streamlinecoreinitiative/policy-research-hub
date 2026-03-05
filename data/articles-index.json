@@ -1,6 +1,34 @@
 {
   "articles": [
     {
+      "slug": "the-pumping-paradox-in-east-africa-decoupling-water-extraction-from-fossil-fuel--1772724402201",
+      "title": "The Pumping Paradox in East Africa: Decoupling Water Extraction from Fossil Fuel Dependency for Climate-Resilient Agriculture",
+      "summary": "East African governments and development partners must pivot funding from diesel-dependent water infrastructure to decentralized renewable micro-grids.",
+      "topic": "Environmental resilience in lower-income countries: water security, clean energy, and climate adaptation",
+      "template": "Policy Brief",
+      "tags": [
+        "climate",
+        "water",
+        "energy",
+        "agriculture",
+        "health",
+        "policy",
+        "finance",
+        "resilience"
+      ],
+      "wordCount": 1138,
+      "sourcesUsed": 17,
+      "readabilityScore": 83,
+      "publishedAt": "2026-03-05T15:26:42.210Z",
+      "updatedAt": "2026-03-05T15:27:16.661Z",
+      "status": "published",
+      "mdFile": "the-pumping-paradox-in-east-africa-decoupling-water-extraction-from-fossil-fuel--1772724402201.md",
+      "htmlFile": "the-pumping-paradox-in-east-africa-decoupling-water-extraction-from-fossil-fuel--1772724402201.html",
+      "region": "Sub-Saharan Africa",
+      "driveFileId": "1694RbxIVf0QDWzuYbtl-Hb8QSGZqrPgZ",
+      "driveWebViewLink": "https://drive.google.com/file/d/1694RbxIVf0QDWzuYbtl-Hb8QSGZqrPgZ/view?usp=drivesdk"
+    },
+    {
       "slug": "the-decentralized-desalination-paradox-in-coastal-west-africa-overcoming-infrast-1772722583822",
       "title": "The Decentralized Desalination Paradox in Coastal West Africa: Overcoming Infrastructure Gaps for Climate-Resilient Water Security and Energy Access",
       "summary": "Coastal communities in West Africa face a convergence of rising sea levels, salinization of aquifers, and energy poverty that threatens food security and public health.",
@@ -1613,6 +1641,6 @@
       "region": "Sub-Saharan Africa"
     }
   ],
-  "lastUpdated": "2026-03-05T14:57:04.860Z",
-  "totalPublished": 53
+  "lastUpdated": "2026-03-05T15:27:16.661Z",
+  "totalPublished": 54
 }
