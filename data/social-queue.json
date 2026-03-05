@@ -1,6 +1,47 @@
 {
   "posts": [
     {
+      "id": "mme3ie3h-tw",
+      "articleSlug": "the-thermal-threshold-trap-integrating-community-based-cooling-with-desalination-1772753217233",
+      "articleTitle": "The Thermal Threshold Trap: Integrating Community-Based Cooling with Desalination for Climate-Resilient Water Security in Coastal Sub-Saharan Africa",
+      "platform": "twitter",
+      "content": "Coastal Sub-Saharan communities face a deadly mix of saltwater intrusion and rising heatwaves. Fossil-fuel desalination is too costly and carbon-heavy for this region. We need urgent, decentralized hybrid systems pairing passive solar cooling with low-energy desalination to secur",
+      "hashtags": [
+        "ClimateResilience",
+        "WaterSecurity",
+        "SDG6"
+      ],
+      "url": "https://baseflow.institute/article/the-thermal-threshold-trap-integrating-community-based-cooling-with-desalination-1772753217233",
+      "status": "pending",
+      "createdAt": "2026-03-05T23:27:24.893Z"
+    },
+    {
+      "id": "mme3ie3h-li",
+      "articleSlug": "the-thermal-threshold-trap-integrating-community-based-cooling-with-desalination-1772753217233",
+      "articleTitle": "The Thermal Threshold Trap: Integrating Community-Based Cooling with Desalination for Climate-Resilient Water Security in Coastal Sub-Saharan Africa",
+      "platform": "linkedin",
+      "content": "The hydrological landscape of coastal Sub-Saharan Africa is shifting dangerously fast. Rising sea levels are rendering traditional aquifers brackish, while intensifying heatwaves push regions past critical thermal thresholds where human health risks skyrocket. Yet, current solutions rely on energy-intensive, fossil-fuel-based desalination, creating a vicious cycle of high costs and carbon emissions for communities already struggling with water and energy poverty.\n\nThe solution lies not in scaling existing centralized models, but in decoupling water security from grid dependency. We must pivot toward decentralized, community-led hybrid systems that integrate passive solar thermal management with low-energy desalination technologies. This approach directly addresses SDG 6 targets while adhering to climate adaptation mandates. Immediate action is required to pilot these tangible, community-managed infrastructures in high-risk districts, moving beyond theory to protect livelihoods against compounding climate shocks.",
+      "hashtags": [
+        "ClimateAdaptation #WaterSecurity #RenewableEnergy #PolicyBrief"
+      ],
+      "url": "https://baseflow.institute/article/the-thermal-threshold-trap-integrating-community-based-cooling-with-desalination-1772753217233",
+      "status": "pending",
+      "createdAt": "2026-03-05T23:27:24.893Z"
+    },
+    {
+      "id": "mme3ie3h-bs",
+      "articleSlug": "the-thermal-threshold-trap-integrating-community-based-cooling-with-desalination-1772753217233",
+      "articleTitle": "The Thermal Threshold Trap: Integrating Community-Based Cooling with Desalination for Climate-Resilient Water Security in Coastal Sub-Saharan Africa",
+      "platform": "bluesky",
+      "content": "Rising seas are poisoning our wells, and rising heat is pushing us past dangerous thermal thresholds. For coastal communities in Sub-Saharan Africa, relying on fossil-fuel desalination isn't just expensive—it's a climate trap. We need to stop building centralized systems that drain resources and sta",
+      "hashtags": [
+        "ClimateResilience #WaterAndEnergy #CommunityLed"
+      ],
+      "url": "https://baseflow.institute/article/the-thermal-threshold-trap-integrating-community-based-cooling-with-desalination-1772753217233",
+      "status": "pending",
+      "createdAt": "2026-03-05T23:27:24.893Z"
+    },
+    {
       "id": "mme2f3cm-tw",
       "articleSlug": "the-baseload-bottleneck-integrating-managed-aquifer-recharge-with-decentralized--1772751377628",
       "articleTitle": "The Baseload Bottleneck: Integrating Managed Aquifer Recharge with Decentralized Solar Pumping for Climate-Resilient Water Security in East Africa",
@@ -2419,5 +2460,5 @@
       "createdAt": "2026-03-02T00:01:09.765Z"
     }
   ],
-  "lastUpdated": "2026-03-05T22:56:51.384Z"
+  "lastUpdated": "2026-03-05T23:27:24.896Z"
 }
