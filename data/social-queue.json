@@ -1,6 +1,51 @@
 {
   "posts": [
     {
+      "id": "mmdx2ny1-tw",
+      "articleSlug": "the-thermal-threshold-trap-integrating-community-based-cooling-with-desalination-1772742400753",
+      "articleTitle": "The Thermal Threshold Trap: Integrating Community-Based Cooling with Desalination for Climate-Resilient Water Security in Coastal Sub-Saharan Africa",
+      "platform": "twitter",
+      "content": "Rising heat is breaking desalination plants in coastal Sub-Saharan Africa, creating a deadly cycle of water scarcity and energy poverty. The solution isn't just more power; it's cooling the assets themselves. We're calling for funded pilot programs integrating passive microclimat",
+      "hashtags": [
+        "WaterSecurity",
+        "ClimateAdaptation",
+        "Desalination"
+      ],
+      "url": "https://baseflow.institute/article/the-thermal-threshold-trap-integrating-community-based-cooling-with-desalination-1772742400753",
+      "status": "pending",
+      "createdAt": "2026-03-05T20:27:13.465Z"
+    },
+    {
+      "id": "mmdx2ny1-li",
+      "articleSlug": "the-thermal-threshold-trap-integrating-community-based-cooling-with-desalination-1772742400753",
+      "articleTitle": "The Thermal Threshold Trap: Integrating Community-Based Cooling with Desalination for Climate-Resilient Water Security in Coastal Sub-Saharan Africa",
+      "platform": "linkedin",
+      "content": "Coastal communities in Sub-Saharan Africa face a critical bottleneck: rising temperatures are rendering traditional desalination plants energy-prohibitive, trapping populations in a cycle of water scarcity and energy poverty. While global access to safely managed drinking water stands at 73.7%, regions like West and East Africa lag significantly, with only 32.4% of the population having such access.\n\nThe intersection of water security and energy access is failing because we are treating symptoms rather than root causes. Reliance on fossil fuels for pumping is becoming unsustainable due to rising costs and climate volatility. Current data indicates that increased ambient temperatures push desalination equipment beyond its thermal limits, causing catastrophic efficiency losses.\n\nOur new policy brief proposes an immediate pivot: funding pilot programs that integrate community-based cooling technologies—such as passive microclimate shelters and evaporative pre-cooling systems—with existing desalination infrastructure. By reducing ambient heat around critical assets before it reaches pumps and reverse osmosis units, we can lower thermodynamic loads, extend equipment lifespan, and stabilize water production without requiring new grid connections. This approach directly addresses the root cause of infrastructure failure: thermal stress. Let's prioritize climate-resilient engineering over brute-force electrification.",
+      "hashtags": [
+        "WaterEnergyNexus",
+        "ClimateResilience",
+        "SustainableDevelopment"
+      ],
+      "url": "https://baseflow.institute/article/the-thermal-threshold-trap-integrating-community-based-cooling-with-desalination-1772742400753",
+      "status": "pending",
+      "createdAt": "2026-03-05T20:27:13.465Z"
+    },
+    {
+      "id": "mmdx2ny1-bs",
+      "articleSlug": "the-thermal-threshold-trap-integrating-community-based-cooling-with-desalination-1772742400753",
+      "articleTitle": "The Thermal Threshold Trap: Integrating Community-Based Cooling with Desalination for Climate-Resilient Water Security in Coastal Sub-Saharan Africa",
+      "platform": "bluesky",
+      "content": "It's not just about getting electricity to desalination plants in coastal Sub-Saharan Africa; it's about keeping the plants from melting under the rising heat. We're seeing a dangerous cycle where high temperatures push equipment beyond its thermal limits, causing failures that leave communities wit",
+      "hashtags": [
+        "ClimateResilience",
+        "WaterSecurity",
+        "SustainableTech"
+      ],
+      "url": "https://baseflow.institute/article/the-thermal-threshold-trap-integrating-community-based-cooling-with-desalination-1772742400753",
+      "status": "pending",
+      "createdAt": "2026-03-05T20:27:13.465Z"
+    },
+    {
       "id": "mmdw0b6j-tw",
       "articleSlug": "the-baseload-paradox-integrating-community-micro-hydro-with-managed-aquifer-rech-1772740607057",
       "articleTitle": "The Baseload Paradox: Integrating Community Micro-Hydro with Managed Aquifer Recharge for Resilient Water-Energy Systems in the Ethiopian Highlands",
@@ -2165,5 +2210,5 @@
       "createdAt": "2026-03-02T00:01:09.765Z"
     }
   ],
-  "lastUpdated": "2026-03-05T19:57:23.999Z"
+  "lastUpdated": "2026-03-05T20:27:13.468Z"
 }
