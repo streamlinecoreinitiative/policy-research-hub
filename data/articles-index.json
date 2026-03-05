@@ -1,6 +1,34 @@
 {
   "articles": [
     {
+      "slug": "breaking-the-energy-water-trap-stabilizing-clean-infrastructure-in-south-asia-an-1772717176279",
+      "title": "Breaking the Energy-Water Trap: Stabilizing Clean Infrastructure in South Asia and Beyond",
+      "summary": "Rising global energy prices are forcing vulnerable communities to abandon clean water infrastructure, reverting to expensive and polluting diesel pumps.",
+      "topic": "Environmental resilience in lower-income countries: water security, clean energy, and climate adaptation",
+      "template": "Policy Brief",
+      "tags": [
+        "climate",
+        "water",
+        "energy",
+        "agriculture",
+        "health",
+        "policy",
+        "finance",
+        "resilience"
+      ],
+      "wordCount": 1205,
+      "sourcesUsed": 19,
+      "readabilityScore": 90,
+      "publishedAt": "2026-03-05T13:26:16.285Z",
+      "updatedAt": "2026-03-05T13:26:53.776Z",
+      "status": "published",
+      "mdFile": "breaking-the-energy-water-trap-stabilizing-clean-infrastructure-in-south-asia-an-1772717176279.md",
+      "htmlFile": "breaking-the-energy-water-trap-stabilizing-clean-infrastructure-in-south-asia-an-1772717176279.html",
+      "region": "Sub-Saharan Africa",
+      "driveFileId": "1SPb7EBsFeW-eRtD6kXT8Aw4iJHl2YYss",
+      "driveWebViewLink": "https://drive.google.com/file/d/1SPb7EBsFeW-eRtD6kXT8Aw4iJHl2YYss/view?usp=drivesdk"
+    },
+    {
       "slug": "the-bio-energy-bottleneck-disrupting-fossil-fuel-dominance-in-rural-water-pumpin-1772715378459",
       "title": "** The Bio-Energy Bottleneck: Disrupting Fossil-Fuel Dominance in Rural Water Pumping Systems for Climate Resilience in West Africa",
       "summary": "To secure water access and build climate resilience in West Africa, policymakers must pivot from subsidizing diesel-powered rural pumping systems to deploying decentralized bio-energy solutions.",
@@ -1501,6 +1529,6 @@
       "region": "Sub-Saharan Africa"
     }
   ],
-  "lastUpdated": "2026-03-05T12:56:47.210Z",
-  "totalPublished": 49
+  "lastUpdated": "2026-03-05T13:26:53.776Z",
+  "totalPublished": 50
 }

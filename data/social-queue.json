@@ -1,6 +1,51 @@
 {
   "posts": [
     {
+      "id": "mmdi22ut-tw",
+      "articleSlug": "breaking-the-energy-water-trap-stabilizing-clean-infrastructure-in-south-asia-an-1772717176279",
+      "articleTitle": "Breaking the Energy-Water Trap: Stabilizing Clean Infrastructure in South Asia and Beyond",
+      "platform": "twitter",
+      "content": "Rising energy prices are forcing communities in South Asia to abandon clean water systems, reverting to polluting diesel pumps. The solution isn't just more capital—it's shifting subsidies from hardware to operational stability. We need financing models that decouple water costs ",
+      "hashtags": [
+        "WaterSecurity",
+        "ClimateAdaptation",
+        "CleanEnergy"
+      ],
+      "url": "https://baseflow.institute/article/breaking-the-energy-water-trap-stabilizing-clean-infrastructure-in-south-asia-an-1772717176279",
+      "status": "pending",
+      "createdAt": "2026-03-05T13:26:51.893Z"
+    },
+    {
+      "id": "mmdi22ut-li",
+      "articleSlug": "breaking-the-energy-water-trap-stabilizing-clean-infrastructure-in-south-asia-an-1772717176279",
+      "articleTitle": "Breaking the Energy-Water Trap: Stabilizing Clean Infrastructure in South Asia and Beyond",
+      "platform": "linkedin",
+      "content": "The intersection of water security and clean energy represents a critical inflection point for lower-income countries facing climate change. While global access to safely managed drinking water stands at 73.7%, this aggregate figure masks severe disparities; in Sub-Saharan Africa, access drops significantly to 32.4%. The root cause is not merely a lack of capital but an economic trap: as fossil fuel prices soar, maintaining existing water infrastructure becomes financially unsustainable for households and local governments alike.\n\nIn many lower-income nations, water infrastructure is designed with a static cost structure in mind, failing to account for the volatility of global energy markets. When oil prices spike, operating costs for water pumps increase, forcing a binary choice: pay exorbitant fuel bills or cut services. The latter disproportionately impacts the poor who cannot afford higher rates, leading to service interruptions that exacerbate food insecurity. This economic fragility is compounded by climate variability and inflation. Extreme weather events can increase water demand while simultaneously damaging infrastructure, requiring more frequent maintenance. Meanwhile, the global push for clean energy faces a \"cost barrier.\"\n\nTo break this cycle, policymakers must prioritize financing mechanisms that decouple water service costs from volatile fossil fuel markets. We urgently need an immediate shift from hardware subsidies to operational expenditure (OPEX) stabilization models that guarantee affordable renewable energy for water systems. Without these interventions, the gap between global safe water access and regional realities in South Asia will widen, directly threatening poverty reduction goals. Let's discuss how we can stabilize clean infrastructure globally.",
+      "hashtags": [
+        "PolicyBrief",
+        "WaterSecurity",
+        "SustainableDevelopment"
+      ],
+      "url": "https://baseflow.institute/article/breaking-the-energy-water-trap-stabilizing-clean-infrastructure-in-south-asia-an-1772717176279",
+      "status": "pending",
+      "createdAt": "2026-03-05T13:26:51.893Z"
+    },
+    {
+      "id": "mmdi22ut-bs",
+      "articleSlug": "breaking-the-energy-water-trap-stabilizing-clean-infrastructure-in-south-asia-an-1772717176279",
+      "articleTitle": "Breaking the Energy-Water Trap: Stabilizing Clean Infrastructure in South Asia and Beyond",
+      "platform": "bluesky",
+      "content": "We're seeing a dangerous trend where rising energy prices are forcing vulnerable communities to abandon clean water systems and revert to expensive, polluting diesel pumps. It's not just about building new pipes; it's about the economics of keeping them running. When oil spikes, local governments fa",
+      "hashtags": [
+        "WaterCrisis",
+        "EnergyPolicy",
+        "ClimateResilience"
+      ],
+      "url": "https://baseflow.institute/article/breaking-the-energy-water-trap-stabilizing-clean-infrastructure-in-south-asia-an-1772717176279",
+      "status": "pending",
+      "createdAt": "2026-03-05T13:26:51.893Z"
+    },
+    {
       "id": "mmdgzcze-tw",
       "articleSlug": "the-bio-energy-bottleneck-disrupting-fossil-fuel-dominance-in-rural-water-pumpin-1772715378459",
       "articleTitle": "** The Bio-Energy Bottleneck: Disrupting Fossil-Fuel Dominance in Rural Water Pumping Systems for Climate Resilience in West Africa",
@@ -1533,5 +1578,5 @@
       "createdAt": "2026-03-02T00:01:09.765Z"
     }
   ],
-  "lastUpdated": "2026-03-05T12:56:45.438Z"
+  "lastUpdated": "2026-03-05T13:26:51.895Z"
 }
