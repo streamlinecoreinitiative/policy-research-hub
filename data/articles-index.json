@@ -1,6 +1,34 @@
 {
   "articles": [
     {
+      "slug": "the-baseload-bottleneck-integrating-managed-aquifer-recharge-with-decentralized--1772751377628",
+      "title": "The Baseload Bottleneck: Integrating Managed Aquifer Recharge with Decentralized Solar Pumping for Climate-Resilient Water Security in East Africa",
+      "summary": "Governments and development partners must pivot from capital-intensive well-drilling projects to integrated Managed Aquifer Recharge (MAR) systems powered by decentralized solar energy.",
+      "topic": "Environmental resilience in lower-income countries: water security, clean energy, and climate adaptation",
+      "template": "Policy Brief",
+      "tags": [
+        "climate",
+        "water",
+        "energy",
+        "agriculture",
+        "health",
+        "policy",
+        "finance",
+        "resilience"
+      ],
+      "wordCount": 1106,
+      "sourcesUsed": 8,
+      "readabilityScore": 89,
+      "publishedAt": "2026-03-05T22:56:17.635Z",
+      "updatedAt": "2026-03-05T22:56:53.523Z",
+      "status": "published",
+      "mdFile": "the-baseload-bottleneck-integrating-managed-aquifer-recharge-with-decentralized--1772751377628.md",
+      "htmlFile": "the-baseload-bottleneck-integrating-managed-aquifer-recharge-with-decentralized--1772751377628.html",
+      "region": "Sub-Saharan Africa",
+      "driveFileId": "12zGreO35yrrnubK4t0DRLPtFKir5750P",
+      "driveWebViewLink": "https://drive.google.com/file/d/12zGreO35yrrnubK4t0DRLPtFKir5750P/view?usp=drivesdk"
+    },
+    {
       "slug": "the-intermittency-nexus-decoupling-energy-poverty-from-water-security-in-sub-sah-1772749586512",
       "title": "The Intermittency Nexus: Decoupling Energy Poverty from Water Security in Sub-Saharan Africa Through Hybrid Renewable Microgrids",
       "summary": "Policymakers must prioritize the deployment of hybrid renewable microgrid systems to decouple critical water infrastructure from unreliable national grids in Sub-Saharan Africa.",
@@ -2033,6 +2061,6 @@
       "region": "Sub-Saharan Africa"
     }
   ],
-  "lastUpdated": "2026-03-05T22:26:56.966Z",
-  "totalPublished": 68
+  "lastUpdated": "2026-03-05T22:56:53.523Z",
+  "totalPublished": 69
 }

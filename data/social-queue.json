@@ -1,6 +1,47 @@
 {
   "posts": [
     {
+      "id": "mme2f3cm-tw",
+      "articleSlug": "the-baseload-bottleneck-integrating-managed-aquifer-recharge-with-decentralized--1772751377628",
+      "articleTitle": "The Baseload Bottleneck: Integrating Managed Aquifer Recharge with Decentralized Solar Pumping for Climate-Resilient Water Security in East Africa",
+      "platform": "twitter",
+      "content": "Water security in East Africa is collapsing, not from lack of water, but from how we manage it. 73.7% of the world has safe drinking water, yet only 32.4% in Sub-Saharan Africa. The culprit? Over-extraction powered by fossil fuels depleting aquifers faster than they recharge. We ",
+      "hashtags": [
+        "WaterSecurity",
+        "ClimateResilience",
+        "SustainableWater"
+      ],
+      "url": "https://baseflow.institute/article/the-baseload-bottleneck-integrating-managed-aquifer-recharge-with-decentralized--1772751377628",
+      "status": "pending",
+      "createdAt": "2026-03-05T22:56:51.382Z"
+    },
+    {
+      "id": "mme2f3cm-li",
+      "articleSlug": "the-baseload-bottleneck-integrating-managed-aquifer-recharge-with-decentralized--1772751377628",
+      "articleTitle": "The Baseload Bottleneck: Integrating Managed Aquifer Recharge with Decentralized Solar Pumping for Climate-Resilient Water Security in East Africa",
+      "platform": "linkedin",
+      "content": "The global water crisis is hitting lower-income countries hardest, with Sub-Saharan Africa seeing safe drinking water access drop to just 32.4% compared to the global average of 73.7%. The root cause isn't a lack of resources, but a failure in management: freshwater withdrawal has hit 9.2% of available supplies, while arid regions deplete aquifers faster than they recharge due to reliance on energy-intensive pumping.\n\nThe solution lies in shifting from capital-intensive well-drilling to integrated Managed Aquifer Recharge (MAR) systems powered by decentralized solar energy. By treating wastewater and surface runoff as valuable assets rather than waste, nations can transform water scarcity into a storage opportunity. This approach reduces extraction needs, lowers operational costs, and addresses the dual crises of energy access and climate adaptation without increasing carbon emissions.\n\nEast Africa serves as a critical case study for this transition, facing rising demand from urbanization and agriculture alongside declining aquifer levels caused by over-extraction. Moving away from unsustainable diesel or grid-dependent pumping toward solar MAR offers a viable path forward for long-term water security in the region.",
+      "hashtags": [
+        "WaterSecurity #ClimateResilience #SustainableWater #MAR #SolarEnergy"
+      ],
+      "url": "https://baseflow.institute/article/the-baseload-bottleneck-integrating-managed-aquifer-recharge-with-decentralized--1772751377628",
+      "status": "pending",
+      "createdAt": "2026-03-05T22:56:51.382Z"
+    },
+    {
+      "id": "mme2f3cm-bs",
+      "articleSlug": "the-baseload-bottleneck-integrating-managed-aquifer-recharge-with-decentralized--1772751377628",
+      "articleTitle": "The Baseload Bottleneck: Integrating Managed Aquifer Recharge with Decentralized Solar Pumping for Climate-Resilient Water Security in East Africa",
+      "platform": "bluesky",
+      "content": "We're facing a hidden crisis in East Africa: we have water, but we're draining our aquifers faster than nature can refill them. Traditional solutions like drilling deeper wells are expensive and fail during droughts. The real bottleneck isn't supply; it's management. We need to stop viewing wastewat",
+      "hashtags": [
+        "WaterSecurity #ClimateAction #RenewableWater"
+      ],
+      "url": "https://baseflow.institute/article/the-baseload-bottleneck-integrating-managed-aquifer-recharge-with-decentralized--1772751377628",
+      "status": "pending",
+      "createdAt": "2026-03-05T22:56:51.382Z"
+    },
+    {
       "id": "mme1cl87-tw",
       "articleSlug": "the-intermittency-nexus-decoupling-energy-poverty-from-water-security-in-sub-sah-1772749586512",
       "articleTitle": "The Intermittency Nexus: Decoupling Energy Poverty from Water Security in Sub-Saharan Africa Through Hybrid Renewable Microgrids",
@@ -2378,5 +2419,5 @@
       "createdAt": "2026-03-02T00:01:09.765Z"
     }
   ],
-  "lastUpdated": "2026-03-05T22:26:54.969Z"
+  "lastUpdated": "2026-03-05T22:56:51.384Z"
 }
