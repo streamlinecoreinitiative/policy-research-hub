@@ -1,6 +1,56 @@
 {
   "posts": [
     {
+      "id": "mmdk7jwl-tw",
+      "articleSlug": "the-micro-hydrop-gap-unlocking-decentralized-hydropower-for-rural-water-security-1772720790886",
+      "articleTitle": "The Micro-Hydrop Gap: Unlocking Decentralized Hydropower for Rural Water Security and Energy Access in the Ethiopian Highlands",
+      "platform": "twitter",
+      "content": "Ethiopia's highlands face a dual crisis: rising temperatures are melting snowpack too early, threatening water security, while diesel pumps remain unsustainable. The solution isn't just grid expansion—it's community-led micro-hydro systems under 250 kW. Decentralized power can si",
+      "hashtags": [
+        "Ethiopia",
+        "WaterSecurity",
+        "CleanEnergy",
+        "ClimateAdaptation"
+      ],
+      "url": "https://baseflow.institute/article/the-micro-hydrop-gap-unlocking-decentralized-hydropower-for-rural-water-security-1772720790886",
+      "status": "pending",
+      "createdAt": "2026-03-05T14:27:06.501Z"
+    },
+    {
+      "id": "mmdk7jwl-li",
+      "articleSlug": "the-micro-hydrop-gap-unlocking-decentralized-hydropower-for-rural-water-security-1772720790886",
+      "articleTitle": "The Micro-Hydrop Gap: Unlocking Decentralized Hydropower for Rural Water Security and Energy Access in the Ethiopian Highlands",
+      "platform": "linkedin",
+      "content": "Rising temperatures in Ethiopia's highlands are creating a critical climate crisis. As snowpack in the Blue Nile basin declines earlier each season, traditional water security strategies are failing, leaving rural communities dependent on volatile diesel pumps for irrigation and domestic supply. This reliance creates an unbreakable vicious cycle of high costs and energy insecurity.\n\nOur latest policy brief argues that Ethiopia must pivot from grid-centric expansion to decentralized micro-hydro systems. By investing in community-led hydropower plants under 250 kW, policymakers can unlock a resilient loop that addresses SDG 6 (Clean Water) and SDG 7 (Affordable Energy) simultaneously. The key recommendation is establishing a dedicated funding mechanism for public-private partnerships (PPPs) to de-risk investments while ensuring subsidized rates for water cooperatives.\n\nThis approach protects livelihoods without expanding the global freshwater withdrawal footprint, offering a scalable model for climate adaptation in lower-income countries. Read the full brief here: [Insert Link]\n\n#WaterSecurity #RenewableEnergy #SustainableDevelopment #ClimatePolicy #Ethiopia",
+      "hashtags": [
+        "WaterSecurity",
+        "RenewableEnergy",
+        "SustainableDevelopment",
+        "ClimatePolicy",
+        "Ethiopia"
+      ],
+      "url": "https://baseflow.institute/article/the-micro-hydrop-gap-unlocking-decentralized-hydropower-for-rural-water-security-1772720790886",
+      "status": "pending",
+      "createdAt": "2026-03-05T14:27:06.501Z"
+    },
+    {
+      "id": "mmdk7jwl-bs",
+      "articleSlug": "the-micro-hydrop-gap-unlocking-decentralized-hydropower-for-rural-water-security-1772720790886",
+      "articleTitle": "The Micro-Hydrop Gap: Unlocking Decentralized Hydropower for Rural Water Security and Energy Access in the Ethiopian Highlands",
+      "platform": "bluesky",
+      "content": "The Ethiopian highlands are facing a quiet but urgent crisis. Warmer temperatures mean snowpack melts too early, leaving farmers and families without water when they need it most. Currently, they rely on expensive diesel pumps, which is both financially unsustainable and environmentally damaging.\n\nI",
+      "hashtags": [
+        "Ethiopia",
+        "MicroHydro",
+        "WaterAndEnergyNexus",
+        "ClimateAction",
+        "PolicyBrief"
+      ],
+      "url": "https://baseflow.institute/article/the-micro-hydrop-gap-unlocking-decentralized-hydropower-for-rural-water-security-1772720790886",
+      "status": "pending",
+      "createdAt": "2026-03-05T14:27:06.501Z"
+    },
+    {
       "id": "mmdj3tbh-tw",
       "articleSlug": "the-desalination-dilemma-in-coastal-sub-saharan-africa-replacing-brackish-water--1772718940216",
       "articleTitle": "The Desalination Dilemma in Coastal Sub-Saharan Africa: Replacing Brackish Water Extraction with Community-Led Solar-Powered Reverse Osmosis for Climate-Resilient Water Security",
@@ -1620,5 +1670,5 @@
       "createdAt": "2026-03-02T00:01:09.765Z"
     }
   ],
-  "lastUpdated": "2026-03-05T13:56:12.466Z"
+  "lastUpdated": "2026-03-05T14:27:06.505Z"
 }
