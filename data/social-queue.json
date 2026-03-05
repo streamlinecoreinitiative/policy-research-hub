@@ -1,6 +1,55 @@
 {
   "posts": [
     {
+      "id": "mmdomjvq-tw",
+      "articleSlug": "the-desalination-dilemma-in-coastal-sub-saharan-africa-replacing-brackish-water--1772728209403",
+      "articleTitle": "The Desalination Dilemma in Coastal Sub-Saharan Africa: Replacing Brackish Water Extraction with Community-Led Solar-Powered Reverse Osmosis for Climate-Resilient Water Security",
+      "platform": "twitter",
+      "content": "Coastal Sub-Saharan Africa faces a water crisis: rising seas are contaminating freshwater aquifers, while the grid is failing. We must stop relying on expensive, grid-dependent desalination. The solution? Decentralized, solar-powered reverse osmosis at the community level. It cut",
+      "hashtags": [
+        "WaterSecurity",
+        "ClimateAction",
+        "SolarEnergy",
+        "SubSaharanAfrica"
+      ],
+      "url": "https://baseflow.institute/article/the-desalination-dilemma-in-coastal-sub-saharan-africa-replacing-brackish-water--1772728209403",
+      "status": "pending",
+      "createdAt": "2026-03-05T16:30:44.774Z"
+    },
+    {
+      "id": "mmdomjvq-li",
+      "articleSlug": "the-desalination-dilemma-in-coastal-sub-saharan-africa-replacing-brackish-water--1772728209403",
+      "articleTitle": "The Desalination Dilemma in Coastal Sub-Saharan Africa: Replacing Brackish Water Extraction with Community-Led Solar-Powered Reverse Osmosis for Climate-Resilient Water Security",
+      "platform": "linkedin",
+      "content": "Coastal communities in Sub-Saharan Africa are facing an existential threat as climate change drives saltwater intrusion into freshwater aquifers. Simultaneously, the region grapples with a severe electricity deficit, making traditional grid-dependent desalination unsustainable and prohibitively expensive due to fossil fuel reliance.\n\nOur latest policy brief argues for an urgent paradigm shift: replacing centralized infrastructure with decentralized, community-led solar-powered reverse osmosis systems. This approach decouples water production from unstable national grids, offering a self-sustaining model that reduces operational costs by eliminating diesel dependence while maintaining potable water quality.\n\nTo realize this potential, policymakers must prioritize three targeted interventions: capital subsidies for initial deployment, streamlined regulatory frameworks for off-grid systems, and the establishment of community cooperatives for operations and maintenance. By adopting these strategies, we can secure drinking water without depleting resources or exacerbating energy insecurity. This is not just about water; it is about resilience in the face of climate change.\n\n#WaterSecurity #ClimateAdaptation #RenewableEnergy #PolicyBrief #SustainableDevelopment",
+      "hashtags": [
+        "WaterSecurity",
+        "ClimateAdaptation",
+        "RenewableEnergy",
+        "PolicyBrief",
+        "SustainableDevelopment"
+      ],
+      "url": "https://baseflow.institute/article/the-desalination-dilemma-in-coastal-sub-saharan-africa-replacing-brackish-water--1772728209403",
+      "status": "pending",
+      "createdAt": "2026-03-05T16:30:44.774Z"
+    },
+    {
+      "id": "mmdomjvq-bs",
+      "articleSlug": "the-desalination-dilemma-in-coastal-sub-saharan-africa-replacing-brackish-water--1772728209403",
+      "articleTitle": "The Desalination Dilemma in Coastal Sub-Saharan Africa: Replacing Brackish Water Extraction with Community-Led Solar-Powered Reverse Osmosis for Climate-Resilient Water Security",
+      "platform": "bluesky",
+      "content": "The coastal water crisis in Sub-Saharan Africa is compounding: rising seas are poisoning our aquifers, and the power grid is too unreliable to run big desalination plants. We need a new model. Imagine solar-powered reverse osmosis units right at the community level. No diesel fumes, no grid dependen",
+      "hashtags": [
+        "WaterCrisis",
+        "SolarPower",
+        "CommunityLed",
+        "ClimateResilience"
+      ],
+      "url": "https://baseflow.institute/article/the-desalination-dilemma-in-coastal-sub-saharan-africa-replacing-brackish-water--1772728209403",
+      "status": "pending",
+      "createdAt": "2026-03-05T16:30:44.774Z"
+    },
+    {
       "id": "mmdngl24-tw",
       "articleSlug": "the-pumping-paradox-in-east-africa-decoupling-water-extraction-from-fossil-fuel--1772726253237",
       "articleTitle": "The Pumping Paradox in East Africa: Decoupling Water Extraction from Fossil Fuel Dependency for Climate-Resilient Agriculture",
@@ -1801,5 +1850,5 @@
       "createdAt": "2026-03-02T00:01:09.765Z"
     }
   ],
-  "lastUpdated": "2026-03-05T15:58:06.757Z"
+  "lastUpdated": "2026-03-05T16:30:44.778Z"
 }
