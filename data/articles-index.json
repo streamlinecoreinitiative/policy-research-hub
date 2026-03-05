@@ -1,6 +1,34 @@
 {
   "articles": [
     {
+      "slug": "the-thermal-threshold-trap-integrating-community-based-cooling-with-desalination-1772708209731",
+      "title": "The Thermal Threshold Trap: Integrating Community-Based Cooling with Desalination for Climate-Resilient Water Security in Coastal Sub-Saharan Africa",
+      "summary": "Coastal communities in Sub-Saharan Africa face an immediate existential threat from rising sea levels contaminating freshwater aquifers and increasing ambient temperatures that can render traditional water treatment inefficient.",
+      "topic": "Environmental resilience in lower-income countries: water security, clean energy, and climate adaptation",
+      "template": "Policy Brief",
+      "tags": [
+        "climate",
+        "water",
+        "energy",
+        "health",
+        "policy",
+        "finance",
+        "resilience",
+        "urbanization"
+      ],
+      "wordCount": 1138,
+      "sourcesUsed": 6,
+      "readabilityScore": 88,
+      "publishedAt": "2026-03-05T10:56:49.738Z",
+      "updatedAt": "2026-03-05T10:57:23.925Z",
+      "status": "published",
+      "mdFile": "the-thermal-threshold-trap-integrating-community-based-cooling-with-desalination-1772708209731.md",
+      "htmlFile": "the-thermal-threshold-trap-integrating-community-based-cooling-with-desalination-1772708209731.html",
+      "region": "Sub-Saharan Africa",
+      "driveFileId": "1yMc6zuPvGv9o-ZLvjZJiGF6rwOO5wgBq",
+      "driveWebViewLink": "https://drive.google.com/file/d/1yMc6zuPvGv9o-ZLvjZJiGF6rwOO5wgBq/view?usp=drivesdk"
+    },
+    {
       "slug": "the-hydro-energy-paradox-in-sub-saharan-africa-decoupling-water-scarcity-from-fo-1772706327570",
       "title": "The Hydro-Energy Paradox in Sub-Saharan Africa: Decoupling Water Scarcity from Fossil Fuel Dependency via Community-Led Pumping Modernization",
       "summary": "The most feasible path to achieving water security and energy resilience in Sub-Saharan Africa is not the expansion of centralized grids or the construction of new large-scale facilities, but rather the immediate retrofitting of existing smallholder irrigation systems with locally sourced renewable energy and community-managed protocols.",
@@ -1361,6 +1389,6 @@
       "region": "Sub-Saharan Africa"
     }
   ],
-  "lastUpdated": "2026-03-05T10:25:55.136Z",
-  "totalPublished": 44
+  "lastUpdated": "2026-03-05T10:57:23.925Z",
+  "totalPublished": 45
 }

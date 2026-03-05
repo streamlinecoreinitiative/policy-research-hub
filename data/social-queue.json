@@ -1,6 +1,36 @@
 {
   "posts": [
     {
+      "id": "mmdcptqp-tw",
+      "articleSlug": "the-thermal-threshold-trap-integrating-community-based-cooling-with-desalination-1772708209731",
+      "articleTitle": "The Thermal Threshold Trap: Integrating Community-Based Cooling with Desalination for Climate-Resilient Water Security in Coastal Sub-Saharan Africa",
+      "platform": "twitter",
+      "content": "Coastal Sub-Saharan Africa faces a dual crisis: rising seas contaminate aquifers while heat renders water treatment inefficient. Relying solely on pumping or rainwater harvesting is failing. We must pivot to an integrated \"cooling-water\" nexus, deploying solar-powered reverse osm",
+      "hashtags": [
+        "ClimateAdaptation",
+        "WaterSecurity",
+        "SubSaharanAfrica"
+      ],
+      "url": "https://baseflow.institute/article/the-thermal-threshold-trap-integrating-community-based-cooling-with-desalination-1772708209731",
+      "status": "pending",
+      "createdAt": "2026-03-05T10:57:22.129Z"
+    },
+    {
+      "id": "mmdcptqp-li",
+      "articleSlug": "the-thermal-threshold-trap-integrating-community-based-cooling-with-desalination-1772708209731",
+      "articleTitle": "The Thermal Threshold Trap: Integrating Community-Based Cooling with Desalination for Climate-Resilient Water Security in Coastal Sub-Saharan Africa",
+      "platform": "linkedin",
+      "content": "Coastal communities in Sub-Saharan Africa are facing an existential threat that traditional water strategies cannot address. Unlike inland regions defined by volume scarcity, coastal areas are now defined by quality and thermal viability crises. Rising sea levels contaminate freshwater aquifers with saltwater intrusion, while increasing ambient temperatures threaten the efficiency of standard treatment methods.\n\nCurrent policies often treat water and energy as separate silos, focusing on grid expansion or simple pumping. This approach fails to account for the specific thermal dynamics of coastal environments where electricity access remains critically low. The evidence is clear: energy-intensive desalination cannot succeed without active cooling mechanisms to prevent thermal degradation of water quality.\n\nTo ensure climate-resilient water security by 2030, policymakers must adopt an integrated \"cooling-water\" nexus. This involves deploying decentralized, solar-powered reverse osmosis systems coupled with community-based thermal regulation technologies. Governments need to prioritize funding for hybrid solar-cooling infrastructure rather than relying on grid expansion alone. Addressing this dual crisis is essential to prevent irreversible saltwater intrusion and unsafe water conditions for millions of residents.",
+      "hashtags": [
+        "ClimateResilience",
+        "WaterPolicy",
+        "SustainableDevelopment"
+      ],
+      "url": "https://baseflow.institute/article/the-thermal-threshold-trap-integrating-community-based-cooling-with-desalination-1772708209731",
+      "status": "pending",
+      "createdAt": "2026-03-05T10:57:22.129Z"
+    },
+    {
       "id": "mmdblchn-tw",
       "articleSlug": "the-hydro-energy-paradox-in-sub-saharan-africa-decoupling-water-scarcity-from-fo-1772706327570",
       "articleTitle": "The Hydro-Energy Paradox in Sub-Saharan Africa: Decoupling Water Scarcity from Fossil Fuel Dependency via Community-Led Pumping Modernization",
@@ -1342,5 +1372,5 @@
       "createdAt": "2026-03-02T00:01:09.765Z"
     }
   ],
-  "lastUpdated": "2026-03-05T10:25:53.535Z"
+  "lastUpdated": "2026-03-05T10:57:22.132Z"
 }
