@@ -1,6 +1,51 @@
 {
   "posts": [
     {
+      "id": "mme1cl87-tw",
+      "articleSlug": "the-intermittency-nexus-decoupling-energy-poverty-from-water-security-in-sub-sah-1772749586512",
+      "articleTitle": "The Intermittency Nexus: Decoupling Energy Poverty from Water Security in Sub-Saharan Africa Through Hybrid Renewable Microgrids",
+      "platform": "twitter",
+      "content": "Sub-Saharan Africa faces a deadly cycle: unreliable grids kill water security, forcing communities toward unsafe sources. Hybrid renewable microgrids can cut costs by 60% while ensuring continuity. Time to decouple energy poverty from water risk. #WaterSecurity #ClimateResilience",
+      "hashtags": [
+        "WaterSecurity",
+        "ClimateResilience",
+        "RenewableEnergy"
+      ],
+      "url": "https://baseflow.institute/article/the-intermittency-nexus-decoupling-energy-poverty-from-water-security-in-sub-sah-1772749586512",
+      "status": "pending",
+      "createdAt": "2026-03-05T22:26:54.967Z"
+    },
+    {
+      "id": "mme1cl87-li",
+      "articleSlug": "the-intermittency-nexus-decoupling-energy-poverty-from-water-security-in-sub-sah-1772749586512",
+      "articleTitle": "The Intermittency Nexus: Decoupling Energy Poverty from Water Security in Sub-Saharan Africa Through Hybrid Renewable Microgrids",
+      "platform": "linkedin",
+      "content": "The intersection of energy and water is not just an engineering challenge; it is a matter of survival in Sub-Saharan Africa. While global electricity access has surged to 91.6%, the region remains critically dependent on fragile fossil-fuel grids, leaving water treatment plants vulnerable to climate shocks. When pumps fail, households revert to contaminated sources, exacerbating health crises and economic instability.\n\nOur latest research highlights a clear solution: deploying hybrid renewable microgrids integrating solar PV, battery storage, and small-scale hydrokinetic systems. This approach reduces operational expenditures by up to 60% while guaranteeing service continuity during peak demand or heatwaves. By mandating these systems for new infrastructure, policymakers can directly address the \"resilience deficit\" threatening millions. We must move beyond viewing energy and water as separate silos. Securing SDG 6 targets requires a simultaneous commitment to climate adaptation through integrated renewable solutions. The path forward demands immediate action to protect human health and economic stability in this region.",
+      "hashtags": [
+        "PolicyBrief",
+        "SustainableDevelopment",
+        "EnergyWaterLink"
+      ],
+      "url": "https://baseflow.institute/article/the-intermittency-nexus-decoupling-energy-poverty-from-water-security-in-sub-sah-1772749586512",
+      "status": "pending",
+      "createdAt": "2026-03-05T22:26:54.967Z"
+    },
+    {
+      "id": "mme1cl87-bs",
+      "articleSlug": "the-intermittency-nexus-decoupling-energy-poverty-from-water-security-in-sub-sah-1772749586512",
+      "articleTitle": "The Intermittency Nexus: Decoupling Energy Poverty from Water Security in Sub-Saharan Africa Through Hybrid Renewable Microgrids",
+      "platform": "bluesky",
+      "content": "Did you know that when water pumps fail due to grid instability, communities are forced back into unsafe water sources? In Sub-Saharan Africa, the reliance on fossil-fuel grids creates a vicious cycle where climate shocks lead to health crises and crop abandonment. The solution isn't just better inf",
+      "hashtags": [
+        "WaterSecurity",
+        "RenewableEnergy",
+        "ClimateAction"
+      ],
+      "url": "https://baseflow.institute/article/the-intermittency-nexus-decoupling-energy-poverty-from-water-security-in-sub-sah-1772749586512",
+      "status": "pending",
+      "createdAt": "2026-03-05T22:26:54.967Z"
+    },
+    {
       "id": "mme0a7dp-tw",
       "articleSlug": "the-desalination-dilemma-in-coastal-sub-saharan-africa-replacing-brackish-water--1772747794364",
       "articleTitle": "The Desalination Dilemma in Coastal Sub-Saharan Africa: Replacing Brackish Water Extraction with Community-Led Solar-Powered Reverse Osmosis for Climate-Resilient Water Security",
@@ -2333,5 +2378,5 @@
       "createdAt": "2026-03-02T00:01:09.765Z"
     }
   ],
-  "lastUpdated": "2026-03-05T21:57:04.095Z"
+  "lastUpdated": "2026-03-05T22:26:54.969Z"
 }
