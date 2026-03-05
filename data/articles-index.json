@@ -1,6 +1,34 @@
 {
   "articles": [
     {
+      "slug": "the-basalt-barrier-leveraging-geothermal-micro-grids-for-hydroponic-water-securi-1772702780680",
+      "title": "The Basalt Barrier: Leveraging Geothermal Micro-Grids for Hydroponic Water Security in East African Rift Valley Regions",
+      "summary": "East African governments and development partners must pivot from incremental water conservation measures to integrated infrastructure solutions that decouple food production from erratic rainfall.",
+      "topic": "Environmental resilience in lower-income countries: water security, clean energy, and climate adaptation",
+      "template": "Policy Brief",
+      "tags": [
+        "climate",
+        "water",
+        "energy",
+        "agriculture",
+        "policy",
+        "finance",
+        "resilience",
+        "biodiversity"
+      ],
+      "wordCount": 1143,
+      "sourcesUsed": 6,
+      "readabilityScore": 88,
+      "publishedAt": "2026-03-05T09:26:20.684Z",
+      "updatedAt": "2026-03-05T09:26:56.487Z",
+      "status": "published",
+      "mdFile": "the-basalt-barrier-leveraging-geothermal-micro-grids-for-hydroponic-water-securi-1772702780680.md",
+      "htmlFile": "the-basalt-barrier-leveraging-geothermal-micro-grids-for-hydroponic-water-securi-1772702780680.html",
+      "region": "Sub-Saharan Africa",
+      "driveFileId": "1bDtVXhTUdJCZ9mvLp2VjqS_YtDIQXDNE",
+      "driveWebViewLink": "https://drive.google.com/file/d/1bDtVXhTUdJCZ9mvLp2VjqS_YtDIQXDNE/view?usp=drivesdk"
+    },
+    {
       "slug": "the-thermal-threshold-trap-integrating-community-based-cooling-with-desalination-1772701008816",
       "title": "The Thermal Threshold Trap: Integrating Community-Based Cooling with Desalination for Climate-Resilient Water Security in Coastal Sub-Saharan Africa",
       "summary": "Coastal communities in Sub-Saharan Africa face a converging crisis of rising sea levels, intensifying heat stress, and failing traditional water infrastructure.",
@@ -1277,6 +1305,6 @@
       "region": "Sub-Saharan Africa"
     }
   ],
-  "lastUpdated": "2026-03-05T08:57:21.419Z",
-  "totalPublished": 41
+  "lastUpdated": "2026-03-05T09:26:56.487Z",
+  "totalPublished": 42
 }

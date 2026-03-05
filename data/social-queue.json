@@ -1,6 +1,51 @@
 {
   "posts": [
     {
+      "id": "mmd9hhxw-tw",
+      "articleSlug": "the-basalt-barrier-leveraging-geothermal-micro-grids-for-hydroponic-water-securi-1772702780680",
+      "articleTitle": "The Basalt Barrier: Leveraging Geothermal Micro-Grids for Hydroponic Water Security in East African Rift Valley Regions",
+      "platform": "twitter",
+      "content": "East Africa faces a dual crisis: erratic rainfall and energy poverty. The solution? Pairing geothermal micro-grids with hydroponic systems to decouple food production from rain. This pilot program could cut water use while powering year-round farming. #ClimateAction #WaterSecurit",
+      "hashtags": [
+        "ClimateAction",
+        "WaterSecurity",
+        "GeothermalEnergy"
+      ],
+      "url": "https://baseflow.institute/article/the-basalt-barrier-leveraging-geothermal-micro-grids-for-hydroponic-water-securi-1772702780680",
+      "status": "pending",
+      "createdAt": "2026-03-05T09:26:54.740Z"
+    },
+    {
+      "id": "mmd9hhxw-li",
+      "articleSlug": "the-basalt-barrier-leveraging-geothermal-micro-grids-for-hydroponic-water-securi-1772702780680",
+      "articleTitle": "The Basalt Barrier: Leveraging Geothermal Micro-Grids for Hydroponic Water Security in East African Rift Valley Regions",
+      "platform": "linkedin",
+      "content": "East African governments and development partners must pivot from incremental water conservation to integrated infrastructure that decouples food production from erratic rainfall. A dedicated Geothermal Micro-Grid Pilot Program targeting the Rift Valley offers a transformative solution. By pairing small-scale geothermal plants with controlled-environment agriculture, we can reduce operational costs relative to diesel generators while significantly cutting water usage through nutrient-film technology.\n\nThe stakes are critical: only 32.4% of Sub-Saharan Africa's population has access to safely managed drinking water, compared to a global average of 73.7%. Furthermore, 53.3% lacks electricity, trapping smallholder farmers in low-productivity cycles unable to afford modern irrigation or continuous water treatment. The convergence of rising temperatures and destabilized agricultural schedules creates an escalating crisis of energy poverty and food insecurity.\n\nUrgent action is required to integrate renewable baseload power with water-efficient agriculture. This dual intervention addresses the fundamental disparity where climate volatility threatens both energy access and food security. Investing now in geothermal micro-grids for hydroponic systems is not just about resilience; it is about breaking the cycle of poverty and ensuring sustainable livelihoods for millions along the Rift Valley.",
+      "hashtags": [
+        "SustainableDevelopment",
+        "RenewableEnergy",
+        "FoodSecurity"
+      ],
+      "url": "https://baseflow.institute/article/the-basalt-barrier-leveraging-geothermal-micro-grids-for-hydroponic-water-securi-1772702780680",
+      "status": "pending",
+      "createdAt": "2026-03-05T09:26:54.740Z"
+    },
+    {
+      "id": "mmd9hhxw-bs",
+      "articleSlug": "the-basalt-barrier-leveraging-geothermal-micro-grids-for-hydroponic-water-securi-1772702780680",
+      "articleTitle": "The Basalt Barrier: Leveraging Geothermal Micro-Grids for Hydroponic Water Security in East African Rift Valley Regions",
+      "platform": "bluesky",
+      "content": "The East African Rift Valley isn't just a geological wonder; it's becoming an environmental crisis zone with erratic rainfall and rising temperatures. We're seeing a perfect storm where traditional irrigation fails and energy poverty traps smallholder farmers in cycles of low productivity.\n\nBut ther",
+      "hashtags": [
+        "GeothermalEnergy",
+        "WaterScarcity",
+        "ClimateResilience"
+      ],
+      "url": "https://baseflow.institute/article/the-basalt-barrier-leveraging-geothermal-micro-grids-for-hydroponic-water-securi-1772702780680",
+      "status": "pending",
+      "createdAt": "2026-03-05T09:26:54.740Z"
+    },
+    {
       "id": "mmd8fg4u-tw",
       "articleSlug": "the-thermal-threshold-trap-integrating-community-based-cooling-with-desalination-1772701008816",
       "articleTitle": "The Thermal Threshold Trap: Integrating Community-Based Cooling with Desalination for Climate-Resilient Water Security in Coastal Sub-Saharan Africa",
@@ -1226,5 +1271,5 @@
       "createdAt": "2026-03-02T00:01:09.765Z"
     }
   ],
-  "lastUpdated": "2026-03-05T08:57:19.474Z"
+  "lastUpdated": "2026-03-05T09:26:54.741Z"
 }
