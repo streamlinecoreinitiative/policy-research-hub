@@ -1,6 +1,51 @@
 {
   "posts": [
     {
+      "id": "mmddrww4-tw",
+      "articleSlug": "the-thermal-threshold-trap-integrating-community-based-cooling-with-desalination-1772709987612",
+      "articleTitle": "The Thermal Threshold Trap: Integrating Community-Based Cooling with Desalination for Climate-Resilient Water Security in Coastal Sub-Saharan Africa",
+      "platform": "twitter",
+      "content": "Rising heat isn't just uncomfortable; it's breaking water pumps in coastal Sub-Saharan Africa. To secure water, we must integrate community cooling with solar-powered desalination. Treating thermal management as a prerequisite for water security is no longer optional—it's urgent ",
+      "hashtags": [
+        "ClimateAdaptation",
+        "WaterSecurity",
+        "SolarEnergy"
+      ],
+      "url": "https://baseflow.institute/article/the-thermal-threshold-trap-integrating-community-based-cooling-with-desalination-1772709987612",
+      "status": "pending",
+      "createdAt": "2026-03-05T11:26:59.140Z"
+    },
+    {
+      "id": "mmddrww4-li",
+      "articleSlug": "the-thermal-threshold-trap-integrating-community-based-cooling-with-desalination-1772709987612",
+      "articleTitle": "The Thermal Threshold Trap: Integrating Community-Based Cooling with Desalination for Climate-Resilient Water Security in Coastal Sub-Saharan Africa",
+      "platform": "linkedin",
+      "content": "Coastal low-income nations face a dual crisis: rising sea levels threatening aquifers and extreme heat stressing water infrastructure. Current interventions treat energy and water as separate problems, ignoring the thermal stress that limits human productivity and accelerates equipment failure. \n\nOur latest policy brief argues for an immediate shift from fossil-fuel-dependent pumping to decentralized solar micro-grids capable of powering both cooling units and reverse osmosis systems. The World Bank notes that 53.3% of Sub-Saharan Africa lacks electricity, crippling essential water treatment efforts. When temperatures exceed critical thresholds, mechanical pumps fail due to overheating, driving further migration and economic loss. \n\nPolicymakers must reallocate national budgets to integrate community-based cooling technologies with renewable-powered desalination. We recommend treating thermal management as a prerequisite for water security rather than an ancillary concern. Without this unified approach, climate-induced heat stress will exacerbate water insecurity in the most vulnerable regions. Download the full brief to learn how solar micro-grids can solve this paradox.",
+      "hashtags": [
+        "PolicyBrief",
+        "ClimateResilience",
+        "WaterAndEnergy"
+      ],
+      "url": "https://baseflow.institute/article/the-thermal-threshold-trap-integrating-community-based-cooling-with-desalination-1772709987612",
+      "status": "pending",
+      "createdAt": "2026-03-05T11:26:59.140Z"
+    },
+    {
+      "id": "mmddrww4-bs",
+      "articleSlug": "the-thermal-threshold-trap-integrating-community-based-cooling-with-desalination-1772709987612",
+      "articleTitle": "The Thermal Threshold Trap: Integrating Community-Based Cooling with Desalination for Climate-Resilient Water Security in Coastal Sub-Saharan Africa",
+      "platform": "bluesky",
+      "content": "The global environment is destabilizing, and coastal low-income nations are facing a deadly double threat: saltwater intrusion and extreme heat. In Sub-Saharan Africa, 53% lacks electricity, which cripples water treatment. When temps rise above critical levels, pumps fail, leaving communities depend",
+      "hashtags": [
+        "ClimateCrisis",
+        "WaterSecurity",
+        "SolarPower"
+      ],
+      "url": "https://baseflow.institute/article/the-thermal-threshold-trap-integrating-community-based-cooling-with-desalination-1772709987612",
+      "status": "pending",
+      "createdAt": "2026-03-05T11:26:59.140Z"
+    },
+    {
       "id": "mmdcptqp-tw",
       "articleSlug": "the-thermal-threshold-trap-integrating-community-based-cooling-with-desalination-1772708209731",
       "articleTitle": "The Thermal Threshold Trap: Integrating Community-Based Cooling with Desalination for Climate-Resilient Water Security in Coastal Sub-Saharan Africa",
@@ -1372,5 +1417,5 @@
       "createdAt": "2026-03-02T00:01:09.765Z"
     }
   ],
-  "lastUpdated": "2026-03-05T10:57:22.132Z"
+  "lastUpdated": "2026-03-05T11:26:59.144Z"
 }
