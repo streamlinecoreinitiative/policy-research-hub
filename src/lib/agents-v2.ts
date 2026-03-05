@@ -1,6 +1,6 @@
 import fs from 'fs/promises';
 import path from 'path';
-import { callOllamaChat, ChatMessage } from './ollama';
+import { callOllamaChat, ChatMessage, resolveFactCheckerModel, resolveQwenModel } from './ollama';
 import { fetchPublicData } from './dataSources';
 import { conductResearch, formatResearchForPrompt, ResearchData } from './webSearch';
 import { getTemplate, ReportTemplate, templates } from './templates';
@@ -14,6 +14,10 @@ const OUTPUT_DIR = path.join(process.cwd(), 'data/output');
 const RECENT_TITLES_PATH = path.join(process.cwd(), 'data/recent_titles.json');
 const RECENT_OUTLINES_PATH = path.join(process.cwd(), 'data/recent_outlines.json');
 const DEFAULT_BANNED = ['solar-powered wells', 'rainwater harvesting ponds'];
+
+function isQwen3Family(model?: string) {
+  return !!model && /qwen3(\.5)?/i.test(model);
+}
 
 export type AgentRunParams = {
   topic: string;
@@ -224,17 +228,50 @@ export async function runAgents(params: AgentRunParams): Promise<AgentRunResult>
   if (!topic?.trim()) throw new Error('Topic is required.');
   if (!plannerModel?.trim()) throw new Error('Planner model is required.');
   if (!writerModel?.trim()) throw new Error('Writer model is required.');
+  const requestedPlannerModel = isQwen3Family(plannerModel) ? plannerModel : 'qwen3.5:4b';
+  const requestedWriterModel = isQwen3Family(writerModel) ? writerModel : 'qwen3.5:9b';
+  const effectivePlannerModel = await resolveQwenModel(requestedPlannerModel, 'planner');
+  const effectiveWriterModel = await resolveQwenModel(requestedWriterModel, 'writer');
+  const effectiveFactCheckerModel = await resolveFactCheckerModel(factCheckerModel, effectiveWriterModel);
 
   // Log pipeline start
   addLogEntry({
     type: 'pipeline-run',
     status: 'running',
     title: `Generating: ${topic.substring(0, 80)}`,
-    details: `Models: ${plannerModel} (planner), ${writerModel} (writer), ${factCheckerModel} (fact-checker). Template: ${templateId}. Depth: ${researchDepth}.`,
+    details: `Models: ${effectivePlannerModel} (planner), ${effectiveWriterModel} (writer), ${effectiveFactCheckerModel} (fact-checker). Template: ${templateId}. Depth: ${researchDepth}.`,
   }).catch(() => {});
+
+  if (requestedPlannerModel !== plannerModel || requestedWriterModel !== writerModel) {
+    addLogEntry({
+      type: 'pipeline-run',
+      status: 'warning',
+      title: 'Non-Qwen model overridden',
+      details: `Requested ${plannerModel}/${writerModel}; enforcing Qwen family with ${requestedPlannerModel}/${requestedWriterModel}.`,
+    }).catch(() => {});
+  }
+
+  if (effectivePlannerModel !== requestedPlannerModel || effectiveWriterModel !== requestedWriterModel) {
+    addLogEntry({
+      type: 'pipeline-run',
+      status: 'warning',
+      title: 'Qwen model fallback applied',
+      details: `Requested ${requestedPlannerModel}/${requestedWriterModel}; using ${effectivePlannerModel}/${effectiveWriterModel} based on installed models.`,
+    }).catch(() => {});
+  }
+
+  if (effectiveFactCheckerModel !== factCheckerModel) {
+    addLogEntry({
+      type: 'pipeline-run',
+      status: 'warning',
+      title: 'Fact-checker fallback applied',
+      details: `Requested ${factCheckerModel} but using ${effectiveFactCheckerModel} because the preferred model is unavailable.`,
+    }).catch(() => {});
+  }
 
   const log: string[] = [];
   const warnings: string[] = [];
+  const lightweightModel = /tinyllama/i.test(effectiveWriterModel) || /tinyllama/i.test(effectiveFactCheckerModel);
   const template = getTemplate(templateId) || templates['policy-brief'];
   
   log.push(`[${timestamp()}] Starting ${template.name} generation`);
@@ -272,7 +309,7 @@ export async function runAgents(params: AgentRunParams): Promise<AgentRunResult>
   const recentOutlines = await readRecentOutlines();
 
   // Phase 2: Planning
-  log.push(`[${timestamp()}] Phase 2: Planning with ${plannerModel}...`);
+  log.push(`[${timestamp()}] Phase 2: Planning with ${effectivePlannerModel}...`);
   
   const sectionOutline = template.sections
     .map(s => `- ${s.title}: ${s.description} (~${s.wordCountTarget} words)`)
@@ -321,10 +358,11 @@ Deliver:
   ];
 
   let plannerPlan = await callOllamaChat({ 
-    model: plannerModel, 
+    model: effectivePlannerModel, 
     messages: plannerMessages, 
     temperature: 0.55, 
-    topP: 0.9 
+    topP: 0.9,
+    maxTokens: 900
   });
   // Strip Qwen3 thinking tags if present
   plannerPlan = plannerPlan.replace(/<think>[\s\S]*?<\/think>/g, '').trim();
@@ -338,7 +376,7 @@ Deliver:
     status: 'info',
     title: `📋 Planner: outline ready`,
     details: plannerPlan.slice(0, 400),
-    meta: { phase: 'planning', model: plannerModel },
+    meta: { phase: 'planning', model: effectivePlannerModel },
   }).catch(() => {});
 
   let proposedTitle = extractPlannerTitle(plannerPlan);
@@ -359,7 +397,7 @@ Deliver:
   }
 
   // Phase 3: Writing
-  log.push(`[${timestamp()}] Phase 3: Writing with ${writerModel}...`);
+  log.push(`[${timestamp()}] Phase 3: Writing with ${effectiveWriterModel}...`);
 
   const writerMessages: ChatMessage[] = [
     {
@@ -374,7 +412,8 @@ CRITICAL RULES:
 2. Cite sources inline (e.g., "According to World Bank data...")
 3. If data is uncertain, mark as [needs verification]
 4. Do not invent statistics - if needed, say "data unavailable"
-5. Follow the template structure exactly`
+5. Follow the template structure exactly
+/no_think`
     },
     {
       role: 'user',
@@ -395,10 +434,11 @@ Include inline citations for all statistics.`
   ];
 
   let writerDraft = await callOllamaChat({ 
-    model: writerModel, 
+    model: effectiveWriterModel, 
     messages: writerMessages, 
     temperature: 0.35, 
-    topP: 0.9 
+    topP: 0.9,
+    maxTokens: 2200
   });
   // Strip Qwen3 thinking tags if present
   writerDraft = writerDraft.replace(/<think>[\s\S]*?<\/think>/g, '').trim();
@@ -413,11 +453,11 @@ Include inline citations for all statistics.`
     status: 'info',
     title: `✍️ Writer: ${writerWordCount} words, ${writerSections} sections`,
     details: `Draft preview: ${writerDraft.slice(0, 300).replace(/\n/g, ' ')}...`,
-    meta: { phase: 'writing', model: writerModel, wordCount: writerWordCount, sections: writerSections },
+    meta: { phase: 'writing', model: effectiveWriterModel, wordCount: writerWordCount, sections: writerSections },
   }).catch(() => {});
 
   // Phase 4: Fact-checking with bespoke-minicheck
-  log.push(`[${timestamp()}] Phase 4: Fact-checking with ${factCheckerModel}...`);
+  log.push(`[${timestamp()}] Phase 4: Fact-checking with ${effectiveFactCheckerModel}...`);
 
   // Extract individual sentences (not whole paragraphs) with statistical claims
   const draftSentences = writerDraft
@@ -430,7 +470,7 @@ Include inline citations for all statistics.`
   
   const claimsToCheck = draftSentences.filter(s => 
     /\d+/.test(s) || /percent|million|billion|thousand|growth|decline|increase|decrease/i.test(s)
-  ).slice(0, 15); // Check up to 15 statistical claims
+  ).slice(0, lightweightModel ? 4 : 15); // Keep tiny models fast/stable.
 
   const researchDoc = researchPrompt.slice(0, 6000); // Fit within context
   let flaggedClaims: string[] = [];
@@ -442,8 +482,8 @@ Include inline citations for all statistics.`
       type: 'pipeline-run',
       status: 'info',
       title: `🔍 Reviewer: fact-checking ${claimsToCheck.length} claims...`,
-      details: `Using ${factCheckerModel} to verify statistical claims against research data.\nClaims to verify:\n${claimsToCheck.map((c, i) => `${i + 1}. ${c.trim().slice(0, 100)}`).join('\n')}`,
-      meta: { phase: 'fact-check-start', model: factCheckerModel, claimCount: claimsToCheck.length },
+      details: `Using ${effectiveFactCheckerModel} to verify statistical claims against research data.\nClaims to verify:\n${claimsToCheck.map((c, i) => `${i + 1}. ${c.trim().slice(0, 100)}`).join('\n')}`,
+      meta: { phase: 'fact-check-start', model: effectiveFactCheckerModel, claimCount: claimsToCheck.length },
     }).catch(() => {});
 
     const verifiedClaims: string[] = [];
@@ -451,11 +491,12 @@ Include inline citations for all statistics.`
     for (const claim of claimsToCheck) {
       try {
         const checkResult = await callOllamaChat({
-          model: factCheckerModel,
+          model: effectiveFactCheckerModel,
           messages: [{ role: 'user', content: `Document: ${researchDoc}\nClaim: ${claim.trim()}` }],
           temperature: 0.0,
           topP: 1.0,
-          timeoutMs: 30000  // 30s timeout per claim check
+          timeoutMs: 30000,  // 30s timeout per claim check
+          maxTokens: 16
         });
         const verdict = checkResult.trim().toLowerCase();
         // bespoke-minicheck returns "Yes" (supported) or "No" (not supported)
@@ -484,7 +525,7 @@ Include inline citations for all statistics.`
       status: flaggedClaims.length > 3 ? 'warning' : flaggedClaims.length > 0 ? 'info' : 'success',
       title: `🔍 Reviewer: ${verifiedClaims.length}/${claimsToCheck.length} claims verified, ${flaggedClaims.length} flagged`,
       details: `Verdicts:\n${verdictLines.join('\n')}${flaggedClaims.length > 0 ? '\n\nFlagged claims will be marked [VERIFY] or removed in the editorial pass.' : '\nAll claims verified against research data.'}`,
-      meta: { phase: 'fact-check', model: factCheckerModel, checked: claimsToCheck.length, verified: verifiedClaims.length, flagged: flaggedClaims.length },
+      meta: { phase: 'fact-check', model: effectiveFactCheckerModel, checked: claimsToCheck.length, verified: verifiedClaims.length, flagged: flaggedClaims.length },
     }).catch(() => {});
   } else {
     log.push(`[${timestamp()}] No statistical claims found to verify`);
@@ -498,7 +539,7 @@ Include inline citations for all statistics.`
   }
 
   // Phase 4b: Edit pass — apply fact-check flags and tighten prose
-  log.push(`[${timestamp()}] Phase 4b: Editorial pass with ${writerModel}...`);
+  log.push(`[${timestamp()}] Phase 4b: Editorial pass with ${effectiveWriterModel}...`);
   
   const flaggedSection = flaggedClaims.length > 0
     ? `\n\nThe following claims could NOT be verified against the research data. Mark each with [VERIFY] or remove them:\n${flaggedClaims.map((c, i) => `${i + 1}. "${c}"`).join('\n')}`
@@ -529,14 +570,27 @@ Return the revised document with:
     }
   ];
 
-  let factCheckedDraft = await callOllamaChat({ 
-    model: writerModel, 
-    messages: factMessages, 
-    temperature: 0.2, 
-    topP: 0.9 
-  });
-  // Strip Qwen3 thinking tags if present
-  factCheckedDraft = factCheckedDraft.replace(/<think>[\s\S]*?<\/think>/g, '').trim();
+  let factCheckedDraft = writerDraft;
+  if (lightweightModel) {
+    log.push(`[${timestamp()}] Lightweight mode: skipping editorial pass for speed.`);
+    addLogEntry({
+      type: 'pipeline-run',
+      status: 'info',
+      title: '✍️ Writer (edit pass): skipped in lightweight mode',
+      details: `Using ${effectiveWriterModel} in lightweight mode; preserving writer draft to keep scheduled runs responsive.`,
+      meta: { phase: 'editorial', model: effectiveWriterModel, skipped: true },
+    }).catch(() => {});
+  } else {
+    factCheckedDraft = await callOllamaChat({ 
+      model: effectiveWriterModel, 
+      messages: factMessages, 
+      temperature: 0.2, 
+      topP: 0.9,
+      maxTokens: 2200
+    });
+    // Strip Qwen3 thinking tags if present
+    factCheckedDraft = factCheckedDraft.replace(/<think>[\s\S]*?<\/think>/g, '').trim();
+  }
   
   log.push('--- Fact-checked draft ---');
   log.push(factCheckedDraft.trim().slice(0, 500) + '...');
@@ -552,11 +606,11 @@ Return the revised document with:
     status: verifyTags + needsSourceTags > 0 ? 'warning' : 'info',
     title: `✍️ Writer (edit pass): ${editWordCount} words${verifyTags > 0 ? `, ${verifyTags} [VERIFY]` : ''}${needsSourceTags > 0 ? `, ${needsSourceTags} [NEEDS SOURCE]` : ''}`,
     details: `Editorial revision complete.\n- Words: ${writerWordCount} → ${editWordCount} (${wordDelta >= 0 ? '+' : ''}${wordDelta})\n- Sections: ${editedSections}\n- Verify tags: ${verifyTags}\n- Needs-source tags: ${needsSourceTags}\n${verifyTags + needsSourceTags === 0 ? '✓ No claims flagged — clean edit.' : `⚠ ${verifyTags + needsSourceTags} claims need attention.`}`,
-    meta: { phase: 'editorial', model: writerModel, wordCount: editWordCount, wordDelta, verifyTags, needsSourceTags },
+    meta: { phase: 'editorial', model: effectiveWriterModel, wordCount: editWordCount, wordDelta, verifyTags, needsSourceTags },
   }).catch(() => {});
 
   // Phase 4c: Title validation agent
-  log.push(`[${timestamp()}] Phase 4c: Validating title with ${plannerModel}...`);
+  log.push(`[${timestamp()}] Phase 4c: Validating title with ${effectivePlannerModel}...`);
   let articleTitle = proposedTitle || deriveTitle(factCheckedDraft, topic) || '';
   
   if (articleTitle) {
@@ -572,10 +626,11 @@ Return the revised document with:
         }
       ];
       let titleResponse = await callOllamaChat({
-        model: plannerModel,
+        model: effectivePlannerModel,
         messages: titleCheckMessages,
         temperature: 0.3,
-        topP: 0.9
+        topP: 0.9,
+        maxTokens: 48
       });
       titleResponse = titleResponse.replace(/<think>[\s\S]*?<\/think>/g, '').trim();
       
@@ -667,21 +722,21 @@ Return the revised document with:
   }).catch(() => {});
 
   // If QA fails, attempt ONE retry with corrective feedback
-  if (!qaResult.passed && qaResult.suggestions.length > 0) {
+  if (!qaResult.passed && qaResult.suggestions.length > 0 && !lightweightModel) {
     log.push(`[${timestamp()}] QA failed — attempting corrective retry...`);
 
     addLogEntry({
       type: 'pipeline-run',
       status: 'warning',
       title: `♻️ Retry: rewriting to fix ${qaResult.failReasons.length} QA issue(s)`,
-      details: `QA scored ${qaResult.score}/100 (need 60+ to pass). Sending ${qaResult.suggestions.length} improvement suggestions to ${writerModel}:\n${qaResult.suggestions.map((s, i) => `${i + 1}. ${s}`).join('\n')}`,
+      details: `QA scored ${qaResult.score}/100 (need 60+ to pass). Sending ${qaResult.suggestions.length} improvement suggestions to ${effectiveWriterModel}:\n${qaResult.suggestions.map((s, i) => `${i + 1}. ${s}`).join('\n')}`,
       meta: { phase: 'qa-retry-start', score: qaResult.score, suggestions: qaResult.suggestions.length },
     }).catch(() => {});
 
     const retryMessages: ChatMessage[] = [
       {
         role: 'system',
-        content: `${template.systemPrompt}\n\nYou are rewriting a ${template.name} that failed quality checks. Fix ALL the issues listed below.`
+        content: `${template.systemPrompt}\n\nYou are rewriting a ${template.name} that failed quality checks. Fix ALL the issues listed below.\n/no_think`
       },
       {
         role: 'user',
@@ -691,10 +746,11 @@ Return the revised document with:
 
     try {
       let retryDraft = await callOllamaChat({
-        model: writerModel,
+        model: effectiveWriterModel,
         messages: retryMessages,
         temperature: 0.3,
-        topP: 0.9
+        topP: 0.9,
+        maxTokens: 2200
       });
       // Strip Qwen3 thinking tags if present
       retryDraft = retryDraft.replace(/<think>[\s\S]*?<\/think>/g, '').trim();
@@ -838,7 +894,7 @@ Return the revised document with:
       const socialPosts = await generateSocialPosts(
         { title: articleTitle, topic, template: template.name, slug },
         contentWithHeading,
-        plannerModel
+        effectivePlannerModel
       );
       log.push(`[${timestamp()}] Generated ${socialPosts.length} social media posts (queued for review)`);
     } catch (socialErr) {

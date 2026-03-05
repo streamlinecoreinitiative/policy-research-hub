@@ -5,6 +5,11 @@ import { getNewsletters, getSubscriberCount } from '@/lib/newsletterAgent';
 import { getPublishedArticles, readIndex } from '@/lib/articleIndex';
 import { maskCredentials, readCredentials } from '@/lib/socialCredentials';
 import { getEnvDriveCredentials } from '@/lib/drive';
+import {
+  MIN_SCHEDULE_INTERVAL_MINUTES,
+  MAX_SCHEDULE_INTERVAL_MINUTES
+} from '@/lib/scheduler';
+import { resolveQwenModel } from '@/lib/ollama';
 import fs from 'fs/promises';
 import path from 'path';
 
@@ -224,22 +229,38 @@ export async function POST(req: Request) {
     }
 
     if (action === 'fix-schedule') {
-      // Fix broken schedules by updating models
+      // Fix broken schedules by normalizing interval bounds and Qwen model variants.
       const schedulesPath = path.join(process.cwd(), 'data/schedules.json');
       const raw = await fs.readFile(schedulesPath, 'utf8');
       const schedules = JSON.parse(raw);
       let fixed = 0;
       for (const s of schedules) {
-        if (s.plannerModel === 'qwen2.5:3b' || !s.plannerModel.includes('qwen3')) {
-          s.plannerModel = 'qwen3.5:4b';
+        const clamped = Math.max(
+          MIN_SCHEDULE_INTERVAL_MINUTES,
+          Math.min(MAX_SCHEDULE_INTERVAL_MINUTES, Number(s.intervalMinutes || MIN_SCHEDULE_INTERVAL_MINUTES))
+        );
+        if (s.intervalMinutes !== clamped) {
+          s.intervalMinutes = clamped;
           fixed++;
         }
-        if (s.writerModel === 'llama3.1:8b' || s.writerModel === 'llama3:8b' || s.writerModel === 'qwen3:8b') {
-          s.writerModel = 'qwen3.5:9b';
+
+        const plannerRequested = /qwen3(\.5)?/i.test(String(s.plannerModel || ''))
+          ? s.plannerModel
+          : 'qwen3.5:4b';
+        const writerRequested = /qwen3(\.5)?/i.test(String(s.writerModel || ''))
+          ? s.writerModel
+          : 'qwen3.5:9b';
+        if (plannerRequested !== s.plannerModel) fixed++;
+        if (writerRequested !== s.writerModel) fixed++;
+
+        const plannerResolved = await resolveQwenModel(plannerRequested, 'planner');
+        const writerResolved = await resolveQwenModel(writerRequested, 'writer');
+        if (plannerResolved !== s.plannerModel) {
+          s.plannerModel = plannerResolved;
           fixed++;
         }
-        if (!s.factCheckerModel) {
-          s.factCheckerModel = 'bespoke-minicheck:7b';
+        if (writerResolved !== s.writerModel) {
+          s.writerModel = writerResolved;
           fixed++;
         }
       }
@@ -247,8 +268,8 @@ export async function POST(req: Request) {
       await addLogEntry({
         type: 'system',
         status: 'success',
-        title: `Fixed ${fixed} schedule model references`,
-        details: 'Updated to qwen3.5:4b (planner), qwen3.5:9b (writer), bespoke-minicheck:7b (fact-checker)',
+        title: `Normalized ${fixed} schedule setting(s)`,
+        details: `Applied interval bounds (${MIN_SCHEDULE_INTERVAL_MINUTES}-${MAX_SCHEDULE_INTERVAL_MINUTES} min) and resolved available Qwen planner/writer models.`,
       });
       return NextResponse.json({ success: true, fixed, schedules });
     }

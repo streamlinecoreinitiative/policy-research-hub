@@ -10,6 +10,17 @@ import path from 'path';
 const LOG_PATH = path.join(process.cwd(), 'data/process-log.json');
 const MAX_ENTRIES = 500;
 
+// Prevent concurrent read-modify-write races that can drop log entries.
+let _writeLock: Promise<void> = Promise.resolve();
+function withWriteLock<T>(fn: () => Promise<T>): Promise<T> {
+  const prev = _writeLock;
+  let release: () => void;
+  _writeLock = new Promise<void>((resolve) => {
+    release = resolve;
+  });
+  return prev.then(fn).finally(() => release());
+}
+
 export type ProcessLogEntry = {
   id: string;
   timestamp: string;
@@ -50,15 +61,17 @@ async function writeLog(log: ProcessLog): Promise<void> {
 }
 
 export async function addLogEntry(entry: Omit<ProcessLogEntry, 'id' | 'timestamp'>): Promise<ProcessLogEntry> {
-  const log = await readLog();
-  const full: ProcessLogEntry = {
-    id: `log-${Date.now()}-${Math.random().toString(36).slice(2, 6)}`,
-    timestamp: new Date().toISOString(),
-    ...entry,
-  };
-  log.entries.unshift(full); // newest first
-  await writeLog(log);
-  return full;
+  return withWriteLock(async () => {
+    const log = await readLog();
+    const full: ProcessLogEntry = {
+      id: `log-${Date.now()}-${Math.random().toString(36).slice(2, 6)}`,
+      timestamp: new Date().toISOString(),
+      ...entry,
+    };
+    log.entries.unshift(full); // newest first
+    await writeLog(log);
+    return full;
+  });
 }
 
 export async function getLogEntries(opts?: {

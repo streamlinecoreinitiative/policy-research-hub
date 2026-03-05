@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { runAgents, AgentRunParams } from '@/lib/agents-v2';
-import { uploadFileToDrive } from '@/lib/drive';
+import { uploadFileToDrive, getEnvDriveCredentials } from '@/lib/drive';
 import { updateArticleDrive } from '@/lib/articleIndex';
 import { getTemplateList } from '@/lib/templates';
 import { addLogEntry } from '@/lib/processLog';
@@ -50,9 +50,10 @@ export async function POST(req: Request) {
       | undefined;
 
     if (autoUpload) {
-      if (!drive) {
+      const driveCreds = drive || getEnvDriveCredentials();
+      if (!driveCreds) {
         return NextResponse.json(
-          { error: 'Drive credentials required for auto upload.' }, 
+          { error: 'Drive credentials required for auto upload.' },
           { status: 400 }
         );
       }
@@ -60,7 +61,7 @@ export async function POST(req: Request) {
       const htmlPath = path.isAbsolute(result.articlePathHTML)
         ? result.articlePathHTML
         : path.join(process.cwd(), result.articlePathHTML);
-      const res = await uploadFileToDrive({ filePath: htmlPath, drive, mimeType: 'text/html' });
+      const res = await uploadFileToDrive({ filePath: htmlPath, drive: driveCreds, mimeType: 'text/html' });
       driveResult = { fileId: res.id || undefined, fileName: res.name || undefined, webViewLink: res.webViewLink || undefined };
 
       // Update article index with Drive metadata

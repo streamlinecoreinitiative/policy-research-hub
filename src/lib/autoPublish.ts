@@ -36,7 +36,21 @@ export async function autoCommitAndPush(): Promise<{
       return { committed: false, message: 'No new articles to publish' };
     }
 
-    const newCount = changes.trim().split('\n').length;
+    const changedLines = changes.trim().split('\n');
+    const changedPaths = changedLines
+      .map((line) => line.slice(3).trim())
+      .filter(Boolean);
+
+    const hasPublishArtifacts = changedPaths.some((p) =>
+      p.startsWith('data/output/') ||
+      p === 'data/articles-index.json' ||
+      p === 'data/recent_titles.json'
+    );
+    if (!hasPublishArtifacts) {
+      return { committed: false, message: 'Only non-publish metadata changed; skipping push' };
+    }
+
+    const newCount = changedLines.length;
 
     // Stage article data files
     await execAsync(

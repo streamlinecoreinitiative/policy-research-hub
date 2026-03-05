@@ -1,5 +1,11 @@
 import { NextResponse } from 'next/server';
-import { addSchedule, listSchedules, initScheduler } from '@/lib/scheduler';
+import {
+  addSchedule,
+  listSchedules,
+  initScheduler,
+  MIN_SCHEDULE_INTERVAL_MINUTES,
+  MAX_SCHEDULE_INTERVAL_MINUTES
+} from '@/lib/scheduler';
 import { requireLocalhost } from '@/lib/adminGuard';
 
 export const runtime = 'nodejs';
@@ -33,9 +39,11 @@ export async function POST(req: Request) {
       );
     }
 
-    if (intervalMinutes < 15) {
+    if (intervalMinutes < MIN_SCHEDULE_INTERVAL_MINUTES || intervalMinutes > MAX_SCHEDULE_INTERVAL_MINUTES) {
       return NextResponse.json(
-        { error: 'intervalMinutes must be at least 15 to avoid overload.' },
+        {
+          error: `intervalMinutes must be between ${MIN_SCHEDULE_INTERVAL_MINUTES} and ${MAX_SCHEDULE_INTERVAL_MINUTES}.`
+        },
         { status: 400 }
       );
     }
