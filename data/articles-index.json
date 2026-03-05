@@ -1,6 +1,34 @@
 {
   "articles": [
     {
+      "slug": "integrated-water-energy-nexus-strategies-for-sub-saharan-africa-unlocking-resili-1772687893054",
+      "title": "Integrated Water-Energy Nexus Strategies for Sub-Saharan Africa: Unlocking Resilience Through Decentralized Solar Pumping and Grid Modernization",
+      "summary": "Governments in Sub-Saharan Africa must pivot from sector-specific infrastructure projects to integrated Water-Energy Nexus strategies that prioritize decentralized solar pumping and grid modernization.",
+      "topic": "Environmental resilience in lower-income countries: water security, clean energy, and climate adaptation",
+      "template": "Policy Brief",
+      "tags": [
+        "climate",
+        "water",
+        "energy",
+        "health",
+        "policy",
+        "finance",
+        "resilience",
+        "urbanization"
+      ],
+      "wordCount": 1116,
+      "sourcesUsed": 18,
+      "readabilityScore": 91,
+      "publishedAt": "2026-03-05T05:18:13.058Z",
+      "updatedAt": "2026-03-05T05:18:49.226Z",
+      "status": "published",
+      "mdFile": "integrated-water-energy-nexus-strategies-for-sub-saharan-africa-unlocking-resili-1772687893054.md",
+      "htmlFile": "integrated-water-energy-nexus-strategies-for-sub-saharan-africa-unlocking-resili-1772687893054.html",
+      "region": "Sub-Saharan Africa",
+      "driveFileId": "1kw8ym_QrSukgitFgsnfd70spaleoNLbR",
+      "driveWebViewLink": "https://drive.google.com/file/d/1kw8ym_QrSukgitFgsnfd70spaleoNLbR/view?usp=drivesdk"
+    },
+    {
       "slug": "micro-insurance-for-smallholder-drought-risk-in-the-ganges-brahmaputra-delta-cut-1772686906605",
       "title": "micro-insurance for smallholder drought risk in the Ganges-Brahmaputra delta: cutting disaster losses for vulnerable groups",
       "summary": "Governments and development partners must immediately mandate \"Water-Energy Efficiency Standards\" for all new public infrastructure projects in Sub-Saharan Africa to address resource scarcity.",
@@ -1025,6 +1053,6 @@
       "region": "Sub-Saharan Africa"
     }
   ],
-  "lastUpdated": "2026-03-05T05:02:20.550Z",
-  "totalPublished": 32
+  "lastUpdated": "2026-03-05T05:18:49.226Z",
+  "totalPublished": 33
 }

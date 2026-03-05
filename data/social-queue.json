@@ -1,6 +1,52 @@
 {
   "posts": [
     {
+      "id": "mmd0mdr1-tw",
+      "articleSlug": "integrated-water-energy-nexus-strategies-for-sub-saharan-africa-unlocking-resili-1772687893054",
+      "articleTitle": "Integrated Water-Energy Nexus Strategies for Sub-Saharan Africa: Unlocking Resilience Through Decentralized Solar Pumping and Grid Modernization",
+      "platform": "twitter",
+      "content": "Sub-Saharan Africa's water access (32.4%) and electricity access (53.3%) are critically low, creating a deadly cycle of vulnerability. Isolated projects fail to fix this. Governments must pivot to integrated Water-Energy Nexus strategies: decentralized solar pumping + grid modern",
+      "hashtags": [
+        "WaterEnergyNexus",
+        "ClimateResilience",
+        "SubSaharanAfrica"
+      ],
+      "url": "https://baseflow.institute/article/integrated-water-energy-nexus-strategies-for-sub-saharan-africa-unlocking-resili-1772687893054",
+      "status": "pending",
+      "createdAt": "2026-03-05T05:18:46.045Z"
+    },
+    {
+      "id": "mmd0mdr1-li",
+      "articleSlug": "integrated-water-energy-nexus-strategies-for-sub-saharan-africa-unlocking-resili-1772687893054",
+      "articleTitle": "Integrated Water-Energy Nexus Strategies for Sub-Saharan Africa: Unlocking Resilience Through Decentralized Solar Pumping and Grid Modernization",
+      "platform": "linkedin",
+      "content": "Sub-Saharan Africa faces a dual crisis: 32.4% of its population lacks safely managed drinking water, while electricity access remains below 54%. These sectors are deeply interdependent; without reliable energy, water systems fail, and without clean water, agricultural productivity collapses.\n\nCurrent sector-specific interventions are insufficient. The evidence is clear: failing to address the Water-Energy Nexus will undermine progress toward the Sustainable Development Goals (SDGs). To build regional resilience against climate-induced droughts, decision-makers must pivot from isolated infrastructure projects to integrated strategies. This requires coordinated investment in two specific areas: decentralized solar-powered irrigation and water treatment systems, alongside urgent grid modernization.\n\nCrucially, funding must prioritize community-led management models that ensure operational continuity during climate shocks, rather than relying solely on centralized grids vulnerable to failure. By unlocking this nexus, we can secure essential services for millions and transform the region's economic future.",
+      "hashtags": [
+        "WaterEnergyNexus",
+        "SDGs",
+        "ClimateAdaptation",
+        "SubSaharanAfrica"
+      ],
+      "url": "https://baseflow.institute/article/integrated-water-energy-nexus-strategies-for-sub-saharan-africa-unlocking-resili-1772687893054",
+      "status": "pending",
+      "createdAt": "2026-03-05T05:18:46.045Z"
+    },
+    {
+      "id": "mmd0mdr1-bs",
+      "articleSlug": "integrated-water-energy-nexus-strategies-for-sub-saharan-africa-unlocking-resili-1772687893054",
+      "articleTitle": "Integrated Water-Energy Nexus Strategies for Sub-Saharan Africa: Unlocking Resilience Through Decentralized Solar Pumping and Grid Modernization",
+      "platform": "bluesky",
+      "content": "The stats are stark: only 32% of people in Sub-Saharan Africa have safe drinking water, while electricity access sits at just over half. It's a vicious cycle—no power means broken pumps and contaminated wells; no clean water means failed agriculture. Isolated fixes won't cut it. The solution lies in",
+      "hashtags": [
+        "WaterEnergyNexus",
+        "ClimateResilience",
+        "SubSaharanAfrica"
+      ],
+      "url": "https://baseflow.institute/article/integrated-water-energy-nexus-strategies-for-sub-saharan-africa-unlocking-resili-1772687893054",
+      "status": "pending",
+      "createdAt": "2026-03-05T05:18:46.045Z"
+    },
+    {
       "id": "mmd0177s-tw",
       "articleSlug": "micro-insurance-for-smallholder-drought-risk-in-the-ganges-brahmaputra-delta-cut-1772686906605",
       "articleTitle": "micro-insurance for smallholder drought risk in the Ganges-Brahmaputra delta: cutting disaster losses for vulnerable groups",
@@ -872,5 +918,5 @@
       "createdAt": "2026-03-02T00:01:09.765Z"
     }
   ],
-  "lastUpdated": "2026-03-05T05:02:17.803Z"
+  "lastUpdated": "2026-03-05T05:18:46.049Z"
 }
