@@ -1,6 +1,51 @@
 {
   "posts": [
     {
+      "id": "mmdrqb9s-tw",
+      "articleSlug": "the-grid-water-synergy-gap-integrating-microgrids-and-wastewater-reclamation-for-1772733430450",
+      "articleTitle": "The Grid-Water Synergy Gap: Integrating Microgrids and Wastewater Reclamation for Resilient Water Security in East Africa",
+      "platform": "twitter",
+      "content": "East Africa faces a water crisis not due to lack of tech, but lack of reliable power. Integrating solar microgrids with wastewater reclamation offers a decentralized solution for safe water and clean energy. Stop building expensive dams; start fixing existing networks. #WaterSecu",
+      "hashtags": [
+        "WaterSecurity",
+        "ClimateAction",
+        "SustainableDevelopment"
+      ],
+      "url": "https://baseflow.institute/article/the-grid-water-synergy-gap-integrating-microgrids-and-wastewater-reclamation-for-1772733430450",
+      "status": "pending",
+      "createdAt": "2026-03-05T17:57:39.088Z"
+    },
+    {
+      "id": "mmdrqb9s-li",
+      "articleSlug": "the-grid-water-synergy-gap-integrating-microgrids-and-wastewater-reclamation-for-1772733430450",
+      "articleTitle": "The Grid-Water Synergy Gap: Integrating Microgrids and Wastewater Reclamation for Resilient Water Security in East Africa",
+      "platform": "linkedin",
+      "content": "The global deficit of 2.2 billion people lacking safe water is being driven by a critical flaw in our infrastructure: energy poverty. In East Africa, traditional linear water models are failing as erratic rainfall and unreliable national grids render advanced treatment technologies impractical. The solution lies not in capital-intensive dam construction, but in integrating renewable energy microgrids directly with municipal wastewater networks. By powering filtration systems with solar, communities can simultaneously achieve SDG 6 (Clean Water) and SDG 7 (Affordable and Clean Energy). This shift from linear to circular economy models leverages existing infrastructure to produce clean irrigation water without the prohibitive costs of desalination or new dams. The path forward requires operationalizing wastewater reclamation plants through decentralized power, directly addressing the root cause of pollution risks during dry seasons. We must move beyond theory to practical implementation that serves low-income households and smallholder farmers.",
+      "hashtags": [
+        "WaterSecurity",
+        "RenewableEnergy",
+        "CircularEconomy"
+      ],
+      "url": "https://baseflow.institute/article/the-grid-water-synergy-gap-integrating-microgrids-and-wastewater-reclamation-for-1772733430450",
+      "status": "pending",
+      "createdAt": "2026-03-05T17:57:39.088Z"
+    },
+    {
+      "id": "mmdrqb9s-bs",
+      "articleSlug": "the-grid-water-synergy-gap-integrating-microgrids-and-wastewater-reclamation-for-1772733430450",
+      "articleTitle": "The Grid-Water Synergy Gap: Integrating Microgrids and Wastewater Reclamation for Resilient Water Security in East Africa",
+      "platform": "bluesky",
+      "content": "The real bottleneck in East Africa's water crisis isn't technology; it's the power grid. When wastewater plants go dark due to outages, pollution spikes exactly when we need clean water most. The fix? Stop building expensive dams and start integrating solar microgrids directly into municipal wastewa",
+      "hashtags": [
+        "WaterCrisis",
+        "SolarPower",
+        "EastAfrica"
+      ],
+      "url": "https://baseflow.institute/article/the-grid-water-synergy-gap-integrating-microgrids-and-wastewater-reclamation-for-1772733430450",
+      "status": "pending",
+      "createdAt": "2026-03-05T17:57:39.088Z"
+    },
+    {
       "id": "mmdqnaht-tw",
       "articleSlug": "breaking-the-intermittency-trap-decoupling-energy-poverty-from-water-security-in-1772731597704",
       "articleTitle": "Breaking the Intermittency Trap: Decoupling Energy Poverty from Water Security in Sahelian Agriculture",
@@ -1934,5 +1979,5 @@
       "createdAt": "2026-03-02T00:01:09.765Z"
     }
   ],
-  "lastUpdated": "2026-03-05T17:27:18.501Z"
+  "lastUpdated": "2026-03-05T17:57:39.092Z"
 }

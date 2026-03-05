@@ -1,6 +1,34 @@
 {
   "articles": [
     {
+      "slug": "the-grid-water-synergy-gap-integrating-microgrids-and-wastewater-reclamation-for-1772733430450",
+      "title": "The Grid-Water Synergy Gap: Integrating Microgrids and Wastewater Reclamation for Resilient Water Security in East Africa",
+      "summary": "To address the critical deficit of 2.2 billion people lacking safe water globally, governments and development partners must pivot from capital-intensive dam construction to decentralized circular economy models [UN-Water/WHO, 2022].",
+      "topic": "Environmental resilience in lower-income countries: water security, clean energy, and climate adaptation",
+      "template": "Policy Brief",
+      "tags": [
+        "climate",
+        "water",
+        "energy",
+        "agriculture",
+        "health",
+        "policy",
+        "finance",
+        "resilience"
+      ],
+      "wordCount": 983,
+      "sourcesUsed": 12,
+      "readabilityScore": 89,
+      "publishedAt": "2026-03-05T17:57:10.465Z",
+      "updatedAt": "2026-03-05T17:57:40.902Z",
+      "status": "published",
+      "mdFile": "the-grid-water-synergy-gap-integrating-microgrids-and-wastewater-reclamation-for-1772733430450.md",
+      "htmlFile": "the-grid-water-synergy-gap-integrating-microgrids-and-wastewater-reclamation-for-1772733430450.html",
+      "region": "Sub-Saharan Africa",
+      "driveFileId": "1D8WofTQrA23PpJTSikPfwCAszrt1YCYE",
+      "driveWebViewLink": "https://drive.google.com/file/d/1D8WofTQrA23PpJTSikPfwCAszrt1YCYE/view?usp=drivesdk"
+    },
+    {
       "slug": "breaking-the-intermittency-trap-decoupling-energy-poverty-from-water-security-in-1772731597704",
       "title": "Breaking the Intermittency Trap: Decoupling Energy Poverty from Water Security in Sahelian Agriculture",
       "summary": "The primary barrier to climate resilience in Sub-Saharan Africa is not a lack of water or energy resources, but the structural misalignment between intermittent renewable generation and the continuous operational demands of agricultural irrigation.",
@@ -1753,6 +1781,6 @@
       "region": "Sub-Saharan Africa"
     }
   ],
-  "lastUpdated": "2026-03-05T17:27:20.510Z",
-  "totalPublished": 58
+  "lastUpdated": "2026-03-05T17:57:40.902Z",
+  "totalPublished": 59
 }
