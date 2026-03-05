@@ -1,6 +1,52 @@
 {
   "posts": [
     {
+      "id": "mmdssc7s-tw",
+      "articleSlug": "the-desalination-dilemma-in-coastal-sub-saharan-africa-replacing-brackish-water--1772735199960",
+      "articleTitle": "The Desalination Dilemma in Coastal Sub-Saharan Africa: Replacing Brackish Water Extraction with Community-Led Solar-Powered Reverse Osmosis for Climate-Resilient Water Security",
+      "platform": "twitter",
+      "content": "Coastal Sub-Saharan Africa faces a dual crisis: saltwater intrusion is poisoning aquifers, while unreliable energy makes treating the resulting brackish water impossible. We must pivot from diesel-dependent extraction to community-led solar-powered reverse osmosis systems. Decoup",
+      "hashtags": [
+        "WaterSecurity",
+        "ClimateResilience",
+        "SustainableDevelopment"
+      ],
+      "url": "https://baseflow.institute/article/the-desalination-dilemma-in-coastal-sub-saharan-africa-replacing-brackish-water--1772735199960",
+      "status": "pending",
+      "createdAt": "2026-03-05T18:27:13.240Z"
+    },
+    {
+      "id": "mmdssc7s-li",
+      "articleSlug": "the-desalination-dilemma-in-coastal-sub-saharan-africa-replacing-brackish-water--1772735199960",
+      "articleTitle": "The Desalination Dilemma in Coastal Sub-Saharan Africa: Replacing Brackish Water Extraction with Community-Led Solar-Powered Reverse Osmosis for Climate-Resilient Water Security",
+      "platform": "linkedin",
+      "content": "Coastal communities in Sub-Saharan Africa are on the frontline of a devastating dual crisis: rising sea levels are rendering freshwater aquifers unusable through saltwater intrusion, while a severe lack of reliable energy prevents the treatment of the resulting brackish water. Despite global electricity access reaching 91.6% in 2023, Sub-Saharan Africa lags significantly at just 53.3%, masking an acute scarcity in coastal zones where freshwater is increasingly unavailable.\n\nCurrent reliance on unsustainable groundwater extraction or diesel-powered brackish water treatment creates a vicious cycle: high operational costs driven by volatile fuel prices undermine climate adaptation goals and threaten supply continuity during grid instability. To break this cycle, policymakers must adopt a targeted framework that conditions new water infrastructure investments on the existence of stable solar-wind hybrid microgrids. By decoupling water treatment from global energy markets, we can ensure continuous operation for vulnerable populations and protect them from compounding climate shocks. The path forward requires shifting from centralized, fossil-fuel-dependent models to decentralized, community-led reverse osmosis systems powered by dedicated renewable energy.",
+      "hashtags": [
+        "WaterSecurity",
+        "ClimateAdaptation",
+        "RenewableEnergy",
+        "SubSaharanAfrica"
+      ],
+      "url": "https://baseflow.institute/article/the-desalination-dilemma-in-coastal-sub-saharan-africa-replacing-brackish-water--1772735199960",
+      "status": "pending",
+      "createdAt": "2026-03-05T18:27:13.240Z"
+    },
+    {
+      "id": "mmdssc7s-bs",
+      "articleSlug": "the-desalination-dilemma-in-coastal-sub-saharan-africa-replacing-brackish-water--1772735199960",
+      "articleTitle": "The Desalination Dilemma in Coastal Sub-Saharan Africa: Replacing Brackish Water Extraction with Community-Led Solar-Powered Reverse Osmosis for Climate-Resilient Water Security",
+      "platform": "bluesky",
+      "content": "Coastal communities in Sub-Saharan Africa are facing a nightmare scenario where rising seas have turned their freshwater wells into saltwater brine, yet they lack the reliable power to treat it. With only 32.4% of the region having safely managed drinking water, the status quo is unsustainable. We n",
+      "hashtags": [
+        "WaterCrisis",
+        "SolarPower",
+        "ClimateResilience"
+      ],
+      "url": "https://baseflow.institute/article/the-desalination-dilemma-in-coastal-sub-saharan-africa-replacing-brackish-water--1772735199960",
+      "status": "pending",
+      "createdAt": "2026-03-05T18:27:13.240Z"
+    },
+    {
       "id": "mmdrqb9s-tw",
       "articleSlug": "the-grid-water-synergy-gap-integrating-microgrids-and-wastewater-reclamation-for-1772733430450",
       "articleTitle": "The Grid-Water Synergy Gap: Integrating Microgrids and Wastewater Reclamation for Resilient Water Security in East Africa",
@@ -1979,5 +2025,5 @@
       "createdAt": "2026-03-02T00:01:09.765Z"
     }
   ],
-  "lastUpdated": "2026-03-05T17:57:39.092Z"
+  "lastUpdated": "2026-03-05T18:27:13.244Z"
 }

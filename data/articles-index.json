@@ -1,6 +1,34 @@
 {
   "articles": [
     {
+      "slug": "the-desalination-dilemma-in-coastal-sub-saharan-africa-replacing-brackish-water--1772735199960",
+      "title": "The Desalination Dilemma in Coastal Sub-Saharan Africa: Replacing Brackish Water Extraction with Community-Led Solar-Powered Reverse Osmosis for Climate-Resilient Water Security",
+      "summary": "Coastal communities in Sub-Saharan Africa face a crisis where rising sea levels and saltwater intrusion are rendering traditional freshwater aquifers unusable, forcing reliance on energy-intensive extraction methods.",
+      "topic": "Environmental resilience in lower-income countries: water security, clean energy, and climate adaptation",
+      "template": "Policy Brief",
+      "tags": [
+        "climate",
+        "water",
+        "energy",
+        "agriculture",
+        "health",
+        "policy",
+        "finance",
+        "resilience"
+      ],
+      "wordCount": 1181,
+      "sourcesUsed": 13,
+      "readabilityScore": 88,
+      "publishedAt": "2026-03-05T18:26:39.972Z",
+      "updatedAt": "2026-03-05T18:27:15.478Z",
+      "status": "published",
+      "mdFile": "the-desalination-dilemma-in-coastal-sub-saharan-africa-replacing-brackish-water--1772735199960.md",
+      "htmlFile": "the-desalination-dilemma-in-coastal-sub-saharan-africa-replacing-brackish-water--1772735199960.html",
+      "region": "Sub-Saharan Africa",
+      "driveFileId": "17of__g36onmaAqWI9q-q9a6fHBBCoXn6",
+      "driveWebViewLink": "https://drive.google.com/file/d/17of__g36onmaAqWI9q-q9a6fHBBCoXn6/view?usp=drivesdk"
+    },
+    {
       "slug": "the-grid-water-synergy-gap-integrating-microgrids-and-wastewater-reclamation-for-1772733430450",
       "title": "The Grid-Water Synergy Gap: Integrating Microgrids and Wastewater Reclamation for Resilient Water Security in East Africa",
       "summary": "To address the critical deficit of 2.2 billion people lacking safe water globally, governments and development partners must pivot from capital-intensive dam construction to decentralized circular economy models [UN-Water/WHO, 2022].",
@@ -1781,6 +1809,6 @@
       "region": "Sub-Saharan Africa"
     }
   ],
-  "lastUpdated": "2026-03-05T17:57:40.902Z",
-  "totalPublished": 59
+  "lastUpdated": "2026-03-05T18:27:15.478Z",
+  "totalPublished": 60
 }
