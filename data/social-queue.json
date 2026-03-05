@@ -1,6 +1,51 @@
 {
   "posts": [
     {
+      "id": "mmdpkxus-tw",
+      "articleSlug": "the-grid-water-nexus-in-east-africa-leveraging-community-led-solar-pumping-for-r-1772729820801",
+      "articleTitle": "The Grid-Water Nexus in East Africa: Leveraging Community-Led Solar Pumping for Resilient Agricultural Water Security",
+      "platform": "twitter",
+      "content": "East Africa's farmers are stuck between droughts and unreliable grids. Shifting focus from costly diesel pumps to community-led solar pumping offers a resilient path for water security. It's time to prioritize decentralized energy solutions over traditional grid extensions in rur",
+      "hashtags": [
+        "ClimateResilience",
+        "SustainableAgriculture",
+        "WaterForAll"
+      ],
+      "url": "https://baseflow.institute/article/the-grid-water-nexus-in-east-africa-leveraging-community-led-solar-pumping-for-r-1772729820801",
+      "status": "pending",
+      "createdAt": "2026-03-05T16:57:29.188Z"
+    },
+    {
+      "id": "mmdpkxus-li",
+      "articleSlug": "the-grid-water-nexus-in-east-africa-leveraging-community-led-solar-pumping-for-r-1772729820801",
+      "articleTitle": "The Grid-Water Nexus in East Africa: Leveraging Community-Led Solar Pumping for Resilient Agricultural Water Security",
+      "platform": "linkedin",
+      "content": "The intersection of climate change and energy infrastructure is creating a critical water crisis for smallholder farmers in East Africa. With global electricity access lagging significantly in Sub-Saharan Africa at just 53.3%, reliance on diesel pumps and unstable grids leaves communities vulnerable to prolonged dry spells. Our latest research highlights a transformative solution: shifting funding priorities toward community-led solar pumping systems. This approach not only decouples agricultural productivity from fossil fuel dependency but also directly supports SDG 6 (Clean Water) and SDG 7 (Affordable Energy). By adopting participatory financing models, governments can drastically reduce non-revenue water losses in rural areas. The path forward requires moving beyond centralized infrastructure challenges to embrace decentralized, reliable energy sources that empower local communities. #ClimateAdaptation #RuralDevelopment #SolarPumping",
+      "hashtags": [
+        "ClimateResilience",
+        "SustainableAgriculture",
+        "WaterForAll"
+      ],
+      "url": "https://baseflow.institute/article/the-grid-water-nexus-in-east-africa-leveraging-community-led-solar-pumping-for-r-1772729820801",
+      "status": "pending",
+      "createdAt": "2026-03-05T16:57:29.188Z"
+    },
+    {
+      "id": "mmdpkxus-bs",
+      "articleSlug": "the-grid-water-nexus-in-east-africa-leveraging-community-led-solar-pumping-for-r-1772729820801",
+      "articleTitle": "The Grid-Water Nexus in East Africa: Leveraging Community-Led Solar Pumping for Resilient Agricultural Water Security",
+      "platform": "bluesky",
+      "content": "The grid is failing farmers in East Africa, leaving them dependent on expensive diesel pumps during increasingly erratic droughts. We need to rethink our approach to water security. Instead of pouring resources into unreliable centralized extensions, governments should invest in community-led solar ",
+      "hashtags": [
+        "ClimateResilience",
+        "SustainableAgriculture",
+        "WaterForAll"
+      ],
+      "url": "https://baseflow.institute/article/the-grid-water-nexus-in-east-africa-leveraging-community-led-solar-pumping-for-r-1772729820801",
+      "status": "pending",
+      "createdAt": "2026-03-05T16:57:29.188Z"
+    },
+    {
       "id": "mmdomjvq-tw",
       "articleSlug": "the-desalination-dilemma-in-coastal-sub-saharan-africa-replacing-brackish-water--1772728209403",
       "articleTitle": "The Desalination Dilemma in Coastal Sub-Saharan Africa: Replacing Brackish Water Extraction with Community-Led Solar-Powered Reverse Osmosis for Climate-Resilient Water Security",
@@ -1850,5 +1895,5 @@
       "createdAt": "2026-03-02T00:01:09.765Z"
     }
   ],
-  "lastUpdated": "2026-03-05T16:30:44.778Z"
+  "lastUpdated": "2026-03-05T16:57:29.194Z"
 }
