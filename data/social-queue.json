@@ -1,6 +1,21 @@
 {
   "posts": [
     {
+      "id": "mmd0xlyk-tw",
+      "articleSlug": "decentralized-micro-hydro-integration-in-the-andean-highlands-a-climate-resilien-1772688417939",
+      "articleTitle": "Decentralized Micro-Hydro Integration in the Andean Highlands: A Climate-Resilient Water-Energy Solution for High-Altitude Communities",
+      "platform": "twitter",
+      "content": "Bolivia & Peru must prioritize decentralized micro-hydro to fix water scarcity and energy poverty. Small-scale systems can power purification pumps, boost irrigation, and fund community resilience—without the costs or displacement of big dams. #ClimateResilience #MicroHydro #Wate",
+      "hashtags": [
+        "ClimateAction",
+        "WaterEnergyLink",
+        "SDG7"
+      ],
+      "url": "https://baseflow.institute/article/decentralized-micro-hydro-integration-in-the-andean-highlands-a-climate-resilien-1772688417939",
+      "status": "pending",
+      "createdAt": "2026-03-05T05:27:29.900Z"
+    },
+    {
       "id": "mmd0mdr1-tw",
       "articleSlug": "integrated-water-energy-nexus-strategies-for-sub-saharan-africa-unlocking-resili-1772687893054",
       "articleTitle": "Integrated Water-Energy Nexus Strategies for Sub-Saharan Africa: Unlocking Resilience Through Decentralized Solar Pumping and Grid Modernization",
@@ -918,5 +933,5 @@
       "createdAt": "2026-03-02T00:01:09.765Z"
     }
   ],
-  "lastUpdated": "2026-03-05T05:18:46.049Z"
+  "lastUpdated": "2026-03-05T05:27:29.901Z"
 }

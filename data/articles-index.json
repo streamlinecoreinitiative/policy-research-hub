@@ -1,6 +1,34 @@
 {
   "articles": [
     {
+      "slug": "decentralized-micro-hydro-integration-in-the-andean-highlands-a-climate-resilien-1772688417939",
+      "title": "Decentralized Micro-Hydro Integration in the Andean Highlands: A Climate-Resilient Water-Energy Solution for High-Altitude Communities",
+      "summary": "Governments in Bolivia and Peru must designate specific mountainous river basins as priority zones for decentralized micro-hydro development to address the intersection of water scarcity and energy poverty.",
+      "topic": "Environmental resilience in lower-income countries: water security, clean energy, and climate adaptation",
+      "template": "Policy Brief",
+      "tags": [
+        "climate",
+        "water",
+        "energy",
+        "health",
+        "policy",
+        "finance",
+        "resilience",
+        "biodiversity"
+      ],
+      "wordCount": 1132,
+      "sourcesUsed": 7,
+      "readabilityScore": 81,
+      "publishedAt": "2026-03-05T05:26:57.942Z",
+      "updatedAt": "2026-03-05T05:27:31.689Z",
+      "status": "published",
+      "mdFile": "decentralized-micro-hydro-integration-in-the-andean-highlands-a-climate-resilien-1772688417939.md",
+      "htmlFile": "decentralized-micro-hydro-integration-in-the-andean-highlands-a-climate-resilien-1772688417939.html",
+      "region": "Latin America & Caribbean",
+      "driveFileId": "1qtD7irble99xY6UVtq95cv2QqSYbACqm",
+      "driveWebViewLink": "https://drive.google.com/file/d/1qtD7irble99xY6UVtq95cv2QqSYbACqm/view?usp=drivesdk"
+    },
+    {
       "slug": "integrated-water-energy-nexus-strategies-for-sub-saharan-africa-unlocking-resili-1772687893054",
       "title": "Integrated Water-Energy Nexus Strategies for Sub-Saharan Africa: Unlocking Resilience Through Decentralized Solar Pumping and Grid Modernization",
       "summary": "Governments in Sub-Saharan Africa must pivot from sector-specific infrastructure projects to integrated Water-Energy Nexus strategies that prioritize decentralized solar pumping and grid modernization.",
@@ -1053,6 +1081,6 @@
       "region": "Sub-Saharan Africa"
     }
   ],
-  "lastUpdated": "2026-03-05T05:18:49.226Z",
-  "totalPublished": 33
+  "lastUpdated": "2026-03-05T05:27:31.689Z",
+  "totalPublished": 34
 }
