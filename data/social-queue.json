@@ -1,6 +1,54 @@
 {
   "posts": [
     {
+      "id": "mmdz6ky3-tw",
+      "articleSlug": "the-grid-water-synergy-gap-integrating-microgrids-and-wastewater-reclamation-for-1772745941340",
+      "articleTitle": "The Grid-Water Synergy Gap: Integrating Microgrids and Wastewater Reclamation for Resilient Water Security in East Africa",
+      "platform": "twitter",
+      "content": "East Africa's water crisis is failing because we fund water projects without power. Stop siloing SDG 6 and SDG 7. We need integrated solar microgrids with wastewater reclamation to ensure safe water access isn't dependent on volatile fuel markets or unstable grids. #WaterSecurity",
+      "hashtags": [
+        "WaterSecurity",
+        "ClimateAdaptation",
+        "EastAfrica"
+      ],
+      "url": "https://baseflow.institute/article/the-grid-water-synergy-gap-integrating-microgrids-and-wastewater-reclamation-for-1772745941340",
+      "status": "pending",
+      "createdAt": "2026-03-05T21:26:15.435Z"
+    },
+    {
+      "id": "mmdz6ky3-li",
+      "articleSlug": "the-grid-water-synergy-gap-integrating-microgrids-and-wastewater-reclamation-for-1772745941340",
+      "articleTitle": "The Grid-Water Synergy Gap: Integrating Microgrids and Wastewater Reclamation for Resilient Water Security in East Africa",
+      "platform": "linkedin",
+      "content": "The disconnect between water infrastructure and energy supply is creating a systemic crisis in East Africa. While global electricity access has reached 91.6%, Sub-Saharan Africa lags significantly at 53.3%. This energy deficit prevents modern water treatment facilities from functioning, leaving communities without safe drinking water.\n\nCurrent development efforts targeting SDG 6 (Clean Water) and SDG 7 (Affordable Energy) are failing because they treat these sectors as separate silos. Relying on diesel generators creates a vicious cycle: rising fuel costs increase the price of safe water, while the carbon footprint exacerbates local climate change.\n\nTo achieve meaningful progress, international donors and national governments must immediately shift capital allocation toward integrated systems that combine solar PV microgrids with wastewater reclamation capabilities. Policymakers must cease funding standalone water infrastructure projects until they are coupled with dedicated renewable energy solutions. This approach addresses the dual crisis of erratic rainfall and unreliable power, ensuring that safe water access is not contingent on volatile fuel markets or unstable national grids.\n\n#SustainableDevelopment #WaterManagement #RenewableEnergy #PolicyBrief #SDG6 #SDG7",
+      "hashtags": [
+        "SustainableDevelopment",
+        "WaterManagement",
+        "RenewableEnergy",
+        "PolicyBrief",
+        "SDG6",
+        "SDG7"
+      ],
+      "url": "https://baseflow.institute/article/the-grid-water-synergy-gap-integrating-microgrids-and-wastewater-reclamation-for-1772745941340",
+      "status": "pending",
+      "createdAt": "2026-03-05T21:26:15.435Z"
+    },
+    {
+      "id": "mmdz6ky3-bs",
+      "articleSlug": "the-grid-water-synergy-gap-integrating-microgrids-and-wastewater-reclamation-for-1772745941340",
+      "articleTitle": "The Grid-Water Synergy Gap: Integrating Microgrids and Wastewater Reclamation for Resilient Water Security in East Africa",
+      "platform": "bluesky",
+      "content": "The water crisis in East Africa isn't just about pipes; it's about power. We're seeing a grid-water synergy gap where standalone water projects fail because they lack consistent electricity. With only 32.4% of Sub-Saharan Africans having safely managed drinking water access, the reliance on diesel g",
+      "hashtags": [
+        "WaterEnergyLink",
+        "Microgrids",
+        "ClimateResilience"
+      ],
+      "url": "https://baseflow.institute/article/the-grid-water-synergy-gap-integrating-microgrids-and-wastewater-reclamation-for-1772745941340",
+      "status": "pending",
+      "createdAt": "2026-03-05T21:26:15.435Z"
+    },
+    {
       "id": "mmdy63ft-tw",
       "articleSlug": "the-decentralized-pumping-paradox-replacing-fossil-fuel-dependency-with-communit-1772744240650",
       "articleTitle": "The Decentralized Pumping Paradox: Replacing Fossil Fuel Dependency with Community-Led Hybrid Systems for Climate-Resilient Agriculture in West Africa",
@@ -2255,5 +2303,5 @@
       "createdAt": "2026-03-02T00:01:09.765Z"
     }
   ],
-  "lastUpdated": "2026-03-05T20:57:53.132Z"
+  "lastUpdated": "2026-03-05T21:26:15.437Z"
 }
