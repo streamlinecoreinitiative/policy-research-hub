@@ -1,6 +1,47 @@
 {
   "posts": [
     {
+      "id": "mmdla1fj-tw",
+      "articleSlug": "the-decentralized-desalination-paradox-in-coastal-west-africa-overcoming-infrast-1772722583822",
+      "articleTitle": "The Decentralized Desalination Paradox in Coastal West Africa: Overcoming Infrastructure Gaps for Climate-Resilient Water Security and Energy Access",
+      "platform": "twitter",
+      "content": "Coastal West Africa faces a \"double lock\" on survival: rising seas kill freshwater, while energy poverty kills desalination. Current fossil-fuel pumps are unsustainable. We must shift funding to decentralized solar-diesel micro-grids for brackish water. Without immediate action, ",
+      "hashtags": [
+        "WaterSecurity",
+        "ClimateResilience",
+        "RenewableEnergy"
+      ],
+      "url": "https://baseflow.institute/article/the-decentralized-desalination-paradox-in-coastal-west-africa-overcoming-infrast-1772722583822",
+      "status": "pending",
+      "createdAt": "2026-03-05T14:57:02.143Z"
+    },
+    {
+      "id": "mmdla1fj-li",
+      "articleSlug": "the-decentralized-desalination-paradox-in-coastal-west-africa-overcoming-infrast-1772722583822",
+      "articleTitle": "The Decentralized Desalination Paradox in Coastal West Africa: Overcoming Infrastructure Gaps for Climate-Resilient Water Security and Energy Access",
+      "platform": "linkedin",
+      "content": "Coastal communities in West Africa are facing an existential crisis driven by a convergence of climate change and energy poverty. As sea levels rise and aquifers salinize, the ability to desalinate water becomes critical for food security and public health. However, these technologies are paralyzed by unreliable electricity grids, forcing reliance on volatile and expensive fossil fuels.\n\nThe data reveals a stark disparity: while 91.6% of the global population has electricity access, Sub-Saharan Africa stands at just 53.3%. Simultaneously, only 32.4% of people in the region have safely managed drinking water compared to 73.7% globally. This energy deficit creates a \"double lock,\" preventing efficient water treatment and treatment infrastructure from functioning.\n\nTo break this cycle, policy must pivot away from centralized grid-dependency models. We urgently need investment in decentralized, hybrid solar-diesel micro-grids specifically engineered for brackish water treatment. Furthermore, successful implementation requires localized capacity-building programs that navigate the complex political and institutional constraints of local governance. Addressing this paradox is not merely an engineering challenge; it is a prerequisite for preventing climate-induced migration and social instability in some of the world's most vulnerable regions.",
+      "hashtags": [
+        "ClimateAction #WaterSecurity #DecentralizedEnergy #WestAfrica #PolicyBrief"
+      ],
+      "url": "https://baseflow.institute/article/the-decentralized-desalination-paradox-in-coastal-west-africa-overcoming-infrast-1772722583822",
+      "status": "pending",
+      "createdAt": "2026-03-05T14:57:02.143Z"
+    },
+    {
+      "id": "mmdla1fj-bs",
+      "articleSlug": "the-decentralized-desalination-paradox-in-coastal-west-africa-overcoming-infrast-1772722583822",
+      "articleTitle": "The Decentralized Desalination Paradox in Coastal West Africa: Overcoming Infrastructure Gaps for Climate-Resilient Water Security and Energy Access",
+      "platform": "bluesky",
+      "content": "Coastal West Africa is on the frontlines of climate change, but there's a hidden barrier to survival: energy poverty. When aquifers turn salty from rising seas, communities need desalination. But without reliable power, those systems stay offline, forcing reliance on dirty diesel generators.\n\nWe're ",
+      "hashtags": [
+        "ClimateResilience #WaterSecurity #SolarPower #PolicyMatters"
+      ],
+      "url": "https://baseflow.institute/article/the-decentralized-desalination-paradox-in-coastal-west-africa-overcoming-infrast-1772722583822",
+      "status": "pending",
+      "createdAt": "2026-03-05T14:57:02.143Z"
+    },
+    {
       "id": "mmdk7jwl-tw",
       "articleSlug": "the-micro-hydrop-gap-unlocking-decentralized-hydropower-for-rural-water-security-1772720790886",
       "articleTitle": "The Micro-Hydrop Gap: Unlocking Decentralized Hydropower for Rural Water Security and Energy Access in the Ethiopian Highlands",
@@ -1670,5 +1711,5 @@
       "createdAt": "2026-03-02T00:01:09.765Z"
     }
   ],
-  "lastUpdated": "2026-03-05T14:27:06.505Z"
+  "lastUpdated": "2026-03-05T14:57:02.146Z"
 }
