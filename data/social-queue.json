@@ -1,6 +1,47 @@
 {
   "posts": [
     {
+      "id": "mme4kah9-tw",
+      "articleSlug": "the-hydro-electricity-equity-gap-closing-the-service-delivery-divide-in-sub-saha-1772754983846",
+      "articleTitle": "The Hydro-Electricity Equity Gap: Closing the Service Delivery Divide in Sub-Saharan Africa Through Integrated Water-Energy Infrastructure",
+      "platform": "twitter",
+      "content": "Sub-Saharan Africa needs a shift from siloed projects to integrated water-energy systems. With only 32.4% of the population having safe drinking water access, treating these resources as mutually reinforcing assets is critical for climate resilience and economic growth. #WaterSec",
+      "hashtags": [
+        "WaterEnergyIntegration",
+        "SubSaharanAfrica",
+        "ClimateResilience"
+      ],
+      "url": "https://baseflow.institute/article/the-hydro-electricity-equity-gap-closing-the-service-delivery-divide-in-sub-saha-1772754983846",
+      "status": "pending",
+      "createdAt": "2026-03-05T23:56:53.133Z"
+    },
+    {
+      "id": "mme4kah9-li",
+      "articleSlug": "the-hydro-electricity-equity-gap-closing-the-service-delivery-divide-in-sub-saha-1772754983846",
+      "articleTitle": "The Hydro-Electricity Equity Gap: Closing the Service Delivery Divide in Sub-Saharan Africa Through Integrated Water-Energy Infrastructure",
+      "platform": "linkedin",
+      "content": "Achieving sustainable development in Sub-Saharan Africa requires a fundamental pivot: moving away from siloed infrastructure projects toward integrated water-energy systems. Current data reveals a stark disparity; while global electricity access stands at 91.6%, the region lags critically behind at just 53.3%. Simultaneously, only 32.4% of the population has access to safely managed drinking water, leaving billions vulnerable to climate shocks that disproportionately affect rural communities lacking both power and clean water.\n\nThe primary policy recommendation is clear: governments must mandate joint planning between national energy ministries and water resource authorities for all new infrastructure investments over the next five years. By leveraging decentralized renewable sources, such as solar-powered pumping, nations can decouple economic growth from fossil fuel volatility. Success hinges on aligning national energy policies with water management plans to ensure climate adaptation measures reach those currently excluded. Treating water and energy not as competing resources, but as mutually reinforcing assets, is the key to closing this equity gap.",
+      "hashtags": [
+        "WaterEnergyIntegration #ClimateAdaptation #PolicyBrief #SubSaharanAfrica #SustainableDevelopment"
+      ],
+      "url": "https://baseflow.institute/article/the-hydro-electricity-equity-gap-closing-the-service-delivery-divide-in-sub-saha-1772754983846",
+      "status": "pending",
+      "createdAt": "2026-03-05T23:56:53.133Z"
+    },
+    {
+      "id": "mme4kah9-bs",
+      "articleSlug": "the-hydro-electricity-equity-gap-closing-the-service-delivery-divide-in-sub-saha-1772754983846",
+      "articleTitle": "The Hydro-Electricity Equity Gap: Closing the Service Delivery Divide in Sub-Saharan Africa Through Integrated Water-Energy Infrastructure",
+      "platform": "bluesky",
+      "content": "The hydro-electricity equity gap in Sub-Saharan Africa is real and urgent. With electricity access at just 53.3% and safe water access hovering around 32.4%, the region faces a compounding crisis where resource scarcity and infrastructure deficits intersect. We need to stop treating water and energy",
+      "hashtags": [
+        "WaterEnergyLink #ClimateJustice #InfrastructureGap"
+      ],
+      "url": "https://baseflow.institute/article/the-hydro-electricity-equity-gap-closing-the-service-delivery-divide-in-sub-saha-1772754983846",
+      "status": "pending",
+      "createdAt": "2026-03-05T23:56:53.133Z"
+    },
+    {
       "id": "mme3ie3h-tw",
       "articleSlug": "the-thermal-threshold-trap-integrating-community-based-cooling-with-desalination-1772753217233",
       "articleTitle": "The Thermal Threshold Trap: Integrating Community-Based Cooling with Desalination for Climate-Resilient Water Security in Coastal Sub-Saharan Africa",
@@ -2460,5 +2501,5 @@
       "createdAt": "2026-03-02T00:01:09.765Z"
     }
   ],
-  "lastUpdated": "2026-03-05T23:27:24.896Z"
+  "lastUpdated": "2026-03-05T23:56:53.135Z"
 }
