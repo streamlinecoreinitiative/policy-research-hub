@@ -1,6 +1,51 @@
 {
   "posts": [
     {
+      "id": "mmd322m6-tw",
+      "articleSlug": "the-grid-water-nexus-in-east-africa-leveraging-community-led-solar-pumping-for-r-1772691990322",
+      "articleTitle": "**The Grid-Water Nexus in East Africa: Leveraging Community-Led Solar Pumping for Resilient Agricultural Water Security**",
+      "platform": "twitter",
+      "content": "East Africa faces a dual crisis: drying aquifers and failing grids. The solution isn't more centralization, but community-led solar pumping. Decoupling water from the grid secures food production during outages and cuts diesel costs. #WaterSecurity #ClimateResilience #SolarEnergy",
+      "hashtags": [
+        "WaterSecurity",
+        "ClimateResilience",
+        "SolarEnergy"
+      ],
+      "url": "https://baseflow.institute/article/the-grid-water-nexus-in-east-africa-leveraging-community-led-solar-pumping-for-r-1772691990322",
+      "status": "pending",
+      "createdAt": "2026-03-05T06:26:57.342Z"
+    },
+    {
+      "id": "mmd322m6-li",
+      "articleSlug": "the-grid-water-nexus-in-east-africa-leveraging-community-led-solar-pumping-for-r-1772691990322",
+      "articleTitle": "**The Grid-Water Nexus in East Africa: Leveraging Community-Led Solar Pumping for Resilient Agricultural Water Security**",
+      "platform": "linkedin",
+      "content": "East African nations are confronting a compounding crisis where rising temperatures deplete groundwater while destabilizing national power grids. With only 32.4% of Sub-Saharan Africa having safely managed drinking water access, rural communities face food insecurity driven by the intersection of energy instability and water scarcity. Current policies often treat these sectors separately, leaving smallholder farmers vulnerable to shocks that disrupt both supply chains simultaneously.\n\nOur new research highlights a critical pivot: shifting from centralized, grid-dependent infrastructure toward decentralized, community-managed solar pumping systems. By legally recognizing and funding water-energy cooperatives in high-risk zones, we can secure food production during national power outages while reducing operational costs compared to diesel generation. This approach directly advances SDG 6 (clean water) and SDG 7 (renewable energy), creating a vital buffer against climate volatility that top-down projects often miss.\n\nDevelopers and policymakers must prioritize these community-led models to build resilient agricultural systems capable of withstanding the dual pressures of drought and grid failure.",
+      "hashtags": [
+        "SustainableDevelopment",
+        "EnergyTransition",
+        "WaterPolicy"
+      ],
+      "url": "https://baseflow.institute/article/the-grid-water-nexus-in-east-africa-leveraging-community-led-solar-pumping-for-r-1772691990322",
+      "status": "pending",
+      "createdAt": "2026-03-05T06:26:57.342Z"
+    },
+    {
+      "id": "mmd322m6-bs",
+      "articleSlug": "the-grid-water-nexus-in-east-africa-leveraging-community-led-solar-pumping-for-r-1772691990322",
+      "articleTitle": "**The Grid-Water Nexus in East Africa: Leveraging Community-Led Solar Pumping for Resilient Agricultural Water Security**",
+      "platform": "bluesky",
+      "content": "The grid and water in East Africa are fighting a losing battle together. As aquifers dry up and power grids fail, smallholder farmers lose everything. The fix? Stop relying on the central grid for pumping and start empowering communities with solar systems. It's cheaper, it works when the lights go ",
+      "hashtags": [
+        "EastAfrica",
+        "SolarPower",
+        "WaterSecurity"
+      ],
+      "url": "https://baseflow.institute/article/the-grid-water-nexus-in-east-africa-leveraging-community-led-solar-pumping-for-r-1772691990322",
+      "status": "pending",
+      "createdAt": "2026-03-05T06:26:57.342Z"
+    },
+    {
       "id": "mmd1zcba-tw",
       "articleSlug": "decoupling-energy-water-nexus-integrating-small-scale-hydropower-into-municipal--1772690181093",
       "articleTitle": "Decoupling Energy-Water Nexus: Integrating Small-Scale Hydropower into Municipal Water Treatment in Sub-Saharan Africa",
@@ -978,5 +1023,5 @@
       "createdAt": "2026-03-02T00:01:09.765Z"
     }
   ],
-  "lastUpdated": "2026-03-05T05:56:50.331Z"
+  "lastUpdated": "2026-03-05T06:26:57.346Z"
 }

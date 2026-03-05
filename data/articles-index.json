@@ -1,6 +1,34 @@
 {
   "articles": [
     {
+      "slug": "the-grid-water-nexus-in-east-africa-leveraging-community-led-solar-pumping-for-r-1772691990322",
+      "title": "**The Grid-Water Nexus in East Africa: Leveraging Community-Led Solar Pumping for Resilient Agricultural Water Security**",
+      "summary": "East African governments and development partners must pivot from centralized, grid-dependent water infrastructure toward decentralized, community-managed solar pumping systems.",
+      "topic": "Environmental resilience in lower-income countries: water security, clean energy, and climate adaptation",
+      "template": "Policy Brief",
+      "tags": [
+        "climate",
+        "water",
+        "energy",
+        "agriculture",
+        "policy",
+        "finance",
+        "resilience",
+        "urbanization"
+      ],
+      "wordCount": 1124,
+      "sourcesUsed": 5,
+      "readabilityScore": 86,
+      "publishedAt": "2026-03-05T06:26:30.327Z",
+      "updatedAt": "2026-03-05T06:27:02.441Z",
+      "status": "published",
+      "mdFile": "the-grid-water-nexus-in-east-africa-leveraging-community-led-solar-pumping-for-r-1772691990322.md",
+      "htmlFile": "the-grid-water-nexus-in-east-africa-leveraging-community-led-solar-pumping-for-r-1772691990322.html",
+      "region": "Sub-Saharan Africa",
+      "driveFileId": "1Rauom5pxzFSS6acGpflqEFXuy2BLQs9U",
+      "driveWebViewLink": "https://drive.google.com/file/d/1Rauom5pxzFSS6acGpflqEFXuy2BLQs9U/view?usp=drivesdk"
+    },
+    {
       "slug": "decoupling-energy-water-nexus-integrating-small-scale-hydropower-into-municipal--1772690181093",
       "title": "Decoupling Energy-Water Nexus: Integrating Small-Scale Hydropower into Municipal Water Treatment in Sub-Saharan Africa",
       "summary": "To address high operational costs and carbon emissions, governments and development partners must pivot from centralized grid expansion to decentralized, renewable-energy-integrated water systems.",
@@ -1109,6 +1137,6 @@
       "region": "Sub-Saharan Africa"
     }
   ],
-  "lastUpdated": "2026-03-05T05:56:52.467Z",
-  "totalPublished": 35
+  "lastUpdated": "2026-03-05T06:27:02.441Z",
+  "totalPublished": 36
 }
