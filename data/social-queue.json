@@ -1,6 +1,47 @@
 {
   "posts": [
     {
+      "id": "mmd43lio-tw",
+      "articleSlug": "beyond-the-grid-water-nexus-hybridizing-decentralized-solar-powered-desalination-1772693741499",
+      "articleTitle": "Beyond the Grid-Water Nexus: Hybridizing Decentralized Solar-Powered Desalination and Wastewater Reuse for Urban Resilience in Coastal Sub-Saharan Africa",
+      "platform": "twitter",
+      "content": "Coastal cities in Sub-Saharan Africa face a dual crisis: rising sea levels and energy grid instability are destroying water security. Relying on diesel-dependent infrastructure is unsustainable. We must pivot to decentralized, solar-powered wastewater reuse systems that create cl",
+      "hashtags": [
+        "WaterSecurity",
+        "ClimateAdaptation",
+        "RenewableEnergy"
+      ],
+      "url": "https://baseflow.institute/article/beyond-the-grid-water-nexus-hybridizing-decentralized-solar-powered-desalination-1772693741499",
+      "status": "pending",
+      "createdAt": "2026-03-05T06:56:08.112Z"
+    },
+    {
+      "id": "mmd43lio-li",
+      "articleSlug": "beyond-the-grid-water-nexus-hybridizing-decentralized-solar-powered-desalination-1772693741499",
+      "articleTitle": "Beyond the Grid-Water Nexus: Hybridizing Decentralized Solar-Powered Desalination and Wastewater Reuse for Urban Resilience in Coastal Sub-Saharan Africa",
+      "platform": "linkedin",
+      "content": "Coastal urban centers in Sub-Saharan Africa are facing an existential water crisis driven by rising sea levels and erratic rainfall, yet they remain paralyzed by energy insecurity. With only 53.3% electricity access on the continent, municipalities cannot rely on costly, polluting diesel generators to power large-scale treatment plants.\n\nOur new policy brief argues that governments must abandon linear, centralized models in favor of \"hybrid micro-utilities.\" By integrating small-scale solar generation directly with advanced wastewater-to-water reuse technologies, cities can bypass fragile national grids and treat waste as a critical resource. This approach creates closed-loop water cycles that are resilient to external shocks, addressing the urgent gap between global progress and the needs of vulnerable populations while drastically reducing dependency on imported fuels.\n\nThe time for incremental reform is over; we need rapid scaling of decentralized circular systems to secure water futures in one of the world's most climate-vulnerable regions.",
+      "hashtags": [
+        "WaterPolicy #UrbanResilience #SolarPower #SustainableDevelopment"
+      ],
+      "url": "https://baseflow.institute/article/beyond-the-grid-water-nexus-hybridizing-decentralized-solar-powered-desalination-1772693741499",
+      "status": "pending",
+      "createdAt": "2026-03-05T06:56:08.112Z"
+    },
+    {
+      "id": "mmd43lio-bs",
+      "articleSlug": "beyond-the-grid-water-nexus-hybridizing-decentralized-solar-powered-desalination-1772693741499",
+      "articleTitle": "Beyond the Grid-Water Nexus: Hybridizing Decentralized Solar-Powered Desalination and Wastewater Reuse for Urban Resilience in Coastal Sub-Saharan Africa",
+      "platform": "bluesky",
+      "content": "Coastal cities in Sub-Saharan Africa are drowning in a crisis of both water and power. Rising seas threaten aquifers, while energy grids collapse, leaving diesel-dependent treatment plants stranded. The solution isn't more centralized infrastructure; it's hybrid micro-utilities that pair solar power",
+      "hashtags": [
+        "WaterCrisis #SolarEnergy #UrbanPlanning"
+      ],
+      "url": "https://baseflow.institute/article/beyond-the-grid-water-nexus-hybridizing-decentralized-solar-powered-desalination-1772693741499",
+      "status": "pending",
+      "createdAt": "2026-03-05T06:56:08.112Z"
+    },
+    {
       "id": "mmd322m6-tw",
       "articleSlug": "the-grid-water-nexus-in-east-africa-leveraging-community-led-solar-pumping-for-r-1772691990322",
       "articleTitle": "**The Grid-Water Nexus in East Africa: Leveraging Community-Led Solar Pumping for Resilient Agricultural Water Security**",
@@ -1023,5 +1064,5 @@
       "createdAt": "2026-03-02T00:01:09.765Z"
     }
   ],
-  "lastUpdated": "2026-03-05T06:26:57.346Z"
+  "lastUpdated": "2026-03-05T06:56:08.116Z"
 }

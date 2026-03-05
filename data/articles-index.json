@@ -1,6 +1,34 @@
 {
   "articles": [
     {
+      "slug": "beyond-the-grid-water-nexus-hybridizing-decentralized-solar-powered-desalination-1772693741499",
+      "title": "Beyond the Grid-Water Nexus: Hybridizing Decentralized Solar-Powered Desalination and Wastewater Reuse for Urban Resilience in Coastal Sub-Saharan Africa",
+      "summary": "Coastal urban centers in Sub-Saharan Africa face an immediate crisis where rising sea levels, erratic rainfall, and energy grid instability threaten water security.",
+      "topic": "Environmental resilience in lower-income countries: water security, clean energy, and climate adaptation",
+      "template": "Policy Brief",
+      "tags": [
+        "climate",
+        "water",
+        "energy",
+        "policy",
+        "finance",
+        "resilience",
+        "urbanization",
+        "education"
+      ],
+      "wordCount": 1116,
+      "sourcesUsed": 5,
+      "readabilityScore": 88,
+      "publishedAt": "2026-03-05T06:55:41.508Z",
+      "updatedAt": "2026-03-05T06:56:09.887Z",
+      "status": "published",
+      "mdFile": "beyond-the-grid-water-nexus-hybridizing-decentralized-solar-powered-desalination-1772693741499.md",
+      "htmlFile": "beyond-the-grid-water-nexus-hybridizing-decentralized-solar-powered-desalination-1772693741499.html",
+      "region": "Sub-Saharan Africa",
+      "driveFileId": "1TKiiwJ5lSzArD75xXw8fPneXdZU-715U",
+      "driveWebViewLink": "https://drive.google.com/file/d/1TKiiwJ5lSzArD75xXw8fPneXdZU-715U/view?usp=drivesdk"
+    },
+    {
       "slug": "the-grid-water-nexus-in-east-africa-leveraging-community-led-solar-pumping-for-r-1772691990322",
       "title": "**The Grid-Water Nexus in East Africa: Leveraging Community-Led Solar Pumping for Resilient Agricultural Water Security**",
       "summary": "East African governments and development partners must pivot from centralized, grid-dependent water infrastructure toward decentralized, community-managed solar pumping systems.",
@@ -1137,6 +1165,6 @@
       "region": "Sub-Saharan Africa"
     }
   ],
-  "lastUpdated": "2026-03-05T06:27:02.441Z",
-  "totalPublished": 36
+  "lastUpdated": "2026-03-05T06:56:09.887Z",
+  "totalPublished": 37
 }
