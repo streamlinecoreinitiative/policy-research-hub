@@ -1,6 +1,54 @@
 {
   "posts": [
     {
+      "id": "mmcz1x0x-tw",
+      "articleSlug": "decoupling-energy-water-nexus-integrating-small-scale-hydropower-into-municipal--1772685251867",
+      "articleTitle": "Decoupling Energy-Water Nexus: Integrating Small-Scale Hydropower into Municipal Water Treatment in Sub-Saharan Africa",
+      "platform": "twitter",
+      "content": "Sub-Saharan Africa faces a dual crisis: energy poverty and water insecurity. Only 53% has electricity access, while just 32% has safely managed drinking water. The solution? Integrate small-scale hydropower into municipal water treatment plants. This decouples the energy-water ne",
+      "hashtags": [
+        "WaterSecurity",
+        "CleanEnergy",
+        "SubSaharanAfrica"
+      ],
+      "url": "https://baseflow.institute/article/decoupling-energy-water-nexus-integrating-small-scale-hydropower-into-municipal--1772685251867",
+      "status": "pending",
+      "createdAt": "2026-03-05T04:34:51.633Z"
+    },
+    {
+      "id": "mmcz1x0x-li",
+      "articleSlug": "decoupling-energy-water-nexus-integrating-small-scale-hydropower-into-municipal--1772685251867",
+      "articleTitle": "Decoupling Energy-Water Nexus: Integrating Small-Scale Hydropower into Municipal Water Treatment in Sub-Saharan Africa",
+      "platform": "linkedin",
+      "content": "The disconnect between water and energy management is costing lives in Sub-Saharan Africa. With only 53% electricity access versus a global average of 91.6%, and just 32% of the population having safely managed drinking water, the region faces an existential crisis. Current siloed infrastructure planning fails to address this reality.\n\nOur latest policy brief urges a paradigm shift: integrate decentralized small-scale hydropower and solar-hybrid systems directly into municipal water treatment plants. By doing so, municipalities can eliminate reliance on volatile diesel prices, reduce operational costs, and secure water supplies against climate shocks. This approach leverages existing renewable trends—where nearly 20% of global energy was already renewable in 2020—to avoid importing foreign technology or building large-scale dams.\n\nWe must move beyond isolated Sustainable Development Goal targets toward holistic resilience frameworks. Water and energy are fundamental human rights; they cannot be managed by competing ministries with distinct budgets. It is time to build integrated systems that treat these resources as a unified ecosystem, ensuring long-term sustainability for lower-income countries.\n\n#WaterEnergyNexus #ClimateAdaptation #PolicyBrief #SDGs #RenewableEnergy",
+      "hashtags": [
+        "WaterEnergyNexus",
+        "ClimateAdaptation",
+        "PolicyBrief",
+        "SDGs",
+        "RenewableEnergy"
+      ],
+      "url": "https://baseflow.institute/article/decoupling-energy-water-nexus-integrating-small-scale-hydropower-into-municipal--1772685251867",
+      "status": "pending",
+      "createdAt": "2026-03-05T04:34:51.633Z"
+    },
+    {
+      "id": "mmcz1x0x-bs",
+      "articleSlug": "decoupling-energy-water-nexus-integrating-small-scale-hydropower-into-municipal--1772685251867",
+      "articleTitle": "Decoupling Energy-Water Nexus: Integrating Small-Scale Hydropower into Municipal Water Treatment in Sub-Saharan Africa",
+      "platform": "bluesky",
+      "content": "The energy-water nexus is a vicious cycle in Sub-Saharan Africa. Unreliable grids force municipalities to use expensive diesel for pumping and filtration, while water scarcity limits energy generation options. The stats are stark: only 53% of the region has electricity access compared to the global ",
+      "hashtags": [
+        "WaterRights",
+        "RenewableEnergy",
+        "AfricaDevelopment",
+        "ClimateResilience"
+      ],
+      "url": "https://baseflow.institute/article/decoupling-energy-water-nexus-integrating-small-scale-hydropower-into-municipal--1772685251867",
+      "status": "pending",
+      "createdAt": "2026-03-05T04:34:51.633Z"
+    },
+    {
       "id": "mm9w59ul-tw",
       "articleSlug": "early-warning-systems-and-last-mile-alerts-in-the-sudano-sahelian-belt-raising-r-1772498958944",
       "articleTitle": "early-warning systems and last-mile alerts in the Sudano-Sahelian belt: raising resilience finance for communities",
@@ -742,5 +790,5 @@
       "createdAt": "2026-03-02T00:01:09.765Z"
     }
   ],
-  "lastUpdated": "2026-03-03T00:50:10.852Z"
+  "lastUpdated": "2026-03-05T04:34:51.635Z"
 }

@@ -1,6 +1,34 @@
 {
   "articles": [
     {
+      "slug": "decoupling-energy-water-nexus-integrating-small-scale-hydropower-into-municipal--1772685251867",
+      "title": "Decoupling Energy-Water Nexus: Integrating Small-Scale Hydropower into Municipal Water Treatment in Sub-Saharan Africa",
+      "summary": "To address the dual crisis of energy poverty and water insecurity in Sub-Saharan Africa, governments must pivot from siloed infrastructure planning to integrated renewable energy solutions.",
+      "topic": "Environmental resilience in lower-income countries: water security, clean energy, and climate adaptation",
+      "template": "Policy Brief",
+      "tags": [
+        "climate",
+        "water",
+        "energy",
+        "policy",
+        "finance",
+        "resilience",
+        "urbanization",
+        "education"
+      ],
+      "wordCount": 1207,
+      "sourcesUsed": 0,
+      "readabilityScore": 91,
+      "publishedAt": "2026-03-05T04:34:11.869Z",
+      "updatedAt": "2026-03-05T04:34:53.415Z",
+      "status": "published",
+      "mdFile": "decoupling-energy-water-nexus-integrating-small-scale-hydropower-into-municipal--1772685251867.md",
+      "htmlFile": "decoupling-energy-water-nexus-integrating-small-scale-hydropower-into-municipal--1772685251867.html",
+      "region": "Sub-Saharan Africa",
+      "driveFileId": "1HQd7j_DL1S6MgwcuYKG_lNqf_kHJ-j9Q",
+      "driveWebViewLink": "https://drive.google.com/file/d/1HQd7j_DL1S6MgwcuYKG_lNqf_kHJ-j9Q/view?usp=drivesdk"
+    },
+    {
       "slug": "yes-the-article-title-nature-based-solutions-for-landslide-risk-in-the-caribbean-1772683798843",
       "title": "Yes, the article title \"nature-based solutions for landslide risk in the Caribbean SIDS: safeguarding freshwater ecosystems\" is a good title for this policy research article. The title is specific,",
       "summary": "Executive Summary Nature-based solutions for landslide risk in the Caribbean, SIMS: safeguarding freshwater ecosystems Outline: Policy Brief Executive Summary - Executive Summary (~150 words) Context & Challeges - Context & Challeges (Background on the issue and why it matters now) Analysis - Analys...",
@@ -942,6 +970,6 @@
       "region": "Sub-Saharan Africa"
     }
   ],
-  "lastUpdated": "2026-03-05T04:10:00.385Z",
-  "totalPublished": 29
+  "lastUpdated": "2026-03-05T04:34:53.415Z",
+  "totalPublished": 30
 }
