@@ -1,6 +1,51 @@
 {
   "posts": [
     {
+      "id": "mmd57obg-tw",
+      "articleSlug": "the-desalination-dilemma-in-coastal-sub-saharan-africa-replacing-brackish-water--1772695605349",
+      "articleTitle": "The Desalination Dilemma in Coastal Sub-Saharan Africa: Replacing Brackish Water Extraction with Community-Led Solar-Powered Reverse Osmosis for Climate-Resilient Water Security",
+      "platform": "twitter",
+      "content": "Coastal Sub-Saharan Africa faces a water crisis: rising seas are salinating aquifers, but traditional desalination is too expensive and energy-intensive. The solution? Shift to community-led, solar-powered reverse osmosis systems. This approach secures drinking water without rely",
+      "hashtags": [
+        "WaterSecurity",
+        "ClimateAdaptation",
+        "SolarEnergy"
+      ],
+      "url": "https://baseflow.institute/article/the-desalination-dilemma-in-coastal-sub-saharan-africa-replacing-brackish-water--1772695605349",
+      "status": "pending",
+      "createdAt": "2026-03-05T07:27:17.980Z"
+    },
+    {
+      "id": "mmd57obg-li",
+      "articleSlug": "the-desalination-dilemma-in-coastal-sub-saharan-africa-replacing-brackish-water--1772695605349",
+      "articleTitle": "The Desalination Dilemma in Coastal Sub-Saharan Africa: Replacing Brackish Water Extraction with Community-Led Solar-Powered Reverse Osmosis for Climate-Resilient Water Security",
+      "platform": "linkedin",
+      "content": "The intersection of climate change and resource scarcity has created a critical inflection point for coastal nations in Sub-Saharan Africa. While global access to safely managed drinking water stands at 73.7%, the region lags significantly behind at only 32.4%. Simultaneously, the region faces a severe energy crisis; while global electricity access reached 91.6% in 2023, SSA remains at 53.3%.\n\nThis creates a paradox: treating brackish water requires significant energy input, yet the infrastructure needed is often inaccessible due to cost and fuel dependency. Rising sea levels are rendering traditional freshwater aquifers saline beyond usability for agriculture or domestic consumption.\n\nThe policy brief recommends an urgent shift away from centralized, fossil-fuel-dependent extraction toward decentralized, solar-powered reverse osmosis (RO) systems managed by local communities. This approach addresses the region's electricity deficit while securing drinking water without exacerbating environmental degradation. Governments and development partners must prioritize financing models that bypass high upfront capital barriers, focusing on scalable, community-managed solutions. Immediate action is required to align water security strategies with SDG 6 targets before climate-induced salinization renders traditional aquifers permanently unusable.\n\n#WaterPolicy #ClimateResilience #SubSaharanAfrica #SDG6 #CleanEnergy\n\n---BLUESKY---\nCoastal communities in Sub-Saharan Africa are facing a double threat: rising seas are poisoning their water sources, and the energy grid is too weak to run expensive desalination plants. We need a new approach that puts clean water back in local hands. By switching to community-led solar-powered reverse osmosis systems, we can treat brackish water without burning fossil fuels or draining national budgets. It's time for policy makers to fund decentralized solutions that fix the energy-water nexus and protect vulnerable populations before it's too late. #WaterSecurity #SolarPower #ClimateResilience",
+      "hashtags": [
+        "WaterSecurity",
+        "SolarPower",
+        "ClimateResilience"
+      ],
+      "url": "https://baseflow.institute/article/the-desalination-dilemma-in-coastal-sub-saharan-africa-replacing-brackish-water--1772695605349",
+      "status": "pending",
+      "createdAt": "2026-03-05T07:27:17.980Z"
+    },
+    {
+      "id": "mmd57obg-bs",
+      "articleSlug": "the-desalination-dilemma-in-coastal-sub-saharan-africa-replacing-brackish-water--1772695605349",
+      "articleTitle": "The Desalination Dilemma in Coastal Sub-Saharan Africa: Replacing Brackish Water Extraction with Community-Led Solar-Powered Reverse Osmosis for Climate-Resilient Water Security",
+      "platform": "bluesky",
+      "content": "Coastal communities in Sub-Saharan Africa are facing a double threat: rising seas are poisoning their water sources, and the energy grid is too weak to run expensive desalination plants. We need a new approach that puts clean water back in local hands. By switching to community-led solar-powered rev",
+      "hashtags": [
+        "WaterSecurity",
+        "SolarPower",
+        "ClimateResilience"
+      ],
+      "url": "https://baseflow.institute/article/the-desalination-dilemma-in-coastal-sub-saharan-africa-replacing-brackish-water--1772695605349",
+      "status": "pending",
+      "createdAt": "2026-03-05T07:27:17.980Z"
+    },
+    {
       "id": "mmd43lio-tw",
       "articleSlug": "beyond-the-grid-water-nexus-hybridizing-decentralized-solar-powered-desalination-1772693741499",
       "articleTitle": "Beyond the Grid-Water Nexus: Hybridizing Decentralized Solar-Powered Desalination and Wastewater Reuse for Urban Resilience in Coastal Sub-Saharan Africa",
@@ -1064,5 +1109,5 @@
       "createdAt": "2026-03-02T00:01:09.765Z"
     }
   ],
-  "lastUpdated": "2026-03-05T06:56:08.116Z"
+  "lastUpdated": "2026-03-05T07:27:17.983Z"
 }
