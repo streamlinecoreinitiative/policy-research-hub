@@ -1,6 +1,51 @@
 {
   "posts": [
     {
+      "id": "mmd7bjmv-tw",
+      "articleSlug": "the-pumping-paradox-in-east-africa-decoupling-water-extraction-from-fossil-fuel--1772699146477",
+      "articleTitle": "The Pumping Paradox in East Africa: Decoupling Water Extraction from Fossil Fuel Dependency for Climate-Resilient Agriculture",
+      "platform": "twitter",
+      "content": "East African governments must stop subsidizing diesel pumps immediately. Current strategies create a vicious cycle: climate shocks raise fuel costs while degrading aquifers, threatening food security. Shifting to solar and wind pumping breaks this dependency, lowers carbon footpr",
+      "hashtags": [
+        "ClimateResilience",
+        "WaterSecurity",
+        "SustainableAgri"
+      ],
+      "url": "https://baseflow.institute/article/the-pumping-paradox-in-east-africa-decoupling-water-extraction-from-fossil-fuel--1772699146477",
+      "status": "pending",
+      "createdAt": "2026-03-05T08:26:17.767Z"
+    },
+    {
+      "id": "mmd7bjmv-li",
+      "articleSlug": "the-pumping-paradox-in-east-africa-decoupling-water-extraction-from-fossil-fuel--1772699146477",
+      "articleTitle": "The Pumping Paradox in East Africa: Decoupling Water Extraction from Fossil Fuel Dependency for Climate-Resilient Agriculture",
+      "platform": "linkedin",
+      "content": "The intersection of food security, water scarcity, and energy poverty in East Africa presents a critical challenge that demands immediate policy intervention. Recent research highlights the \"pumping paradox\": reliance on diesel-powered irrigation creates a vicious cycle where climate shocks increase operational costs while simultaneously degrading local aquifers through over-extraction. This approach not only exacerbates energy poverty but also threatens the region's long-term food security and violates the trajectory needed to meet SDG 6 targets for safely managed water by 2030.\n\nTo break this cycle, policymakers must halt subsidies for fossil-fuel irrigation and redirect resources toward decentralized renewable energy systems, such as solar and wind-driven pumping technologies. This transition offers a scalable solution that decouples water extraction from carbon emissions. By adopting these climate-resilient agricultural models, East African nations can secure their water resources, stabilize farmer incomes, and build robust infrastructure capable of withstanding increasingly frequent climate shocks. The time to act is now.\n\n#ClimateChange #WaterManagement #RenewableEnergy #SustainableDevelopmentGoals #AgricultureInnovation",
+      "hashtags": [
+        "ClimateResilience",
+        "WaterSecurity",
+        "SustainableAgri"
+      ],
+      "url": "https://baseflow.institute/article/the-pumping-paradox-in-east-africa-decoupling-water-extraction-from-fossil-fuel--1772699146477",
+      "status": "pending",
+      "createdAt": "2026-03-05T08:26:17.767Z"
+    },
+    {
+      "id": "mmd7bjmv-bs",
+      "articleSlug": "the-pumping-paradox-in-east-africa-decoupling-water-extraction-from-fossil-fuel--1772699146477",
+      "articleTitle": "The Pumping Paradox in East Africa: Decoupling Water Extraction from Fossil Fuel Dependency for Climate-Resilient Agriculture",
+      "platform": "bluesky",
+      "content": "The Horn of Africa faces a dangerous \"pumping paradox.\" We are trying to secure water by burning more fuel. Diesel pumps are expensive, unreliable during droughts, and they are draining our aquifers faster than they can recharge. This isn't just an energy issue; it's a food security crisis waiting t",
+      "hashtags": [
+        "WaterSecurity",
+        "ClimateResilience",
+        "RenewableEnergy"
+      ],
+      "url": "https://baseflow.institute/article/the-pumping-paradox-in-east-africa-decoupling-water-extraction-from-fossil-fuel--1772699146477",
+      "status": "pending",
+      "createdAt": "2026-03-05T08:26:17.767Z"
+    },
+    {
       "id": "mmd69wat-tw",
       "articleSlug": "the-thermal-threshold-trap-integrating-community-based-cooling-with-desalination-1772697390945",
       "articleTitle": "The Thermal Threshold Trap: Integrating Community-Based Cooling with Desalination for Climate-Resilient Water Security in Coastal Sub-Saharan Africa",
@@ -1140,5 +1185,5 @@
       "createdAt": "2026-03-02T00:01:09.765Z"
     }
   ],
-  "lastUpdated": "2026-03-05T07:57:01.256Z"
+  "lastUpdated": "2026-03-05T08:26:17.769Z"
 }
