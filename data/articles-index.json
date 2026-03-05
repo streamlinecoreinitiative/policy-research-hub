@@ -1,6 +1,33 @@
 {
   "articles": [
     {
+      "slug": "yes-the-article-title-climate-smart-irrigation-cooperatives-in-the-mekong-basin--1772681942764",
+      "title": "Yes, the article title \"climate-smart irrigation cooperatives in the Mekong basin: stabilizing food security during droughts\" is a good title for this policy research article. The title is specific",
+      "summary": "Executive Summary Key finding(s) and recommendation(s) in 2-3 paragraphs (total target: ~1200 words) Policy Brief Executive Summary Key finding(s) and recommendation(s) in 2-3 paragraphs (total target: ~1200 words) Context & Challenges Background information on the issue and why it matters now (~200...",
+      "topic": "Environmental resilience in lower-income countries: water security, clean energy, and climate adaptation",
+      "template": "Policy Brief",
+      "tags": [
+        "climate",
+        "water",
+        "energy",
+        "agriculture",
+        "policy",
+        "resilience",
+        "southeast-asia"
+      ],
+      "wordCount": 656,
+      "sourcesUsed": 0,
+      "readabilityScore": 30,
+      "publishedAt": "2026-03-05T03:39:02.768Z",
+      "updatedAt": "2026-03-05T03:39:04.658Z",
+      "status": "draft",
+      "mdFile": "yes-the-article-title-climate-smart-irrigation-cooperatives-in-the-mekong-basin--1772681942764.md",
+      "htmlFile": "yes-the-article-title-climate-smart-irrigation-cooperatives-in-the-mekong-basin--1772681942764.html",
+      "region": "Southeast Asia",
+      "driveFileId": "169RI9aBDENZodHSSVrytXziVpcFGk1lI",
+      "driveWebViewLink": "https://drive.google.com/file/d/169RI9aBDENZodHSSVrytXziVpcFGk1lI/view?usp=drivesdk"
+    },
+    {
       "slug": "yes-the-article-title-watershed-co-management-with-indigenous-council-in-the-car-1772681797787",
       "title": "Yes, the article title \"Watershed co-management with indigenous council in the Caribbean SIDS: protecting livelihoods under climate stress\" is a good title for this policy research article. The article focus",
       "summary": "To ensure that the Policy Brief's key statistics are verified and citations are added, follow these instructions: 1. Apply VERIFY tags to flagged claims:    - For access to safely managed drinking water (% of resources), flag as VERIFY: 91.",
@@ -887,6 +914,6 @@
       "region": "Sub-Saharan Africa"
     }
   ],
-  "lastUpdated": "2026-03-05T03:36:41.228Z",
+  "lastUpdated": "2026-03-05T03:39:04.658Z",
   "totalPublished": 29
 }
