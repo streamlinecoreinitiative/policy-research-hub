@@ -1,6 +1,47 @@
 {
   "posts": [
     {
+      "id": "mmd8fg4u-tw",
+      "articleSlug": "the-thermal-threshold-trap-integrating-community-based-cooling-with-desalination-1772701008816",
+      "articleTitle": "The Thermal Threshold Trap: Integrating Community-Based Cooling with Desalination for Climate-Resilient Water Security in Coastal Sub-Saharan Africa",
+      "platform": "twitter",
+      "content": "Coastal Sub-Saharan communities face a dual crisis: rising sea levels and heat stress are breaking traditional water systems. New research proposes a hybrid solution: coupling small-scale desalination with localized evaporative cooling powered by renewables. This community-led ap",
+      "hashtags": [
+        "ClimateAdaptation",
+        "WaterSecurity",
+        "SDGs"
+      ],
+      "url": "https://baseflow.institute/article/the-thermal-threshold-trap-integrating-community-based-cooling-with-desalination-1772701008816",
+      "status": "pending",
+      "createdAt": "2026-03-05T08:57:19.470Z"
+    },
+    {
+      "id": "mmd8fg4u-li",
+      "articleSlug": "the-thermal-threshold-trap-integrating-community-based-cooling-with-desalination-1772701008816",
+      "articleTitle": "The Thermal Threshold Trap: Integrating Community-Based Cooling with Desalination for Climate-Resilient Water Security in Coastal Sub-Saharan Africa",
+      "platform": "linkedin",
+      "content": "Coastal communities in Sub-Saharan Africa are facing a converging crisis where rising sea levels and intensifying heatwaves are rendering traditional water infrastructure unsustainable. With only 32.4% of the region's population having access to safely managed drinking water services, the gap is widening rapidly due to climate change and energy constraints.\n\nCurrent centralized systems often rely on unreliable grids and contribute to aquifer over-extraction. However, a new policy brief introduces a transformative solution: integrating community-based cooling with small-scale desalination. By leveraging existing renewable energy potential, this hybrid model decouples water extraction from fossil fuel reliance while simultaneously reducing ambient heat stress through passive cooling mechanisms.\n\nThis approach offers a feasible pathway to achieve SDG 6 targets immediately, rather than waiting for full grid stabilization. For government officials and development practitioners, the evidence suggests that deploying these integrated solutions within the next three years can significantly enhance environmental resilience in lower-income countries. The time to pivot toward decentralized, climate-resilient water security is now.",
+      "hashtags": [
+        "WaterSecurity #ClimateResilience #Desalination #SDG6 #PolicyBrief"
+      ],
+      "url": "https://baseflow.institute/article/the-thermal-threshold-trap-integrating-community-based-cooling-with-desalination-1772701008816",
+      "status": "pending",
+      "createdAt": "2026-03-05T08:57:19.470Z"
+    },
+    {
+      "id": "mmd8fg4u-bs",
+      "articleSlug": "the-thermal-threshold-trap-integrating-community-based-cooling-with-desalination-1772701008816",
+      "articleTitle": "The Thermal Threshold Trap: Integrating Community-Based Cooling with Desalination for Climate-Resilient Water Security in Coastal Sub-Saharan Africa",
+      "platform": "bluesky",
+      "content": "The heat and salt crisis is hitting coastal Sub-Saharan communities hardest right now. Traditional water systems are failing as sea levels rise and temperatures climb, leaving 2.2 billion people without reliable safe drinking water. But we don't need to wait for perfect grids to fix this. New eviden",
+      "hashtags": [
+        "WaterCrisis #ClimateAction #CleanEnergy"
+      ],
+      "url": "https://baseflow.institute/article/the-thermal-threshold-trap-integrating-community-based-cooling-with-desalination-1772701008816",
+      "status": "pending",
+      "createdAt": "2026-03-05T08:57:19.470Z"
+    },
+    {
       "id": "mmd7bjmv-tw",
       "articleSlug": "the-pumping-paradox-in-east-africa-decoupling-water-extraction-from-fossil-fuel--1772699146477",
       "articleTitle": "The Pumping Paradox in East Africa: Decoupling Water Extraction from Fossil Fuel Dependency for Climate-Resilient Agriculture",
@@ -1185,5 +1226,5 @@
       "createdAt": "2026-03-02T00:01:09.765Z"
     }
   ],
-  "lastUpdated": "2026-03-05T08:26:17.769Z"
+  "lastUpdated": "2026-03-05T08:57:19.474Z"
 }
