@@ -1,6 +1,34 @@
 {
   "articles": [
     {
+      "slug": "the-decentralized-pumping-paradox-replacing-fossil-fuel-dependency-with-communit-1772744240650",
+      "title": "The Decentralized Pumping Paradox: Replacing Fossil Fuel Dependency with Community-Led Hybrid Systems for Climate-Resilient Agriculture in West Africa",
+      "summary": "Governments and development partners must pivot from subsidizing diesel-powered irrigation to financing decentralized solar-hybrid pumping systems in West African agro-pastoral zones.",
+      "topic": "Environmental resilience in lower-income countries: water security, clean energy, and climate adaptation",
+      "template": "Policy Brief",
+      "tags": [
+        "climate",
+        "water",
+        "energy",
+        "agriculture",
+        "health",
+        "policy",
+        "finance",
+        "resilience"
+      ],
+      "wordCount": 1632,
+      "sourcesUsed": 13,
+      "readabilityScore": 91,
+      "publishedAt": "2026-03-05T20:57:20.663Z",
+      "updatedAt": "2026-03-05T20:57:55.199Z",
+      "status": "published",
+      "mdFile": "the-decentralized-pumping-paradox-replacing-fossil-fuel-dependency-with-communit-1772744240650.md",
+      "htmlFile": "the-decentralized-pumping-paradox-replacing-fossil-fuel-dependency-with-communit-1772744240650.html",
+      "region": "Sub-Saharan Africa",
+      "driveFileId": "1AUbdllR94XuTbzx0A5-9wMmiOQ1-uMUN",
+      "driveWebViewLink": "https://drive.google.com/file/d/1AUbdllR94XuTbzx0A5-9wMmiOQ1-uMUN/view?usp=drivesdk"
+    },
+    {
       "slug": "the-thermal-threshold-trap-integrating-community-based-cooling-with-desalination-1772742400753",
       "title": "The Thermal Threshold Trap: Integrating Community-Based Cooling with Desalination for Climate-Resilient Water Security in Coastal Sub-Saharan Africa",
       "summary": "Coastal communities in Sub-Saharan Africa face a critical bottleneck where rising temperatures are rendering traditional desalination plants energy-prohibitive, creating a cycle of water scarcity and energy poverty.",
@@ -1921,6 +1949,6 @@
       "region": "Sub-Saharan Africa"
     }
   ],
-  "lastUpdated": "2026-03-05T20:27:15.759Z",
-  "totalPublished": 64
+  "lastUpdated": "2026-03-05T20:57:55.199Z",
+  "totalPublished": 65
 }
