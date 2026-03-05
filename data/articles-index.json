@@ -1,6 +1,34 @@
 {
   "articles": [
     {
+      "slug": "yes-the-article-title-watershed-co-management-with-indigenous-council-in-the-car-1772681797787",
+      "title": "Yes, the article title \"Watershed co-management with indigenous council in the Caribbean SIDS: protecting livelihoods under climate stress\" is a good title for this policy research article. The article focus",
+      "summary": "To ensure that the Policy Brief's key statistics are verified and citations are added, follow these instructions: 1. Apply VERIFY tags to flagged claims:    - For access to safely managed drinking water (% of resources), flag as VERIFY: 91.",
+      "topic": "Environmental resilience in lower-income countries: water security, clean energy, and climate adaptation",
+      "template": "Policy Brief",
+      "tags": [
+        "climate",
+        "water",
+        "energy",
+        "policy",
+        "resilience",
+        "urbanization",
+        "latin-america",
+        "pacific-islands"
+      ],
+      "wordCount": 297,
+      "sourcesUsed": 0,
+      "readabilityScore": 71,
+      "publishedAt": "2026-03-05T03:36:37.789Z",
+      "updatedAt": "2026-03-05T03:36:41.228Z",
+      "status": "draft",
+      "mdFile": "yes-the-article-title-watershed-co-management-with-indigenous-council-in-the-car-1772681797787.md",
+      "htmlFile": "yes-the-article-title-watershed-co-management-with-indigenous-council-in-the-car-1772681797787.html",
+      "region": "Latin America & Caribbean",
+      "driveFileId": "1BUN0EGRWOW9iGTzxNy3zNNk9czZXWWtq",
+      "driveWebViewLink": "https://drive.google.com/file/d/1BUN0EGRWOW9iGTzxNy3zNNk9czZXWWtq/view?usp=drivesdk"
+    },
+    {
       "slug": "early-warning-systems-and-last-mile-alerts-in-the-sudano-sahelian-belt-raising-r-1772498958944",
       "title": "early-warning systems and last-mile alerts in the Sudano-Sahelian belt: raising resilience finance for communities",
       "summary": "The Sudano-Sahelian belt, a vast ecological zone spanning parts of West and Central Africa, faces escalating climate risks that threaten the livelihoods of over 200 million people.",
@@ -859,6 +887,6 @@
       "region": "Sub-Saharan Africa"
     }
   ],
-  "lastUpdated": "2026-03-03T00:49:18.953Z",
+  "lastUpdated": "2026-03-05T03:36:41.228Z",
   "totalPublished": 29
 }
