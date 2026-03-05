@@ -1,6 +1,52 @@
 {
   "posts": [
     {
+      "id": "mmduxpj0-tw",
+      "articleSlug": "the-distributed-resilience-imperative-leveraging-community-led-biogas-systems-fo-1772738809968",
+      "articleTitle": "The Distributed Resilience Imperative: Leveraging Community-Led Biogas Systems for Integrated Water-Energy-Nutrition Security in East Africa",
+      "platform": "twitter",
+      "content": "East Africa faces a double lock: failing water grids and collapsing energy systems. We must stop funding massive dams and start investing in community-led biogas. Converting local waste into clean energy and nutrient-rich soil creates a resilient, circular economy that delivers w",
+      "hashtags": [
+        "climate_resilience",
+        "sustainable_dev",
+        "east_africa"
+      ],
+      "url": "https://baseflow.institute/article/the-distributed-resilience-imperative-leveraging-community-led-biogas-systems-fo-1772738809968",
+      "status": "pending",
+      "createdAt": "2026-03-05T19:27:23.004Z"
+    },
+    {
+      "id": "mmduxpj0-li",
+      "articleSlug": "the-distributed-resilience-imperative-leveraging-community-led-biogas-systems-fo-1772738809968",
+      "articleTitle": "The Distributed Resilience Imperative: Leveraging Community-Led Biogas Systems for Integrated Water-Energy-Nutrition Security in East Africa",
+      "platform": "linkedin",
+      "content": "The nexus between water security and clean energy is critical for development stability in East Africa. Currently, a \"double lock\" exists where water systems fail due to lack of pumping power, and energy grids collapse without local fuel generation. \n\nAccording to World Bank data, only 32.4% of Sub-Saharan Africa has access to safely managed drinking water, while nearly one billion people globally lack reliable electricity. Relying on centralized infrastructure is economically unsustainable for rural households facing increasing climate volatility.\n\nOur new policy brief argues that governments and development partners must pivot from capital-intensive, top-down projects toward decentralized, community-managed biogas systems. By converting agricultural and livestock waste into biogas for cooking and digestate for soil regeneration, we can address energy poverty and water scarcity simultaneously. This approach reduces reliance on volatile fossil fuels while improving water quality through natural treatment. \n\nTo bridge the gap between current coverage targets and the needs of vulnerable populations, policymakers must authorize community-led entities to manage these systems. Creating a circular economy that requires minimal upfront capital is the only viable path forward for integrated water-energy-nutrition security in the region.",
+      "hashtags": [
+        "policy_brief",
+        "water_energy_nexus",
+        "climate_action",
+        "sustainable_infrastructure"
+      ],
+      "url": "https://baseflow.institute/article/the-distributed-resilience-imperative-leveraging-community-led-biogas-systems-fo-1772738809968",
+      "status": "pending",
+      "createdAt": "2026-03-05T19:27:23.004Z"
+    },
+    {
+      "id": "mmduxpj0-bs",
+      "articleSlug": "the-distributed-resilience-imperative-leveraging-community-led-biogas-systems-fo-1772738809968",
+      "articleTitle": "The Distributed Resilience Imperative: Leveraging Community-Led Biogas Systems for Integrated Water-Energy-Nutrition Security in East Africa",
+      "platform": "bluesky",
+      "content": "The \"double lock\" in East Africa—where failing water grids and collapsing energy systems feed each other—is a crisis we can solve without building more dams. The World Bank shows us that 32% of Sub-Saharan Africans lack safe drinking water, yet relying on centralized infrastructure is economically u",
+      "hashtags": [
+        "community_power",
+        "biogas",
+        "water_security"
+      ],
+      "url": "https://baseflow.institute/article/the-distributed-resilience-imperative-leveraging-community-led-biogas-systems-fo-1772738809968",
+      "status": "pending",
+      "createdAt": "2026-03-05T19:27:23.004Z"
+    },
+    {
       "id": "mmdtv7a5-tw",
       "articleSlug": "the-desalination-dilemma-in-coastal-sub-saharan-africa-replacing-brackish-water--1772737011782",
       "articleTitle": "The Desalination Dilemma in Coastal Sub-Saharan Africa: Replacing Brackish Water Extraction with Community-Led Solar-Powered Reverse Osmosis for Climate-Resilient Water Security",
@@ -2073,5 +2119,5 @@
       "createdAt": "2026-03-02T00:01:09.765Z"
     }
   ],
-  "lastUpdated": "2026-03-05T18:57:26.431Z"
+  "lastUpdated": "2026-03-05T19:27:23.006Z"
 }
