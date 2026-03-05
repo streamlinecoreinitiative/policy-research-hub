@@ -1,6 +1,36 @@
 {
   "posts": [
     {
+      "id": "mmdblchn-tw",
+      "articleSlug": "the-hydro-energy-paradox-in-sub-saharan-africa-decoupling-water-scarcity-from-fo-1772706327570",
+      "articleTitle": "The Hydro-Energy Paradox in Sub-Saharan Africa: Decoupling Water Scarcity from Fossil Fuel Dependency via Community-Led Pumping Modernization",
+      "platform": "twitter",
+      "content": "Sub-Saharan Africa's water and energy crisis are linked, not separate. New research shows the solution isn't new big dams or grids—it's retrofitting existing smallholder systems with local renewable power. Shifting from diesel to community-led micro-grids cuts costs and saves fre",
+      "hashtags": [
+        "WaterSecurity",
+        "ClimateAction",
+        "EnergyTransition"
+      ],
+      "url": "https://baseflow.institute/article/the-hydro-energy-paradox-in-sub-saharan-africa-decoupling-water-scarcity-from-fo-1772706327570",
+      "status": "pending",
+      "createdAt": "2026-03-05T10:25:53.531Z"
+    },
+    {
+      "id": "mmdblchn-li",
+      "articleSlug": "the-hydro-energy-paradox-in-sub-saharan-africa-decoupling-water-scarcity-from-fo-1772706327570",
+      "articleTitle": "The Hydro-Energy Paradox in Sub-Saharan Africa: Decoupling Water Scarcity from Fossil Fuel Dependency via Community-Led Pumping Modernization",
+      "platform": "linkedin",
+      "content": "Sub-Saharan Africa faces a dual crisis: water scarcity and energy poverty are inextricably linked, creating a severe development bottleneck. With only 32.4% of the population having access to safely managed drinking water compared to the global average of 73.7%, the region is struggling under the weight of climate volatility.\n\nCurrent interventions often prioritize infrastructure expansion over operational efficiency, leading to costly \"white elephant\" projects that fail due to high fuel costs and a lack of local maintenance capacity. The brief argues for a strategic pivot: moving away from centralized grids and diesel dependency toward immediate retrofitting of existing smallholder irrigation systems with locally sourced renewable energy.\n\nBy mandating local content requirements and subsidizing decentralized biomass-to-power micro-grids, development agencies can reduce operational burdens on farmers while safeguarding freshwater ecosystems. This community-led approach offers a feasible path to decouple water security from fossil fuel dependency, ensuring long-term resilience against climate change.",
+      "hashtags": [
+        "SustainableDevelopment",
+        "WaterScarcity",
+        "RenewableEnergy"
+      ],
+      "url": "https://baseflow.institute/article/the-hydro-energy-paradox-in-sub-saharan-africa-decoupling-water-scarcity-from-fo-1772706327570",
+      "status": "pending",
+      "createdAt": "2026-03-05T10:25:53.531Z"
+    },
+    {
       "id": "mmdaj5fy-tw",
       "articleSlug": "climate-smart-irrigation-cooperatives-in-the-great-lakes-region-protecting-livel-1772704539849",
       "articleTitle": "climate-smart irrigation cooperatives in the Great Lakes region: protecting livelihoods under climate stress",
@@ -1312,5 +1342,5 @@
       "createdAt": "2026-03-02T00:01:09.765Z"
     }
   ],
-  "lastUpdated": "2026-03-05T09:56:11.472Z"
+  "lastUpdated": "2026-03-05T10:25:53.535Z"
 }
