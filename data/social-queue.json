@@ -1,6 +1,37 @@
 {
   "posts": [
     {
+      "id": "mmd69wat-tw",
+      "articleSlug": "the-thermal-threshold-trap-integrating-community-based-cooling-with-desalination-1772697390945",
+      "articleTitle": "The Thermal Threshold Trap: Integrating Community-Based Cooling with Desalination for Climate-Resilient Water Security in Coastal Sub-Saharan Africa",
+      "platform": "twitter",
+      "content": "Coastal Sub-Saharan Africa faces a dual crisis: water scarcity AND dangerous heat. Current strategies focus only on extracting more water, ignoring how high temperatures make it unusable. We need integrated systems that couple desalination with community-based cooling to ensure w",
+      "hashtags": [
+        "ClimateResilience",
+        "WaterSecurity",
+        "SubSaharanAfrica"
+      ],
+      "url": "https://baseflow.institute/article/the-thermal-threshold-trap-integrating-community-based-cooling-with-desalination-1772697390945",
+      "status": "pending",
+      "createdAt": "2026-03-05T07:57:01.253Z"
+    },
+    {
+      "id": "mmd69wat-li",
+      "articleSlug": "the-thermal-threshold-trap-integrating-community-based-cooling-with-desalination-1772697390945",
+      "articleTitle": "The Thermal Threshold Trap: Integrating Community-Based Cooling with Desalination for Climate-Resilient Water Security in Coastal Sub-Saharan Africa",
+      "platform": "linkedin",
+      "content": "Coastal communities in Sub-Saharan Africa are facing a compounding crisis that traditional policy fails to address: rising sea levels threaten freshwater aquifers, while increasing ambient temperatures render existing water infrastructure ineffective due to heat stress. With 32.4% of the region lacking safe drinking water services, the intersection of scarcity and thermal danger poses an existential threat to public health and economic stability.\n\nCurrent adaptation strategies often focus solely on increasing water quantity through extraction, ignoring the physiological impact of high temperatures on consumption and distribution efficiency. This \"thermal threshold trap\" means that even when water is available, it may be too hot to drink or safe to use without cooling. To bridge this gap, policy must shift from infrastructure-centric extraction to holistic systems that actively mitigate environmental temperature at the point of use.\n\nResilience requires moving beyond simple desalination pilots to integrated solutions that couple water availability with thermal regulation. Immediate action is required to subsidize passive cooling structures and energy-efficient desalination in off-grid areas, ensuring water remains safe not just in quantity, but in usability under changing climatic conditions. The future of water security depends on addressing both the supply and the temperature.",
+      "hashtags": [
+        "ClimateAdaptation",
+        "WaterPolicy",
+        "SustainableDevelopment",
+        "CoastalResilience"
+      ],
+      "url": "https://baseflow.institute/article/the-thermal-threshold-trap-integrating-community-based-cooling-with-desalination-1772697390945",
+      "status": "pending",
+      "createdAt": "2026-03-05T07:57:01.253Z"
+    },
+    {
       "id": "mmd57obg-tw",
       "articleSlug": "the-desalination-dilemma-in-coastal-sub-saharan-africa-replacing-brackish-water--1772695605349",
       "articleTitle": "The Desalination Dilemma in Coastal Sub-Saharan Africa: Replacing Brackish Water Extraction with Community-Led Solar-Powered Reverse Osmosis for Climate-Resilient Water Security",
@@ -1109,5 +1140,5 @@
       "createdAt": "2026-03-02T00:01:09.765Z"
     }
   ],
-  "lastUpdated": "2026-03-05T07:27:17.983Z"
+  "lastUpdated": "2026-03-05T07:57:01.256Z"
 }
