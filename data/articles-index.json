@@ -1,6 +1,34 @@
 {
   "articles": [
     {
+      "slug": "the-bio-energy-bottleneck-disrupting-fossil-fuel-dominance-in-rural-water-pumpin-1772715378459",
+      "title": "** The Bio-Energy Bottleneck: Disrupting Fossil-Fuel Dominance in Rural Water Pumping Systems for Climate Resilience in West Africa",
+      "summary": "To secure water access and build climate resilience in West Africa, policymakers must pivot from subsidizing diesel-powered rural pumping systems to deploying decentralized bio-energy solutions.",
+      "topic": "Environmental resilience in lower-income countries: water security, clean energy, and climate adaptation",
+      "template": "Policy Brief",
+      "tags": [
+        "climate",
+        "water",
+        "energy",
+        "agriculture",
+        "health",
+        "policy",
+        "finance",
+        "resilience"
+      ],
+      "wordCount": 1288,
+      "sourcesUsed": 20,
+      "readabilityScore": 89,
+      "publishedAt": "2026-03-05T12:56:18.470Z",
+      "updatedAt": "2026-03-05T12:56:47.210Z",
+      "status": "published",
+      "mdFile": "the-bio-energy-bottleneck-disrupting-fossil-fuel-dominance-in-rural-water-pumpin-1772715378459.md",
+      "htmlFile": "the-bio-energy-bottleneck-disrupting-fossil-fuel-dominance-in-rural-water-pumpin-1772715378459.html",
+      "region": "Sub-Saharan Africa",
+      "driveFileId": "1ZRppKcJA5TB07BzIC7mpeV5WMGASs_TB",
+      "driveWebViewLink": "https://drive.google.com/file/d/1ZRppKcJA5TB07BzIC7mpeV5WMGASs_TB/view?usp=drivesdk"
+    },
+    {
       "slug": "the-thermal-threshold-trap-integrating-community-based-cooling-with-desalination-1772713584268",
       "title": "The Thermal Threshold Trap: Integrating Community-Based Cooling with Desalination for Climate-Resilient Water Security in Coastal Sub-Saharan Africa",
       "summary": "Current water security strategies in coastal Sub-Saharan Africa are failing because they ignore the compounding effects of rising temperatures on freshwater availability and energy demand.",
@@ -1473,6 +1501,6 @@
       "region": "Sub-Saharan Africa"
     }
   ],
-  "lastUpdated": "2026-03-05T12:26:56.987Z",
-  "totalPublished": 48
+  "lastUpdated": "2026-03-05T12:56:47.210Z",
+  "totalPublished": 49
 }

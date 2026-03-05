@@ -1,6 +1,51 @@
 {
   "posts": [
     {
+      "id": "mmdgzcze-tw",
+      "articleSlug": "the-bio-energy-bottleneck-disrupting-fossil-fuel-dominance-in-rural-water-pumpin-1772715378459",
+      "articleTitle": "** The Bio-Energy Bottleneck: Disrupting Fossil-Fuel Dominance in Rural Water Pumping Systems for Climate Resilience in West Africa",
+      "platform": "twitter",
+      "content": "West Africa's water crisis isn't just about pipes; it's about fuel. Relying on diesel pumps for rural irrigation creates a double burden: skyrocketing costs for farmers and emissions that worsen climate shocks. We need to pivot from fossil fuels to decentralized bio-energy soluti",
+      "hashtags": [
+        "WaterSecurity",
+        "ClimateResilience",
+        "BioEnergy"
+      ],
+      "url": "https://baseflow.institute/article/the-bio-energy-bottleneck-disrupting-fossil-fuel-dominance-in-rural-water-pumpin-1772715378459",
+      "status": "pending",
+      "createdAt": "2026-03-05T12:56:45.434Z"
+    },
+    {
+      "id": "mmdgzcze-li",
+      "articleSlug": "the-bio-energy-bottleneck-disrupting-fossil-fuel-dominance-in-rural-water-pumpin-1772715378459",
+      "articleTitle": "** The Bio-Energy Bottleneck: Disrupting Fossil-Fuel Dominance in Rural Water Pumping Systems for Climate Resilience in West Africa",
+      "platform": "linkedin",
+      "content": "Water security is the foundation of development in lower-income countries, yet 67.6% of Sub-Saharan Africa lacks safely managed drinking water. This gap is driven by the energy-water nexus, where rural pumping systems rely heavily on imported diesel. \n\nThis creates a devastating \"double burden\" for West African communities: high operational costs that displace smallholder farmers and carbon emissions that exacerbate local microclimates. We cannot afford to let economic constraints force communities to abandon irrigation during dry seasons, threatening global food security.\n\nOur new policy brief argues that the solution lies in disrupting fossil-fuel dominance by incentivizing decentralized bio-energy solutions for rural pumping. Policymakers must establish regulatory frameworks that decouple water extraction from diesel dependency. Immediate action is required to build true climate resilience and ensure income stability for millions vulnerable to rising global temperatures.",
+      "hashtags": [
+        "PolicyBrief",
+        "WaterSecurity",
+        "ClimateAction"
+      ],
+      "url": "https://baseflow.institute/article/the-bio-energy-bottleneck-disrupting-fossil-fuel-dominance-in-rural-water-pumpin-1772715378459",
+      "status": "pending",
+      "createdAt": "2026-03-05T12:56:45.434Z"
+    },
+    {
+      "id": "mmdgzcze-bs",
+      "articleSlug": "the-bio-energy-bottleneck-disrupting-fossil-fuel-dominance-in-rural-water-pumpin-1772715378459",
+      "articleTitle": "** The Bio-Energy Bottleneck: Disrupting Fossil-Fuel Dominance in Rural Water Pumping Systems for Climate Resilience in West Africa",
+      "platform": "bluesky",
+      "content": "Imagine a world where your community's water pump runs on local biomass instead of expensive imported diesel. That future is possible in West Africa if we stop subsidizing fossil fuel dependency. \n\nThe current system creates a vicious cycle: high costs push farmers out of agriculture, while emission",
+      "hashtags": [
+        "BioEnergy",
+        "WaterAccess",
+        "ClimateAdaptation"
+      ],
+      "url": "https://baseflow.institute/article/the-bio-energy-bottleneck-disrupting-fossil-fuel-dominance-in-rural-water-pumpin-1772715378459",
+      "status": "pending",
+      "createdAt": "2026-03-05T12:56:45.434Z"
+    },
+    {
       "id": "mmdfwzvy-tw",
       "articleSlug": "the-thermal-threshold-trap-integrating-community-based-cooling-with-desalination-1772713584268",
       "articleTitle": "The Thermal Threshold Trap: Integrating Community-Based Cooling with Desalination for Climate-Resilient Water Security in Coastal Sub-Saharan Africa",
@@ -1488,5 +1533,5 @@
       "createdAt": "2026-03-02T00:01:09.765Z"
     }
   ],
-  "lastUpdated": "2026-03-05T12:26:55.535Z"
+  "lastUpdated": "2026-03-05T12:56:45.438Z"
 }
