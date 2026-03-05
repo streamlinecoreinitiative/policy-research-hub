@@ -1,6 +1,34 @@
 {
   "articles": [
     {
+      "slug": "the-pumping-paradox-in-east-africa-decoupling-water-extraction-from-fossil-fuel--1772726253237",
+      "title": "The Pumping Paradox in East Africa: Decoupling Water Extraction from Fossil Fuel Dependency for Climate-Resilient Agriculture",
+      "summary": "East African agriculture faces a \"pumping paradox\" where rising temperatures and groundwater depletion force farmers to rely on expensive diesel pumps, creating a cycle of high operational costs and carbon emissions.",
+      "topic": "Environmental resilience in lower-income countries: water security, clean energy, and climate adaptation",
+      "template": "Policy Brief",
+      "tags": [
+        "climate",
+        "water",
+        "energy",
+        "agriculture",
+        "policy",
+        "finance",
+        "resilience",
+        "urbanization"
+      ],
+      "wordCount": 1322,
+      "sourcesUsed": 19,
+      "readabilityScore": 85,
+      "publishedAt": "2026-03-05T15:57:33.246Z",
+      "updatedAt": "2026-03-05T15:58:08.866Z",
+      "status": "published",
+      "mdFile": "the-pumping-paradox-in-east-africa-decoupling-water-extraction-from-fossil-fuel--1772726253237.md",
+      "htmlFile": "the-pumping-paradox-in-east-africa-decoupling-water-extraction-from-fossil-fuel--1772726253237.html",
+      "region": "Sub-Saharan Africa",
+      "driveFileId": "1D4QG-ZO94veMG4p7gR3P8iDGxCHcinVl",
+      "driveWebViewLink": "https://drive.google.com/file/d/1D4QG-ZO94veMG4p7gR3P8iDGxCHcinVl/view?usp=drivesdk"
+    },
+    {
       "slug": "the-pumping-paradox-in-east-africa-decoupling-water-extraction-from-fossil-fuel--1772724402201",
       "title": "The Pumping Paradox in East Africa: Decoupling Water Extraction from Fossil Fuel Dependency for Climate-Resilient Agriculture",
       "summary": "East African governments and development partners must pivot funding from diesel-dependent water infrastructure to decentralized renewable micro-grids.",
@@ -1641,6 +1669,6 @@
       "region": "Sub-Saharan Africa"
     }
   ],
-  "lastUpdated": "2026-03-05T15:27:16.661Z",
-  "totalPublished": 54
+  "lastUpdated": "2026-03-05T15:58:08.866Z",
+  "totalPublished": 55
 }

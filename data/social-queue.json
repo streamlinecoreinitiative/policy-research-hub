@@ -1,6 +1,51 @@
 {
   "posts": [
     {
+      "id": "mmdngl24-tw",
+      "articleSlug": "the-pumping-paradox-in-east-africa-decoupling-water-extraction-from-fossil-fuel--1772726253237",
+      "articleTitle": "The Pumping Paradox in East Africa: Decoupling Water Extraction from Fossil Fuel Dependency for Climate-Resilient Agriculture",
+      "platform": "twitter",
+      "content": "East Africa faces a \"pumping paradox\": rising heat forces farmers to use expensive diesel pumps, creating a cycle of high costs and carbon emissions. To secure water and energy (SDGs 6 & 7), we need hybrid infrastructure, community maintenance funds, and performance-based subsidi",
+      "hashtags": [
+        "WaterSecurity",
+        "ClimateAction",
+        "AgriculturePolicy"
+      ],
+      "url": "https://baseflow.institute/article/the-pumping-paradox-in-east-africa-decoupling-water-extraction-from-fossil-fuel--1772726253237",
+      "status": "pending",
+      "createdAt": "2026-03-05T15:58:06.748Z"
+    },
+    {
+      "id": "mmdngl24-li",
+      "articleSlug": "the-pumping-paradox-in-east-africa-decoupling-water-extraction-from-fossil-fuel--1772726253237",
+      "articleTitle": "The Pumping Paradox in East Africa: Decoupling Water Extraction from Fossil Fuel Dependency for Climate-Resilient Agriculture",
+      "platform": "linkedin",
+      "content": "East African agriculture is confronting a critical \"pumping paradox.\" As temperatures rise and groundwater depletes, farmers are forced to rely on costly diesel pumps, creating an unsustainable cycle of high operational expenses and carbon emissions. This issue highlights a stark regional disparity: while global access to safely managed drinking water stands at 73.7%, Sub-Saharan Africa lags significantly at just 32.4%.\n\nTo address this dual crisis of water security and energy access, governments and development partners must adopt a three-pronged strategy. First, we must explore hybrid infrastructure to ensure operational continuity without relying solely on diesel. Second, establishing community-led maintenance funds is essential to prevent asset obsolescence in remote areas. Finally, traditional subsidies must be restructured into performance-based incentives tied to verified reductions in diesel consumption. Without targeted interventions, the gap between current access levels and global sustainability targets will widen, threatening food security in the region's most water-stressed zones. Let's discuss how we can finance these transitions effectively.",
+      "hashtags": [
+        "WaterSecurity",
+        "SustainableAgriculture",
+        "ClimateResilience"
+      ],
+      "url": "https://baseflow.institute/article/the-pumping-paradox-in-east-africa-decoupling-water-extraction-from-fossil-fuel--1772726253237",
+      "status": "pending",
+      "createdAt": "2026-03-05T15:58:06.748Z"
+    },
+    {
+      "id": "mmdngl24-bs",
+      "articleSlug": "the-pumping-paradox-in-east-africa-decoupling-water-extraction-from-fossil-fuel--1772726253237",
+      "articleTitle": "The Pumping Paradox in East Africa: Decoupling Water Extraction from Fossil Fuel Dependency for Climate-Resilient Agriculture",
+      "platform": "bluesky",
+      "content": "The \"pumping paradox\" in East Africa is getting worse. Rising heat means farmers need more water, but they're pumping it with expensive diesel generators, burning carbon just to farm. It's a vicious cycle threatening food security. We can't keep subsidizing diesel pumps when groundwater recharge rat",
+      "hashtags": [
+        "WaterCrisis",
+        "GreenEnergy",
+        "ClimateResilience"
+      ],
+      "url": "https://baseflow.institute/article/the-pumping-paradox-in-east-africa-decoupling-water-extraction-from-fossil-fuel--1772726253237",
+      "status": "pending",
+      "createdAt": "2026-03-05T15:58:06.748Z"
+    },
+    {
       "id": "mmdmcw0u-tw",
       "articleSlug": "the-pumping-paradox-in-east-africa-decoupling-water-extraction-from-fossil-fuel--1772724402201",
       "articleTitle": "The Pumping Paradox in East Africa: Decoupling Water Extraction from Fossil Fuel Dependency for Climate-Resilient Agriculture",
@@ -1756,5 +1801,5 @@
       "createdAt": "2026-03-02T00:01:09.765Z"
     }
   ],
-  "lastUpdated": "2026-03-05T15:27:14.723Z"
+  "lastUpdated": "2026-03-05T15:58:06.757Z"
 }
