@@ -1,6 +1,34 @@
 {
   "articles": [
     {
+      "slug": "the-desalination-dilemma-in-coastal-sub-saharan-africa-replacing-brackish-water--1772747794364",
+      "title": "The Desalination Dilemma in Coastal Sub-Saharan Africa: Replacing Brackish Water Extraction with Community-Led Solar-Powered Reverse Osmosis for Climate-Resilient Water Security",
+      "summary": "Coastal low-income nations face an immediate crisis where rising sea levels are rendering freshwater aquifers brackish, while traditional desalination infrastructure remains financially out of reach.",
+      "topic": "Environmental resilience in lower-income countries: water security, clean energy, and climate adaptation",
+      "template": "Policy Brief",
+      "tags": [
+        "climate",
+        "water",
+        "energy",
+        "policy",
+        "finance",
+        "resilience",
+        "urbanization",
+        "education"
+      ],
+      "wordCount": 1228,
+      "sourcesUsed": 12,
+      "readabilityScore": 90,
+      "publishedAt": "2026-03-05T21:56:34.371Z",
+      "updatedAt": "2026-03-05T21:57:06.371Z",
+      "status": "published",
+      "mdFile": "the-desalination-dilemma-in-coastal-sub-saharan-africa-replacing-brackish-water--1772747794364.md",
+      "htmlFile": "the-desalination-dilemma-in-coastal-sub-saharan-africa-replacing-brackish-water--1772747794364.html",
+      "region": "Sub-Saharan Africa",
+      "driveFileId": "1SRkbhtueaNKWfdD6f_tWk9aT1sp2VM5o",
+      "driveWebViewLink": "https://drive.google.com/file/d/1SRkbhtueaNKWfdD6f_tWk9aT1sp2VM5o/view?usp=drivesdk"
+    },
+    {
       "slug": "the-grid-water-synergy-gap-integrating-microgrids-and-wastewater-reclamation-for-1772745941340",
       "title": "The Grid-Water Synergy Gap: Integrating Microgrids and Wastewater Reclamation for Resilient Water Security in East Africa",
       "summary": "Policymakers must immediately cease funding standalone water infrastructure projects in East Africa until they are coupled with dedicated renewable energy microgrids.",
@@ -1977,6 +2005,6 @@
       "region": "Sub-Saharan Africa"
     }
   ],
-  "lastUpdated": "2026-03-05T21:26:17.316Z",
-  "totalPublished": 66
+  "lastUpdated": "2026-03-05T21:57:06.371Z",
+  "totalPublished": 67
 }

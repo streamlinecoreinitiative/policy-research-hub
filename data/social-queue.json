@@ -1,6 +1,36 @@
 {
   "posts": [
     {
+      "id": "mme0a7dp-tw",
+      "articleSlug": "the-desalination-dilemma-in-coastal-sub-saharan-africa-replacing-brackish-water--1772747794364",
+      "articleTitle": "The Desalination Dilemma in Coastal Sub-Saharan Africa: Replacing Brackish Water Extraction with Community-Led Solar-Powered Reverse Osmosis for Climate-Resilient Water Security",
+      "platform": "twitter",
+      "content": "Rising seas are turning freshwater aquifers brackish in coastal Sub-Saharan Africa, while traditional desalination remains too expensive. We must pivot from fossil-fuel plants to community-led solar reverse osmosis. A \"Local-First\" approach is key to securing water by 2030 and br",
+      "hashtags": [
+        "WaterSecurity",
+        "ClimateAction",
+        "SDG6"
+      ],
+      "url": "https://baseflow.institute/article/the-desalination-dilemma-in-coastal-sub-saharan-africa-replacing-brackish-water--1772747794364",
+      "status": "pending",
+      "createdAt": "2026-03-05T21:57:04.093Z"
+    },
+    {
+      "id": "mme0a7dp-li",
+      "articleSlug": "the-desalination-dilemma-in-coastal-sub-saharan-africa-replacing-brackish-water--1772747794364",
+      "articleTitle": "The Desalination Dilemma in Coastal Sub-Saharan Africa: Replacing Brackish Water Extraction with Community-Led Solar-Powered Reverse Osmosis for Climate-Resilient Water Security",
+      "platform": "linkedin",
+      "content": "Coastal nations in Sub-Saharan Africa face a critical dual crisis: rising sea levels are salinizing freshwater aquifers, yet the energy required to treat this brackish water is precisely what these regions lack. Currently, only 32.4% of the population in Sub-Saharan Africa has access to safely managed drinking water, compared to 73.7% globally. Traditional large-scale desalination relies on fossil fuels and centralized grids, which are financially out of reach for low-income nations.\n\nTo achieve SDG 6 targets by 2030, policymakers must halt new grid-dependent projects and adopt a \"Local-First\" strategy. This involves financing decentralized, solar-powered reverse osmosis (RO) systems owned and operated by local communities. By integrating energy planning directly into water security strategies, we can create resilient solutions that empower communities rather than deepening the \"water-energy trap.\" The path forward requires micro-grants for community-led units, ensuring sustainable access to clean water in a changing climate.",
+      "hashtags": [
+        "WaterSecurity",
+        "SustainableDevelopment",
+        "ClimateResilience"
+      ],
+      "url": "https://baseflow.institute/article/the-desalination-dilemma-in-coastal-sub-saharan-africa-replacing-brackish-water--1772747794364",
+      "status": "pending",
+      "createdAt": "2026-03-05T21:57:04.093Z"
+    },
+    {
       "id": "mmdz6ky3-tw",
       "articleSlug": "the-grid-water-synergy-gap-integrating-microgrids-and-wastewater-reclamation-for-1772745941340",
       "articleTitle": "The Grid-Water Synergy Gap: Integrating Microgrids and Wastewater Reclamation for Resilient Water Security in East Africa",
@@ -2303,5 +2333,5 @@
       "createdAt": "2026-03-02T00:01:09.765Z"
     }
   ],
-  "lastUpdated": "2026-03-05T21:26:15.437Z"
+  "lastUpdated": "2026-03-05T21:57:04.095Z"
 }
