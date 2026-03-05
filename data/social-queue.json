@@ -1,6 +1,52 @@
 {
   "posts": [
     {
+      "id": "mmdw0b6j-tw",
+      "articleSlug": "the-baseload-paradox-integrating-community-micro-hydro-with-managed-aquifer-rech-1772740607057",
+      "articleTitle": "The Baseload Paradox: Integrating Community Micro-Hydro with Managed Aquifer Recharge for Resilient Water-Energy Systems in the Ethiopian Highlands",
+      "platform": "twitter",
+      "content": "Water and energy in Ethiopia are a single point of failure. Relying on diesel traps communities in poverty while climate change dries basins. We must pivot to regenerative systems: community micro-hydro paired with Managed Aquifer Recharge (MAR). Unified permitting for irrigation",
+      "hashtags": [
+        "WaterEnergyLink",
+        "ClimateAdaptation",
+        "Ethiopia"
+      ],
+      "url": "https://baseflow.institute/article/the-baseload-paradox-integrating-community-micro-hydro-with-managed-aquifer-rech-1772740607057",
+      "status": "pending",
+      "createdAt": "2026-03-05T19:57:23.995Z"
+    },
+    {
+      "id": "mmdw0b6j-li",
+      "articleSlug": "the-baseload-paradox-integrating-community-micro-hydro-with-managed-aquifer-rech-1772740607057",
+      "articleTitle": "The Baseload Paradox: Integrating Community Micro-Hydro with Managed Aquifer Recharge for Resilient Water-Energy Systems in the Ethiopian Highlands",
+      "platform": "linkedin",
+      "content": "In lower-income countries like Ethiopia, water and energy are often treated as separate silos, yet they function as a single point of failure. When climate variability disrupts precipitation, the result is a double crisis: agricultural irrigation fails, and rural communities are left without baseload power, forced to rely on expensive diesel generators or unreliable solar systems that cannot sustain extended dry spells.\n\nThe solution lies in pivoting from extractive fossil-fuel models to regenerative systems that integrate community-led micro-hydroelectric generation with Managed Aquifer Recharge (MAR). By mandating joint planning between water and energy ministries for projects exceeding $1 million, we can stabilize supplies while reducing external aid dependence. The key is establishing unified permitting processes that evaluate hydro potential specifically for local water pumping and irrigation support, rather than solely for grid connection.\n\nThis strategy directly aligns with SDG 6 (Clean Water) and SDG 7 (Affordable Clean Energy), addressing the stark global disparity where only 32.4% of Sub-Saharan Africans have access to safely managed drinking water. We must build institutional resilience against climate shocks by recognizing that securing one resource is inextricably linked to securing the other.",
+      "hashtags": [
+        "SustainableDevelopment",
+        "WaterSecurity",
+        "RenewableEnergy",
+        "PolicyBrief"
+      ],
+      "url": "https://baseflow.institute/article/the-baseload-paradox-integrating-community-micro-hydro-with-managed-aquifer-rech-1772740607057",
+      "status": "pending",
+      "createdAt": "2026-03-05T19:57:23.995Z"
+    },
+    {
+      "id": "mmdw0b6j-bs",
+      "articleSlug": "the-baseload-paradox-integrating-community-micro-hydro-with-managed-aquifer-rech-1772740607057",
+      "articleTitle": "The Baseload Paradox: Integrating Community Micro-Hydro with Managed Aquifer Recharge for Resilient Water-Energy Systems in the Ethiopian Highlands",
+      "platform": "bluesky",
+      "content": "Water and energy are increasingly viewed as distinct sectors, but in places like the Ethiopian Highlands, they function as a single point of failure. When climate change alters precipitation patterns, we see a vicious cycle: unreliable grids force communities to use expensive diesel, while failing i",
+      "hashtags": [
+        "WaterEnergy",
+        "ClimateResilience",
+        "MicroHydro"
+      ],
+      "url": "https://baseflow.institute/article/the-baseload-paradox-integrating-community-micro-hydro-with-managed-aquifer-rech-1772740607057",
+      "status": "pending",
+      "createdAt": "2026-03-05T19:57:23.995Z"
+    },
+    {
       "id": "mmduxpj0-tw",
       "articleSlug": "the-distributed-resilience-imperative-leveraging-community-led-biogas-systems-fo-1772738809968",
       "articleTitle": "The Distributed Resilience Imperative: Leveraging Community-Led Biogas Systems for Integrated Water-Energy-Nutrition Security in East Africa",
@@ -2119,5 +2165,5 @@
       "createdAt": "2026-03-02T00:01:09.765Z"
     }
   ],
-  "lastUpdated": "2026-03-05T19:27:23.006Z"
+  "lastUpdated": "2026-03-05T19:57:23.999Z"
 }

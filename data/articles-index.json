@@ -1,6 +1,34 @@
 {
   "articles": [
     {
+      "slug": "the-baseload-paradox-integrating-community-micro-hydro-with-managed-aquifer-rech-1772740607057",
+      "title": "The Baseload Paradox: Integrating Community Micro-Hydro with Managed Aquifer Recharge for Resilient Water-Energy Systems in the Ethiopian Highlands",
+      "summary": "Governments and development practitioners must pivot from extractive fossil-fuel models to regenerative systems that integrate community-led micro-hydroelectric generation with managed aquifer recharge (MAR).",
+      "topic": "Environmental resilience in lower-income countries: water security, clean energy, and climate adaptation",
+      "template": "Policy Brief",
+      "tags": [
+        "climate",
+        "water",
+        "energy",
+        "agriculture",
+        "health",
+        "policy",
+        "finance",
+        "resilience"
+      ],
+      "wordCount": 1196,
+      "sourcesUsed": 7,
+      "readabilityScore": 89,
+      "publishedAt": "2026-03-05T19:56:47.064Z",
+      "updatedAt": "2026-03-05T19:57:26.139Z",
+      "status": "published",
+      "mdFile": "the-baseload-paradox-integrating-community-micro-hydro-with-managed-aquifer-rech-1772740607057.md",
+      "htmlFile": "the-baseload-paradox-integrating-community-micro-hydro-with-managed-aquifer-rech-1772740607057.html",
+      "region": "Sub-Saharan Africa",
+      "driveFileId": "1KzBy54ji4C1S_gKDUwJg-19aNodHkOr-",
+      "driveWebViewLink": "https://drive.google.com/file/d/1KzBy54ji4C1S_gKDUwJg-19aNodHkOr-/view?usp=drivesdk"
+    },
+    {
       "slug": "the-distributed-resilience-imperative-leveraging-community-led-biogas-systems-fo-1772738809968",
       "title": "The Distributed Resilience Imperative: Leveraging Community-Led Biogas Systems for Integrated Water-Energy-Nutrition Security in East Africa",
       "summary": "Governments and development partners must pivot from capital-intensive, top-down infrastructure projects toward decentralized, community-managed biogas systems as a primary strategy for achieving water-energy-nutrition security in East Africa.",
@@ -1865,6 +1893,6 @@
       "region": "Sub-Saharan Africa"
     }
   ],
-  "lastUpdated": "2026-03-05T19:27:24.748Z",
-  "totalPublished": 62
+  "lastUpdated": "2026-03-05T19:57:26.139Z",
+  "totalPublished": 63
 }
