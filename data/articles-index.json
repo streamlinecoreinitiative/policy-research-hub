@@ -1,6 +1,34 @@
 {
   "articles": [
     {
+      "slug": "yes-the-article-title-nature-based-solutions-for-landslide-risk-in-the-caribbean-1772683798843",
+      "title": "Yes, the article title \"nature-based solutions for landslide risk in the Caribbean SIDS: safeguarding freshwater ecosystems\" is a good title for this policy research article. The title is specific,",
+      "summary": "Executive Summary Nature-based solutions for landslide risk in the Caribbean, SIMS: safeguarding freshwater ecosystems Outline: Policy Brief Executive Summary - Executive Summary (~150 words) Context & Challeges - Context & Challeges (Background on the issue and why it matters now) Analysis - Analys...",
+      "topic": "Environmental resilience in lower-income countries: water security, clean energy, and climate adaptation",
+      "template": "Policy Brief",
+      "tags": [
+        "climate",
+        "water",
+        "energy",
+        "policy",
+        "resilience",
+        "biodiversity",
+        "urbanization",
+        "sub-saharan-africa"
+      ],
+      "wordCount": 955,
+      "sourcesUsed": 64,
+      "readabilityScore": 73,
+      "publishedAt": "2026-03-05T04:09:58.846Z",
+      "updatedAt": "2026-03-05T04:10:00.385Z",
+      "status": "draft",
+      "mdFile": "yes-the-article-title-nature-based-solutions-for-landslide-risk-in-the-caribbean-1772683798843.md",
+      "htmlFile": "yes-the-article-title-nature-based-solutions-for-landslide-risk-in-the-caribbean-1772683798843.html",
+      "region": "Sub-Saharan Africa",
+      "driveFileId": "1ieLdszQ-j_TAIU-MG-MgjiwdP81mJa6n",
+      "driveWebViewLink": "https://drive.google.com/file/d/1ieLdszQ-j_TAIU-MG-MgjiwdP81mJa6n/view?usp=drivesdk"
+    },
+    {
       "slug": "yes-the-article-title-climate-smart-irrigation-cooperatives-in-the-mekong-basin--1772681942764",
       "title": "Yes, the article title \"climate-smart irrigation cooperatives in the Mekong basin: stabilizing food security during droughts\" is a good title for this policy research article. The title is specific",
       "summary": "Executive Summary Key finding(s) and recommendation(s) in 2-3 paragraphs (total target: ~1200 words) Policy Brief Executive Summary Key finding(s) and recommendation(s) in 2-3 paragraphs (total target: ~1200 words) Context & Challenges Background information on the issue and why it matters now (~200...",
@@ -914,6 +942,6 @@
       "region": "Sub-Saharan Africa"
     }
   ],
-  "lastUpdated": "2026-03-05T03:39:04.658Z",
+  "lastUpdated": "2026-03-05T04:10:00.385Z",
   "totalPublished": 29
 }
