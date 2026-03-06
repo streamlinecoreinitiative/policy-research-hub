@@ -1,6 +1,51 @@
 {
   "posts": [
     {
+      "id": "mmfgw9uo-tw",
+      "articleSlug": "unlocking-private-capital-leveraging-the-informal-economy-for-integrated-water-e-1772836161123",
+      "articleTitle": "Unlocking Private Capital: Leveraging the Informal Economy for Integrated Water-Energy Systems in Sub-Saharan Africa",
+      "platform": "twitter",
+      "content": "Sub-Saharan Africa faces a crisis where water insecurity and energy poverty compound each other. While global access to safe water is 73.7%, the region sits at just 32.4%. The solution isn't more public construction, but leveraging the agile informal sector to unlock private capi",
+      "hashtags": [
+        "WaterSecurity",
+        "ClimateAdaptation",
+        "PrivateCapital"
+      ],
+      "url": "https://baseflow.institute/article/unlocking-private-capital-leveraging-the-informal-economy-for-integrated-water-e-1772836161123",
+      "status": "pending",
+      "createdAt": "2026-03-06T22:29:53.760Z"
+    },
+    {
+      "id": "mmfgw9uo-li",
+      "articleSlug": "unlocking-private-capital-leveraging-the-informal-economy-for-integrated-water-e-1772836161123",
+      "articleTitle": "Unlocking Private Capital: Leveraging the Informal Economy for Integrated Water-Energy Systems in Sub-Saharan Africa",
+      "platform": "linkedin",
+      "content": "The intersection of water scarcity and energy poverty represents an existential threat to development stability in lower-income countries. According to World Bank data, only 32.4% of Sub-Saharan Africa's population has access to safely managed drinking water, compared to a global average of 73.7%. Simultaneously, electrification rates in the region lag significantly at 53.3%, preventing the deployment of modern, energy-efficient water treatment technologies.\n\nCurrent policy paradigms often focus on direct public sector delivery, yet evidence suggests informal operators frequently provide more reliable services due to their agility and localized knowledge. This creates a compounding vulnerability to climate shocks. Our new brief argues for an immediate strategic pivot toward \"informal leveraging.\" Rather than attempting large-scale construction that frequently results in stranded assets, governments should create specific legal and fiscal instruments to channel private capital into integrated water-energy solutions. By recognizing the informal economy as a critical infrastructure asset, we can accelerate progress on SDG 6 while building resilience against climate change.",
+      "hashtags": [
+        "WaterEnergyLink",
+        "SustainableDevelopment",
+        "InfrastructureInvestment"
+      ],
+      "url": "https://baseflow.institute/article/unlocking-private-capital-leveraging-the-informal-economy-for-integrated-water-e-1772836161123",
+      "status": "pending",
+      "createdAt": "2026-03-06T22:29:53.760Z"
+    },
+    {
+      "id": "mmfgw9uo-bs",
+      "articleSlug": "unlocking-private-capital-leveraging-the-informal-economy-for-integrated-water-e-1772836161123",
+      "articleTitle": "Unlocking Private Capital: Leveraging the Informal Economy for Integrated Water-Energy Systems in Sub-Saharan Africa",
+      "platform": "bluesky",
+      "content": "We need to talk about the invisible backbone of development in Sub-Saharan Africa: the informal water and energy sector. While global safe water access is up to 73%, the region sits at a mere 32%. The problem isn't just a lack of tech or funds; it's a structural inability of public institutions to d",
+      "hashtags": [
+        "WaterEnergyLink",
+        "InformalEconomy",
+        "ClimateResilience"
+      ],
+      "url": "https://baseflow.institute/article/unlocking-private-capital-leveraging-the-informal-economy-for-integrated-water-e-1772836161123",
+      "status": "pending",
+      "createdAt": "2026-03-06T22:29:53.760Z"
+    },
+    {
       "id": "mmffun0o-tw",
       "articleSlug": "the-fiscal-sustainability-trap-integrating-community-led-water-energy-systems-fo-1772834404951",
       "articleTitle": "The Fiscal Sustainability Trap: Integrating Community-Led Water-Energy Systems for Long-Term Resilience in Fragile States",
@@ -2516,5 +2561,5 @@
       "createdAt": "2026-03-02T00:01:09.765Z"
     }
   ],
-  "lastUpdated": "2026-03-06T22:00:37.900Z"
+  "lastUpdated": "2026-03-06T22:29:53.765Z"
 }
