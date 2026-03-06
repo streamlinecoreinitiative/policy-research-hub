@@ -1,6 +1,34 @@
 {
   "articles": [
     {
+      "slug": "the-hydro-electricity-equity-gap-closing-the-service-delivery-divide-in-sub-saha-1772837979803",
+      "title": "The Hydro-Electricity Equity Gap: Closing the Service Delivery Divide in Sub-Saharan Africa Through Integrated Water-Energy Infrastructure",
+      "summary": "Governments and development partners must pivot from siloed infrastructure projects to integrated water-energy systems (WES) to address the compounding crisis of water scarcity and energy poverty in Sub-Saharan Africa.",
+      "topic": "Environmental resilience in lower-income countries: water security, clean energy, and climate adaptation",
+      "template": "Policy Brief",
+      "tags": [
+        "climate",
+        "water",
+        "energy",
+        "agriculture",
+        "policy",
+        "finance",
+        "resilience",
+        "urbanization"
+      ],
+      "wordCount": 1145,
+      "sourcesUsed": 21,
+      "readabilityScore": 86,
+      "publishedAt": "2026-03-06T22:59:39.808Z",
+      "updatedAt": "2026-03-06T23:00:13.336Z",
+      "status": "published",
+      "mdFile": "the-hydro-electricity-equity-gap-closing-the-service-delivery-divide-in-sub-saha-1772837979803.md",
+      "htmlFile": "the-hydro-electricity-equity-gap-closing-the-service-delivery-divide-in-sub-saha-1772837979803.html",
+      "region": "Sub-Saharan Africa",
+      "driveFileId": "1kh2T1gjEPXNZTUFj4BiK6BrT6eSopIny",
+      "driveWebViewLink": "https://drive.google.com/file/d/1kh2T1gjEPXNZTUFj4BiK6BrT6eSopIny/view?usp=drivesdk"
+    },
+    {
       "slug": "unlocking-private-capital-leveraging-the-informal-economy-for-integrated-water-e-1772836161123",
       "title": "Unlocking Private Capital: Leveraging the Informal Economy for Integrated Water-Energy Systems in Sub-Saharan Africa",
       "summary": "Global progress on safely managed drinking water remains critically uneven. According to World Bank Open Data, only 73.7% of the world's population had access in 2024, a figure that masks a stark reality for Sub-Saharan Africa where coverage stands at merely 32.",
@@ -2173,6 +2201,6 @@
       "region": "Sub-Saharan Africa"
     }
   ],
-  "lastUpdated": "2026-03-06T22:29:55.477Z",
-  "totalPublished": 73
+  "lastUpdated": "2026-03-06T23:00:13.336Z",
+  "totalPublished": 74
 }
