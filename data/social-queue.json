@@ -1,6 +1,21 @@
 {
   "posts": [
     {
+      "id": "mmfj1ftk-tw",
+      "articleSlug": "urban-heat-mitigation-through-cool-roofs-in-the-central-america-dry-corridor-sup-1772839764185",
+      "articleTitle": "urban heat mitigation through cool roofs in the Central America dry corridor: supporting adaptation targets in NDCs",
+      "platform": "twitter",
+      "content": "Sub-Saharan Africa faces a dual crisis: energy poverty is undermining water security. With only 53.3% electricity access vs 91.6% globally, the region relies on costly diesel pumps and manual labor for water extraction. Hybrid microgrids integrating renewables with decentralized ",
+      "hashtags": [
+        "ClimateAction",
+        "WaterForAll",
+        "SustainableDevelopmentGoals"
+      ],
+      "url": "https://baseflow.institute/article/urban-heat-mitigation-through-cool-roofs-in-the-central-america-dry-corridor-sup-1772839764185",
+      "status": "pending",
+      "createdAt": "2026-03-06T23:29:54.008Z"
+    },
+    {
       "id": "mmfhz8ol-tw",
       "articleSlug": "the-hydro-electricity-equity-gap-closing-the-service-delivery-divide-in-sub-saha-1772837979803",
       "articleTitle": "The Hydro-Electricity Equity Gap: Closing the Service Delivery Divide in Sub-Saharan Africa Through Integrated Water-Energy Infrastructure",
@@ -2587,5 +2602,5 @@
       "createdAt": "2026-03-02T00:01:09.765Z"
     }
   ],
-  "lastUpdated": "2026-03-06T23:00:11.834Z"
+  "lastUpdated": "2026-03-06T23:29:54.012Z"
 }

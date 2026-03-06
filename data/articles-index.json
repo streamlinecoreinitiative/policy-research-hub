@@ -1,6 +1,34 @@
 {
   "articles": [
     {
+      "slug": "urban-heat-mitigation-through-cool-roofs-in-the-central-america-dry-corridor-sup-1772839764185",
+      "title": "urban heat mitigation through cool roofs in the Central America dry corridor: supporting adaptation targets in NDCs",
+      "summary": "Sub-Saharan Africa faces a critical dual crisis where energy poverty undermines water security, creating vulnerability to climate shocks. To address this nexus, governments and development practitioners must pivot toward deploying hybrid microgrid systems that integrate renewable energy generation with decentralized water treatment and pumping.",
+      "topic": "Environmental resilience in lower-income countries: water security, clean energy, and climate adaptation",
+      "template": "Policy Brief",
+      "tags": [
+        "climate",
+        "water",
+        "energy",
+        "health",
+        "policy",
+        "finance",
+        "resilience",
+        "urbanization"
+      ],
+      "wordCount": 1160,
+      "sourcesUsed": 11,
+      "readabilityScore": 90,
+      "publishedAt": "2026-03-06T23:29:24.190Z",
+      "updatedAt": "2026-03-06T23:29:55.432Z",
+      "status": "published",
+      "mdFile": "urban-heat-mitigation-through-cool-roofs-in-the-central-america-dry-corridor-sup-1772839764185.md",
+      "htmlFile": "urban-heat-mitigation-through-cool-roofs-in-the-central-america-dry-corridor-sup-1772839764185.html",
+      "region": "Sub-Saharan Africa",
+      "driveFileId": "1N8Yns1LhHUF2iRIrcozfvD8xc6X9QDxT",
+      "driveWebViewLink": "https://drive.google.com/file/d/1N8Yns1LhHUF2iRIrcozfvD8xc6X9QDxT/view?usp=drivesdk"
+    },
+    {
       "slug": "the-hydro-electricity-equity-gap-closing-the-service-delivery-divide-in-sub-saha-1772837979803",
       "title": "The Hydro-Electricity Equity Gap: Closing the Service Delivery Divide in Sub-Saharan Africa Through Integrated Water-Energy Infrastructure",
       "summary": "Governments and development partners must pivot from siloed infrastructure projects to integrated water-energy systems (WES) to address the compounding crisis of water scarcity and energy poverty in Sub-Saharan Africa.",
@@ -2201,6 +2229,6 @@
       "region": "Sub-Saharan Africa"
     }
   ],
-  "lastUpdated": "2026-03-06T23:00:13.336Z",
-  "totalPublished": 74
+  "lastUpdated": "2026-03-06T23:29:55.432Z",
+  "totalPublished": 75
 }
