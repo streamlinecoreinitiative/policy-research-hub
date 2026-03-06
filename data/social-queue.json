@@ -1,6 +1,21 @@
 {
   "posts": [
     {
+      "id": "mmffun0o-tw",
+      "articleSlug": "the-fiscal-sustainability-trap-integrating-community-led-water-energy-systems-fo-1772834404951",
+      "articleTitle": "The Fiscal Sustainability Trap: Integrating Community-Led Water-Energy Systems for Long-Term Resilience in Fragile States",
+      "platform": "twitter",
+      "content": "Fragile states face a \"build-and-abandon\" crisis in water and energy. New data shows Sub-Saharan Africa's access to safe water (32%) and electricity (53%) lags far behind global averages. To fix this, we must shift from expensive centralized projects to community-led systems wher",
+      "hashtags": [
+        "WaterEnergy",
+        "SustainableDevelopment",
+        "ClimateAction"
+      ],
+      "url": "https://baseflow.institute/article/the-fiscal-sustainability-trap-integrating-community-led-water-energy-systems-fo-1772834404951",
+      "status": "pending",
+      "createdAt": "2026-03-06T22:00:37.896Z"
+    },
+    {
       "id": "mme4kah9-tw",
       "articleSlug": "the-hydro-electricity-equity-gap-closing-the-service-delivery-divide-in-sub-saha-1772754983846",
       "articleTitle": "The Hydro-Electricity Equity Gap: Closing the Service Delivery Divide in Sub-Saharan Africa Through Integrated Water-Energy Infrastructure",
@@ -2501,5 +2516,5 @@
       "createdAt": "2026-03-02T00:01:09.765Z"
     }
   ],
-  "lastUpdated": "2026-03-05T23:56:53.135Z"
+  "lastUpdated": "2026-03-06T22:00:37.900Z"
 }
