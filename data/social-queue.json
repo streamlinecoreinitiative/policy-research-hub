@@ -1,6 +1,51 @@
 {
   "posts": [
     {
+      "id": "mmg9tjzl-tw",
+      "articleSlug": "the-grid-dependency-trap-unlocking-water-energy-resilience-through-distributed-s-1772884745318",
+      "articleTitle": "The Grid Dependency Trap: Unlocking Water-Energy Resilience Through Distributed Storage in Fragile States",
+      "platform": "twitter",
+      "content": "Centralized grids are a single point of failure for water security in fragile states. We must shift from retrofitting solar pumps to investing in hybrid microgrids with community battery storage. Decouple service delivery from grid reliability to ensure clean energy translates in",
+      "hashtags": [
+        "WaterSecurity",
+        "ClimateResilience",
+        "EnergyAccess"
+      ],
+      "url": "https://baseflow.institute/article/the-grid-dependency-trap-unlocking-water-energy-resilience-through-distributed-s-1772884745318",
+      "status": "pending",
+      "createdAt": "2026-03-07T11:59:35.793Z"
+    },
+    {
+      "id": "mmg9tjzl-li",
+      "articleSlug": "the-grid-dependency-trap-unlocking-water-energy-resilience-through-distributed-s-1772884745318",
+      "articleTitle": "The Grid Dependency Trap: Unlocking Water-Energy Resilience Through Distributed Storage in Fragile States",
+      "platform": "linkedin",
+      "content": "The intersection of water security and energy access has moved from theory to urgent operational reality. As freshwater withdrawal reaches 9.2% globally, low-income nations face a critical \"grid dependency trap.\" Current strategies relying on centralized infrastructure create single points of failure that collapse during extreme weather, leaving 2.2 billion people without safe water.\n\nThe solution lies in pivoting away from simple solar pump retrofits toward hybrid microgrids integrated with community battery storage. This approach decouples service delivery from grid reliability, allowing facilities to store excess renewable energy during calm periods and discharge it during peak demand or outages. By addressing the \"renewables paradox\" of intermittency, policymakers can ensure that investments in clean energy translate into sustained water security rather than temporary fixes.\n\nGovernments must prioritize distributed storage systems to buffer against climate-induced intermittency. Without this strategic shift, adaptation targets will remain unmet, and infrastructure collapse risks will continue to threaten the most vulnerable populations. The path forward requires a fundamental reimagining of how we deliver critical services in fragile states.",
+      "hashtags": [
+        "WaterEnergyLink",
+        "SustainableDevelopment",
+        "ClimateAdaptation"
+      ],
+      "url": "https://baseflow.institute/article/the-grid-dependency-trap-unlocking-water-energy-resilience-through-distributed-s-1772884745318",
+      "status": "pending",
+      "createdAt": "2026-03-07T11:59:35.793Z"
+    },
+    {
+      "id": "mmg9tjzl-bs",
+      "articleSlug": "the-grid-dependency-trap-unlocking-water-energy-resilience-through-distributed-s-1772884745318",
+      "articleTitle": "The Grid Dependency Trap: Unlocking Water-Energy Resilience Through Distributed Storage in Fragile States",
+      "platform": "bluesky",
+      "content": "The \"renewables paradox\" is real: we have 19.7% renewable consumption, but without storage, it can't power continuous water treatment. In fragile states, relying on centralized grids for water security is a recipe for collapse during extreme weather. The fix? Stop just retrofitting solar pumps and s",
+      "hashtags": [
+        "WaterEnergyLink",
+        "DistributedStorage",
+        "ClimateResilience"
+      ],
+      "url": "https://baseflow.institute/article/the-grid-dependency-trap-unlocking-water-energy-resilience-through-distributed-s-1772884745318",
+      "status": "pending",
+      "createdAt": "2026-03-07T11:59:35.793Z"
+    },
+    {
       "id": "mmg8qvfb-tw",
       "articleSlug": "climate-smart-irrigation-cooperatives-in-the-central-america-dry-corridor-suppor-1772882943520",
       "articleTitle": "climate-smart irrigation cooperatives in the Central America dry corridor: supporting adaptation targets in NDCs",
@@ -3521,5 +3566,5 @@
       "createdAt": "2026-03-02T00:01:09.765Z"
     }
   ],
-  "lastUpdated": "2026-03-07T11:29:31.034Z"
+  "lastUpdated": "2026-03-07T11:59:35.799Z"
 }
