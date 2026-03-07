@@ -1,6 +1,51 @@
 {
   "posts": [
     {
+      "id": "mmfwyrgq-tw",
+      "articleSlug": "breaking-the-thermal-threshold-integrating-managed-aquifer-recharge-with-decentr-1772863155951",
+      "articleTitle": "Breaking the Thermal Threshold: Integrating Managed Aquifer Recharge with Decentralized Solar Pumping for Climate-Resilient Water Security in East Africa",
+      "platform": "twitter",
+      "content": "East Africa's water crisis isn't just about drought; it's about heat. Rising temperatures are drying aquifers faster than we can refill them, making traditional pumping unsustainable. We need a shift from reactive extraction to proactive Managed Aquifer Recharge powered by solar.",
+      "hashtags": [
+        "WaterSecurity",
+        "ClimateAdaptation",
+        "SolarPump"
+      ],
+      "url": "https://baseflow.institute/article/breaking-the-thermal-threshold-integrating-managed-aquifer-recharge-with-decentr-1772863155951",
+      "status": "pending",
+      "createdAt": "2026-03-07T05:59:43.754Z"
+    },
+    {
+      "id": "mmfwyrgq-li",
+      "articleSlug": "breaking-the-thermal-threshold-integrating-managed-aquifer-recharge-with-decentr-1772863155951",
+      "articleTitle": "Breaking the Thermal Threshold: Integrating Managed Aquifer Recharge with Decentralized Solar Pumping for Climate-Resilient Water Security in East Africa",
+      "platform": "linkedin",
+      "content": "East Africa faces a critical juncture in water security. While global access to safe drinking water hovers near 74%, the region sits at only 32.4%—a gap driven not just by scarcity, but by accelerating thermal stress. As temperatures rise, evaporation outpaces recharge, rendering conventional groundwater extraction increasingly energy-intensive and unsustainable.\n\nThe solution lies in integrating Managed Aquifer Recharge (MAR) with decentralized solar pumping. This dual-purpose strategy treats water infrastructure as both a supply security tool and a fossil fuel reduction mechanism. By moving away from diesel-dependent extraction toward solar-powered recharge cycles, policymakers can break the feedback loop where pumping more water requires more electricity.\n\nAction is required now. Governments must pivot from reactive management to proactive adaptation, securing water access while simultaneously addressing energy poverty in a warming region. The time for incremental change has passed; we need immediate implementation of climate-resilient water systems.",
+      "hashtags": [
+        "WaterSecurity",
+        "ClimateAdaptation",
+        "RenewableEnergy"
+      ],
+      "url": "https://baseflow.institute/article/breaking-the-thermal-threshold-integrating-managed-aquifer-recharge-with-decentr-1772863155951",
+      "status": "pending",
+      "createdAt": "2026-03-07T05:59:43.754Z"
+    },
+    {
+      "id": "mmfwyrgq-bs",
+      "articleSlug": "breaking-the-thermal-threshold-integrating-managed-aquifer-recharge-with-decentr-1772863155951",
+      "articleTitle": "Breaking the Thermal Threshold: Integrating Managed Aquifer Recharge with Decentralized Solar Pumping for Climate-Resilient Water Security in East Africa",
+      "platform": "bluesky",
+      "content": "The heat is getting worse, and it's drying out our aquifers faster than we can refill them. East Africa's water crisis is becoming a perfect storm of scarcity and thermal stress. With only 32% access to safe water in the region compared to the global average, we can't keep relying on energy-heavy pu",
+      "hashtags": [
+        "WaterCrisis",
+        "SolarPower",
+        "ClimateResilience"
+      ],
+      "url": "https://baseflow.institute/article/breaking-the-thermal-threshold-integrating-managed-aquifer-recharge-with-decentr-1772863155951",
+      "status": "pending",
+      "createdAt": "2026-03-07T05:59:43.754Z"
+    },
+    {
       "id": "mmfvv03e-tw",
       "articleSlug": "the-maintenance-mismatch-addressing-operational-collapse-in-sub-saharan-africa-s-1772861300831",
       "articleTitle": "The Maintenance Mismatch: Addressing Operational Collapse in Sub-Saharan Africa's Solar Pumping Infrastructure for Water Security",
@@ -3072,5 +3117,5 @@
       "createdAt": "2026-03-02T00:01:09.765Z"
     }
   ],
-  "lastUpdated": "2026-03-07T05:28:48.702Z"
+  "lastUpdated": "2026-03-07T05:59:43.758Z"
 }
