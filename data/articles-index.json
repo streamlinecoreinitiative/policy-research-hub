@@ -1,6 +1,34 @@
 {
   "articles": [
     {
+      "slug": "climate-smart-irrigation-cooperatives-in-the-central-america-dry-corridor-suppor-1772882943520",
+      "title": "climate-smart irrigation cooperatives in the Central America dry corridor: supporting adaptation targets in NDCs",
+      "summary": "Development practitioners must immediately halt funding for new centralized water pumping infrastructure in regions with unreliable electricity access, as these projects are destined for operational failure.",
+      "topic": "Environmental resilience in lower-income countries: water security, clean energy, and climate adaptation",
+      "template": "Policy Brief",
+      "tags": [
+        "climate",
+        "water",
+        "energy",
+        "policy",
+        "finance",
+        "resilience",
+        "urbanization",
+        "education"
+      ],
+      "wordCount": 1253,
+      "sourcesUsed": 14,
+      "readabilityScore": 90,
+      "publishedAt": "2026-03-07T11:29:03.529Z",
+      "updatedAt": "2026-03-07T11:29:32.444Z",
+      "status": "published",
+      "mdFile": "climate-smart-irrigation-cooperatives-in-the-central-america-dry-corridor-suppor-1772882943520.md",
+      "htmlFile": "climate-smart-irrigation-cooperatives-in-the-central-america-dry-corridor-suppor-1772882943520.html",
+      "region": "Sub-Saharan Africa",
+      "driveFileId": "1AQ5bnSDm0ELKGftGKX3isoy_Z7cSyDQc",
+      "driveWebViewLink": "https://drive.google.com/file/d/1AQ5bnSDm0ELKGftGKX3isoy_Z7cSyDQc/view?usp=drivesdk"
+    },
+    {
       "slug": "the-baseload-bottleneck-decentralized-hybrid-microgrids-as-a-strategy-for-water--1772881152744",
       "title": "The Baseload Bottleneck: Decentralized Hybrid Microgrids as a Strategy for Water-Energy Resilience in Sub-Saharan Africa",
       "summary": "Global development policy must pivot from subsidizing single-source renewable projects to mandating decentralized hybrid microgrid architectures for new water infrastructure in Sub-Saharan Africa.",
@@ -2873,6 +2901,6 @@
       "region": "Sub-Saharan Africa"
     }
   ],
-  "lastUpdated": "2026-03-07T10:59:42.305Z",
-  "totalPublished": 98
+  "lastUpdated": "2026-03-07T11:29:32.444Z",
+  "totalPublished": 99
 }

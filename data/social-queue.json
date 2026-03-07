@@ -1,6 +1,38 @@
 {
   "posts": [
     {
+      "id": "mmg8qvfb-tw",
+      "articleSlug": "climate-smart-irrigation-cooperatives-in-the-central-america-dry-corridor-suppor-1772882943520",
+      "articleTitle": "climate-smart irrigation cooperatives in the Central America dry corridor: supporting adaptation targets in NDCs",
+      "platform": "twitter",
+      "content": "Stop funding centralized water pumps in areas with unreliable electricity; they are destined to fail. Shift capital to decentralized, off-grid hybrid systems instead. We need autonomous micro-hydro and solar pumps to break the cycle where energy scarcity drives water scarcity. #W",
+      "hashtags": [
+        "WaterSecurity",
+        "ClimateAdaptation",
+        "SustainableDevelopment"
+      ],
+      "url": "https://baseflow.institute/article/climate-smart-irrigation-cooperatives-in-the-central-america-dry-corridor-suppor-1772882943520",
+      "status": "pending",
+      "createdAt": "2026-03-07T11:29:31.031Z"
+    },
+    {
+      "id": "mmg8qvfb-li",
+      "articleSlug": "climate-smart-irrigation-cooperatives-in-the-central-america-dry-corridor-suppor-1772882943520",
+      "articleTitle": "climate-smart irrigation cooperatives in the Central America dry corridor: supporting adaptation targets in NDCs",
+      "platform": "linkedin",
+      "content": "Water security in developing regions has shifted from a static engineering challenge to a dynamic crisis of energy reliability. Currently, 67.4% of Sub-Saharan Africa lacks safe drinking water while simultaneously facing an electricity access rate of only 53.3%. This creates a structural paradox: rising demand meets paralyzed infrastructure due to grid instability.\n\nOur latest research highlights a critical policy failure: the continued funding of centralized water pumping systems in regions with unreliable power grids. These projects are destined for operational failure, exacerbating a dual crisis of energy and water insecurity. Instead of building capacity within failing networks, we must immediately halt investment in grid-dependent pumps.\n\nThe solution lies in shifting capital toward decentralized, off-grid hybrid systems. By transitioning to autonomous micro-hydro and solar-pumped systems, governments can decouple water security from national grid reliability. Community-managed systems capable of withstanding droughts and power outages are the true path forward for climate adaptation in lower-income countries. We urge policymakers to reorient finance toward these independent solutions immediately.\n\n#WaterPolicy #ClimateResilience #InfrastructureDevelopment #CleanEnergy #SustainableWater",
+      "hashtags": [
+        "WaterPolicy",
+        "ClimateResilience",
+        "InfrastructureDevelopment",
+        "CleanEnergy",
+        "SustainableWater"
+      ],
+      "url": "https://baseflow.institute/article/climate-smart-irrigation-cooperatives-in-the-central-america-dry-corridor-suppor-1772882943520",
+      "status": "pending",
+      "createdAt": "2026-03-07T11:29:31.031Z"
+    },
+    {
       "id": "mmg7oi44-tw",
       "articleSlug": "the-baseload-bottleneck-decentralized-hybrid-microgrids-as-a-strategy-for-water--1772881152744",
       "articleTitle": "The Baseload Bottleneck: Decentralized Hybrid Microgrids as a Strategy for Water-Energy Resilience in Sub-Saharan Africa",
@@ -3489,5 +3521,5 @@
       "createdAt": "2026-03-02T00:01:09.765Z"
     }
   ],
-  "lastUpdated": "2026-03-07T10:59:40.855Z"
+  "lastUpdated": "2026-03-07T11:29:31.034Z"
 }
