@@ -1,6 +1,45 @@
 {
   "posts": [
     {
+      "id": "mmfoekwz-tw",
+      "articleSlug": "the-infrastructure-debt-trap-breaking-the-vicious-cycle-of-water-energy-poverty--1772848774558",
+      "articleTitle": "The Infrastructure Debt Trap: Breaking the Vicious Cycle of Water-Energy Poverty in Sub-Saharan Africa",
+      "platform": "twitter",
+      "content": "Sub-Saharan Africa faces a deadly debt trap: energy poverty blocks water treatment, while water scarcity limits industrial growth. 32% lack safe water vs 73% globally; 53% have electricity vs 91%. We must shift from siloed projects to integrated \"resilience-first\" financing using",
+      "hashtags": [
+        "WaterEnergyPoverty #ClimateResilience #SubSaharanAfrica"
+      ],
+      "url": "https://baseflow.institute/article/the-infrastructure-debt-trap-breaking-the-vicious-cycle-of-water-energy-poverty--1772848774558",
+      "status": "pending",
+      "createdAt": "2026-03-07T02:00:05.219Z"
+    },
+    {
+      "id": "mmfoekwz-li",
+      "articleSlug": "the-infrastructure-debt-trap-breaking-the-vicious-cycle-of-water-energy-poverty--1772848774558",
+      "articleTitle": "The Infrastructure Debt Trap: Breaking the Vicious Cycle of Water-Energy Poverty in Sub-Saharan Africa",
+      "platform": "linkedin",
+      "content": "Environmental resilience has moved from theory to operational necessity, yet Sub-Saharan Africa remains trapped in a vicious cycle of water-energy poverty. With only 32.4% access to safe drinking water and 53.3% electrification rates, the region faces a dual crisis where energy shortages prevent effective water treatment, and water scarcity stifles the industrial expansion needed for economic growth.\n\nTraditional infrastructure financing fails here because upfront capital expenditures often exceed national fiscal capacity, leading to deferred maintenance and abandoned projects. To break this cycle, governments and practitioners must adopt integrated \"resilience-first\" models. We recommend replacing traditional public finance with outcome-based resilience bonds and leveraging regional power pools to significantly reduce electrification costs for water infrastructure. Without these structural shifts, the feedback loop between energy poverty and water scarcity will continue to erode economic growth and public health across the continent.",
+      "hashtags": [
+        "InfrastructureFinance #WaterSecurity #CleanEnergy #ClimateAction"
+      ],
+      "url": "https://baseflow.institute/article/the-infrastructure-debt-trap-breaking-the-vicious-cycle-of-water-energy-poverty--1772848774558",
+      "status": "pending",
+      "createdAt": "2026-03-07T02:00:05.219Z"
+    },
+    {
+      "id": "mmfoekwz-bs",
+      "articleSlug": "the-infrastructure-debt-trap-breaking-the-vicious-cycle-of-water-energy-poverty--1772848774558",
+      "articleTitle": "The Infrastructure Debt Trap: Breaking the Vicious Cycle of Water-Energy Poverty in Sub-Saharan Africa",
+      "platform": "bluesky",
+      "content": "The gap is stark: 73% of the world has safe water, but only 32% in Sub-Saharan Africa. Meanwhile, electrification rates here are less than half the global average. This isn't just a tech gap; it's a financing failure. When energy poverty stops water treatment and water scarcity limits industrial gro",
+      "hashtags": [
+        "WaterCrisis #EnergyPoverty #PolicyBrief"
+      ],
+      "url": "https://baseflow.institute/article/the-infrastructure-debt-trap-breaking-the-vicious-cycle-of-water-energy-poverty--1772848774558",
+      "status": "pending",
+      "createdAt": "2026-03-07T02:00:05.219Z"
+    },
+    {
       "id": "mmfnbu1e-tw",
       "articleSlug": "the-grid-water-synergy-gap-integrating-microgrids-and-wastewater-reclamation-for-1772846968812",
       "articleTitle": "The Grid-Water Synergy Gap: Integrating Microgrids and Wastewater Reclamation for Resilient Water Security in East Africa",
@@ -2763,5 +2802,5 @@
       "createdAt": "2026-03-02T00:01:09.765Z"
     }
   ],
-  "lastUpdated": "2026-03-07T01:29:57.461Z"
+  "lastUpdated": "2026-03-07T02:00:05.221Z"
 }

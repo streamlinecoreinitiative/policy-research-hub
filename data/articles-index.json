@@ -1,6 +1,34 @@
 {
   "articles": [
     {
+      "slug": "the-infrastructure-debt-trap-breaking-the-vicious-cycle-of-water-energy-poverty--1772848774558",
+      "title": "The Infrastructure Debt Trap: Breaking the Vicious Cycle of Water-Energy Poverty in Sub-Saharan Africa",
+      "summary": "Governments and development practitioners must immediately shift from siloed infrastructure projects to integrated \"resilience-first\" financing models that treat water and energy as interdependent assets.",
+      "topic": "Environmental resilience in lower-income countries: water security, clean energy, and climate adaptation",
+      "template": "Policy Brief",
+      "tags": [
+        "climate",
+        "water",
+        "energy",
+        "health",
+        "policy",
+        "finance",
+        "resilience",
+        "urbanization"
+      ],
+      "wordCount": 1275,
+      "sourcesUsed": 7,
+      "readabilityScore": 89,
+      "publishedAt": "2026-03-07T01:59:34.570Z",
+      "updatedAt": "2026-03-07T02:00:08.254Z",
+      "status": "published",
+      "mdFile": "the-infrastructure-debt-trap-breaking-the-vicious-cycle-of-water-energy-poverty--1772848774558.md",
+      "htmlFile": "the-infrastructure-debt-trap-breaking-the-vicious-cycle-of-water-energy-poverty--1772848774558.html",
+      "region": "Sub-Saharan Africa",
+      "driveFileId": "1HLyMyj9fzZ5Y1PGCk2qqW10IIoOPtH4_",
+      "driveWebViewLink": "https://drive.google.com/file/d/1HLyMyj9fzZ5Y1PGCk2qqW10IIoOPtH4_/view?usp=drivesdk"
+    },
+    {
       "slug": "the-grid-water-synergy-gap-integrating-microgrids-and-wastewater-reclamation-for-1772846968812",
       "title": "The Grid-Water Synergy Gap: Integrating Microgrids and Wastewater Reclamation for Resilient Water Security in East Africa",
       "summary": "Governments and development partners must redirect capital from isolated solar pumping projects toward integrated decentralized microgrid systems that power wastewater reclamation and managed aquifer recharge.",
@@ -2341,6 +2369,6 @@
       "region": "Sub-Saharan Africa"
     }
   ],
-  "lastUpdated": "2026-03-07T01:29:58.841Z",
-  "totalPublished": 79
+  "lastUpdated": "2026-03-07T02:00:08.254Z",
+  "totalPublished": 80
 }
