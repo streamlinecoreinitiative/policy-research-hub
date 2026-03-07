@@ -1,6 +1,49 @@
 {
   "posts": [
     {
+      "id": "mmgd0jdx-tw",
+      "articleSlug": "the-fiscal-trap-of-centralized-infrastructure-unlocking-water-energy-resilience--1772890112955",
+      "articleTitle": "The Fiscal Trap of Centralized Infrastructure: Unlocking Water-Energy Resilience Through Community-Led Hybrid Systems in Fragile States",
+      "platform": "twitter",
+      "content": "Centralized water and energy grids are failing fragile states. New research shows top-down infrastructure creates dual vulnerability to climate shocks and fiscal unsustainability. We must pivot to community-led hybrid systems for real resilience. #WaterSecurity #ClimateResilience",
+      "hashtags": [
+        "WaterSecurity",
+        "ClimateResilience",
+        "InfrastructurePolicy"
+      ],
+      "url": "https://baseflow.institute/article/the-fiscal-trap-of-centralized-infrastructure-unlocking-water-energy-resilience--1772890112955",
+      "status": "pending",
+      "createdAt": "2026-03-07T13:29:00.453Z"
+    },
+    {
+      "id": "mmgd0jdx-li",
+      "articleSlug": "the-fiscal-trap-of-centralized-infrastructure-unlocking-water-energy-resilience--1772890112955",
+      "articleTitle": "The Fiscal Trap of Centralized Infrastructure: Unlocking Water-Energy Resilience Through Community-Led Hybrid Systems in Fragile States",
+      "platform": "linkedin",
+      "content": "The traditional model of building large-scale dams and long-distance transmission lines is proving increasingly risky and economically unviable for fragile states. When extreme weather events occur, these centralized systems frequently collapse, leaving vulnerable populations without basic services. The data is stark: while global electricity access has risen, Sub-Saharan Africa remains critically dependent on imported fossil fuels, with only 32.4% of its population having safely managed drinking water compared to the global average of 73.7%.\n\nThe urgency is compounded by a fiscal trap. Reliance on top-down infrastructure drains foreign exchange reserves and creates cycles of subsidy dependency that are unsustainable in volatile markets. Governments and development partners must consider halting the expansion of centralized grids in remote, low-income regions. Instead, capital should be redirected toward decentralized, community-managed hybrid systems. This shift offers a proven pathway to break the cycle of vulnerability, ensuring resilience where traditional engineering fails. Securing water and energy for the poorest nations requires localized resource management, not more distant infrastructure.",
+      "hashtags": [
+        "SustainableDevelopment",
+        "WaterEnergyResilience",
+        "PolicyBrief"
+      ],
+      "url": "https://baseflow.institute/article/the-fiscal-trap-of-centralized-infrastructure-unlocking-water-energy-resilience--1772890112955",
+      "status": "pending",
+      "createdAt": "2026-03-07T13:29:00.453Z"
+    },
+    {
+      "id": "mmgd0jdx-bs",
+      "articleSlug": "the-fiscal-trap-of-centralized-infrastructure-unlocking-water-energy-resilience--1772890112955",
+      "articleTitle": "The Fiscal Trap of Centralized Infrastructure: Unlocking Water-Energy Resilience Through Community-Led Hybrid Systems in Fragile States",
+      "platform": "bluesky",
+      "content": "Is it time to stop building massive dams in remote areas? New evidence suggests centralized grids are actually creating a fiscal trap for fragile states. When climate shocks hit, these systems collapse, leaving millions without power or clean water. With only 32.4% of Sub-Saharan Africa having safel",
+      "hashtags": [
+        "ClimateAction #WaterSecurity #DecentralizedEnergy"
+      ],
+      "url": "https://baseflow.institute/article/the-fiscal-trap-of-centralized-infrastructure-unlocking-water-energy-resilience--1772890112955",
+      "status": "pending",
+      "createdAt": "2026-03-07T13:29:00.453Z"
+    },
+    {
       "id": "mmgbywzf-tw",
       "articleSlug": "the-inverted-nexus-prioritizing-water-security-as-the-primary-engine-for-energy--1772888353988",
       "articleTitle": "The Inverted Nexus: Prioritizing Water Security as the Primary Engine for Energy Access and Climate Adaptation in East Africa",
@@ -3637,5 +3680,5 @@
       "createdAt": "2026-03-02T00:01:09.765Z"
     }
   ],
-  "lastUpdated": "2026-03-07T12:59:45.152Z"
+  "lastUpdated": "2026-03-07T13:29:00.456Z"
 }

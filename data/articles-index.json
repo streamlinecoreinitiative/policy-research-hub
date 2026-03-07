@@ -1,6 +1,34 @@
 {
   "articles": [
     {
+      "slug": "the-fiscal-trap-of-centralized-infrastructure-unlocking-water-energy-resilience--1772890112955",
+      "title": "The Fiscal Trap of Centralized Infrastructure: Unlocking Water-Energy Resilience Through Community-Led Hybrid Systems in Fragile States",
+      "summary": "Governments and development partners must consider halting the expansion of centralized water and energy grids in remote, low-income regions and redirect capital toward community-led hybrid systems.",
+      "topic": "Environmental resilience in lower-income countries: water security, clean energy, and climate adaptation",
+      "template": "Policy Brief",
+      "tags": [
+        "climate",
+        "water",
+        "energy",
+        "policy",
+        "finance",
+        "resilience",
+        "urbanization",
+        "education"
+      ],
+      "wordCount": 1174,
+      "sourcesUsed": 11,
+      "readabilityScore": 85,
+      "publishedAt": "2026-03-07T13:28:32.963Z",
+      "updatedAt": "2026-03-07T13:29:02.665Z",
+      "status": "published",
+      "mdFile": "the-fiscal-trap-of-centralized-infrastructure-unlocking-water-energy-resilience--1772890112955.md",
+      "htmlFile": "the-fiscal-trap-of-centralized-infrastructure-unlocking-water-energy-resilience--1772890112955.html",
+      "region": "Sub-Saharan Africa",
+      "driveFileId": "1iyMRtZGbRc1F2MAclHcD1Lv15JJwBypr",
+      "driveWebViewLink": "https://drive.google.com/file/d/1iyMRtZGbRc1F2MAclHcD1Lv15JJwBypr/view?usp=drivesdk"
+    },
+    {
       "slug": "the-inverted-nexus-prioritizing-water-security-as-the-primary-engine-for-energy--1772888353988",
       "title": "The Inverted Nexus: Prioritizing Water Security as the Primary Engine for Energy Access and Climate Adaptation in East Africa",
       "summary": "Current development strategies in East Africa frequently prioritize electrification projects before addressing water security, a sequence that may yield diminishing returns.",
@@ -2985,6 +3013,6 @@
       "region": "Sub-Saharan Africa"
     }
   ],
-  "lastUpdated": "2026-03-07T12:59:46.533Z",
-  "totalPublished": 102
+  "lastUpdated": "2026-03-07T13:29:02.665Z",
+  "totalPublished": 103
 }
