@@ -1,6 +1,45 @@
 {
   "posts": [
     {
+      "id": "mmfsotbq-tw",
+      "articleSlug": "the-maintenance-mismatch-addressing-operational-collapse-in-sub-saharan-africa-s-1772855969232",
+      "articleTitle": "The Maintenance Mismatch: Addressing Operational Collapse in Sub-Saharan Africa's Solar Pumping Infrastructure for Water Security",
+      "platform": "twitter",
+      "content": "Solar pumps in Sub-Saharan Africa are failing not because of bad tech, but a broken funding model. Donors must shift from \"build-and-forget\" to \"Operational Resilience First.\" Ring-fence maintenance budgets and reward uptime, not just installation speed. Otherwise, we risk creati",
+      "hashtags": [
+        "WaterSecurity #ClimateAdaptation #SolarEnergy"
+      ],
+      "url": "https://baseflow.institute/article/the-maintenance-mismatch-addressing-operational-collapse-in-sub-saharan-africa-s-1772855969232",
+      "status": "pending",
+      "createdAt": "2026-03-07T04:00:01.142Z"
+    },
+    {
+      "id": "mmfsotbq-li",
+      "articleSlug": "the-maintenance-mismatch-addressing-operational-collapse-in-sub-saharan-africa-s-1772855969232",
+      "articleTitle": "The Maintenance Mismatch: Addressing Operational Collapse in Sub-Saharan Africa's Solar Pumping Infrastructure for Water Security",
+      "platform": "linkedin",
+      "content": "The promise of solar energy for water security in Sub-Saharan Africa is being undermined by a critical operational mismatch. While global electricity access looks high on paper, reliable service remains elusive in the region, leaving vital irrigation and drinking water systems vulnerable to climate shocks.\n\nOur latest research highlights that despite significant investment, these solar pumping infrastructures are collapsing due to a lack of local spare parts and technical expertise. The core issue isn't the absence of technology, but the failure to adopt a sustainable lifecycle management strategy. When pumps fail from dust or wear, communities often revert to diesel generators, negating carbon benefits and straining household budgets.\n\nTo reverse this trend, we recommend a fundamental policy shift: moving away from one-off capital grants toward an \"Operational Resilience First\" framework. This involves mandating ring-fenced maintenance reserves in project budgets and transitioning funding models to multi-year performance-based contracts that reward sustained system uptime rather than installation speed. Without these structural changes, climate adaptation funding risks delivering empty promises, leaving millions vulnerable to water scarcity despite the availability of renewable energy.",
+      "hashtags": [
+        "PolicyBrief #WaterSecurity #CleanEnergy #SubSaharanAfrica"
+      ],
+      "url": "https://baseflow.institute/article/the-maintenance-mismatch-addressing-operational-collapse-in-sub-saharan-africa-s-1772855969232",
+      "status": "pending",
+      "createdAt": "2026-03-07T04:00:01.142Z"
+    },
+    {
+      "id": "mmfsotbq-bs",
+      "articleSlug": "the-maintenance-mismatch-addressing-operational-collapse-in-sub-saharan-africa-s-1772855969232",
+      "articleTitle": "The Maintenance Mismatch: Addressing Operational Collapse in Sub-Saharan Africa's Solar Pumping Infrastructure for Water Security",
+      "platform": "bluesky",
+      "content": "We're seeing a real crisis in Sub-Saharan Africa where solar water pumps are becoming \"white elephants.\" The tech is there, but without local spare parts and maintenance expertise, these systems fail quickly. When they break, communities switch to diesel generators, destroying the carbon benefits we",
+      "hashtags": [
+        "WaterSecurity #SolarPumps #ClimateAction"
+      ],
+      "url": "https://baseflow.institute/article/the-maintenance-mismatch-addressing-operational-collapse-in-sub-saharan-africa-s-1772855969232",
+      "status": "pending",
+      "createdAt": "2026-03-07T04:00:01.142Z"
+    },
+    {
       "id": "mmfrqpb1-tw",
       "articleSlug": "the-grid-water-synergy-gap-integrating-microgrids-and-wastewater-reclamation-for-1772854380687",
       "articleTitle": "The Grid-Water Synergy Gap: Integrating Microgrids and Wastewater Reclamation for Resilient Water Security in East Africa",
@@ -2918,5 +2957,5 @@
       "createdAt": "2026-03-02T00:01:09.765Z"
     }
   ],
-  "lastUpdated": "2026-03-07T03:33:29.632Z"
+  "lastUpdated": "2026-03-07T04:00:01.147Z"
 }

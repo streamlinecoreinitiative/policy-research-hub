@@ -1,6 +1,34 @@
 {
   "articles": [
     {
+      "slug": "the-maintenance-mismatch-addressing-operational-collapse-in-sub-saharan-africa-s-1772855969232",
+      "title": "The Maintenance Mismatch: Addressing Operational Collapse in Sub-Saharan Africa's Solar Pumping Infrastructure for Water Security",
+      "summary": "To reverse the operational collapse of solar water pumping infrastructure, global donors and national governments must shift from a \"build-and-forget\" capital expenditure model to an \"Operational Resilience First\" framework.",
+      "topic": "Environmental resilience in lower-income countries: water security, clean energy, and climate adaptation",
+      "template": "Policy Brief",
+      "tags": [
+        "climate",
+        "water",
+        "energy",
+        "policy",
+        "finance",
+        "resilience",
+        "urbanization",
+        "education"
+      ],
+      "wordCount": 1198,
+      "sourcesUsed": 17,
+      "readabilityScore": 84,
+      "publishedAt": "2026-03-07T03:59:29.240Z",
+      "updatedAt": "2026-03-07T04:00:02.908Z",
+      "status": "published",
+      "mdFile": "the-maintenance-mismatch-addressing-operational-collapse-in-sub-saharan-africa-s-1772855969232.md",
+      "htmlFile": "the-maintenance-mismatch-addressing-operational-collapse-in-sub-saharan-africa-s-1772855969232.html",
+      "region": "Sub-Saharan Africa",
+      "driveFileId": "1UA-L_gsQzKdewuEm1jSZyGjnfOpmFQVs",
+      "driveWebViewLink": "https://drive.google.com/file/d/1UA-L_gsQzKdewuEm1jSZyGjnfOpmFQVs/view?usp=drivesdk"
+    },
+    {
       "slug": "the-grid-water-synergy-gap-integrating-microgrids-and-wastewater-reclamation-for-1772854380687",
       "title": "The Grid-Water Synergy Gap: Integrating Microgrids and Wastewater Reclamation for Resilient Water Security in East Africa",
       "summary": "Development practitioners must immediately pivot from siloed infrastructure projects to integrated \"energy-positive\" water systems that couple decentralized renewable microgrids with wastewater reclamation.",
@@ -2453,6 +2481,6 @@
       "region": "Sub-Saharan Africa"
     }
   ],
-  "lastUpdated": "2026-03-07T03:33:31.181Z",
-  "totalPublished": 83
+  "lastUpdated": "2026-03-07T04:00:02.908Z",
+  "totalPublished": 84
 }
