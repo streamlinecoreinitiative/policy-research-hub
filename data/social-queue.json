@@ -1,6 +1,34 @@
 {
   "posts": [
     {
+      "id": "mmfy1b2r-tw",
+      "articleSlug": "the-baseload-paradox-overcoming-infrastructure-rigidity-in-sub-saharan-africa-s--1772864950446",
+      "articleTitle": "The Baseload Paradox: Overcoming Infrastructure Rigidity in Sub-Saharan Africa's Water-Energy Nexus Through Decentralized Hybrid Systems",
+      "platform": "twitter",
+      "content": "Sub-Saharan Africa faces a water-energy crisis: 32.4% lacks safe drinking water, and half are off-grid. Rigid centralized systems can't adapt to climate shocks. The solution? Retrofit with decentralized hybrid units that decouple energy from water delivery at the community level.",
+      "hashtags": [
+        "WaterSecurity",
+        "CleanEnergy",
+        "ClimateAdaptation"
+      ],
+      "url": "https://baseflow.institute/article/the-baseload-paradox-overcoming-infrastructure-rigidity-in-sub-saharan-africa-s--1772864950446",
+      "status": "pending",
+      "createdAt": "2026-03-07T06:29:42.099Z"
+    },
+    {
+      "id": "mmfy1b2r-li",
+      "articleSlug": "the-baseload-paradox-overcoming-infrastructure-rigidity-in-sub-saharan-africa-s--1772864950446",
+      "articleTitle": "The Baseload Paradox: Overcoming Infrastructure Rigidity in Sub-Saharan Africa's Water-Energy Nexus Through Decentralized Hybrid Systems",
+      "platform": "linkedin",
+      "content": "Sub-Saharan Africa is facing a dual crisis: nearly 32.4% of its population lacks access to safely managed drinking water, while almost half remain off-grid. The current reliance on centralized infrastructure creates what we call the \"baseload paradox\"—fixed operational costs and rigid supply chains struggle to adapt to shifting climate realities, leading to frequent service interruptions that deepen poverty.\n\nThe evidence is clear: global renewable energy growth is insufficient to power the water sector adequately in developing regions, yet policy frameworks continue to treat water and energy as separate silos. This disconnect leaves communities vulnerable to both droughts and grid outages.\n\nOur research argues that the most feasible path forward lies not in massive new construction, but in retrofitting existing systems with decentralized hybrid technologies. By deploying modular, solar-integrated pumping and treatment units at the community level, we can decouple energy generation from water delivery. This approach ensures water security even during extreme weather events.\n\nPolicymakers must immediately shift funding from centralized expansion projects to pilot programs supporting micro-resilience units in high-stress zones. Investing in these decentralized systems is not just an environmental imperative; it is a critical driver of economic stability and public health in one of the world's most climate-vulnerable regions.",
+      "hashtags": [
+        "WaterEnergyNexus #DecentralizedSystems #SDG6 #ClimateResilience"
+      ],
+      "url": "https://baseflow.institute/article/the-baseload-paradox-overcoming-infrastructure-rigidity-in-sub-saharan-africa-s--1772864950446",
+      "status": "pending",
+      "createdAt": "2026-03-07T06:29:42.099Z"
+    },
+    {
       "id": "mmfwyrgq-tw",
       "articleSlug": "breaking-the-thermal-threshold-integrating-managed-aquifer-recharge-with-decentr-1772863155951",
       "articleTitle": "Breaking the Thermal Threshold: Integrating Managed Aquifer Recharge with Decentralized Solar Pumping for Climate-Resilient Water Security in East Africa",
@@ -3117,5 +3145,5 @@
       "createdAt": "2026-03-02T00:01:09.765Z"
     }
   ],
-  "lastUpdated": "2026-03-07T05:59:43.758Z"
+  "lastUpdated": "2026-03-07T06:29:42.104Z"
 }

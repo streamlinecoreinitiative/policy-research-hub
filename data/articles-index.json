@@ -1,6 +1,34 @@
 {
   "articles": [
     {
+      "slug": "the-baseload-paradox-overcoming-infrastructure-rigidity-in-sub-saharan-africa-s--1772864950446",
+      "title": "The Baseload Paradox: Overcoming Infrastructure Rigidity in Sub-Saharan Africa's Water-Energy Nexus Through Decentralized Hybrid Systems",
+      "summary": "Sub-Saharan Africa faces a critical dual crisis where 32.4% of its population lacks access to safely managed drinking water, while nearly half remains off-grid with electricity (World Bank Open Data).",
+      "topic": "Environmental resilience in lower-income countries: water security, clean energy, and climate adaptation",
+      "template": "Policy Brief",
+      "tags": [
+        "climate",
+        "water",
+        "energy",
+        "health",
+        "policy",
+        "finance",
+        "resilience",
+        "urbanization"
+      ],
+      "wordCount": 1229,
+      "sourcesUsed": 11,
+      "readabilityScore": 90,
+      "publishedAt": "2026-03-07T06:29:10.451Z",
+      "updatedAt": "2026-03-07T06:29:43.355Z",
+      "status": "published",
+      "mdFile": "the-baseload-paradox-overcoming-infrastructure-rigidity-in-sub-saharan-africa-s--1772864950446.md",
+      "htmlFile": "the-baseload-paradox-overcoming-infrastructure-rigidity-in-sub-saharan-africa-s--1772864950446.html",
+      "region": "Sub-Saharan Africa",
+      "driveFileId": "1Ix7IQfshekMJKS7Iabl5Pr2bmhyXCgzr",
+      "driveWebViewLink": "https://drive.google.com/file/d/1Ix7IQfshekMJKS7Iabl5Pr2bmhyXCgzr/view?usp=drivesdk"
+    },
+    {
       "slug": "breaking-the-thermal-threshold-integrating-managed-aquifer-recharge-with-decentr-1772863155951",
       "title": "Breaking the Thermal Threshold: Integrating Managed Aquifer Recharge with Decentralized Solar Pumping for Climate-Resilient Water Security in East Africa",
       "summary": "East African nations face significant challenges as rising temperatures reduce soil moisture and increase evaporation rates, potentially rendering traditional groundwater extraction unsustainable without substantial energy inputs.",
@@ -2593,6 +2621,6 @@
       "region": "Sub-Saharan Africa"
     }
   ],
-  "lastUpdated": "2026-03-07T05:59:45.193Z",
-  "totalPublished": 88
+  "lastUpdated": "2026-03-07T06:29:43.355Z",
+  "totalPublished": 89
 }
