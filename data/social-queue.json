@@ -1,6 +1,47 @@
 {
   "posts": [
     {
+      "id": "mmfk4sc5-tw",
+      "articleSlug": "the-thermal-threshold-trap-integrating-managed-aquifer-recharge-with-decentraliz-1772841590271",
+      "articleTitle": "The Thermal Threshold Trap: Integrating Managed Aquifer Recharge with Decentralized Solar Pumping for Climate-Resilient Water Security in East Africa",
+      "platform": "twitter",
+      "content": "East Africa faces an existential water crisis. Rising temperatures and erratic rainfall are depleting aquifers faster than they recharge, while surface storage fails due to evaporation. The solution? Integrate Managed Aquifer Recharge with decentralized solar pumping. This hybrid",
+      "hashtags": [
+        "WaterSecurity",
+        "ClimateResilience",
+        "SustainableDevelopment"
+      ],
+      "url": "https://baseflow.institute/article/the-thermal-threshold-trap-integrating-managed-aquifer-recharge-with-decentraliz-1772841590271",
+      "status": "pending",
+      "createdAt": "2026-03-07T00:00:29.813Z"
+    },
+    {
+      "id": "mmfk4sc5-li",
+      "articleSlug": "the-thermal-threshold-trap-integrating-managed-aquifer-recharge-with-decentraliz-1772841590271",
+      "articleTitle": "The Thermal Threshold Trap: Integrating Managed Aquifer Recharge with Decentralized Solar Pumping for Climate-Resilient Water Security in East Africa",
+      "platform": "linkedin",
+      "content": "East Africa is confronting a critical convergence of climatic shifts: prolonged dry spells are depleting aquifers faster than natural recharge can restore them, while rising temperatures render traditional surface reservoirs increasingly unreliable due to accelerated evaporation. The result is a dual crisis of water scarcity and energy poverty. With only 32.4% of Sub-Saharan Africa accessing safely managed drinking water and just 53.3% having electricity access, communities remain dependent on inefficient manual labor or volatile diesel generators for pumping.\n\nThe path forward requires a strategic pivot away from unreliable surface storage toward a hybrid system integrating Managed Aquifer Recharge (MAR) with decentralized solar microgrids. By capturing excess water during wet seasons and powering extraction during dry spells using local renewable resources, the region can significantly mitigate evaporation losses and reduce operational costs. Governments must integrate MAR into National Adaptation Plans, while development partners facilitate public-private financing for community-level solar infrastructure. Without this dual strategy, agricultural output and public health infrastructure risk collapse as traditional storage fails and aquifers are mined beyond sustainable limits.",
+      "hashtags": [
+        "WaterSecurity #ClimateAdaptation #RenewableEnergy #PolicyBrief"
+      ],
+      "url": "https://baseflow.institute/article/the-thermal-threshold-trap-integrating-managed-aquifer-recharge-with-decentraliz-1772841590271",
+      "status": "pending",
+      "createdAt": "2026-03-07T00:00:29.813Z"
+    },
+    {
+      "id": "mmfk4sc5-bs",
+      "articleSlug": "the-thermal-threshold-trap-integrating-managed-aquifer-recharge-with-decentraliz-1772841590271",
+      "articleTitle": "The Thermal Threshold Trap: Integrating Managed Aquifer Recharge with Decentralized Solar Pumping for Climate-Resilient Water Security in East Africa",
+      "platform": "bluesky",
+      "content": "East Africa is in the midst of a thermal threshold trap where rising temperatures are accelerating evaporation from surface water bodies, making traditional reservoirs useless during dry spells. Meanwhile, aquifers are being mined faster than they recharge due to population growth and agricultural e",
+      "hashtags": [
+        "WaterCrisis #SolarEnergy #ClimateAction"
+      ],
+      "url": "https://baseflow.institute/article/the-thermal-threshold-trap-integrating-managed-aquifer-recharge-with-decentraliz-1772841590271",
+      "status": "pending",
+      "createdAt": "2026-03-07T00:00:29.813Z"
+    },
+    {
       "id": "mmfj1ftk-tw",
       "articleSlug": "urban-heat-mitigation-through-cool-roofs-in-the-central-america-dry-corridor-sup-1772839764185",
       "articleTitle": "urban heat mitigation through cool roofs in the Central America dry corridor: supporting adaptation targets in NDCs",
@@ -2602,5 +2643,5 @@
       "createdAt": "2026-03-02T00:01:09.765Z"
     }
   ],
-  "lastUpdated": "2026-03-06T23:29:54.012Z"
+  "lastUpdated": "2026-03-07T00:00:29.816Z"
 }
