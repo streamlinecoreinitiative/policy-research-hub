@@ -1,6 +1,38 @@
 {
   "posts": [
     {
+      "id": "mmfutpt7-tw",
+      "articleSlug": "the-desalination-dilemma-leveraging-coastal-microgrids-for-water-energy-security-1772859557941",
+      "articleTitle": "The Desalination Dilemma: Leveraging Coastal Microgrids for Water-Energy Security in Small Island Developing States",
+      "platform": "twitter",
+      "content": "Global water access hides a crisis in Small Island Developing States, where traditional freshwater is scarce and centralized systems fail. The solution isn't just more solar panels; it's hybrid coastal microgrids that power desalination directly. Decentralized energy-security sav",
+      "hashtags": [
+        "WaterSecurity",
+        "ClimateAdaptation",
+        "SIDS"
+      ],
+      "url": "https://baseflow.institute/article/the-desalination-dilemma-leveraging-coastal-microgrids-for-water-energy-security-1772859557941",
+      "status": "pending",
+      "createdAt": "2026-03-07T04:59:49.099Z"
+    },
+    {
+      "id": "mmfutpt7-li",
+      "articleSlug": "the-desalination-dilemma-leveraging-coastal-microgrids-for-water-energy-security-1772859557941",
+      "articleTitle": "The Desalination Dilemma: Leveraging Coastal Microgrids for Water-Energy Security in Small Island Developing States",
+      "platform": "linkedin",
+      "content": "Global access to safely managed drinking water stands at 73.7%, but for Small Island Developing States (SIDS), this statistic masks a critical vulnerability. Traditional freshwater sources are often insufficient, and centralized infrastructure is frequently economically unfeasible due to high maintenance costs and supply chain fragility.\n\nThe current reliance on imported fossil fuels and diesel generators not only drains foreign reserves but also undermines national climate commitments under Nationally Determined Contributions (NDCs). Furthermore, extreme weather events increasingly sever these energy supply lines, creating a cascading failure in sanitation and agriculture.\n\nThis policy brief argues that the path forward lies not in generic renewable deployment, but in leveraging coastal microgrids that integrate local solar and wind power directly with desalination units. By shifting focus to this water-energy nexus, SIDS can reduce dependency on imported fuels, mitigate climate risks, and build true community resilience. The time to pivot from centralized models to decentralized hybrid systems is now.\n\n#WaterEnergyNexus #ClimateResilience #SustainableDevelopment #PolicyBrief #Desalination",
+      "hashtags": [
+        "WaterEnergyNexus",
+        "ClimateResilience",
+        "SustainableDevelopment",
+        "PolicyBrief",
+        "Desalination"
+      ],
+      "url": "https://baseflow.institute/article/the-desalination-dilemma-leveraging-coastal-microgrids-for-water-energy-security-1772859557941",
+      "status": "pending",
+      "createdAt": "2026-03-07T04:59:49.099Z"
+    },
+    {
       "id": "mmftqmpl-tw",
       "articleSlug": "the-desalination-dilemma-leveraging-coastal-microgrids-for-water-energy-security-1772857732072",
       "articleTitle": "The Desalination Dilemma: Leveraging Coastal Microgrids for Water-Energy Security in Small Island Developing States",
@@ -2998,5 +3030,5 @@
       "createdAt": "2026-03-02T00:01:09.765Z"
     }
   ],
-  "lastUpdated": "2026-03-07T04:29:25.500Z"
+  "lastUpdated": "2026-03-07T04:59:49.103Z"
 }
