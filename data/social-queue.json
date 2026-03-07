@@ -1,6 +1,52 @@
 {
   "posts": [
     {
+      "id": "mmg5ji90-tw",
+      "articleSlug": "beyond-solar-illusions-integrating-energy-affordability-into-water-security-stra-1772877561013",
+      "articleTitle": "** Beyond Solar Illusions: Integrating Energy Affordability into Water Security Strategies for Sub-Saharan Africa",
+      "platform": "twitter",
+      "content": "Solar isn't the silver bullet for Sub-Saharan Africa's water crisis. With only 32% access to safe drinking water and half the region lacking electricity, expensive diesel pumps are killing infrastructure before it starts. We need policy shifts: mandate energy audits and subsidize",
+      "hashtags": [
+        "WaterSecurity",
+        "EnergyPoverty",
+        "ClimateAdaptation"
+      ],
+      "url": "https://baseflow.institute/article/beyond-solar-illusions-integrating-energy-affordability-into-water-security-stra-1772877561013",
+      "status": "pending",
+      "createdAt": "2026-03-07T09:59:48.516Z"
+    },
+    {
+      "id": "mmg5ji90-li",
+      "articleSlug": "beyond-solar-illusions-integrating-energy-affordability-into-water-security-stra-1772877561013",
+      "articleTitle": "** Beyond Solar Illusions: Integrating Energy Affordability into Water Security Strategies for Sub-Saharan Africa",
+      "platform": "linkedin",
+      "content": "Global efforts to achieve SDG 6 are stalling in Sub-Saharan Africa, where safe drinking water access stands at a stark 32.4% compared to the global average of 73.7%. The root cause? An energy crisis. With over half the region lacking electricity, reliance on costly diesel generators creates a vicious cycle of poverty and environmental degradation.\n\nCurrent \"solar-first\" approaches are failing because they ignore operational reality. Deploying solar wells without addressing grid stability or affordable energy access leads to abandoned projects. Water security is impossible without solving energy affordability.\n\nTo reverse this trend, policymakers must move beyond simple technology transfer. We need systemic integration: mandating rigorous energy cost audits for new water projects and establishing hybrid financing models that subsidize operational expenditures (OPEX) rather than just capital costs. The nexus between water and energy demands a strategy that treats energy poverty as a critical barrier to development.",
+      "hashtags": [
+        "SDG6",
+        "SustainableDevelopment",
+        "WaterEnergyNexus",
+        "PolicyBrief"
+      ],
+      "url": "https://baseflow.institute/article/beyond-solar-illusions-integrating-energy-affordability-into-water-security-stra-1772877561013",
+      "status": "pending",
+      "createdAt": "2026-03-07T09:59:48.516Z"
+    },
+    {
+      "id": "mmg5ji90-bs",
+      "articleSlug": "beyond-solar-illusions-integrating-energy-affordability-into-water-security-stra-1772877561013",
+      "articleTitle": "** Beyond Solar Illusions: Integrating Energy Affordability into Water Security Strategies for Sub-Saharan Africa",
+      "platform": "bluesky",
+      "content": "We are seeing \"solar illusions\" in Sub-Saharan Africa—beautiful panels installed, but the systems die because they can't afford the diesel or grid power needed to run them. With only 32% of the region having safe drinking water and half lacking electricity, we need a real fix: policy that mandates e",
+      "hashtags": [
+        "WaterSecurity",
+        "EnergyPoverty",
+        "ClimateAdaptation"
+      ],
+      "url": "https://baseflow.institute/article/beyond-solar-illusions-integrating-energy-affordability-into-water-security-stra-1772877561013",
+      "status": "pending",
+      "createdAt": "2026-03-07T09:59:48.516Z"
+    },
+    {
       "id": "mmg4gsa5-tw",
       "articleSlug": "the-operational-collapse-of-hybrid-systems-rebuilding-maintenance-capacity-for-w-1772875748267",
       "articleTitle": "The Operational Collapse of Hybrid Systems: Rebuilding Maintenance Capacity for Water-Energy Resilience in Sub-Saharan Africa",
@@ -3368,5 +3414,5 @@
       "createdAt": "2026-03-02T00:01:09.765Z"
     }
   ],
-  "lastUpdated": "2026-03-07T09:29:41.937Z"
+  "lastUpdated": "2026-03-07T09:59:48.520Z"
 }
