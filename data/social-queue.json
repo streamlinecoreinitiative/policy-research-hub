@@ -1,6 +1,52 @@
 {
   "posts": [
     {
+      "id": "mmflbd6p-tw",
+      "articleSlug": "the-energy-water-nexus-bottleneck-unlocking-resilience-in-sub-saharan-africa-thr-1772843531992",
+      "articleTitle": "The Energy-Water Nexus Bottleneck: Unlocking Resilience in Sub-Saharan Africa Through Decentralized Hybrid Microgrids and Solar-Powered Pumping Systems",
+      "platform": "twitter",
+      "content": "Sub-Saharan Africa faces a deadly convergence: energy poverty blocks clean water tech, while drought threatens agriculture. Only 32.4% of the region has safely managed drinking water due to unreliable grids. We must mandate hybrid microgrids (solar + battery) for rural projects i",
+      "hashtags": [
+        "EnergyWaterNexus",
+        "ClimateAdaptation",
+        "SubSaharanAfrica"
+      ],
+      "url": "https://baseflow.institute/article/the-energy-water-nexus-bottleneck-unlocking-resilience-in-sub-saharan-africa-thr-1772843531992",
+      "status": "pending",
+      "createdAt": "2026-03-07T00:33:36.383Z"
+    },
+    {
+      "id": "mmflbd6p-li",
+      "articleSlug": "the-energy-water-nexus-bottleneck-unlocking-resilience-in-sub-saharan-africa-thr-1772843531992",
+      "articleTitle": "The Energy-Water Nexus Bottleneck: Unlocking Resilience in Sub-Saharan Africa Through Decentralized Hybrid Microgrids and Solar-Powered Pumping Systems",
+      "platform": "linkedin",
+      "content": "The intersection of water and energy is the single most critical constraint on development in lower-income countries right now. In Sub-Saharan Africa, we are witnessing a perfect storm: unreliable centralized grids prevent the deployment of efficient renewable water technologies, while escalating water scarcity threatens agricultural productivity and public health.\n\nCurrent data reveals a stark reality. Only 32.4% of the population has access to safely managed drinking water services, compared to a global average of 73.7%. This deficit is directly exacerbated by energy poverty; with electricity access at just 53.3%, communities lack the reliable power required for modern pumping and treatment systems.\n\nTo unlock resilience, policymakers must prioritize integrated hybrid microgrid systems for rural infrastructure. We need to revise national water security frameworks to explicitly mandate hybrid solutions—combining solar photovoltaic power, battery storage, and backup generators—for all new and upgraded rural projects. This approach decouples water security from unstable centralized grids, offering a sustainable path forward.\n\nHas the time come to treat energy-water integration not as an engineering add-on, but as a fundamental requirement for national adaptation goals? The window to act is closing.",
+      "hashtags": [
+        "WaterSecurity",
+        "RenewableEnergy",
+        "PolicyBrief",
+        "SustainableDevelopment"
+      ],
+      "url": "https://baseflow.institute/article/the-energy-water-nexus-bottleneck-unlocking-resilience-in-sub-saharan-africa-thr-1772843531992",
+      "status": "pending",
+      "createdAt": "2026-03-07T00:33:36.383Z"
+    },
+    {
+      "id": "mmflbd6p-bs",
+      "articleSlug": "the-energy-water-nexus-bottleneck-unlocking-resilience-in-sub-saharan-africa-thr-1772843531992",
+      "articleTitle": "The Energy-Water Nexus Bottleneck: Unlocking Resilience in Sub-Saharan Africa Through Decentralized Hybrid Microgrids and Solar-Powered Pumping Systems",
+      "platform": "bluesky",
+      "content": "We're seeing a critical bottleneck in Sub-Saharan Africa that no one is talking about enough: energy poverty is actively preventing water security. With only 32.4% of the region having safe drinking water access, the culprit isn't just lack of rain or pipes—it's the unreliable electricity grids that",
+      "hashtags": [
+        "EnergyWaterNexus",
+        "ClimateResilience",
+        "WaterPolicy"
+      ],
+      "url": "https://baseflow.institute/article/the-energy-water-nexus-bottleneck-unlocking-resilience-in-sub-saharan-africa-thr-1772843531992",
+      "status": "pending",
+      "createdAt": "2026-03-07T00:33:36.383Z"
+    },
+    {
       "id": "mmfk4sc5-tw",
       "articleSlug": "the-thermal-threshold-trap-integrating-managed-aquifer-recharge-with-decentraliz-1772841590271",
       "articleTitle": "The Thermal Threshold Trap: Integrating Managed Aquifer Recharge with Decentralized Solar Pumping for Climate-Resilient Water Security in East Africa",
@@ -2643,5 +2689,5 @@
       "createdAt": "2026-03-02T00:01:09.765Z"
     }
   ],
-  "lastUpdated": "2026-03-07T00:00:29.816Z"
+  "lastUpdated": "2026-03-07T00:33:36.423Z"
 }
