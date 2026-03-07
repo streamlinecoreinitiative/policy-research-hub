@@ -1,6 +1,34 @@
 {
   "articles": [
     {
+      "slug": "fractured-resilience-decentralized-hybrid-microgrids-as-the-strategic-engine-for-1772899201455",
+      "title": "Fractured Resilience: Decentralized Hybrid Microgrids as the Strategic Engine for Water Security and Energy Access in Sub-Saharan Africa",
+      "summary": "To break the cycle of energy poverty and water scarcity in fragile states, policy must pivot from funding centralized infrastructure projects to deploying decentralized hybrid microgrid systems.",
+      "topic": "Environmental resilience in lower-income countries: water security, clean energy, and climate adaptation",
+      "template": "Policy Brief",
+      "tags": [
+        "climate",
+        "water",
+        "energy",
+        "agriculture",
+        "policy",
+        "finance",
+        "resilience",
+        "biodiversity"
+      ],
+      "wordCount": 1203,
+      "sourcesUsed": 16,
+      "readabilityScore": 89,
+      "publishedAt": "2026-03-07T16:00:01.467Z",
+      "updatedAt": "2026-03-07T16:00:40.661Z",
+      "status": "published",
+      "mdFile": "fractured-resilience-decentralized-hybrid-microgrids-as-the-strategic-engine-for-1772899201455.md",
+      "htmlFile": "fractured-resilience-decentralized-hybrid-microgrids-as-the-strategic-engine-for-1772899201455.html",
+      "region": "Sub-Saharan Africa",
+      "driveFileId": "1PKPNdvUl_ajPHnGUf7kyOrIHy69Ke8JW",
+      "driveWebViewLink": "https://drive.google.com/file/d/1PKPNdvUl_ajPHnGUf7kyOrIHy69Ke8JW/view?usp=drivesdk"
+    },
+    {
       "slug": "the-energy-water-feedback-loop-in-east-africa-decentralized-hybrid-microgrids-as-1772897321008",
       "title": "The Energy-Water Feedback Loop in East Africa: Decentralized Hybrid Microgrids as a Catalyst for Climate Resilience",
       "summary": "East African governments and development partners must pivot from centralized, fossil-fuel-dependent infrastructure models to decentralized hybrid microgrids that integrate solar photovoltaic systems with small-scale hydroelectric generation.",
@@ -3125,6 +3153,6 @@
       "region": "Sub-Saharan Africa"
     }
   ],
-  "lastUpdated": "2026-03-07T15:29:14.428Z",
-  "totalPublished": 107
+  "lastUpdated": "2026-03-07T16:00:40.661Z",
+  "totalPublished": 108
 }
