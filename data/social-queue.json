@@ -1,6 +1,36 @@
 {
   "posts": [
     {
+      "id": "mmg19fuu-tw",
+      "articleSlug": "the-fiscal-cliff-in-water-energy-resilience-reallocating-climate-finance-from-su-1772870370245",
+      "articleTitle": "The Fiscal Cliff in Water-Energy Resilience: Reallocating Climate Finance from Subsidized Fossil Fuels to Decentralized Hybrid Systems in Low-Income Nations",
+      "platform": "twitter",
+      "content": "The fiscal cliff in water-energy resilience is real. Low-income nations can't afford more climate finance without restructuring. We must stop subsidizing inefficient diesel pumps and redirect those funds to decentralized hybrid systems like solar-powered aquifer recharge. Time to",
+      "hashtags": [
+        "ClimateFinance",
+        "WaterSecurity",
+        "RenewableEnergy"
+      ],
+      "url": "https://baseflow.institute/article/the-fiscal-cliff-in-water-energy-resilience-reallocating-climate-finance-from-su-1772870370245",
+      "status": "pending",
+      "createdAt": "2026-03-07T08:00:00.390Z"
+    },
+    {
+      "id": "mmg19fuu-li",
+      "articleSlug": "the-fiscal-cliff-in-water-energy-resilience-reallocating-climate-finance-from-su-1772870370245",
+      "articleTitle": "The Fiscal Cliff in Water-Energy Resilience: Reallocating Climate Finance from Subsidized Fossil Fuels to Decentralized Hybrid Systems in Low-Income Nations",
+      "platform": "linkedin",
+      "content": "Low-income nations are facing a dual crisis where environmental degradation and economic vulnerability reinforce one another. With global temperatures already 1.1°C above pre-industrial levels, traditional linear infrastructure models are failing to handle climate variability. In regions like Sub-Saharan Africa, reliance on diesel generators for water pumping creates a cycle of high operational costs and pollution.\n\nThe solution lies not just in increasing funding volume, but in restructuring allocation. Governments must reallocate existing capital from inefficient fossil fuel subsidies toward decentralized hybrid systems that integrate renewable energy with water storage technologies. Specifically, shifting funds to solar-powered managed aquifer recharge (MAR) offers a path to self-regulating infrastructure capable of surviving extreme weather events.\n\nWithout this strategic pivot, nations risk severe water scarcity and energy poverty. Donors and national treasuries must halt new fossil fuel subsidies immediately and redirect them into distributed, climate-proof systems. This shift is essential for building resilience in the face of accelerating climate change.",
+      "hashtags": [
+        "ClimateAction",
+        "SustainableDevelopment",
+        "WaterManagement"
+      ],
+      "url": "https://baseflow.institute/article/the-fiscal-cliff-in-water-energy-resilience-reallocating-climate-finance-from-su-1772870370245",
+      "status": "pending",
+      "createdAt": "2026-03-07T08:00:00.390Z"
+    },
+    {
       "id": "mmg05thf-tw",
       "articleSlug": "the-maintenance-mismatch-addressing-operational-collapse-in-sub-saharan-africa-s-1772868522782",
       "articleTitle": "The Maintenance Mismatch: Addressing Operational Collapse in Sub-Saharan Africa's Solar Pumping Infrastructure for Water Security",
@@ -3236,5 +3266,5 @@
       "createdAt": "2026-03-02T00:01:09.765Z"
     }
   ],
-  "lastUpdated": "2026-03-07T07:29:11.815Z"
+  "lastUpdated": "2026-03-07T08:00:00.400Z"
 }

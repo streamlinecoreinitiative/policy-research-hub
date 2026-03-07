@@ -1,6 +1,34 @@
 {
   "articles": [
     {
+      "slug": "the-fiscal-cliff-in-water-energy-resilience-reallocating-climate-finance-from-su-1772870370245",
+      "title": "The Fiscal Cliff in Water-Energy Resilience: Reallocating Climate Finance from Subsidized Fossil Fuels to Decentralized Hybrid Systems in Low-Income Nations",
+      "summary": "Low-income nations face an immediate fiscal challenge where current climate finance architectures are failing to deliver resilience. The most effective intervention is not merely increasing funding volume, but restructuring allocation to shift away from subsidized fossil fuel infrastructure and toward decentralized hybrid systems that integrate renewable energy with water storage technologies.",
+      "topic": "Environmental resilience in lower-income countries: water security, clean energy, and climate adaptation",
+      "template": "Policy Brief",
+      "tags": [
+        "climate",
+        "water",
+        "energy",
+        "health",
+        "policy",
+        "finance",
+        "resilience",
+        "urbanization"
+      ],
+      "wordCount": 1153,
+      "sourcesUsed": 9,
+      "readabilityScore": 90,
+      "publishedAt": "2026-03-07T07:59:30.253Z",
+      "updatedAt": "2026-03-07T08:00:01.875Z",
+      "status": "published",
+      "mdFile": "the-fiscal-cliff-in-water-energy-resilience-reallocating-climate-finance-from-su-1772870370245.md",
+      "htmlFile": "the-fiscal-cliff-in-water-energy-resilience-reallocating-climate-finance-from-su-1772870370245.html",
+      "region": "Sub-Saharan Africa",
+      "driveFileId": "1ra4G-6dUZuaTvBWRFooKX8Afhtk2Npwb",
+      "driveWebViewLink": "https://drive.google.com/file/d/1ra4G-6dUZuaTvBWRFooKX8Afhtk2Npwb/view?usp=drivesdk"
+    },
+    {
       "slug": "the-maintenance-mismatch-addressing-operational-collapse-in-sub-saharan-africa-s-1772868522782",
       "title": "The Maintenance Mismatch: Addressing Operational Collapse in Sub-Saharan Africa's Solar Pumping Infrastructure for Water Security",
       "summary": "To secure water access in Sub-Saharan Africa, policymakers must shift funding priorities from capital expenditure on new installations to the institutionalization of long-term Operations and Maintenance (O&M) frameworks.",
@@ -2677,6 +2705,6 @@
       "region": "Sub-Saharan Africa"
     }
   ],
-  "lastUpdated": "2026-03-07T07:29:13.429Z",
-  "totalPublished": 91
+  "lastUpdated": "2026-03-07T08:00:01.875Z",
+  "totalPublished": 92
 }
