@@ -1,6 +1,51 @@
 {
   "posts": [
     {
+      "id": "mmgg94wp-tw",
+      "articleSlug": "the-hydro-electricity-nexus-in-sub-saharan-africa-breaking-the-dependency-trap-f-1772895554650",
+      "articleTitle": "The Hydro-Electricity Nexus in Sub-Saharan Africa: Breaking the Dependency Trap for Climate Resilience",
+      "platform": "twitter",
+      "content": "Sub-Saharan Africa faces a double deficit: scarce water and lack of energy. Only 32.4% have safe drinking water, while 46.7% lack electricity. Siloed projects fail because they ignore maintenance costs. We need integrated hybrid microgrids to fix both crises together. #WaterEnerg",
+      "hashtags": [
+        "WaterEnergyNexus",
+        "ClimateResilience",
+        "SDG6"
+      ],
+      "url": "https://baseflow.institute/article/the-hydro-electricity-nexus-in-sub-saharan-africa-breaking-the-dependency-trap-f-1772895554650",
+      "status": "pending",
+      "createdAt": "2026-03-07T14:59:40.441Z"
+    },
+    {
+      "id": "mmgg94wp-li",
+      "articleSlug": "the-hydro-electricity-nexus-in-sub-saharan-africa-breaking-the-dependency-trap-f-1772895554650",
+      "articleTitle": "The Hydro-Electricity Nexus in Sub-Saharan Africa: Breaking the Dependency Trap for Climate Resilience",
+      "platform": "linkedin",
+      "content": "Sub-Saharan Africa is trapped in a \"double deficit,\" facing simultaneous water scarcity and energy poverty. With only 32.4% of the population accessing safely managed drinking water—and electricity access at just 53.3%—the region cannot afford to treat these issues in isolation. Current centralized models fail due to high operational costs and unsustainable reliance on imported fuels.\n\nThe solution lies in reorienting financing toward integrated \"Water-Energy Nexus\" strategies. By deploying community-led hybrid renewable microgrids, we can leverage local hydrology for both power generation and water treatment. This approach prioritizes operational resilience over initial capital cost, breaking the dependency trap that leaves rural populations vulnerable to climate shocks. Without this shift, we risk missing critical SDG targets for clean energy and sanitation.\n\n---BLUESKY---\nWe are seeing a clear double deficit in Sub-Saharan Africa: not just a lack of water, but a lack of the energy needed to manage it. Only 32% have safe drinking water, and half the region lacks electricity. The old model of building centralized infrastructure is failing because it ignores maintenance costs and relies on expensive imports. We need to pivot toward community-led hybrid microgrids that use local hydrology for both power and water treatment. It's time to stop siloed projects and start solving the energy-water crisis together.",
+      "hashtags": [
+        "WaterEnergyNexus",
+        "ClimateAction",
+        "SDGs"
+      ],
+      "url": "https://baseflow.institute/article/the-hydro-electricity-nexus-in-sub-saharan-africa-breaking-the-dependency-trap-f-1772895554650",
+      "status": "pending",
+      "createdAt": "2026-03-07T14:59:40.441Z"
+    },
+    {
+      "id": "mmgg94wp-bs",
+      "articleSlug": "the-hydro-electricity-nexus-in-sub-saharan-africa-breaking-the-dependency-trap-f-1772895554650",
+      "articleTitle": "The Hydro-Electricity Nexus in Sub-Saharan Africa: Breaking the Dependency Trap for Climate Resilience",
+      "platform": "bluesky",
+      "content": "We are seeing a clear double deficit in Sub-Saharan Africa: not just a lack of water, but a lack of the energy needed to manage it. Only 32% have safe drinking water, and half the region lacks electricity. The old model of building centralized infrastructure is failing because it ignores maintenance",
+      "hashtags": [
+        "WaterEnergyNexus",
+        "ClimateAction",
+        "SDGs"
+      ],
+      "url": "https://baseflow.institute/article/the-hydro-electricity-nexus-in-sub-saharan-africa-breaking-the-dependency-trap-f-1772895554650",
+      "status": "pending",
+      "createdAt": "2026-03-07T14:59:40.441Z"
+    },
+    {
       "id": "mmgf6u8p-tw",
       "articleSlug": "water-loss-reduction-in-secondary-cities-in-the-caribbean-sids-supporting-adapta-1772893754820",
       "articleTitle": "water loss reduction in secondary cities in the Caribbean SIDS: supporting adaptation targets in NDCs",
@@ -3766,5 +3811,5 @@
       "createdAt": "2026-03-02T00:01:09.765Z"
     }
   ],
-  "lastUpdated": "2026-03-07T14:29:53.694Z"
+  "lastUpdated": "2026-03-07T14:59:40.444Z"
 }
