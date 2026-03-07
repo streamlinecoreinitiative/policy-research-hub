@@ -1,6 +1,47 @@
 {
   "posts": [
     {
+      "id": "mmfph914-tw",
+      "articleSlug": "the-baseload-paradox-overcoming-infrastructure-rigidity-in-sub-saharan-africa-s--1772850577604",
+      "articleTitle": "The Baseload Paradox: Overcoming Infrastructure Rigidity in Sub-Saharan Africa's Water-Energy Nexus Through Decentralized Hybrid Systems",
+      "platform": "twitter",
+      "content": "Sub-Saharan Africa faces a vicious cycle: failing infrastructure links energy poverty to water scarcity. Centralized grids are breaking under climate stress, leaving 32% of the region without safe drinking water. The solution? Decentralized hybrid systems combining solar power wi",
+      "hashtags": [
+        "WaterSecurity",
+        "CleanEnergy",
+        "ClimateAdaptation"
+      ],
+      "url": "https://baseflow.institute/article/the-baseload-paradox-overcoming-infrastructure-rigidity-in-sub-saharan-africa-s--1772850577604",
+      "status": "pending",
+      "createdAt": "2026-03-07T02:30:09.400Z"
+    },
+    {
+      "id": "mmfph914-li",
+      "articleSlug": "the-baseload-paradox-overcoming-infrastructure-rigidity-in-sub-saharan-africa-s--1772850577604",
+      "articleTitle": "The Baseload Paradox: Overcoming Infrastructure Rigidity in Sub-Saharan Africa's Water-Energy Nexus Through Decentralized Hybrid Systems",
+      "platform": "linkedin",
+      "content": "Sub-Saharan Africa is confronting a critical infrastructure paradox where energy poverty and water scarcity reinforce one another. With only 53.3% electricity access and just 32.4% safe drinking water coverage in the region, traditional centralized approaches are failing due to climate variability and rising maintenance costs.\n\nCurrent policies often treat water and energy as silos, ignoring their interdependence. As precipitation patterns shift and evaporation rates rise, reliance on grid-dependent pumps is leading to disease outbreaks and economic stagnation. The data is stark: while global safe water access stands at 73.7%, the region lags significantly behind.\n\nThe path forward requires a paradigm shift toward decentralized hybrid systems that integrate solar power with managed aquifer recharge and distributed storage. Governments must halt new grid-dependent water projects in remote areas and mandate autonomous configurations for all future infrastructure. This ensures operational continuity even when the main grid fails, creating a resilient framework for sustainable development in one of the world's most vulnerable regions.",
+      "hashtags": [
+        "InfrastructureResilience #SDG6 #EnergyWaterNexus #PolicyBrief"
+      ],
+      "url": "https://baseflow.institute/article/the-baseload-paradox-overcoming-infrastructure-rigidity-in-sub-saharan-africa-s--1772850577604",
+      "status": "pending",
+      "createdAt": "2026-03-07T02:30:09.400Z"
+    },
+    {
+      "id": "mmfph914-bs",
+      "articleSlug": "the-baseload-paradox-overcoming-infrastructure-rigidity-in-sub-saharan-africa-s--1772850577604",
+      "articleTitle": "The Baseload Paradox: Overcoming Infrastructure Rigidity in Sub-Saharan Africa's Water-Energy Nexus Through Decentralized Hybrid Systems",
+      "platform": "bluesky",
+      "content": "Is our infrastructure rigidity actually making Sub-Saharan Africa more vulnerable to climate shocks? With 32% of the region lacking safe drinking water and half without electricity, centralized grids are becoming a liability rather than an asset. The old playbook of big pumps and long-distance trans",
+      "hashtags": [
+        "ClimateResilience #DecentralizedEnergy #WaterSecurity"
+      ],
+      "url": "https://baseflow.institute/article/the-baseload-paradox-overcoming-infrastructure-rigidity-in-sub-saharan-africa-s--1772850577604",
+      "status": "pending",
+      "createdAt": "2026-03-07T02:30:09.400Z"
+    },
+    {
       "id": "mmfoekwz-tw",
       "articleSlug": "the-infrastructure-debt-trap-breaking-the-vicious-cycle-of-water-energy-poverty--1772848774558",
       "articleTitle": "The Infrastructure Debt Trap: Breaking the Vicious Cycle of Water-Energy Poverty in Sub-Saharan Africa",
@@ -2802,5 +2843,5 @@
       "createdAt": "2026-03-02T00:01:09.765Z"
     }
   ],
-  "lastUpdated": "2026-03-07T02:00:05.221Z"
+  "lastUpdated": "2026-03-07T02:30:09.404Z"
 }
