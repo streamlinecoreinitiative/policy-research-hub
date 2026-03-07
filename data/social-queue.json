@@ -1,6 +1,36 @@
 {
   "posts": [
     {
+      "id": "mmfqiv6t-tw",
+      "articleSlug": "clean-cooking-transition-for-peri-urban-households-in-the-mekong-basin-cutting-d-1772852339210",
+      "articleTitle": "clean cooking transition for peri-urban households in the Mekong basin: cutting disaster losses for vulnerable groups",
+      "platform": "twitter",
+      "content": "Peri-urban households in the Mekong Basin face a \"dual poverty\" trap: they can't afford diesel-powered water pumps, nor the expensive water itself. Shifting from capital subsidies to reforming energy pricing and enabling micro-grids is key to breaking this cycle. #WaterSecurity #",
+      "hashtags": [
+        "WaterSecurity",
+        "ClimateAdaptation",
+        "CleanEnergy"
+      ],
+      "url": "https://baseflow.institute/article/clean-cooking-transition-for-peri-urban-households-in-the-mekong-basin-cutting-d-1772852339210",
+      "status": "pending",
+      "createdAt": "2026-03-07T02:59:24.389Z"
+    },
+    {
+      "id": "mmfqiv6t-li",
+      "articleSlug": "clean-cooking-transition-for-peri-urban-households-in-the-mekong-basin-cutting-d-1772852339210",
+      "articleTitle": "clean cooking transition for peri-urban households in the Mekong basin: cutting disaster losses for vulnerable groups",
+      "platform": "linkedin",
+      "content": "The intersection of water and energy insecurity acts as a critical threat multiplier for vulnerable communities in the Mekong Basin. While global progress on SDG 6 continues, access to safely managed drinking water remains critically limited, particularly in informal settlements where diesel-powered pumping creates an unbreakable cycle of poverty.\n\nOur latest policy brief argues that governments must pivot from subsidizing capital infrastructure to reforming energy pricing mechanisms and enabling micro-grid markets. By implementing tiered tariffs reflecting actual generation costs and establishing \"energy-as-a-service\" models for solar pumping, we can directly link energy affordability to climate adaptation outcomes. Without addressing these economic barriers, global water security goals will remain unattainable for the most vulnerable regions.\n\nHow do you see the role of micro-grids in improving resilience for peri-urban areas? Let's discuss.",
+      "hashtags": [
+        "PolicyBrief",
+        "WaterEnergyLink",
+        "SustainableDevelopmentGoals"
+      ],
+      "url": "https://baseflow.institute/article/clean-cooking-transition-for-peri-urban-households-in-the-mekong-basin-cutting-d-1772852339210",
+      "status": "pending",
+      "createdAt": "2026-03-07T02:59:24.389Z"
+    },
+    {
       "id": "mmfph914-tw",
       "articleSlug": "the-baseload-paradox-overcoming-infrastructure-rigidity-in-sub-saharan-africa-s--1772850577604",
       "articleTitle": "The Baseload Paradox: Overcoming Infrastructure Rigidity in Sub-Saharan Africa's Water-Energy Nexus Through Decentralized Hybrid Systems",
@@ -2843,5 +2873,5 @@
       "createdAt": "2026-03-02T00:01:09.765Z"
     }
   ],
-  "lastUpdated": "2026-03-07T02:30:09.404Z"
+  "lastUpdated": "2026-03-07T02:59:24.393Z"
 }
