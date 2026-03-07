@@ -1,6 +1,21 @@
 {
   "posts": [
     {
+      "id": "mmg2bi9k-tw",
+      "articleSlug": "the-hydro-electric-equity-gap-bridging-the-service-delivery-divide-in-south-asia-1772872149582",
+      "articleTitle": "The Hydro-Electric Equity Gap: Bridging the Service Delivery Divide in South Asia's Water-Energy Nexus Through Community-Led Hybrid Microgrids",
+      "platform": "twitter",
+      "content": "South Asia faces a dual crisis: water scarcity and energy insecurity. Centralized systems are failing as erratic monsoons hit. The solution? Scale community-led hybrid microgrids integrating solar and local storage to protect low-income households from heat and drought shocks. #W",
+      "hashtags": [
+        "WaterEnergyNexus",
+        "ClimateResilience",
+        "SouthAsia"
+      ],
+      "url": "https://baseflow.institute/article/the-hydro-electric-equity-gap-bridging-the-service-delivery-divide-in-south-asia-1772872149582",
+      "status": "pending",
+      "createdAt": "2026-03-07T08:29:36.440Z"
+    },
+    {
       "id": "mmg19fuu-tw",
       "articleSlug": "the-fiscal-cliff-in-water-energy-resilience-reallocating-climate-finance-from-su-1772870370245",
       "articleTitle": "The Fiscal Cliff in Water-Energy Resilience: Reallocating Climate Finance from Subsidized Fossil Fuels to Decentralized Hybrid Systems in Low-Income Nations",
@@ -3266,5 +3281,5 @@
       "createdAt": "2026-03-02T00:01:09.765Z"
     }
   ],
-  "lastUpdated": "2026-03-07T08:00:00.400Z"
+  "lastUpdated": "2026-03-07T08:29:36.445Z"
 }
