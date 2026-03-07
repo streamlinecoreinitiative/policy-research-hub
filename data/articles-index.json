@@ -1,6 +1,34 @@
 {
   "articles": [
     {
+      "slug": "the-maintenance-mismatch-addressing-operational-collapse-in-sub-saharan-africa-s-1772861300831",
+      "title": "The Maintenance Mismatch: Addressing Operational Collapse in Sub-Saharan Africa's Solar Pumping Infrastructure for Water Security",
+      "summary": "Policymakers must immediately halt capital-only financing models for decentralized water systems and redirect funding toward lifecycle-focused interventions that prioritize operations and maintenance (O&M).",
+      "topic": "Environmental resilience in lower-income countries: water security, clean energy, and climate adaptation",
+      "template": "Policy Brief",
+      "tags": [
+        "climate",
+        "water",
+        "energy",
+        "health",
+        "policy",
+        "finance",
+        "resilience",
+        "urbanization"
+      ],
+      "wordCount": 1109,
+      "sourcesUsed": 2,
+      "readabilityScore": 88,
+      "publishedAt": "2026-03-07T05:28:20.839Z",
+      "updatedAt": "2026-03-07T05:28:50.239Z",
+      "status": "published",
+      "mdFile": "the-maintenance-mismatch-addressing-operational-collapse-in-sub-saharan-africa-s-1772861300831.md",
+      "htmlFile": "the-maintenance-mismatch-addressing-operational-collapse-in-sub-saharan-africa-s-1772861300831.html",
+      "region": "Sub-Saharan Africa",
+      "driveFileId": "1B6NLTFxRWImfDi6gdOCWiyIQjCrVGjrv",
+      "driveWebViewLink": "https://drive.google.com/file/d/1B6NLTFxRWImfDi6gdOCWiyIQjCrVGjrv/view?usp=drivesdk"
+    },
+    {
       "slug": "the-desalination-dilemma-leveraging-coastal-microgrids-for-water-energy-security-1772859557941",
       "title": "The Desalination Dilemma: Leveraging Coastal Microgrids for Water-Energy Security in Small Island Developing States",
       "summary": "Global access to safely managed drinking water stands at 73.7%, yet this statistic masks a critical vulnerability in Small Island Developing States (SIDS) where traditional freshwater sources are insufficient and centralized infrastructure is often economically unfeasible [World Bank Open Data].",
@@ -2537,6 +2565,6 @@
       "region": "Sub-Saharan Africa"
     }
   ],
-  "lastUpdated": "2026-03-07T04:59:50.511Z",
-  "totalPublished": 86
+  "lastUpdated": "2026-03-07T05:28:50.239Z",
+  "totalPublished": 87
 }

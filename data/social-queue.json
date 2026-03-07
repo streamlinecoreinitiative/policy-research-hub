@@ -1,6 +1,48 @@
 {
   "posts": [
     {
+      "id": "mmfvv03e-tw",
+      "articleSlug": "the-maintenance-mismatch-addressing-operational-collapse-in-sub-saharan-africa-s-1772861300831",
+      "articleTitle": "The Maintenance Mismatch: Addressing Operational Collapse in Sub-Saharan Africa's Solar Pumping Infrastructure for Water Security",
+      "platform": "twitter",
+      "content": "Donor-funded solar pumps are failing because they ignore maintenance. Over 2 billion people lack safe water due to this \"maintenance mismatch.\" We must shift from capital-only financing to lifecycle-focused funding with dedicated O&M reserves and local training. #WaterSecurity #C",
+      "hashtags": [
+        "WaterSecurity",
+        "SolarPumps",
+        "ClimateAdaptation",
+        "SustainableDevelopment"
+      ],
+      "url": "https://baseflow.institute/article/the-maintenance-mismatch-addressing-operational-collapse-in-sub-saharan-africa-s-1772861300831",
+      "status": "pending",
+      "createdAt": "2026-03-07T05:28:48.698Z"
+    },
+    {
+      "id": "mmfvv03e-li",
+      "articleSlug": "the-maintenance-mismatch-addressing-operational-collapse-in-sub-saharan-africa-s-1772861300831",
+      "articleTitle": "The Maintenance Mismatch: Addressing Operational Collapse in Sub-Saharan Africa's Solar Pumping Infrastructure for Water Security",
+      "platform": "linkedin",
+      "content": "The promise of solar energy for rural water security in Sub-Saharan Africa is collapsing due to a critical oversight: the lack of operational maintenance. While global electricity access has surged to 91.6%, water delivery remains critically low at 53.3% in the region. This gap isn't just about installation; it's about sustainability. Current \"capital-only\" financing models lead to rapid degradation once external support ends, creating a cycle of abandonment that leaves communities vulnerable to drought and contamination.\n\nTo reverse this trend, policymakers must immediately halt funding models that prioritize hardware over longevity. We need a structural shift toward lifecycle-focused interventions. This includes integrating dedicated O&M reserve funds into project budgets from day one and establishing robust local technical training programs. Without these changes, we risk wasting billions on infrastructure that never reaches its full potential. The time for greenwashing is over; the time for operational resilience has arrived.",
+      "hashtags": [
+        "WaterSecurity #SolarEnergy #ClimateResilience #DevelopmentPolicy #SustainableInfrastructure"
+      ],
+      "url": "https://baseflow.institute/article/the-maintenance-mismatch-addressing-operational-collapse-in-sub-saharan-africa-s-1772861300831",
+      "status": "pending",
+      "createdAt": "2026-03-07T05:28:48.698Z"
+    },
+    {
+      "id": "mmfvv03e-bs",
+      "articleSlug": "the-maintenance-mismatch-addressing-operational-collapse-in-sub-saharan-africa-s-1772861300831",
+      "articleTitle": "The Maintenance Mismatch: Addressing Operational Collapse in Sub-Saharan Africa's Solar Pumping Infrastructure for Water Security",
+      "platform": "bluesky",
+      "content": "The solar pumps meant to save rural communities are breaking down because nobody planned for their long-term maintenance. It's a massive \"maintenance mismatch\" where donor-funded systems fail the moment external support stops. With climate change drying up aquifers and damaging infrastructure, we ca",
+      "hashtags": [
+        "WaterCrisis #SolarEnergy #ClimateChange #PolicyMatters"
+      ],
+      "url": "https://baseflow.institute/article/the-maintenance-mismatch-addressing-operational-collapse-in-sub-saharan-africa-s-1772861300831",
+      "status": "pending",
+      "createdAt": "2026-03-07T05:28:48.698Z"
+    },
+    {
       "id": "mmfutpt7-tw",
       "articleSlug": "the-desalination-dilemma-leveraging-coastal-microgrids-for-water-energy-security-1772859557941",
       "articleTitle": "The Desalination Dilemma: Leveraging Coastal Microgrids for Water-Energy Security in Small Island Developing States",
@@ -3030,5 +3072,5 @@
       "createdAt": "2026-03-02T00:01:09.765Z"
     }
   ],
-  "lastUpdated": "2026-03-07T04:59:49.103Z"
+  "lastUpdated": "2026-03-07T05:28:48.702Z"
 }
