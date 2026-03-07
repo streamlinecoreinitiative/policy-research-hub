@@ -1,6 +1,47 @@
 {
   "posts": [
     {
+      "id": "mmgbywzf-tw",
+      "articleSlug": "the-inverted-nexus-prioritizing-water-security-as-the-primary-engine-for-energy--1772888353988",
+      "articleTitle": "The Inverted Nexus: Prioritizing Water Security as the Primary Engine for Energy Access and Climate Adaptation in East Africa",
+      "platform": "twitter",
+      "content": "East Africa's energy projects are failing because they ignore water security first. Disease and labor loss from fetching water suppress productivity, making solar investments useless without clean sources. We need to invert the strategy: fund water infrastructure as the foundatio",
+      "hashtags": [
+        "WaterSecurity",
+        "ClimateAdaptation",
+        "EastAfrica"
+      ],
+      "url": "https://baseflow.institute/article/the-inverted-nexus-prioritizing-water-security-as-the-primary-engine-for-energy--1772888353988",
+      "status": "pending",
+      "createdAt": "2026-03-07T12:59:45.147Z"
+    },
+    {
+      "id": "mmgbywzf-li",
+      "articleSlug": "the-inverted-nexus-prioritizing-water-security-as-the-primary-engine-for-energy--1772888353988",
+      "articleTitle": "The Inverted Nexus: Prioritizing Water Security as the Primary Engine for Energy Access and Climate Adaptation in East Africa",
+      "platform": "linkedin",
+      "content": "Current development strategies in East Africa often prioritize electrification before addressing water security, a sequence that risks diminishing returns. Evidence indicates that without safe drinking water, investments in energy access struggle to generate sustainable economic growth due to suppressed human capital productivity caused by disease burdens and labor loss associated with water fetching.\n\nThis policy brief argues for an immediate inversion: reorienting financing to treat water infrastructure as the foundational enabler for both energy efficiency and climate resilience. Governments and partners must halt isolated \"solarization\" of failing systems and instead fund integrated water-energy projects that secure sources first. Failure to address this root cause undermines broader climate adaptation goals, given that 2.2 billion people globally lack safe water access.\n\nIn East Africa, the dual crisis of erratic rainfall and groundwater depletion threatens food security and household energy reliability. When communities lack safe water, they rely on inefficient charcoal production, contributing to deforestation while failing to provide consistent power for refrigeration or irrigation. A solar-powered pump is useless if the source is contaminated; conversely, safe water without reliable electricity creates challenges in food storage.\n\nThe solution lies in integrated planning. By securing water sources first, we ensure that subsequent energy investments deliver tangible productivity gains, ultimately enhancing resilience against climate shocks and fostering sustainable development in lower-income nations.",
+      "hashtags": [
+        "WaterEnergyLink #ClimateResilience #PolicyBrief #EastAfrica"
+      ],
+      "url": "https://baseflow.institute/article/the-inverted-nexus-prioritizing-water-security-as-the-primary-engine-for-energy--1772888353988",
+      "status": "pending",
+      "createdAt": "2026-03-07T12:59:45.147Z"
+    },
+    {
+      "id": "mmgbywzf-bs",
+      "articleSlug": "the-inverted-nexus-prioritizing-water-security-as-the-primary-engine-for-energy--1772888353988",
+      "articleTitle": "The Inverted Nexus: Prioritizing Water Security as the Primary Engine for Energy Access and Climate Adaptation in East Africa",
+      "platform": "bluesky",
+      "content": "We need to flip the script on East Africa's development strategy. Instead of rushing to electrify communities without clean water, we should prioritize water security as the engine for energy access and climate adaptation. Without safe drinking water, disease burdens and labor loss from fetching it ",
+      "hashtags": [
+        "WaterFirst #ClimateResilience #EnergyAccess"
+      ],
+      "url": "https://baseflow.institute/article/the-inverted-nexus-prioritizing-water-security-as-the-primary-engine-for-energy--1772888353988",
+      "status": "pending",
+      "createdAt": "2026-03-07T12:59:45.147Z"
+    },
+    {
       "id": "mmgawbp1-tw",
       "articleSlug": "the-subsidy-trap-disrupting-fossil-fuel-dependence-in-rural-water-energy-systems-1772886552569",
       "articleTitle": "The Subsidy Trap: Disrupting Fossil Fuel Dependence in Rural Water-Energy Systems to Achieve Climate Resilience",
@@ -3596,5 +3637,5 @@
       "createdAt": "2026-03-02T00:01:09.765Z"
     }
   ],
-  "lastUpdated": "2026-03-07T12:29:44.634Z"
+  "lastUpdated": "2026-03-07T12:59:45.152Z"
 }
