@@ -1,6 +1,51 @@
 {
   "posts": [
     {
+      "id": "mmfrqpb1-tw",
+      "articleSlug": "the-grid-water-synergy-gap-integrating-microgrids-and-wastewater-reclamation-for-1772854380687",
+      "articleTitle": "The Grid-Water Synergy Gap: Integrating Microgrids and Wastewater Reclamation for Resilient Water Security in East Africa",
+      "platform": "twitter",
+      "content": "East Africa's water crisis isn't just about pipes; it's about power. Siloed infrastructure fails when grids go down. We need integrated microgrids + wastewater reclamation to achieve SDG 6. Shift funding from capital grants to sustainable operations now. #WaterSecurity #ClimateAd",
+      "hashtags": [
+        "WaterSecurity",
+        "ClimateAdaptation",
+        "Microgrids"
+      ],
+      "url": "https://baseflow.institute/article/the-grid-water-synergy-gap-integrating-microgrids-and-wastewater-reclamation-for-1772854380687",
+      "status": "pending",
+      "createdAt": "2026-03-07T03:33:29.629Z"
+    },
+    {
+      "id": "mmfrqpb1-li",
+      "articleSlug": "the-grid-water-synergy-gap-integrating-microgrids-and-wastewater-reclamation-for-1772854380687",
+      "articleTitle": "The Grid-Water Synergy Gap: Integrating Microgrids and Wastewater Reclamation for Resilient Water Security in East Africa",
+      "platform": "linkedin",
+      "content": "The water-energy nexus is critical, yet policy frameworks in East Africa frequently treat energy and water as separate sectors. This siloed approach ignores the physical reality that modern filtration and pumping require continuous electrical input, rendering built assets vulnerable to failure.\n\nEvidence indicates that integrating solar-powered pumping with localized wastewater treatment significantly lowers operational costs compared to grid-dependent alternatives, particularly in regions with unstable grids. According to the International Energy Agency, decentralized renewable energy solutions can reduce the Levelized Cost of Energy by up to 40% in off-grid scenarios.\n\nTo achieve SDG 6 targets—universal access to safe drinking water and sanitation—donors and governments must pivot from capital-heavy construction grants to sustainable operation financing for hybrid systems. Without addressing this interdependence, climate adaptation strategies remain fragmented, leaving millions without safe water despite available resources. We urge policymakers to adopt the strategic framework outlined in our recent brief to close the grid-water synergy gap and ensure built assets are truly usable.",
+      "hashtags": [
+        "WaterEnergyNexus",
+        "SDG6",
+        "SustainableDevelopment"
+      ],
+      "url": "https://baseflow.institute/article/the-grid-water-synergy-gap-integrating-microgrids-and-wastewater-reclamation-for-1772854380687",
+      "status": "pending",
+      "createdAt": "2026-03-07T03:33:29.629Z"
+    },
+    {
+      "id": "mmfrqpb1-bs",
+      "articleSlug": "the-grid-water-synergy-gap-integrating-microgrids-and-wastewater-reclamation-for-1772854380687",
+      "articleTitle": "The Grid-Water Synergy Gap: Integrating Microgrids and Wastewater Reclamation for Resilient Water Security in East Africa",
+      "platform": "bluesky",
+      "content": "Water security in East Africa is increasingly defined by its dependence on electricity. The region faces a dual crisis: unreliable power prevents modern treatment from operating, while degraded systems worsen public health risks. Current strategies are ineffective because they ignore this interdepen",
+      "hashtags": [
+        "WaterSecurity",
+        "EnergyTransition",
+        "EastAfrica"
+      ],
+      "url": "https://baseflow.institute/article/the-grid-water-synergy-gap-integrating-microgrids-and-wastewater-reclamation-for-1772854380687",
+      "status": "pending",
+      "createdAt": "2026-03-07T03:33:29.629Z"
+    },
+    {
       "id": "mmfqiv6t-tw",
       "articleSlug": "clean-cooking-transition-for-peri-urban-households-in-the-mekong-basin-cutting-d-1772852339210",
       "articleTitle": "clean cooking transition for peri-urban households in the Mekong basin: cutting disaster losses for vulnerable groups",
@@ -2873,5 +2918,5 @@
       "createdAt": "2026-03-02T00:01:09.765Z"
     }
   ],
-  "lastUpdated": "2026-03-07T02:59:24.393Z"
+  "lastUpdated": "2026-03-07T03:33:29.632Z"
 }

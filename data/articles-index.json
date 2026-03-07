@@ -1,6 +1,34 @@
 {
   "articles": [
     {
+      "slug": "the-grid-water-synergy-gap-integrating-microgrids-and-wastewater-reclamation-for-1772854380687",
+      "title": "The Grid-Water Synergy Gap: Integrating Microgrids and Wastewater Reclamation for Resilient Water Security in East Africa",
+      "summary": "Development practitioners must immediately pivot from siloed infrastructure projects to integrated \"energy-positive\" water systems that couple decentralized renewable microgrids with wastewater reclamation.",
+      "topic": "Environmental resilience in lower-income countries: water security, clean energy, and climate adaptation",
+      "template": "Policy Brief",
+      "tags": [
+        "climate",
+        "water",
+        "energy",
+        "health",
+        "policy",
+        "finance",
+        "resilience",
+        "urbanization"
+      ],
+      "wordCount": 1098,
+      "sourcesUsed": 22,
+      "readabilityScore": 90,
+      "publishedAt": "2026-03-07T03:33:00.695Z",
+      "updatedAt": "2026-03-07T03:33:31.181Z",
+      "status": "published",
+      "mdFile": "the-grid-water-synergy-gap-integrating-microgrids-and-wastewater-reclamation-for-1772854380687.md",
+      "htmlFile": "the-grid-water-synergy-gap-integrating-microgrids-and-wastewater-reclamation-for-1772854380687.html",
+      "region": "Sub-Saharan Africa",
+      "driveFileId": "19S70UzHoQz0sVx8trxF8IOUoWjC6eFjj",
+      "driveWebViewLink": "https://drive.google.com/file/d/19S70UzHoQz0sVx8trxF8IOUoWjC6eFjj/view?usp=drivesdk"
+    },
+    {
       "slug": "clean-cooking-transition-for-peri-urban-households-in-the-mekong-basin-cutting-d-1772852339210",
       "title": "clean cooking transition for peri-urban households in the Mekong basin: cutting disaster losses for vulnerable groups",
       "summary": "Governments must shift from subsidizing capital infrastructure to reforming energy pricing mechanisms and enabling micro-grid markets to address the fiscal resilience deficit in informal settlements.",
@@ -2425,6 +2453,6 @@
       "region": "Sub-Saharan Africa"
     }
   ],
-  "lastUpdated": "2026-03-07T02:59:25.800Z",
-  "totalPublished": 82
+  "lastUpdated": "2026-03-07T03:33:31.181Z",
+  "totalPublished": 83
 }
