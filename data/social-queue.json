@@ -1,6 +1,53 @@
 {
   "posts": [
     {
+      "id": "mmghb4m1-tw",
+      "articleSlug": "the-energy-water-feedback-loop-in-east-africa-decentralized-hybrid-microgrids-as-1772897321008",
+      "articleTitle": "The Energy-Water Feedback Loop in East Africa: Decentralized Hybrid Microgrids as a Catalyst for Climate Resilience",
+      "platform": "twitter",
+      "content": "East Africa's energy and water crises are locked in a deadly feedback loop. Outages kill pumps; droughts kill grids. The solution? Decentralized hybrid microgrids blending solar and hydro. It's time to treat energy as a utility for water security, not just an isolated sector. #En",
+      "hashtags": [
+        "EnergyWaterLink",
+        "ClimateResilience",
+        "SDG6",
+        "SDG7"
+      ],
+      "url": "https://baseflow.institute/article/the-energy-water-feedback-loop-in-east-africa-decentralized-hybrid-microgrids-as-1772897321008",
+      "status": "pending",
+      "createdAt": "2026-03-07T15:29:12.985Z"
+    },
+    {
+      "id": "mmghb4m1-li",
+      "articleSlug": "the-energy-water-feedback-loop-in-east-africa-decentralized-hybrid-microgrids-as-1772897321008",
+      "articleTitle": "The Energy-Water Feedback Loop in East Africa: Decentralized Hybrid Microgrids as a Catalyst for Climate Resilience",
+      "platform": "linkedin",
+      "content": "East Africa faces a critical paradox: energy outages cause water pump failures, which in turn exacerbate public health crises and agricultural disruption. This is the dangerous feedback loop threatening lower-income nations.\n\nCurrent centralized infrastructure relies on continuous grid power and fossil fuels, making it brittle against erratic rainfall patterns driven by climate change. With 53.3% of Sub-Saharan Africa lacking electricity access, water systems are prone to operational collapse during extreme weather events.\n\nThe path forward requires a paradigm shift. Policymakers must mandate decentralized hybrid microgrids for new rural projects—integrating solar photovoltaic systems with small-scale hydroelectric generation. This approach addresses the reality that energy is not just a separate utility but a fundamental requirement for water management. By adopting this dual-sector strategy, nations can simultaneously secure drinking water, provide reliable electricity, and build resilience against climate volatility.\n\nBreaking this cycle is essential to achieving SDG 6 (Clean Water) and SDG 7 (Affordable and Clean Energy). We must invest in hybrid designs today to ensure water security for tomorrow's generation.",
+      "hashtags": [
+        "ClimateResilience",
+        "SustainableDevelopment",
+        "WaterSecurity",
+        "RenewableEnergy"
+      ],
+      "url": "https://baseflow.institute/article/the-energy-water-feedback-loop-in-east-africa-decentralized-hybrid-microgrids-as-1772897321008",
+      "status": "pending",
+      "createdAt": "2026-03-07T15:29:12.985Z"
+    },
+    {
+      "id": "mmghb4m1-bs",
+      "articleSlug": "the-energy-water-feedback-loop-in-east-africa-decentralized-hybrid-microgrids-as-1772897321008",
+      "articleTitle": "The Energy-Water Feedback Loop in East Africa: Decentralized Hybrid Microgrids as a Catalyst for Climate Resilience",
+      "platform": "bluesky",
+      "content": "The energy-water connection is more than a technical detail; it's a survival issue for East Africa. When the grid goes down, water pumps stop, leading to health crises and crop failure. The current reliance on centralized fossil-fuel systems leaves rural communities vulnerable to erratic rainfall an",
+      "hashtags": [
+        "ClimateAction",
+        "Microgrids",
+        "WaterSecurity"
+      ],
+      "url": "https://baseflow.institute/article/the-energy-water-feedback-loop-in-east-africa-decentralized-hybrid-microgrids-as-1772897321008",
+      "status": "pending",
+      "createdAt": "2026-03-07T15:29:12.985Z"
+    },
+    {
       "id": "mmgg94wp-tw",
       "articleSlug": "the-hydro-electricity-nexus-in-sub-saharan-africa-breaking-the-dependency-trap-f-1772895554650",
       "articleTitle": "The Hydro-Electricity Nexus in Sub-Saharan Africa: Breaking the Dependency Trap for Climate Resilience",
@@ -3811,5 +3858,5 @@
       "createdAt": "2026-03-02T00:01:09.765Z"
     }
   ],
-  "lastUpdated": "2026-03-07T14:59:40.444Z"
+  "lastUpdated": "2026-03-07T15:29:12.990Z"
 }

@@ -1,6 +1,34 @@
 {
   "articles": [
     {
+      "slug": "the-energy-water-feedback-loop-in-east-africa-decentralized-hybrid-microgrids-as-1772897321008",
+      "title": "The Energy-Water Feedback Loop in East Africa: Decentralized Hybrid Microgrids as a Catalyst for Climate Resilience",
+      "summary": "East African governments and development partners must pivot from centralized, fossil-fuel-dependent infrastructure models to decentralized hybrid microgrids that integrate solar photovoltaic systems with small-scale hydroelectric generation.",
+      "topic": "Environmental resilience in lower-income countries: water security, clean energy, and climate adaptation",
+      "template": "Policy Brief",
+      "tags": [
+        "climate",
+        "water",
+        "energy",
+        "health",
+        "policy",
+        "finance",
+        "resilience",
+        "urbanization"
+      ],
+      "wordCount": 1070,
+      "sourcesUsed": 13,
+      "readabilityScore": 85,
+      "publishedAt": "2026-03-07T15:28:41.015Z",
+      "updatedAt": "2026-03-07T15:29:14.428Z",
+      "status": "published",
+      "mdFile": "the-energy-water-feedback-loop-in-east-africa-decentralized-hybrid-microgrids-as-1772897321008.md",
+      "htmlFile": "the-energy-water-feedback-loop-in-east-africa-decentralized-hybrid-microgrids-as-1772897321008.html",
+      "region": "Sub-Saharan Africa",
+      "driveFileId": "1iNV8hYEL7j6LO1xKJcmM7t6s48HuKtL0",
+      "driveWebViewLink": "https://drive.google.com/file/d/1iNV8hYEL7j6LO1xKJcmM7t6s48HuKtL0/view?usp=drivesdk"
+    },
+    {
       "slug": "the-hydro-electricity-nexus-in-sub-saharan-africa-breaking-the-dependency-trap-f-1772895554650",
       "title": "The Hydro-Electricity Nexus in Sub-Saharan Africa: Breaking the Dependency Trap for Climate Resilience",
       "summary": "Governments and development partners must reorient financing from siloed sectoral projects to integrated \"Water-Energy Nexus\" strategies that deploy hybrid renewable microgrids.",
@@ -3097,6 +3125,6 @@
       "region": "Sub-Saharan Africa"
     }
   ],
-  "lastUpdated": "2026-03-07T14:59:41.959Z",
-  "totalPublished": 106
+  "lastUpdated": "2026-03-07T15:29:14.428Z",
+  "totalPublished": 107
 }
