@@ -1,6 +1,36 @@
 {
   "posts": [
     {
+      "id": "mmgawbp1-tw",
+      "articleSlug": "the-subsidy-trap-disrupting-fossil-fuel-dependence-in-rural-water-energy-systems-1772886552569",
+      "articleTitle": "The Subsidy Trap: Disrupting Fossil Fuel Dependence in Rural Water-Energy Systems to Achieve Climate Resilience",
+      "platform": "twitter",
+      "content": "Fossil fuel subsidies are breaking rural water systems. By artificially depressing diesel costs, governments prevent the shift to solar, leaving 32% of Sub-Saharan Africa without safe drinking water. The fix isn't new tech; it's ending these subsidies to unlock viable off-grid so",
+      "hashtags": [
+        "WaterEnergyNexus",
+        "SustainableDevelopment",
+        "PolicyBrief"
+      ],
+      "url": "https://baseflow.institute/article/the-subsidy-trap-disrupting-fossil-fuel-dependence-in-rural-water-energy-systems-1772886552569",
+      "status": "pending",
+      "createdAt": "2026-03-07T12:29:44.629Z"
+    },
+    {
+      "id": "mmgawbp1-li",
+      "articleSlug": "the-subsidy-trap-disrupting-fossil-fuel-dependence-in-rural-water-energy-systems-1772886552569",
+      "articleTitle": "The Subsidy Trap: Disrupting Fossil Fuel Dependence in Rural Water-Energy Systems to Achieve Climate Resilience",
+      "platform": "linkedin",
+      "content": "Rural water security in lower-income countries is currently trapped by a policy paradox: fossil fuel subsidies. While governments aim to build infrastructure, artificially low diesel prices make the transition to solar economically unviable for off-grid systems. This creates a volatile cost base that undermines climate adaptation strategies.\n\nOur latest research highlights that the primary barrier to resilience is not a lack of technology, but economic distortion. In regions like Sub-Saharan Africa, where 32.4% lacks safe drinking water, reliance on imported fossil fuels exposes communities to supply chain disruptions and price volatility. Furthermore, with freshwater withdrawal already at 9.2% globally, the pressure on natural resources is intensifying alongside rising evaporation rates due to climate change.\n\nThe solution requires a paradigm shift from \"build and forget\" models to phased subsidy reform and operational cost transparency. By removing artificial supports for diesel, policymakers can unlock the economic viability of solar-powered irrigation and drinking water systems without triggering political backlash or financial collapse in low-income contexts. Achieving this nexus is essential for meeting global SDG targets and ensuring long-term climate resilience.\n\n#WaterSecurity #CleanEnergy #ClimateAdaptation #PolicyReform #SustainableDevelopment",
+      "hashtags": [
+        "WaterEnergyNexus",
+        "SustainableDevelopment",
+        "PolicyBrief"
+      ],
+      "url": "https://baseflow.institute/article/the-subsidy-trap-disrupting-fossil-fuel-dependence-in-rural-water-energy-systems-1772886552569",
+      "status": "pending",
+      "createdAt": "2026-03-07T12:29:44.629Z"
+    },
+    {
       "id": "mmg9tjzl-tw",
       "articleSlug": "the-grid-dependency-trap-unlocking-water-energy-resilience-through-distributed-s-1772884745318",
       "articleTitle": "The Grid Dependency Trap: Unlocking Water-Energy Resilience Through Distributed Storage in Fragile States",
@@ -3566,5 +3596,5 @@
       "createdAt": "2026-03-02T00:01:09.765Z"
     }
   ],
-  "lastUpdated": "2026-03-07T11:59:35.799Z"
+  "lastUpdated": "2026-03-07T12:29:44.634Z"
 }

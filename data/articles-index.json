@@ -1,6 +1,34 @@
 {
   "articles": [
     {
+      "slug": "the-subsidy-trap-disrupting-fossil-fuel-dependence-in-rural-water-energy-systems-1772886552569",
+      "title": "The Subsidy Trap: Disrupting Fossil Fuel Dependence in Rural Water-Energy Systems to Achieve Climate Resilience",
+      "summary": "Governments must immediately initiate a phased reform of fossil fuel subsidies that artificially depress the cost of diesel for rural water pumping. Current adaptation strategies fail because they treat water and energy as separate issues, ignoring that 91.",
+      "topic": "Environmental resilience in lower-income countries: water security, clean energy, and climate adaptation",
+      "template": "Policy Brief",
+      "tags": [
+        "climate",
+        "water",
+        "energy",
+        "health",
+        "policy",
+        "finance",
+        "resilience",
+        "urbanization"
+      ],
+      "wordCount": 1195,
+      "sourcesUsed": 9,
+      "readabilityScore": 88,
+      "publishedAt": "2026-03-07T12:29:12.575Z",
+      "updatedAt": "2026-03-07T12:29:46.067Z",
+      "status": "published",
+      "mdFile": "the-subsidy-trap-disrupting-fossil-fuel-dependence-in-rural-water-energy-systems-1772886552569.md",
+      "htmlFile": "the-subsidy-trap-disrupting-fossil-fuel-dependence-in-rural-water-energy-systems-1772886552569.html",
+      "region": "Sub-Saharan Africa",
+      "driveFileId": "1p7clG9fhHnM5hIexCMExrkXWYNhNzw2i",
+      "driveWebViewLink": "https://drive.google.com/file/d/1p7clG9fhHnM5hIexCMExrkXWYNhNzw2i/view?usp=drivesdk"
+    },
+    {
       "slug": "the-grid-dependency-trap-unlocking-water-energy-resilience-through-distributed-s-1772884745318",
       "title": "The Grid Dependency Trap: Unlocking Water-Energy Resilience Through Distributed Storage in Fragile States",
       "summary": "Current water-energy strategies in low-income nations rely heavily on centralized grids and direct pumping, creating a \"single point of failure\" that collapses during extreme weather events.",
@@ -2929,6 +2957,6 @@
       "region": "Sub-Saharan Africa"
     }
   ],
-  "lastUpdated": "2026-03-07T11:59:37.129Z",
-  "totalPublished": 100
+  "lastUpdated": "2026-03-07T12:29:46.067Z",
+  "totalPublished": 101
 }
