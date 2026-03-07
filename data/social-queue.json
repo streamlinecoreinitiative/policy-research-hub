@@ -1,6 +1,51 @@
 {
   "posts": [
     {
+      "id": "mmg6lsol-tw",
+      "articleSlug": "the-maintenance-mismatch-addressing-operational-collapse-in-sub-saharan-africa-s-1772879348565",
+      "articleTitle": "The Maintenance Mismatch: Addressing Operational Collapse in Sub-Saharan Africa's Solar Pumping Infrastructure for Water Security",
+      "platform": "twitter",
+      "content": "Solar pumps are installed, but they break within 18 months due to a lack of local maintenance. We must stop funding just the hardware and start ring-fencing budgets for spare parts and technician training. #WaterSecurity #ClimateAction #SDG6 #SustainableEnergy",
+      "hashtags": [
+        "WaterSecurity",
+        "ClimateAction",
+        "SDG6",
+        "SustainableEnergy"
+      ],
+      "url": "https://baseflow.institute/article/the-maintenance-mismatch-addressing-operational-collapse-in-sub-saharan-africa-s-1772879348565",
+      "status": "pending",
+      "createdAt": "2026-03-07T10:29:34.965Z"
+    },
+    {
+      "id": "mmg6lsol-li",
+      "articleSlug": "the-maintenance-mismatch-addressing-operational-collapse-in-sub-saharan-africa-s-1772879348565",
+      "articleTitle": "The Maintenance Mismatch: Addressing Operational Collapse in Sub-Saharan Africa's Solar Pumping Infrastructure for Water Security",
+      "platform": "linkedin",
+      "content": "The \"install-and-forget\" model is failing Sub-Saharan Africa's water security efforts. Our latest research highlights a critical \"maintenance mismatch\": without dedicated funding for spare parts and local technician training, solar water pumps cease functioning within an average of 18 months. This operational collapse threatens to reverse progress toward SDGs 6 and 7, leaving millions dependent on unsafe water sources despite available technology.\n\nThe issue is compounded by the fact that 53.3% of the region lacks electricity access, yet we continue importing complex systems that require specialized skills to service. When these assets fail due to dust or wear, communities lose trust in renewable energy and revert to dangerous alternatives. To prevent donor aid from becoming \"white elephant\" projects, policymakers must ring-fence operational expenditure (OPEX) budgets separate from capital investment and establish local supply chains for critical components. We need a shift from capital-intensive infrastructure to sustainable operational frameworks to ensure long-term resilience.",
+      "hashtags": [
+        "WaterSecurity",
+        "CleanEnergy",
+        "ClimateAdaptation",
+        "PolicyBrief"
+      ],
+      "url": "https://baseflow.institute/article/the-maintenance-mismatch-addressing-operational-collapse-in-sub-saharan-africa-s-1772879348565",
+      "status": "pending",
+      "createdAt": "2026-03-07T10:29:34.965Z"
+    },
+    {
+      "id": "mmg6lsol-bs",
+      "articleSlug": "the-maintenance-mismatch-addressing-operational-collapse-in-sub-saharan-africa-s-1772879348565",
+      "articleTitle": "The Maintenance Mismatch: Addressing Operational Collapse in Sub-Saharan Africa's Solar Pumping Infrastructure for Water Security",
+      "platform": "bluesky",
+      "content": "We're seeing a real \"maintenance mismatch\" in Sub-Saharan Africa's solar water pumps. Systems are failing within 18 months not because the tech is bad, but because there's no local capacity to fix them or budget for spare parts. This turns vital climate adaptation tools into white elephants. To actu",
+      "hashtags": [
+        "WaterSecurity #ClimateAdaptation #SolarEnergy"
+      ],
+      "url": "https://baseflow.institute/article/the-maintenance-mismatch-addressing-operational-collapse-in-sub-saharan-africa-s-1772879348565",
+      "status": "pending",
+      "createdAt": "2026-03-07T10:29:34.965Z"
+    },
+    {
       "id": "mmg5ji90-tw",
       "articleSlug": "beyond-solar-illusions-integrating-energy-affordability-into-water-security-stra-1772877561013",
       "articleTitle": "** Beyond Solar Illusions: Integrating Energy Affordability into Water Security Strategies for Sub-Saharan Africa",
@@ -3414,5 +3459,5 @@
       "createdAt": "2026-03-02T00:01:09.765Z"
     }
   ],
-  "lastUpdated": "2026-03-07T09:59:48.520Z"
+  "lastUpdated": "2026-03-07T10:29:34.971Z"
 }

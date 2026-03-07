@@ -1,6 +1,34 @@
 {
   "articles": [
     {
+      "slug": "the-maintenance-mismatch-addressing-operational-collapse-in-sub-saharan-africa-s-1772879348565",
+      "title": "The Maintenance Mismatch: Addressing Operational Collapse in Sub-Saharan Africa's Solar Pumping Infrastructure for Water Security",
+      "summary": "To secure water access in Sub-Saharan Africa, international development partners and national governments must pivot from capital-intensive \"install-and-forgive\" models to operational sustainability frameworks.",
+      "topic": "Environmental resilience in lower-income countries: water security, clean energy, and climate adaptation",
+      "template": "Policy Brief",
+      "tags": [
+        "climate",
+        "water",
+        "energy",
+        "policy",
+        "finance",
+        "resilience",
+        "urbanization",
+        "education"
+      ],
+      "wordCount": 996,
+      "sourcesUsed": 14,
+      "readabilityScore": 89,
+      "publishedAt": "2026-03-07T10:29:08.574Z",
+      "updatedAt": "2026-03-07T10:29:36.317Z",
+      "status": "published",
+      "mdFile": "the-maintenance-mismatch-addressing-operational-collapse-in-sub-saharan-africa-s-1772879348565.md",
+      "htmlFile": "the-maintenance-mismatch-addressing-operational-collapse-in-sub-saharan-africa-s-1772879348565.html",
+      "region": "Sub-Saharan Africa",
+      "driveFileId": "1IxjgKmnfITe9hB_mk_YlHhHK4DFXaFeA",
+      "driveWebViewLink": "https://drive.google.com/file/d/1IxjgKmnfITe9hB_mk_YlHhHK4DFXaFeA/view?usp=drivesdk"
+    },
+    {
       "slug": "beyond-solar-illusions-integrating-energy-affordability-into-water-security-stra-1772877561013",
       "title": "** Beyond Solar Illusions: Integrating Energy Affordability into Water Security Strategies for Sub-Saharan Africa",
       "summary": "Global efforts to achieve Sustainable Development Goal 6 (SDG 6) face significant challenges, with energy costs identified as a primary barrier to maintaining water infrastructure in developing nations.",
@@ -2817,6 +2845,6 @@
       "region": "Sub-Saharan Africa"
     }
   ],
-  "lastUpdated": "2026-03-07T09:59:50.141Z",
-  "totalPublished": 96
+  "lastUpdated": "2026-03-07T10:29:36.317Z",
+  "totalPublished": 97
 }
