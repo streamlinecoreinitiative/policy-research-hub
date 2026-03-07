@@ -1,6 +1,51 @@
 {
   "posts": [
     {
+      "id": "mmge39n4-tw",
+      "articleSlug": "flood-resilient-transport-corridors-in-the-sudano-sahelian-belt-raising-resilien-1772891916564",
+      "articleTitle": "flood-resilient transport corridors in the Sudano-Sahelian belt: raising resilience finance for communities",
+      "platform": "twitter",
+      "content": "Global climate finance is failing because it prioritizes installing solar pumps and microgrids over building local maintenance systems. If we don't shift from \"install-and-abandon\" models to verified local support ecosystems, these critical investments will quickly become non-fun",
+      "hashtags": [
+        "climatefinance",
+        "watersecurity",
+        "sustainabledevelopment"
+      ],
+      "url": "https://baseflow.institute/article/flood-resilient-transport-corridors-in-the-sudano-sahelian-belt-raising-resilien-1772891916564",
+      "status": "pending",
+      "createdAt": "2026-03-07T13:59:07.408Z"
+    },
+    {
+      "id": "mmge39n4-li",
+      "articleSlug": "flood-resilient-transport-corridors-in-the-sudano-sahelian-belt-raising-resilien-1772891916564",
+      "articleTitle": "flood-resilient transport corridors in the Sudano-Sahelian belt: raising resilience finance for communities",
+      "platform": "linkedin",
+      "content": "The intersection of water security, clean energy, and climate adaptation has moved from theory to an urgent operational imperative. Despite renewable energy reaching 19.7% of global consumption in 2020, decentralized systems in low-income countries face a critical crisis of functionality. The disparity is stark: only 32.4% of Sub-Saharan Africa's population has access to safely managed drinking water compared to the global average of 73.7%. Furthermore, while 53.3% of the region has electricity access, many systems are non-operational due to a lack of spare parts and technical skills.\n\nCurrent interventions prioritize capital expenditure over operational sustainability, risking significant investments in solar pumping and microgrids becoming obsolete. Policymakers must mandate that all new decentralized infrastructure projects include a verified plan for local spare parts supply chains and technician training before any hardware is deployed. Operational capacity building is not an optional add-on; it is the primary prerequisite for lasting water security and clean energy access. We need a fundamental shift from \"install-and-abandon\" models to integrated local maintenance ecosystems to ensure these resources serve communities long-term.",
+      "hashtags": [
+        "climateadaptation",
+        "renewableenergy",
+        "policybrief"
+      ],
+      "url": "https://baseflow.institute/article/flood-resilient-transport-corridors-in-the-sudano-sahelian-belt-raising-resilien-1772891916564",
+      "status": "pending",
+      "createdAt": "2026-03-07T13:59:07.408Z"
+    },
+    {
+      "id": "mmge39n4-bs",
+      "articleSlug": "flood-resilient-transport-corridors-in-the-sudano-sahelian-belt-raising-resilien-1772891916564",
+      "articleTitle": "flood-resilient transport corridors in the Sudano-Sahelian belt: raising resilience finance for communities",
+      "platform": "bluesky",
+      "content": "The gap between global averages and Sub-Saharan reality is widening as climate shocks increase infrastructure failure rates. While freshwater withdrawal hit 9.2% of resources in 2021, our focus on installing solar pumps without building local maintenance systems means these investments risk becoming",
+      "hashtags": [
+        "climateaction",
+        "watersecurity",
+        "energyaccess"
+      ],
+      "url": "https://baseflow.institute/article/flood-resilient-transport-corridors-in-the-sudano-sahelian-belt-raising-resilien-1772891916564",
+      "status": "pending",
+      "createdAt": "2026-03-07T13:59:07.408Z"
+    },
+    {
       "id": "mmgd0jdx-tw",
       "articleSlug": "the-fiscal-trap-of-centralized-infrastructure-unlocking-water-energy-resilience--1772890112955",
       "articleTitle": "The Fiscal Trap of Centralized Infrastructure: Unlocking Water-Energy Resilience Through Community-Led Hybrid Systems in Fragile States",
@@ -3680,5 +3725,5 @@
       "createdAt": "2026-03-02T00:01:09.765Z"
     }
   ],
-  "lastUpdated": "2026-03-07T13:29:00.456Z"
+  "lastUpdated": "2026-03-07T13:59:07.413Z"
 }

@@ -1,6 +1,34 @@
 {
   "articles": [
     {
+      "slug": "flood-resilient-transport-corridors-in-the-sudano-sahelian-belt-raising-resilien-1772891916564",
+      "title": "flood-resilient transport corridors in the Sudano-Sahelian belt: raising resilience finance for communities",
+      "summary": "Global climate finance commitments are failing to deliver lasting resilience because current interventions prioritize capital expenditure over operational sustainability.",
+      "topic": "Environmental resilience in lower-income countries: water security, clean energy, and climate adaptation",
+      "template": "Policy Brief",
+      "tags": [
+        "climate",
+        "water",
+        "energy",
+        "policy",
+        "finance",
+        "resilience",
+        "biodiversity",
+        "urbanization"
+      ],
+      "wordCount": 1143,
+      "sourcesUsed": 7,
+      "readabilityScore": 91,
+      "publishedAt": "2026-03-07T13:58:36.571Z",
+      "updatedAt": "2026-03-07T13:59:08.862Z",
+      "status": "published",
+      "mdFile": "flood-resilient-transport-corridors-in-the-sudano-sahelian-belt-raising-resilien-1772891916564.md",
+      "htmlFile": "flood-resilient-transport-corridors-in-the-sudano-sahelian-belt-raising-resilien-1772891916564.html",
+      "region": "Sub-Saharan Africa",
+      "driveFileId": "1wG3nNMEbA-kmwecsMj-kxlKFs6-TMH8s",
+      "driveWebViewLink": "https://drive.google.com/file/d/1wG3nNMEbA-kmwecsMj-kxlKFs6-TMH8s/view?usp=drivesdk"
+    },
+    {
       "slug": "the-fiscal-trap-of-centralized-infrastructure-unlocking-water-energy-resilience--1772890112955",
       "title": "The Fiscal Trap of Centralized Infrastructure: Unlocking Water-Energy Resilience Through Community-Led Hybrid Systems in Fragile States",
       "summary": "Governments and development partners must consider halting the expansion of centralized water and energy grids in remote, low-income regions and redirect capital toward community-led hybrid systems.",
@@ -3013,6 +3041,6 @@
       "region": "Sub-Saharan Africa"
     }
   ],
-  "lastUpdated": "2026-03-07T13:29:02.665Z",
-  "totalPublished": 103
+  "lastUpdated": "2026-03-07T13:59:08.862Z",
+  "totalPublished": 104
 }
