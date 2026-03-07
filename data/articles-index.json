@@ -1,6 +1,34 @@
 {
   "articles": [
     {
+      "slug": "decoupling-water-and-energy-a-path-to-resilience-in-sub-saharan-africa-through-i-1772866755062",
+      "title": "Decoupling Water and Energy: A Path to Resilience in Sub-Saharan Africa Through Independent Microgrids and Managed Aquifer Recharge",
+      "summary": "Sub-Saharan Africa faces a critical development bottleneck where unreliable electricity grids hinder efficient water pumping, while over-extracted aquifers threaten long-term food security.",
+      "topic": "Environmental resilience in lower-income countries: water security, clean energy, and climate adaptation",
+      "template": "Policy Brief",
+      "tags": [
+        "climate",
+        "water",
+        "energy",
+        "agriculture",
+        "health",
+        "policy",
+        "finance",
+        "resilience"
+      ],
+      "wordCount": 1099,
+      "sourcesUsed": 8,
+      "readabilityScore": 90,
+      "publishedAt": "2026-03-07T06:59:15.070Z",
+      "updatedAt": "2026-03-07T06:59:46.492Z",
+      "status": "published",
+      "mdFile": "decoupling-water-and-energy-a-path-to-resilience-in-sub-saharan-africa-through-i-1772866755062.md",
+      "htmlFile": "decoupling-water-and-energy-a-path-to-resilience-in-sub-saharan-africa-through-i-1772866755062.html",
+      "region": "Sub-Saharan Africa",
+      "driveFileId": "1JN52JoGl2OoEZ_sjEmua-1JdisxACqHP",
+      "driveWebViewLink": "https://drive.google.com/file/d/1JN52JoGl2OoEZ_sjEmua-1JdisxACqHP/view?usp=drivesdk"
+    },
+    {
       "slug": "the-baseload-paradox-overcoming-infrastructure-rigidity-in-sub-saharan-africa-s--1772864950446",
       "title": "The Baseload Paradox: Overcoming Infrastructure Rigidity in Sub-Saharan Africa's Water-Energy Nexus Through Decentralized Hybrid Systems",
       "summary": "Sub-Saharan Africa faces a critical dual crisis where 32.4% of its population lacks access to safely managed drinking water, while nearly half remains off-grid with electricity (World Bank Open Data).",
@@ -2621,6 +2649,6 @@
       "region": "Sub-Saharan Africa"
     }
   ],
-  "lastUpdated": "2026-03-07T06:29:43.355Z",
-  "totalPublished": 89
+  "lastUpdated": "2026-03-07T06:59:46.492Z",
+  "totalPublished": 90
 }

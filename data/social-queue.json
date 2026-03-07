@@ -1,6 +1,52 @@
 {
   "posts": [
     {
+      "id": "mmfz3y6a-tw",
+      "articleSlug": "decoupling-water-and-energy-a-path-to-resilience-in-sub-saharan-africa-through-i-1772866755062",
+      "articleTitle": "Decoupling Water and Energy: A Path to Resilience in Sub-Saharan Africa Through Independent Microgrids and Managed Aquifer Recharge",
+      "platform": "twitter",
+      "content": "SSA faces a water-energy crisis: unreliable grids stop efficient pumping, while over-extracted aquifers threaten food security. The fix? Shift from centralized grids to independent renewable microgrids paired with Managed Aquifer Recharge. This dual approach bypasses remote infra",
+      "hashtags": [
+        "WaterEnergyNexus",
+        "ClimateResilience",
+        "SustainableDevelopment"
+      ],
+      "url": "https://baseflow.institute/article/decoupling-water-and-energy-a-path-to-resilience-in-sub-saharan-africa-through-i-1772866755062",
+      "status": "pending",
+      "createdAt": "2026-03-07T06:59:44.962Z"
+    },
+    {
+      "id": "mmfz3y6a-li",
+      "articleSlug": "decoupling-water-and-energy-a-path-to-resilience-in-sub-saharan-africa-through-i-1772866755062",
+      "articleTitle": "Decoupling Water and Energy: A Path to Resilience in Sub-Saharan Africa Through Independent Microgrids and Managed Aquifer Recharge",
+      "platform": "linkedin",
+      "content": "Sub-Saharan Africa is facing a critical development bottleneck where unreliable electricity grids hinder efficient water pumping, while over-extracted aquifers threaten long-term food security. With global electricity access at 91.6% but SSA lagging significantly behind, traditional infrastructure expansion is proving economically unviable in remote areas.\n\nThe solution lies in decoupling water and energy through independent renewable microgrids coupled with Managed Aquifer Recharge (MAR). By integrating energy autonomy with hydrological resilience, we can store excess rainfall during wet seasons to ensure year-round water availability without depleting finite resources. This approach directly addresses the energy-water nexus, bypassing the siloed planning that has historically failed in this region.\n\nGovernments and development partners should prioritize funding pilot programs for solar-diesel hybrid microgrids at water stations alongside MAR implementation. This strategy not only secures water access but also supports climate adaptation goals, ensuring that development does not compromise environmental sustainability. Let's move toward a resilient future where energy independence fuels water security.",
+      "hashtags": [
+        "WaterSecurity",
+        "RenewableEnergy",
+        "ClimateAdaptation",
+        "PolicyBrief"
+      ],
+      "url": "https://baseflow.institute/article/decoupling-water-and-energy-a-path-to-resilience-in-sub-saharan-africa-through-i-1772866755062",
+      "status": "pending",
+      "createdAt": "2026-03-07T06:59:44.962Z"
+    },
+    {
+      "id": "mmfz3y6a-bs",
+      "articleSlug": "decoupling-water-and-energy-a-path-to-resilience-in-sub-saharan-africa-through-i-1772866755062",
+      "articleTitle": "Decoupling Water and Energy: A Path to Resilience in Sub-Saharan Africa Through Independent Microgrids and Managed Aquifer Recharge",
+      "platform": "bluesky",
+      "content": "SSA is hitting a wall: bad grids mean inefficient water pumping, and we're draining aquifers faster than they can refill. The old playbook of just building more central lines isn't working in remote areas.\n\nThe fix? Decouple water and energy. Deploy independent solar-diesel microgrids for pumping st",
+      "hashtags": [
+        "WaterEnergyNexus",
+        "ClimateResilience",
+        "SSADevelopment"
+      ],
+      "url": "https://baseflow.institute/article/decoupling-water-and-energy-a-path-to-resilience-in-sub-saharan-africa-through-i-1772866755062",
+      "status": "pending",
+      "createdAt": "2026-03-07T06:59:44.962Z"
+    },
+    {
       "id": "mmfy1b2r-tw",
       "articleSlug": "the-baseload-paradox-overcoming-infrastructure-rigidity-in-sub-saharan-africa-s--1772864950446",
       "articleTitle": "The Baseload Paradox: Overcoming Infrastructure Rigidity in Sub-Saharan Africa's Water-Energy Nexus Through Decentralized Hybrid Systems",
@@ -3145,5 +3191,5 @@
       "createdAt": "2026-03-02T00:01:09.765Z"
     }
   ],
-  "lastUpdated": "2026-03-07T06:29:42.104Z"
+  "lastUpdated": "2026-03-07T06:59:44.965Z"
 }
