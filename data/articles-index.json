@@ -1,6 +1,34 @@
 {
   "articles": [
     {
+      "slug": "the-operational-collapse-of-hybrid-systems-rebuilding-maintenance-capacity-for-w-1772875748267",
+      "title": "The Operational Collapse of Hybrid Systems: Rebuilding Maintenance Capacity for Water-Energy Resilience in Sub-Saharan Africa",
+      "summary": "Global development efforts must shift from a hardware-centric model to an integrated capacity-building framework that prioritizes operational resilience alongside infrastructure construction.",
+      "topic": "Environmental resilience in lower-income countries: water security, clean energy, and climate adaptation",
+      "template": "Policy Brief",
+      "tags": [
+        "climate",
+        "water",
+        "energy",
+        "policy",
+        "finance",
+        "resilience",
+        "urbanization",
+        "education"
+      ],
+      "wordCount": 1183,
+      "sourcesUsed": 7,
+      "readabilityScore": 84,
+      "publishedAt": "2026-03-07T09:29:08.274Z",
+      "updatedAt": "2026-03-07T09:29:43.312Z",
+      "status": "published",
+      "mdFile": "the-operational-collapse-of-hybrid-systems-rebuilding-maintenance-capacity-for-w-1772875748267.md",
+      "htmlFile": "the-operational-collapse-of-hybrid-systems-rebuilding-maintenance-capacity-for-w-1772875748267.html",
+      "region": "Sub-Saharan Africa",
+      "driveFileId": "1ril7z3oYH2wE7QR1t-FR1vTL2ar6fbkE",
+      "driveWebViewLink": "https://drive.google.com/file/d/1ril7z3oYH2wE7QR1t-FR1vTL2ar6fbkE/view?usp=drivesdk"
+    },
+    {
       "slug": "the-thermal-threshold-paradox-integrating-managed-aquifer-recharge-with-decentra-1772873964012",
       "title": "The Thermal Threshold Paradox: Integrating Managed Aquifer Recharge with Decentralized Solar Pumping for Climate-Resilient Water Security in East Africa",
       "summary": "To secure water resources against rising global temperatures, governments must pivot from extraction-centric models to integrated \"Recharge-Extract\" systems.",
@@ -2761,6 +2789,6 @@
       "region": "Sub-Saharan Africa"
     }
   ],
-  "lastUpdated": "2026-03-07T09:00:00.836Z",
-  "totalPublished": 94
+  "lastUpdated": "2026-03-07T09:29:43.312Z",
+  "totalPublished": 95
 }

@@ -1,6 +1,48 @@
 {
   "posts": [
     {
+      "id": "mmg4gsa5-tw",
+      "articleSlug": "the-operational-collapse-of-hybrid-systems-rebuilding-maintenance-capacity-for-w-1772875748267",
+      "articleTitle": "The Operational Collapse of Hybrid Systems: Rebuilding Maintenance Capacity for Water-Energy Resilience in Sub-Saharan Africa",
+      "platform": "twitter",
+      "content": "Hardware isn't enough. New water-energy projects in Sub-Saharan Africa are failing because they ignore the lack of local maintenance capacity, turning assets into \"white elephants.\" To fix this, we must shift from building infrastructure to building human capital and supply chain",
+      "hashtags": [
+        "WaterSecurity",
+        "ClimateResilience",
+        "SDG6",
+        "Infrastructure"
+      ],
+      "url": "https://baseflow.institute/article/the-operational-collapse-of-hybrid-systems-rebuilding-maintenance-capacity-for-w-1772875748267",
+      "status": "pending",
+      "createdAt": "2026-03-07T09:29:41.933Z"
+    },
+    {
+      "id": "mmg4gsa5-li",
+      "articleSlug": "the-operational-collapse-of-hybrid-systems-rebuilding-maintenance-capacity-for-w-1772875748267",
+      "articleTitle": "The Operational Collapse of Hybrid Systems: Rebuilding Maintenance Capacity for Water-Energy Resilience in Sub-Saharan Africa",
+      "platform": "linkedin",
+      "content": "Global development efforts are facing a critical operational crisis in Sub-Saharan Africa. While billions have been invested in solar pumps and renewable energy systems, these projects are rapidly collapsing due to a systemic lack of technical maintenance capacity. The result is not water or energy access, but asset abandonment.\n\nThe data is stark: while global SDG 6 coverage stands at 74%, Sub-Saharan Africa lags at just 32% access to safely managed water. Simultaneously, despite global renewable consumption reaching 20%, the region's electrification rate remains below 54%. This creates a fragile dependency on imported diesel, exacerbating energy poverty and climate vulnerability.\n\nThe solution is clear: we must shift from a hardware-centric model to an integrated capacity-building framework. Every new water-energy project must allocate specific budget portions for local technician training and spare parts logistics. Without parallel investments in human capital and supply chains, even technically sound infrastructure becomes useless. We need a policy pivot that prioritizes operational resilience alongside construction to truly solve water insecurity and energy poverty.",
+      "hashtags": [
+        "WaterEnergyResilience #ClimateAdaptation #DevelopmentPolicy #SDG6"
+      ],
+      "url": "https://baseflow.institute/article/the-operational-collapse-of-hybrid-systems-rebuilding-maintenance-capacity-for-w-1772875748267",
+      "status": "pending",
+      "createdAt": "2026-03-07T09:29:41.933Z"
+    },
+    {
+      "id": "mmg4gsa5-bs",
+      "articleSlug": "the-operational-collapse-of-hybrid-systems-rebuilding-maintenance-capacity-for-w-1772875748267",
+      "articleTitle": "The Operational Collapse of Hybrid Systems: Rebuilding Maintenance Capacity for Water-Energy Resilience in Sub-Saharan Africa",
+      "platform": "bluesky",
+      "content": "We're seeing a real paradox in Sub-Saharan Africa's development story. We're pouring money into solar pumps and renewable systems, but the assets are dying within months because there's no local capacity to maintain them. It's turning \"white elephants.\"\n\nThe numbers don't lie: SDG 6 access is only 3",
+      "hashtags": [
+        "WaterSecurity #CleanEnergy #ClimateAction"
+      ],
+      "url": "https://baseflow.institute/article/the-operational-collapse-of-hybrid-systems-rebuilding-maintenance-capacity-for-w-1772875748267",
+      "status": "pending",
+      "createdAt": "2026-03-07T09:29:41.933Z"
+    },
+    {
       "id": "mmg3ekwg-tw",
       "articleSlug": "the-thermal-threshold-paradox-integrating-managed-aquifer-recharge-with-decentra-1772873964012",
       "articleTitle": "The Thermal Threshold Paradox: Integrating Managed Aquifer Recharge with Decentralized Solar Pumping for Climate-Resilient Water Security in East Africa",
@@ -3326,5 +3368,5 @@
       "createdAt": "2026-03-02T00:01:09.765Z"
     }
   ],
-  "lastUpdated": "2026-03-07T08:59:59.444Z"
+  "lastUpdated": "2026-03-07T09:29:41.937Z"
 }
