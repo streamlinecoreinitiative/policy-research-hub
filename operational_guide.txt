@@ -168,11 +168,11 @@ When a user submits a topic via /admin or via API POST /api/run:
       - PASSED: published (visible on public site)
       - FAILED: saved as draft (not visible publicly)
 
-  Step 7 — AUTO-PUBLISH (daily cron)
-    - scripts/auto-publish.sh runs at 6:00 AM daily
-    - Checks git status for changes in data/output/
-    - Commits and pushes to GitHub
-    - Vercel auto-deploys from the push
+  Step 7 — AUTO-PUBLISH (batched deploys)
+    - The scheduler calls src/lib/autoPublish.ts after successful article generation
+    - New articles are queued and only pushed after a batch threshold or max wait window
+    - Defaults: 4 successful publish runs or 180 minutes, whichever comes first
+    - Vercel auto-deploys from the resulting push to main
 
 The pipeline is in: src/lib/agents-v2.ts (function: runAgents)
 
@@ -208,21 +208,26 @@ The index is stored at: data/articles-index.json
 7. AUTO-PUBLISH SYSTEM
 ================================================================================
 
-Script: scripts/auto-publish.sh
-Cron schedule: 0 6 * * * (daily at 6:00 AM local time)
+Primary path: src/lib/autoPublish.ts (called by the scheduler)
+Fallback script: scripts/auto-publish.sh
 Log file: data/auto-publish.log
+State file: data/auto-publish-state.json
 
 What it does:
-  1. cd to the project directory
-  2. Check `git status --porcelain` for changes in data/output/, 
-     data/articles-index.json, data/subscribers.json
-  3. If changes exist: git add, commit with timestamp, push to origin/main
-  4. Vercel detects the push and auto-redeploys
+  1. Detect queued publish artifacts in data/output/ and article index metadata
+  2. Track how many successful generation runs are waiting to be deployed
+  3. Push to GitHub only when the batch threshold or max wait is reached
+  4. Vercel detects that push and redeploys once per batch instead of once per article
 
-To view the cron job:
+Default batching knobs:
+  - AUTO_PUBLISH_BATCH_SIZE=4
+  - AUTO_PUBLISH_MAX_DELAY_MINUTES=180
+  - AUTO_PUBLISH_MIN_COMMIT_INTERVAL_MINUTES=15
+
+To view any legacy cron job:
   crontab -l
 
-To edit the cron schedule:
+To edit the cron schedule for the fallback shell script:
   crontab -e
   # Change "0 6" to desired hour/minute (e.g., "0 8" for 8 AM, "*/6 * * *" every 6 hours)
 
