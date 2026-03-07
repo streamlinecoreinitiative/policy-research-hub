@@ -1,6 +1,47 @@
 {
   "posts": [
     {
+      "id": "mmftqmpl-tw",
+      "articleSlug": "the-desalination-dilemma-leveraging-coastal-microgrids-for-water-energy-security-1772857732072",
+      "articleTitle": "The Desalination Dilemma: Leveraging Coastal Microgrids for Water-Energy Security in Small Island Developing States",
+      "platform": "twitter",
+      "content": "SIDS face a deadly cycle: rising seas salt out aquifers, while erratic weather kills the power grids needed to pump clean water. Expanding isolated desalination plants is failing us. We must pivot to integrated coastal microgrids combining renewables with resilient tech. Moderniz",
+      "hashtags": [
+        "WaterSecurity",
+        "ClimateAction",
+        "SIDS"
+      ],
+      "url": "https://baseflow.institute/article/the-desalination-dilemma-leveraging-coastal-microgrids-for-water-energy-security-1772857732072",
+      "status": "pending",
+      "createdAt": "2026-03-07T04:29:25.497Z"
+    },
+    {
+      "id": "mmftqmpl-li",
+      "articleSlug": "the-desalination-dilemma-leveraging-coastal-microgrids-for-water-energy-security-1772857732072",
+      "articleTitle": "The Desalination Dilemma: Leveraging Coastal Microgrids for Water-Energy Security in Small Island Developing States",
+      "platform": "linkedin",
+      "content": "Small Island Developing States (SIDS) are on the frontlines of a dual existential threat: rising sea levels compromising freshwater aquifers and erratic weather destabilizing the energy grids required to treat that water. Currently, SIDS rely heavily on desalination plants powered by fossil fuels, creating a vicious cycle where transitioning to renewables risks losing the reliable baseload power needed for water security.\n\nThe data is stark. While 91.6% of the global population has electricity access, many vulnerable island nations lag significantly behind. In Sub-Saharan Africa alone, only 53.3% have access. This energy insecurity directly impacts water availability, creating a feedback loop where blackouts lead to service collapses.\n\nTraditional grid approaches are ill-suited for these fragile architectures. Our new research argues that policymakers must pivot from expanding isolated infrastructure to deploying integrated coastal microgrids. These systems combine intermittent renewable sources with resilient desalination technologies, offering superior stability against extreme weather events. Immediate action is required to restructure financing models and regulatory frameworks to support these decentralized hybrid systems. Securing both water and energy in SIDS requires a fundamental shift toward modernization and integration.",
+      "hashtags": [
+        "WaterEnergySecurity #ClimateAdaptation #RenewableEnergy #PolicyBrief"
+      ],
+      "url": "https://baseflow.institute/article/the-desalination-dilemma-leveraging-coastal-microgrids-for-water-energy-security-1772857732072",
+      "status": "pending",
+      "createdAt": "2026-03-07T04:29:25.497Z"
+    },
+    {
+      "id": "mmftqmpl-bs",
+      "articleSlug": "the-desalination-dilemma-leveraging-coastal-microgrids-for-water-energy-security-1772857732072",
+      "articleTitle": "The Desalination Dilemma: Leveraging Coastal Microgrids for Water-Energy Security in Small Island Developing States",
+      "platform": "bluesky",
+      "content": "The desalination dilemma is real for Small Island Developing States (SIDS). Rising seas are saltwater-ing our aquifers, but the erratic weather patterns we face also threaten to blackout the grids powering those pumps. We're stuck in a cycle where switching to clean energy risks drying out our water",
+      "hashtags": [
+        "ClimateResilience #WaterSecurity #EnergyTransition"
+      ],
+      "url": "https://baseflow.institute/article/the-desalination-dilemma-leveraging-coastal-microgrids-for-water-energy-security-1772857732072",
+      "status": "pending",
+      "createdAt": "2026-03-07T04:29:25.497Z"
+    },
+    {
       "id": "mmfsotbq-tw",
       "articleSlug": "the-maintenance-mismatch-addressing-operational-collapse-in-sub-saharan-africa-s-1772855969232",
       "articleTitle": "The Maintenance Mismatch: Addressing Operational Collapse in Sub-Saharan Africa's Solar Pumping Infrastructure for Water Security",
@@ -2957,5 +2998,5 @@
       "createdAt": "2026-03-02T00:01:09.765Z"
     }
   ],
-  "lastUpdated": "2026-03-07T04:00:01.147Z"
+  "lastUpdated": "2026-03-07T04:29:25.500Z"
 }
