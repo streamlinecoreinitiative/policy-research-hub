@@ -1,6 +1,51 @@
 {
   "posts": [
     {
+      "id": "mmg05thf-tw",
+      "articleSlug": "the-maintenance-mismatch-addressing-operational-collapse-in-sub-saharan-africa-s-1772868522782",
+      "articleTitle": "The Maintenance Mismatch: Addressing Operational Collapse in Sub-Saharan Africa's Solar Pumping Infrastructure for Water Security",
+      "platform": "twitter",
+      "content": "Sub-Saharan Africa's solar water pumps are failing not from lack of sun, but from lack of maintenance. Without O&M funding from day one, we risk abandoning SDG 6 and 7. We need regional parts hubs and local technician training now. #WaterSecurity #ClimateAction #SolarEnergy",
+      "hashtags": [
+        "WaterSecurity",
+        "SolarPumps",
+        "ClimateAdaptation"
+      ],
+      "url": "https://baseflow.institute/article/the-maintenance-mismatch-addressing-operational-collapse-in-sub-saharan-africa-s-1772868522782",
+      "status": "pending",
+      "createdAt": "2026-03-07T07:29:11.811Z"
+    },
+    {
+      "id": "mmg05thf-li",
+      "articleSlug": "the-maintenance-mismatch-addressing-operational-collapse-in-sub-saharan-africa-s-1772868522782",
+      "articleTitle": "The Maintenance Mismatch: Addressing Operational Collapse in Sub-Saharan Africa's Solar Pumping Infrastructure for Water Security",
+      "platform": "linkedin",
+      "content": "Water security is the bedrock of economic stability in developing regions, yet Sub-Saharan Africa faces a critical paradox: while global access to safely managed drinking water stands at 73.7%, only 53.3% of the population here has electricity access. This disparity is driven by a \"maintenance mismatch.\" Our latest research reveals that solar pumping systems are collapsing prematurely due to neglected Operations and Maintenance (O&M), forcing communities back into unsafe water sources or expensive diesel reliance.\n\nThe traditional model of capital-heavy installation without long-term O&M frameworks is unsustainable. As climate variability increases demand on fragile infrastructure, the gap between global water access targets and reality risks widening further. To prevent this operational collapse, policymakers must mandate O&M resource allocation from day one, integrate local technical capacity into national utility structures, and establish regional parts supply hubs. Without these structural shifts, we cannot secure the clean water and affordable energy essential for future development.",
+      "hashtags": [
+        "WaterSecurity",
+        "SustainableDevelopment",
+        "InfrastructurePolicy"
+      ],
+      "url": "https://baseflow.institute/article/the-maintenance-mismatch-addressing-operational-collapse-in-sub-saharan-africa-s-1772868522782",
+      "status": "pending",
+      "createdAt": "2026-03-07T07:29:11.811Z"
+    },
+    {
+      "id": "mmg05thf-bs",
+      "articleSlug": "the-maintenance-mismatch-addressing-operational-collapse-in-sub-saharan-africa-s-1772868522782",
+      "articleTitle": "The Maintenance Mismatch: Addressing Operational Collapse in Sub-Saharan Africa's Solar Pumping Infrastructure for Water Security",
+      "platform": "bluesky",
+      "content": "Here's a hard truth about Sub-Saharan Africa's solar water pumps: they aren't failing because there's no sun, but because there's no maintenance plan. We're seeing systems collapse due to spare part shortages and a lack of skilled technicians, pushing communities back to unsafe water or costly diese",
+      "hashtags": [
+        "WaterSecurity",
+        "SolarEnergy",
+        "ClimateResilience"
+      ],
+      "url": "https://baseflow.institute/article/the-maintenance-mismatch-addressing-operational-collapse-in-sub-saharan-africa-s-1772868522782",
+      "status": "pending",
+      "createdAt": "2026-03-07T07:29:11.811Z"
+    },
+    {
       "id": "mmfz3y6a-tw",
       "articleSlug": "decoupling-water-and-energy-a-path-to-resilience-in-sub-saharan-africa-through-i-1772866755062",
       "articleTitle": "Decoupling Water and Energy: A Path to Resilience in Sub-Saharan Africa Through Independent Microgrids and Managed Aquifer Recharge",
@@ -3191,5 +3236,5 @@
       "createdAt": "2026-03-02T00:01:09.765Z"
     }
   ],
-  "lastUpdated": "2026-03-07T06:59:44.965Z"
+  "lastUpdated": "2026-03-07T07:29:11.815Z"
 }
