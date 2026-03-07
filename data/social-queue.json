@@ -1,6 +1,36 @@
 {
   "posts": [
     {
+      "id": "mmg7oi44-tw",
+      "articleSlug": "the-baseload-bottleneck-decentralized-hybrid-microgrids-as-a-strategy-for-water--1772881152744",
+      "articleTitle": "The Baseload Bottleneck: Decentralized Hybrid Microgrids as a Strategy for Water-Energy Resilience in Sub-Saharan Africa",
+      "platform": "twitter",
+      "content": "Global water policy is broken. We are subsidizing fragile solar pumps that fail when the sun doesn't shine, leaving 2.2 billion people without safe drinking water. It's time to mandate decentralized hybrid microgrids with diesel backup and battery storage for all new water infras",
+      "hashtags": [
+        "WaterSecurity",
+        "ClimateResilience",
+        "EnergyAccess"
+      ],
+      "url": "https://baseflow.institute/article/the-baseload-bottleneck-decentralized-hybrid-microgrids-as-a-strategy-for-water--1772881152744",
+      "status": "pending",
+      "createdAt": "2026-03-07T10:59:40.852Z"
+    },
+    {
+      "id": "mmg7oi44-li",
+      "articleSlug": "the-baseload-bottleneck-decentralized-hybrid-microgrids-as-a-strategy-for-water--1772881152744",
+      "articleTitle": "The Baseload Bottleneck: Decentralized Hybrid Microgrids as a Strategy for Water-Energy Resilience in Sub-Saharan Africa",
+      "platform": "linkedin",
+      "content": "The intersection of water security and energy access represents a critical vulnerability point in Sub-Saharan Africa. While global electricity access has reached 91.6%, the region lags significantly at 53.3%. This disparity means communities lack reliable power to operate water treatment facilities or maintain irrigation systems.\n\nIn many rural African communities, water points are non-operational not because they lack pumps, but because the energy required to run them is unavailable. The current reliance on intermittent solar power creates systemic fragility; when weather patterns shift or seasonal variability reduces generation, service continuity collapses. To secure water access for 2.2 billion people globally lacking safe drinking water, global development policy must pivot. Donors and governments must move away from subsidizing single-source renewable projects and instead mandate decentralized hybrid microgrid architectures for new water infrastructure. Integrating diesel backup and battery storage is not just an option; it is a critical necessity to ensure capital expenditure on pumps yields operational returns rather than failure. We need resilient baseload services, not fragile intermittent solutions.",
+      "hashtags": [
+        "WaterEnergyLink",
+        "SustainableDevelopment",
+        "PolicyBrief"
+      ],
+      "url": "https://baseflow.institute/article/the-baseload-bottleneck-decentralized-hybrid-microgrids-as-a-strategy-for-water--1772881152744",
+      "status": "pending",
+      "createdAt": "2026-03-07T10:59:40.852Z"
+    },
+    {
       "id": "mmg6lsol-tw",
       "articleSlug": "the-maintenance-mismatch-addressing-operational-collapse-in-sub-saharan-africa-s-1772879348565",
       "articleTitle": "The Maintenance Mismatch: Addressing Operational Collapse in Sub-Saharan Africa's Solar Pumping Infrastructure for Water Security",
@@ -3459,5 +3489,5 @@
       "createdAt": "2026-03-02T00:01:09.765Z"
     }
   ],
-  "lastUpdated": "2026-03-07T10:29:34.971Z"
+  "lastUpdated": "2026-03-07T10:59:40.855Z"
 }
