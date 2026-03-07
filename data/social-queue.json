@@ -1,6 +1,52 @@
 {
   "posts": [
     {
+      "id": "mmfma37j-tw",
+      "articleSlug": "the-informal-grid-water-nexus-leveraging-private-sector-innovation-for-integrate-1772845193696",
+      "articleTitle": "The Informal Grid-Water Nexus: Leveraging Private Sector Innovation for Integrated Energy-Water Security in Fragile Urban Centers of South Asia",
+      "platform": "twitter",
+      "content": "Fragile urban centers in South Asia are stuck between unreliable formal grids and expensive private water pumps. The solution isn't just regulation—it's recognizing the \"informal grid-water nexus.\" We need regulatory sandboxes to let private actors integrate hybrid microgrids int",
+      "hashtags": [
+        "WaterSecurity",
+        "ClimateAdaptation",
+        "EnergyPolicy"
+      ],
+      "url": "https://baseflow.institute/article/the-informal-grid-water-nexus-leveraging-private-sector-innovation-for-integrate-1772845193696",
+      "status": "pending",
+      "createdAt": "2026-03-07T01:00:36.415Z"
+    },
+    {
+      "id": "mmfma37j-li",
+      "articleSlug": "the-informal-grid-water-nexus-leveraging-private-sector-innovation-for-integrate-1772845193696",
+      "articleTitle": "The Informal Grid-Water Nexus: Leveraging Private Sector Innovation for Integrated Energy-Water Security in Fragile Urban Centers of South Asia",
+      "platform": "linkedin",
+      "content": "Environmental resilience in lower-income countries hinges on solving the critical intersection of water security and clean energy, yet current policies remain ill-equipped for dynamic informal markets. In fragile states across South Asia and Sub-Saharan Africa, national grids are often unstable or non-existent, forcing households to rely on private generators for water extraction. This creates a \"dual-energy\" market that undermines climate adaptation goals while driving up costs.\n\nThe urgency is compounded by stagnant progress: only 73.7% of the global population has access to safely managed drinking water services. While global electricity access has reached 91.6%, reliability in regions like Sub-Saharan Africa remains low at 53.3%. The current policy framework treats water and energy as siloed sectors, ignoring the reality that informal actors are already bridging this gap through hybrid systems combining solar power with small-scale pumping or desalination.\n\nGovernments must shift from a \"formalization-only\" regulatory approach to an inclusive governance model. To align with SDG 6 targets, policymakers should establish regulatory sandboxes allowing private entities to operate hybrid microgrids for water supply while integrating them into national energy markets. Failure to act risks exacerbating climate vulnerability and stalling development progress in fragile states where formal infrastructure is unreliable. We must recognize the value of existing private networks to achieve integrated energy-water security.",
+      "hashtags": [
+        "SDG6",
+        "WaterAndEnergy",
+        "PolicyInnovation",
+        "ClimateResilience"
+      ],
+      "url": "https://baseflow.institute/article/the-informal-grid-water-nexus-leveraging-private-sector-innovation-for-integrate-1772845193696",
+      "status": "pending",
+      "createdAt": "2026-03-07T01:00:36.415Z"
+    },
+    {
+      "id": "mmfma37j-bs",
+      "articleSlug": "the-informal-grid-water-nexus-leveraging-private-sector-innovation-for-integrate-1772845193696",
+      "articleTitle": "The Informal Grid-Water Nexus: Leveraging Private Sector Innovation for Integrated Energy-Water Security in Fragile Urban Centers of South Asia",
+      "platform": "bluesky",
+      "content": "The gap between global electricity access and reliable water supply is widening in fragile urban centers. While 91.6% of the world has grid power, only 73.7% has safely managed drinking water. In South Asia and parts of Africa, this forces reliance on expensive private generators, creating a \"dual-e",
+      "hashtags": [
+        "WaterCrisis",
+        "RenewableEnergy",
+        "UrbanResilience"
+      ],
+      "url": "https://baseflow.institute/article/the-informal-grid-water-nexus-leveraging-private-sector-innovation-for-integrate-1772845193696",
+      "status": "pending",
+      "createdAt": "2026-03-07T01:00:36.415Z"
+    },
+    {
       "id": "mmflbd6p-tw",
       "articleSlug": "the-energy-water-nexus-bottleneck-unlocking-resilience-in-sub-saharan-africa-thr-1772843531992",
       "articleTitle": "The Energy-Water Nexus Bottleneck: Unlocking Resilience in Sub-Saharan Africa Through Decentralized Hybrid Microgrids and Solar-Powered Pumping Systems",
@@ -2689,5 +2735,5 @@
       "createdAt": "2026-03-02T00:01:09.765Z"
     }
   ],
-  "lastUpdated": "2026-03-07T00:33:36.423Z"
+  "lastUpdated": "2026-03-07T01:00:36.420Z"
 }
