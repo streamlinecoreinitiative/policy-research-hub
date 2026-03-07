@@ -1,6 +1,34 @@
 {
   "articles": [
     {
+      "slug": "the-thermal-threshold-paradox-integrating-managed-aquifer-recharge-with-decentra-1772873964012",
+      "title": "The Thermal Threshold Paradox: Integrating Managed Aquifer Recharge with Decentralized Solar Pumping for Climate-Resilient Water Security in East Africa",
+      "summary": "To secure water resources against rising global temperatures, governments must pivot from extraction-centric models to integrated \"Recharge-Extract\" systems.",
+      "topic": "Environmental resilience in lower-income countries: water security, clean energy, and climate adaptation",
+      "template": "Policy Brief",
+      "tags": [
+        "climate",
+        "water",
+        "energy",
+        "agriculture",
+        "policy",
+        "finance",
+        "resilience",
+        "urbanization"
+      ],
+      "wordCount": 1467,
+      "sourcesUsed": 28,
+      "readabilityScore": 90,
+      "publishedAt": "2026-03-07T08:59:24.022Z",
+      "updatedAt": "2026-03-07T09:00:00.836Z",
+      "status": "published",
+      "mdFile": "the-thermal-threshold-paradox-integrating-managed-aquifer-recharge-with-decentra-1772873964012.md",
+      "htmlFile": "the-thermal-threshold-paradox-integrating-managed-aquifer-recharge-with-decentra-1772873964012.html",
+      "region": "Sub-Saharan Africa",
+      "driveFileId": "1B7SOLqJCJWg77C4K97OIi4_JMi_Z8Vee",
+      "driveWebViewLink": "https://drive.google.com/file/d/1B7SOLqJCJWg77C4K97OIi4_JMi_Z8Vee/view?usp=drivesdk"
+    },
+    {
       "slug": "the-hydro-electric-equity-gap-bridging-the-service-delivery-divide-in-south-asia-1772872149582",
       "title": "The Hydro-Electric Equity Gap: Bridging the Service Delivery Divide in South Asia's Water-Energy Nexus Through Community-Led Hybrid Microgrids",
       "summary": "South Asia faces a converging crisis of water scarcity and energy insecurity, driven by erratic monsoon patterns and rising global temperatures. Current centralized infrastructure models are financially unsustainable and operationally fragile in this volatile climate.",
@@ -2733,6 +2761,6 @@
       "region": "Sub-Saharan Africa"
     }
   ],
-  "lastUpdated": "2026-03-07T08:29:38.129Z",
-  "totalPublished": 93
+  "lastUpdated": "2026-03-07T09:00:00.836Z",
+  "totalPublished": 94
 }

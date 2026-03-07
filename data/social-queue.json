@@ -1,6 +1,51 @@
 {
   "posts": [
     {
+      "id": "mmg3ekwg-tw",
+      "articleSlug": "the-thermal-threshold-paradox-integrating-managed-aquifer-recharge-with-decentra-1772873964012",
+      "articleTitle": "The Thermal Threshold Paradox: Integrating Managed Aquifer Recharge with Decentralized Solar Pumping for Climate-Resilient Water Security in East Africa",
+      "platform": "twitter",
+      "content": "Water security in East Africa faces a critical paradox: rising temperatures are drying aquifers faster than surface systems can replenish them. The solution? Mandating decentralized solar-hybrid pumping paired with Managed Aquifer Recharge (MAR). This integrated approach reduces ",
+      "hashtags": [
+        "WaterSecurity",
+        "ClimateResilience",
+        "SustainableWater"
+      ],
+      "url": "https://baseflow.institute/article/the-thermal-threshold-paradox-integrating-managed-aquifer-recharge-with-decentra-1772873964012",
+      "status": "pending",
+      "createdAt": "2026-03-07T08:59:59.440Z"
+    },
+    {
+      "id": "mmg3ekwg-li",
+      "articleSlug": "the-thermal-threshold-paradox-integrating-managed-aquifer-recharge-with-decentra-1772873964012",
+      "articleTitle": "The Thermal Threshold Paradox: Integrating Managed Aquifer Recharge with Decentralized Solar Pumping for Climate-Resilient Water Security in East Africa",
+      "platform": "linkedin",
+      "content": "Water insecurity has evolved from a localized issue into a global crisis affecting 2.2 billion people. In East Africa, the situation is acute due to compounding thermal stress and erratic precipitation. As global temperatures rise by 1.1°C since pre-industrial times, evaporation rates are increasing while snowmelt inputs in recharge zones diminish, accelerating aquifer depletion.\n\nThe infrastructure gap exacerbates this vulnerability. While global electricity access stands at 91.6%, Sub-Saharan Africa lags significantly at 53.3%. Consequently, rural communities remain dependent on unreliable grids or expensive diesel generators, creating a cycle of high operational costs and environmental degradation.\n\nTo secure water resources against rising temperatures, governments must pivot from extraction-centric models to integrated \"Recharge-Extract\" systems. This policy brief recommends mandating the deployment of decentralized solar-hybrid pumping systems coupled with Managed Aquifer Recharge (MAR) technologies in arid zones. By co-financing infrastructure through joint energy-water ministries, policymakers can reduce operational costs for rural households, restore declining aquifer levels, and meet climate adaptation targets without expanding the global freshwater withdrawal footprint. This dual approach addresses the critical vulnerability where groundwater is drying faster than surface systems can replenish them, ensuring long-term food security and economic stability.",
+      "hashtags": [
+        "WaterPolicy",
+        "ClimateAdaptation",
+        "RenewableEnergy"
+      ],
+      "url": "https://baseflow.institute/article/the-thermal-threshold-paradox-integrating-managed-aquifer-recharge-with-decentra-1772873964012",
+      "status": "pending",
+      "createdAt": "2026-03-07T08:59:59.440Z"
+    },
+    {
+      "id": "mmg3ekwg-bs",
+      "articleSlug": "the-thermal-threshold-paradox-integrating-managed-aquifer-recharge-with-decentra-1772873964012",
+      "articleTitle": "The Thermal Threshold Paradox: Integrating Managed Aquifer Recharge with Decentralized Solar Pumping for Climate-Resilient Water Security in East Africa",
+      "platform": "bluesky",
+      "content": "We are facing a thermal threshold paradox in East Africa. Rising temperatures aren't just warming the planet; they are actively drying our aquifers faster than rain can refill them. With electricity access still lagging in Sub-Saharan Africa at 53.3%, rural communities are stuck relying on expensive",
+      "hashtags": [
+        "WaterCrisis",
+        "SolarEnergy",
+        "PolicyBrief"
+      ],
+      "url": "https://baseflow.institute/article/the-thermal-threshold-paradox-integrating-managed-aquifer-recharge-with-decentra-1772873964012",
+      "status": "pending",
+      "createdAt": "2026-03-07T08:59:59.440Z"
+    },
+    {
       "id": "mmg2bi9k-tw",
       "articleSlug": "the-hydro-electric-equity-gap-bridging-the-service-delivery-divide-in-south-asia-1772872149582",
       "articleTitle": "The Hydro-Electric Equity Gap: Bridging the Service Delivery Divide in South Asia's Water-Energy Nexus Through Community-Led Hybrid Microgrids",
@@ -3281,5 +3326,5 @@
       "createdAt": "2026-03-02T00:01:09.765Z"
     }
   ],
-  "lastUpdated": "2026-03-07T08:29:36.445Z"
+  "lastUpdated": "2026-03-07T08:59:59.444Z"
 }
