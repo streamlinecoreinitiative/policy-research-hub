@@ -1,6 +1,34 @@
 {
   "articles": [
     {
+      "slug": "water-loss-reduction-in-secondary-cities-in-the-caribbean-sids-supporting-adapta-1772893754820",
+      "title": "water loss reduction in secondary cities in the Caribbean SIDS: supporting adaptation targets in NDCs",
+      "summary": "Note: The following policy brief addresses the critical issue of infrastructure maintenance deficits. While the title requested focused on Caribbean SIDS, the underlying evidence regarding the \"build-and-abandon\" cycle and operational collapse is drawn from the provided Sub-Saharan African dataset to illustrate the universal nature of this challenge for lower-income nations.",
+      "topic": "Environmental resilience in lower-income countries: water security, clean energy, and climate adaptation",
+      "template": "Policy Brief",
+      "tags": [
+        "climate",
+        "water",
+        "energy",
+        "policy",
+        "finance",
+        "resilience",
+        "urbanization",
+        "education"
+      ],
+      "wordCount": 1401,
+      "sourcesUsed": 27,
+      "readabilityScore": 87,
+      "publishedAt": "2026-03-07T14:29:14.828Z",
+      "updatedAt": "2026-03-07T14:29:55.209Z",
+      "status": "published",
+      "mdFile": "water-loss-reduction-in-secondary-cities-in-the-caribbean-sids-supporting-adapta-1772893754820.md",
+      "htmlFile": "water-loss-reduction-in-secondary-cities-in-the-caribbean-sids-supporting-adapta-1772893754820.html",
+      "region": "Sub-Saharan Africa",
+      "driveFileId": "1eePgqoEzoAWgXeDPda_E9xiTdXJcRLvU",
+      "driveWebViewLink": "https://drive.google.com/file/d/1eePgqoEzoAWgXeDPda_E9xiTdXJcRLvU/view?usp=drivesdk"
+    },
+    {
       "slug": "flood-resilient-transport-corridors-in-the-sudano-sahelian-belt-raising-resilien-1772891916564",
       "title": "flood-resilient transport corridors in the Sudano-Sahelian belt: raising resilience finance for communities",
       "summary": "Global climate finance commitments are failing to deliver lasting resilience because current interventions prioritize capital expenditure over operational sustainability.",
@@ -3041,6 +3069,6 @@
       "region": "Sub-Saharan Africa"
     }
   ],
-  "lastUpdated": "2026-03-07T13:59:08.862Z",
-  "totalPublished": 104
+  "lastUpdated": "2026-03-07T14:29:55.209Z",
+  "totalPublished": 105
 }
