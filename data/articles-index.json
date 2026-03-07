@@ -1,6 +1,34 @@
 {
   "articles": [
     {
+      "slug": "the-grid-water-synergy-gap-integrating-microgrids-and-wastewater-reclamation-for-1772846968812",
+      "title": "The Grid-Water Synergy Gap: Integrating Microgrids and Wastewater Reclamation for Resilient Water Security in East Africa",
+      "summary": "Governments and development partners must redirect capital from isolated solar pumping projects toward integrated decentralized microgrid systems that power wastewater reclamation and managed aquifer recharge.",
+      "topic": "Environmental resilience in lower-income countries: water security, clean energy, and climate adaptation",
+      "template": "Policy Brief",
+      "tags": [
+        "climate",
+        "water",
+        "energy",
+        "agriculture",
+        "policy",
+        "finance",
+        "resilience",
+        "urbanization"
+      ],
+      "wordCount": 1086,
+      "sourcesUsed": 19,
+      "readabilityScore": 88,
+      "publishedAt": "2026-03-07T01:29:28.819Z",
+      "updatedAt": "2026-03-07T01:29:58.841Z",
+      "status": "published",
+      "mdFile": "the-grid-water-synergy-gap-integrating-microgrids-and-wastewater-reclamation-for-1772846968812.md",
+      "htmlFile": "the-grid-water-synergy-gap-integrating-microgrids-and-wastewater-reclamation-for-1772846968812.html",
+      "region": "Sub-Saharan Africa",
+      "driveFileId": "13TTnB7sC5aDwQyu3SBJ_RmoOOAB_Ep-m",
+      "driveWebViewLink": "https://drive.google.com/file/d/13TTnB7sC5aDwQyu3SBJ_RmoOOAB_Ep-m/view?usp=drivesdk"
+    },
+    {
       "slug": "the-informal-grid-water-nexus-leveraging-private-sector-innovation-for-integrate-1772845193696",
       "title": "The Informal Grid-Water Nexus: Leveraging Private Sector Innovation for Integrated Energy-Water Security in Fragile Urban Centers of South Asia",
       "summary": "Governments must shift from a \"formalization-only\" regulatory approach to an inclusive governance model that recognizes and integrates existing private energy-water networks.",
@@ -2313,6 +2341,6 @@
       "region": "Sub-Saharan Africa"
     }
   ],
-  "lastUpdated": "2026-03-07T01:00:37.758Z",
-  "totalPublished": 78
+  "lastUpdated": "2026-03-07T01:29:58.841Z",
+  "totalPublished": 79
 }
