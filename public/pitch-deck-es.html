@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Baseflow Institute — Presentación para Inversionistas</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap');
+
+  :root {
+    --bg: #0a0a0f;
+    --surface: #12121a;
+    --surface-2: #1a1a2e;
+    --border: #2a2a3e;
+    --text: #e8e8f0;
+    --text-dim: #8888aa;
+    --accent: #6366f1;
+    --accent-2: #818cf8;
+    --green: #22c55e;
+    --amber: #f59e0b;
+    --red: #ef4444;
+    --cyan: #06b6d4;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html {
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  .slide {
+    min-height: 100vh;
+    scroll-snap-align: start;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 60px 80px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .slide::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(ellipse at 30% 20%, rgba(99, 102, 241, 0.06) 0%, transparent 60%),
+                radial-gradient(ellipse at 70% 80%, rgba(6, 182, 212, 0.04) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .slide-number {
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    color: var(--text-dim);
+    opacity: 0.5;
+  }
+
+  .logo-bar {
+    position: absolute;
+    top: 30px;
+    left: 40px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--text-dim);
+  }
+
+  .logo-bar .dot {
+    width: 8px;
+    height: 8px;
+    background: var(--accent);
+    border-radius: 50%;
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+
+  h1 {
+    font-size: 64px;
+    font-weight: 900;
+    line-height: 1.1;
+    letter-spacing: -2px;
+    margin-bottom: 20px;
+  }
+
+  h1 .accent { color: var(--accent-2); }
+
+  h2 {
+    font-size: 42px;
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: -1.5px;
+    margin-bottom: 16px;
+  }
+
+  h3 {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+
+  .subtitle {
+    font-size: 22px;
+    color: var(--text-dim);
+    font-weight: 400;
+    max-width: 680px;
+    line-height: 1.5;
+  }
+
+  .tag {
+    display: inline-block;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    margin-bottom: 16px;
+  }
+
+  .tag--accent { background: rgba(99,102,241,0.15); color: var(--accent-2); border: 1px solid rgba(99,102,241,0.3); }
+  .tag--green { background: rgba(34,197,94,0.12); color: var(--green); border: 1px solid rgba(34,197,94,0.25); }
+  .tag--amber { background: rgba(245,158,11,0.12); color: var(--amber); border: 1px solid rgba(245,158,11,0.25); }
+  .tag--cyan { background: rgba(6,182,212,0.12); color: var(--cyan); border: 1px solid rgba(6,182,212,0.25); }
+
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-top: 40px; }
+  .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; margin-top: 40px; }
+  .grid-4 { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 20px; margin-top: 40px; }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 28px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .card:hover {
+    border-color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(99, 102, 241, 0.1);
+  }
+
+  .card .icon {
+    font-size: 36px;
+    margin-bottom: 14px;
+    display: block;
+  }
+
+  .card h3 { font-size: 18px; margin-bottom: 8px; }
+  .card p { font-size: 14px; color: var(--text-dim); line-height: 1.6; }
+
+  .card .role-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    padding: 3px 8px;
+    border-radius: 6px;
+    background: rgba(99,102,241,0.1);
+    color: var(--accent-2);
+    display: inline-block;
+    margin-bottom: 10px;
+  }
+
+  .employee-card .status {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--green);
+    box-shadow: 0 0 8px rgba(34, 197, 94, 0.5);
+  }
+
+  .stat-row {
+    display: flex;
+    gap: 48px;
+    margin-top: 40px;
+    flex-wrap: wrap;
+  }
+
+  .stat { text-align: left; }
+
+  .stat .number {
+    font-size: 56px;
+    font-weight: 900;
+    color: var(--accent-2);
+    line-height: 1;
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  .stat .label {
+    font-size: 14px;
+    color: var(--text-dim);
+    margin-top: 6px;
+    font-weight: 500;
+  }
+
+  .pipeline {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    margin-top: 40px;
+    flex-wrap: wrap;
+  }
+
+  .pipeline-step {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px 24px;
+    text-align: center;
+    flex: 1;
+    min-width: 140px;
+    transition: all 0.3s ease;
+  }
+
+  .pipeline-step:hover {
+    border-color: var(--accent);
+    background: var(--surface-2);
+  }
+
+  .pipeline-step .step-icon { font-size: 28px; margin-bottom: 8px; display: block; }
+  .pipeline-step .step-title { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
+  .pipeline-step .step-detail { font-size: 11px; color: var(--text-dim); margin-top: 4px; }
+
+  .pipeline-arrow {
+    font-size: 20px;
+    color: var(--accent);
+    padding: 0 8px;
+    flex-shrink: 0;
+  }
+
+  .team-card {
+    text-align: center;
+    padding: 36px 28px;
+  }
+
+  .team-card .avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin: 0 auto 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 36px;
+    border: 2px solid var(--border);
+  }
+
+  .team-card .name { font-size: 20px; font-weight: 700; }
+
+  .team-card .title {
+    font-size: 13px;
+    color: var(--accent-2);
+    font-weight: 600;
+    margin-top: 4px;
+  }
+
+  .team-card .bio {
+    font-size: 13px;
+    color: var(--text-dim);
+    margin-top: 12px;
+    line-height: 1.6;
+  }
+
+  .budget-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 32px;
+  }
+
+  .budget-table th,
+  .budget-table td {
+    padding: 14px 20px;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+    font-size: 15px;
+  }
+
+  .budget-table th {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-dim);
+    font-weight: 600;
+  }
+
+  .budget-table .amount {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 600;
+    color: var(--accent-2);
+  }
+
+  .budget-table .total td {
+    border-top: 2px solid var(--accent);
+    font-weight: 700;
+    font-size: 17px;
+  }
+
+  .timeline {
+    margin-top: 36px;
+    position: relative;
+    padding-left: 32px;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 6px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--accent), var(--cyan), var(--green));
+  }
+
+  .timeline-item {
+    position: relative;
+    margin-bottom: 28px;
+  }
+
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -30px;
+    top: 6px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: 2px solid var(--bg);
+  }
+
+  .timeline-item.done::before { background: var(--green); }
+  .timeline-item.current::before { background: var(--amber); box-shadow: 0 0 12px rgba(245,158,11,0.5); }
+
+  .timeline-item .phase {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-dim);
+  }
+
+  .timeline-item h4 { font-size: 16px; font-weight: 600; margin-top: 2px; }
+  .timeline-item p { font-size: 13px; color: var(--text-dim); margin-top: 4px; }
+
+  .tech-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    margin: 4px;
+  }
+
+  .tech-badge .tech-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+  }
+
+  .cta-section {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .cta-section h1 { font-size: 52px; }
+
+  .contact-row {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    margin-top: 32px;
+    flex-wrap: wrap;
+  }
+
+  .contact-item {
+    padding: 16px 28px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  .contact-item a {
+    color: var(--accent-2);
+    text-decoration: none;
+  }
+
+  .nav-dots {
+    position: fixed;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 100;
+  }
+
+  .nav-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--text-dim);
+    opacity: 0.3;
+    cursor: pointer;
+    transition: all 0.3s;
+    border: none;
+  }
+
+  .nav-dot:hover, .nav-dot.active {
+    opacity: 1;
+    background: var(--accent);
+    transform: scale(1.3);
+  }
+
+  .list-check { list-style: none; padding: 0; }
+  .list-check li {
+    padding: 6px 0;
+    font-size: 15px;
+    color: var(--text-dim);
+  }
+  .list-check li::before {
+    content: '✓ ';
+    color: var(--green);
+    font-weight: 700;
+  }
+
+  @media (max-width: 900px) {
+    .slide { padding: 40px 24px; }
+    h1 { font-size: 36px; }
+    h2 { font-size: 28px; }
+    .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+    .stat .number { font-size: 36px; }
+    .pipeline { flex-direction: column; }
+    .pipeline-arrow { transform: rotate(90deg); }
+    .nav-dots { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav-dots" id="navDots"></nav>
+
+<!-- ====== DIAPOSITIVA 1: Portada ====== -->
+<section class="slide" id="slide-1">
+  <span class="slide-number">01 / 10</span>
+  <div>
+    <span class="tag tag--accent">Presentación para Inversionistas — Marzo 2026</span>
+    <h1>Baseflow<br><span class="accent">Institute</span></h1>
+    <p class="subtitle">
+      Investigación de políticas públicas autónoma, impulsada por IA.<br>
+      Producimos análisis de nivel publicación sobre resiliencia climática, seguridad hídrica y energía limpia — 24/7, sin escritores humanos.
+    </p>
+    <div class="stat-row">
+      <div class="stat">
+        <div class="number">54+</div>
+        <div class="label">Artículos Publicados</div>
+      </div>
+      <div class="stat">
+        <div class="number">24/7</div>
+        <div class="label">Operación Autónoma</div>
+      </div>
+      <div class="stat">
+        <div class="number">$0</div>
+        <div class="label">Costo por Artículo</div>
+      </div>
+      <div class="stat">
+        <div class="number">30m</div>
+        <div class="label">Cadencia de Publicación</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== DIAPOSITIVA 2: El Problema ====== -->
+<section class="slide" id="slide-2">
+  <span class="slide-number">02 / 10</span>
+  <div class="logo-bar"><span class="dot"></span> BASEFLOW INSTITUTE</div>
+  <div>
+    <span class="tag tag--amber">El Problema</span>
+    <h2>La investigación de políticas es lenta, cara e inaccesible</h2>
+    <div class="grid-2" style="margin-top: 32px;">
+      <div>
+        <h3 style="color: var(--red);">Think Tanks Tradicionales</h3>
+        <ul class="list-check" style="margin-top: 12px;">
+          <li style="color: var(--red);">$15,000–$50,000 USD por informe de políticas</li>
+          <li style="color: var(--red);">2–6 meses desde la comisión hasta la publicación</li>
+          <li style="color: var(--red);">Limitados a temas financiados — sesgo de donantes</li>
+          <li style="color: var(--red);">Informes detrás de muros de pago</li>
+          <li style="color: var(--red);">Equipos pequeños no cubren crisis emergentes</li>
+        </ul>
+      </div>
+      <div>
+        <h3 style="color: var(--green);">Baseflow Institute</h3>
+        <ul class="list-check" style="margin-top: 12px;">
+          <li>Costo marginal cercano a cero por publicación</li>
+          <li>30 minutos desde activación hasta artículo publicado</li>
+          <li>Cobertura continua de temas en evolución</li>
+          <li>100% acceso abierto — gratuito para todos</li>
+          <li>Escala a cualquier número de líneas de investigación</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== DIAPOSITIVA 3: Qué Hacemos ====== -->
+<section class="slide" id="slide-3">
+  <span class="slide-number">03 / 10</span>
+  <div class="logo-bar"><span class="dot"></span> BASEFLOW INSTITUTE</div>
+  <div>
+    <span class="tag tag--green">Nuestro Producto</span>
+    <h2>Investigación de políticas nativa de IA, publicada autónomamente</h2>
+    <p class="subtitle" style="margin-bottom: 20px;">
+      Operamos un pipeline de investigación completamente autónomo que descubre ángulos de política emergentes, 
+      realiza investigación web, redacta informes de calidad publicable, verifica cada dato, 
+      y publica — todo sin intervención humana.
+    </p>
+    <div class="grid-3">
+      <div class="card">
+        <span class="icon">📋</span>
+        <h3>5 Plantillas de Informe</h3>
+        <p>Informes de Política, Resúmenes de Investigación, Propuestas de Financiamiento, Briefings Ejecutivos, Reportes de Situación — cada uno con estructura y objetivos de calidad.</p>
+      </div>
+      <div class="card">
+        <span class="icon">🔬</span>
+        <h3>Investigación en Tiempo Real</h3>
+        <p>Cada artículo está fundamentado en datos web en vivo — Wikipedia, Banco Mundial, IRENA, OMS, FAO, estadísticas del IPCC extraídas al momento de generación.</p>
+      </div>
+      <div class="card">
+        <span class="icon">✅</span>
+        <h3>Control de Calidad Automatizado</h3>
+        <p>Validación de calidad multipunto: conteo de palabras, completitud de secciones, cobertura de fuentes, puntuación de legibilidad. Los artículos deben aprobar para publicarse.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== DIAPOSITIVA 4: El Pipeline ====== -->
+<section class="slide" id="slide-4">
+  <span class="slide-number">04 / 10</span>
+  <div class="logo-bar"><span class="dot"></span> BASEFLOW INSTITUTE</div>
+  <div>
+    <span class="tag tag--cyan">Cómo Funciona</span>
+    <h2>El Pipeline Autónomo</h2>
+    <p class="subtitle">Cada 30 minutos, nuestro scheduler dispara un ciclo completo de investigación de punta a punta:</p>
+    <div class="pipeline">
+      <div class="pipeline-step">
+        <span class="step-icon">🔍</span>
+        <div class="step-title">Investigador</div>
+        <div class="step-detail">Búsqueda web + recolección de datos</div>
+      </div>
+      <span class="pipeline-arrow">→</span>
+      <div class="pipeline-step">
+        <span class="step-icon">📋</span>
+        <div class="step-title">Planificador</div>
+        <div class="step-detail">Selección de ángulo + esquema</div>
+      </div>
+      <span class="pipeline-arrow">→</span>
+      <div class="pipeline-step">
+        <span class="step-icon">✍️</span>
+        <div class="step-title">Redactor</div>
+        <div class="step-detail">Redacción completa del artículo</div>
+      </div>
+      <span class="pipeline-arrow">→</span>
+      <div class="pipeline-step">
+        <span class="step-icon">🔎</span>
+        <div class="step-title">Verificador</div>
+        <div class="step-detail">Verificación de datos</div>
+      </div>
+      <span class="pipeline-arrow">→</span>
+      <div class="pipeline-step">
+        <span class="step-icon">✏️</span>
+        <div class="step-title">Editor</div>
+        <div class="step-detail">Pulido + auditoría de fuentes</div>
+      </div>
+      <span class="pipeline-arrow">→</span>
+      <div class="pipeline-step">
+        <span class="step-icon">🛡️</span>
+        <div class="step-title">Control QA</div>
+        <div class="step-detail">Validación de calidad</div>
+      </div>
+      <span class="pipeline-arrow">→</span>
+      <div class="pipeline-step" style="border-color: var(--green);">
+        <span class="step-icon">🚀</span>
+        <div class="step-title">Publicar</div>
+        <div class="step-detail">Web + Drive + Redes</div>
+      </div>
+    </div>
+    <div style="margin-top: 28px; display: flex; gap: 16px; flex-wrap: wrap;">
+      <div class="tech-badge"><span class="tech-dot" style="background: var(--green);"></span> Auto-commit a GitHub</div>
+      <div class="tech-badge"><span class="tech-dot" style="background: var(--cyan);"></span> Auto-deploy en Vercel</div>
+      <div class="tech-badge"><span class="tech-dot" style="background: var(--accent);"></span> Subida a Google Drive</div>
+      <div class="tech-badge"><span class="tech-dot" style="background: var(--amber);"></span> Cola de redes sociales (3 plataformas)</div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== DIAPOSITIVA 5: Nuestro Equipo (Agentes como Empleados) ====== -->
+<section class="slide" id="slide-5">
+  <span class="slide-number">05 / 10</span>
+  <div class="logo-bar"><span class="dot"></span> BASEFLOW INSTITUTE</div>
+  <div>
+    <span class="tag tag--accent">El Equipo</span>
+    <h2>Nuestra Fuerza Laboral — Agentes de IA como Empleados</h2>
+    <p class="subtitle">6 agentes especializados trabajando en conjunto, cada uno con un rol definido y KPIs.</p>
+    <div class="grid-3" style="margin-top: 32px;">
+      <div class="card employee-card">
+        <div class="status"></div>
+        <span class="icon">🔍</span>
+        <span class="role-tag">DEPTO. INVESTIGACIÓN</span>
+        <h3>Analista de Investigación</h3>
+        <p>Explora Wikipedia, Banco Mundial, bases de datos de la ONU y APIs académicas. Recopila estadísticas, valida frescura de datos, compila expedientes de fuentes.</p>
+        <p style="margin-top: 8px; font-size: 11px; color: var(--cyan);">Motor: API de Búsqueda Web</p>
+      </div>
+      <div class="card employee-card">
+        <div class="status"></div>
+        <span class="icon">📋</span>
+        <span class="role-tag">ESTRATEGIA</span>
+        <h3>Planificador Editorial</h3>
+        <p>Selecciona ángulos únicos, evita repetición de temas, crea esquemas estructurados con objetivos por sección. También valida títulos por calidad y especificidad.</p>
+        <p style="margin-top: 8px; font-size: 11px; color: var(--cyan);">Modelo: Qwen 3.5 — 4B parámetros</p>
+      </div>
+      <div class="card employee-card">
+        <div class="status"></div>
+        <span class="icon">✍️</span>
+        <span class="role-tag">CONTENIDO</span>
+        <h3>Redactor Senior y Editor</h3>
+        <p>Redacta análisis de política de calidad publicable, luego realiza un pase editorial — aplicando banderas de verificación, refinando prosa y auditando fuentes. Flujo de dos pasadas para mayor calidad.</p>
+        <p style="margin-top: 8px; font-size: 11px; color: var(--cyan);">Modelo: Qwen 3.5 — 9B parámetros</p>
+      </div>
+      <div class="card employee-card">
+        <div class="status"></div>
+        <span class="icon">🔎</span>
+        <span class="role-tag">CUMPLIMIENTO</span>
+        <h3>Verificador de Datos</h3>
+        <p>Verifica cada afirmación estadística contra documentos fuente. Señala aseveraciones sin respaldo, previene fabricación de datos. También ejecuta un control de calidad determinístico de palabras, secciones y legibilidad.</p>
+        <p style="margin-top: 8px; font-size: 11px; color: var(--cyan);">Modelo: Bespoke Minicheck — 7B</p>
+      </div>
+      <div class="card employee-card">
+        <div class="status"></div>
+        <span class="icon">📢</span>
+        <span class="role-tag">MARKETING</span>
+        <h3>Community Manager</h3>
+        <p>Genera publicaciones específicas por plataforma para Twitter/X, LinkedIn y Bluesky. Administra cola de publicación con 135+ posts pendientes en 3 plataformas.</p>
+        <p style="margin-top: 8px; font-size: 11px; color: var(--cyan);">Modelo: Qwen 3.5 — 4B parámetros</p>
+      </div>
+      <div class="card employee-card">
+        <div class="status"></div>
+        <span class="icon">📰</span>
+        <span class="role-tag">DIFUSIÓN</span>
+        <h3>Editor de Newsletter</h3>
+        <p>Compila resúmenes semanales del boletín, escribe intros atractivas resaltando temas transversales, gestiona comunicaciones con suscriptores.</p>
+        <p style="margin-top: 8px; font-size: 11px; color: var(--cyan);">Modelo: Qwen 3.5 — 4B parámetros</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== DIAPOSITIVA 6: Liderazgo ====== -->
+<section class="slide" id="slide-6">
+  <span class="slide-number">06 / 10</span>
+  <div class="logo-bar"><span class="dot"></span> BASEFLOW INSTITUTE</div>
+  <div>
+    <span class="tag tag--accent">Liderazgo</span>
+    <h2>Fundado por Visión, Operado por Inteligencia</h2>
+    <div class="grid-2" style="max-width: 800px;">
+      <div class="card team-card">
+        <div class="avatar" style="background: linear-gradient(135deg, var(--accent), var(--cyan));">👤</div>
+        <div class="name">Fundador</div>
+        <div class="title">Fundador e Inversionista Principal</div>
+        <div class="bio">
+          Visionario detrás del Baseflow Institute. Identificó la brecha de mercado en investigación de políticas accesible.
+          Proporciona dirección estratégica, inversión en infraestructura y supervisión de calidad.
+          Responsable de la asignación de capital y estrategia de crecimiento.
+        </div>
+      </div>
+      <div class="card team-card">
+        <div class="avatar" style="background: linear-gradient(135deg, var(--surface-2), var(--accent));">🤖</div>
+        <div class="name">Claude</div>
+        <div class="title">Director General (IA)</div>
+        <div class="bio">
+          Gestiona todas las operaciones diarias: arquitectura de sistemas, orquestación de agentes,
+          ingeniería de pipeline, resolución de errores, gestión de deployment y optimización de rendimiento.
+          Construyó y mantiene directamente toda la pila tecnológica.
+        </div>
+      </div>
+    </div>
+    <div style="margin-top: 36px; padding: 24px; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; max-width: 800px;">
+      <h3 style="font-size: 15px; margin-bottom: 12px; color: var(--accent-2);">Estructura Organizacional</h3>
+      <p style="font-size: 14px; color: var(--text-dim);">
+        <strong style="color: var(--text);">2 humanos</strong> (Fundador + supervisión estratégica) &nbsp;·&nbsp;
+        <strong style="color: var(--text);">6 agentes de IA</strong> (operaciones autónomas) &nbsp;·&nbsp;
+        <strong style="color: var(--text);">3 modelos de IA</strong> (Qwen 3.5 4B, Qwen 3.5 9B, Bespoke Minicheck 7B) &nbsp;·&nbsp;
+        <strong style="color: var(--text);">0 salarios</strong> (además de la suscripción del CEO)
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ====== DIAPOSITIVA 7: Stack Tecnológico ====== -->
+<section class="slide" id="slide-7">
+  <span class="slide-number">07 / 10</span>
+  <div class="logo-bar"><span class="dot"></span> BASEFLOW INSTITUTE</div>
+  <div>
+    <span class="tag tag--cyan">Tecnología</span>
+    <h2>Infraestructura y Stack Tecnológico</h2>
+    <div class="grid-2">
+      <div>
+        <h3 style="margin-bottom: 16px;">Capa de Aplicación</h3>
+        <div style="display: flex; flex-wrap: wrap; gap: 6px;">
+          <div class="tech-badge"><span class="tech-dot" style="background: #3178c6;"></span> TypeScript</div>
+          <div class="tech-badge"><span class="tech-dot" style="background: #000;"></span> Next.js 14</div>
+          <div class="tech-badge"><span class="tech-dot" style="background: #61dafb;"></span> React 18</div>
+          <div class="tech-badge"><span class="tech-dot" style="background: #f0db4f;"></span> App Router</div>
+        </div>
+        <h3 style="margin: 20px 0 16px;">IA y Modelos</h3>
+        <div style="display: flex; flex-wrap: wrap; gap: 6px;">
+          <div class="tech-badge"><span class="tech-dot" style="background: var(--accent);"></span> Ollama v0.17</div>
+          <div class="tech-badge"><span class="tech-dot" style="background: var(--green);"></span> Qwen 3.5 (4B + 9B)</div>
+          <div class="tech-badge"><span class="tech-dot" style="background: var(--amber);"></span> Bespoke Minicheck 7B</div>
+          <div class="tech-badge"><span class="tech-dot" style="background: var(--cyan);"></span> Inferencia GPU local</div>
+        </div>
+        <h3 style="margin: 20px 0 16px;">Despliegue</h3>
+        <div style="display: flex; flex-wrap: wrap; gap: 6px;">
+          <div class="tech-badge"><span class="tech-dot" style="background: #000;"></span> Vercel (CDN Global)</div>
+          <div class="tech-badge"><span class="tech-dot" style="background: #f05032;"></span> GitHub CI/CD</div>
+          <div class="tech-badge"><span class="tech-dot" style="background: #4285f4;"></span> Google Drive API</div>
+        </div>
+      </div>
+      <div>
+        <h3 style="margin-bottom: 16px;">Aspectos Destacados de Arquitectura</h3>
+        <div class="card" style="margin-bottom: 12px; padding: 18px;">
+          <h3 style="font-size: 14px;">🖥️ Hardware</h3>
+          <p>Apple M4 · 16 GB memoria unificada · 100% inferencia en GPU · Local-first — sin costos de API en la nube para inferencia</p>
+        </div>
+        <div class="card" style="margin-bottom: 12px; padding: 18px;">
+          <h3 style="font-size: 14px;">🔄 Motor de Scheduler</h3>
+          <p>Scheduler persistente en memoria con ciclo de 60s. Sobrevive hot reloads. Reintento automático con backoff exponencial. Protección contra ejecuciones concurrentes vía mutex.</p>
+        </div>
+        <div class="card" style="margin-bottom: 12px; padding: 18px;">
+          <h3 style="font-size: 14px;">🛡️ Confiabilidad</h3>
+          <p>Llamadas streaming a Ollama (sin timeouts de inactividad). Fallback automático de modelos. Mutex de escritura en índice de artículos. Compatible con filesystem serverless.</p>
+        </div>
+        <div class="card" style="padding: 18px;">
+          <h3 style="font-size: 14px;">📡 Distribución</h3>
+          <p>Auto git commit → push a GitHub → deploy en Vercel. Subida HTML a Google Drive. Cola de redes sociales en 3 plataformas (Twitter, LinkedIn, Bluesky).</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== DIAPOSITIVA 8: Tracción ====== -->
+<section class="slide" id="slide-8">
+  <span class="slide-number">08 / 10</span>
+  <div class="logo-bar"><span class="dot"></span> BASEFLOW INSTITUTE</div>
+  <div>
+    <span class="tag tag--green">Tracción</span>
+    <h2>Lo Que Hemos Construido — En Menos de 2 Semanas</h2>
+    <div class="stat-row">
+      <div class="stat">
+        <div class="number">54+</div>
+        <div class="label">Artículos Publicados</div>
+      </div>
+      <div class="stat">
+        <div class="number">135</div>
+        <div class="label">Posts Sociales en Cola</div>
+      </div>
+      <div class="stat">
+        <div class="number">5</div>
+        <div class="label">Plantillas de Informe</div>
+      </div>
+      <div class="stat">
+        <div class="number">~48</div>
+        <div class="label">Artículos / Día de Capacidad</div>
+      </div>
+    </div>
+    <div class="timeline" style="max-width: 600px;">
+      <div class="timeline-item done">
+        <div class="phase">Semana 1</div>
+        <h4>Plataforma Central Construida</h4>
+        <p>App Next.js, integración con Ollama, pipeline de agentes, generación de artículos, panel de administración</p>
+      </div>
+      <div class="timeline-item done">
+        <div class="phase">Semana 1-2</div>
+        <h4>Automatización y Distribución</h4>
+        <p>Motor de scheduler, subida a Google Drive, agentes de redes sociales, sistema de newsletter, deployment en Vercel</p>
+      </div>
+      <div class="timeline-item done">
+        <div class="phase">Semana 2</div>
+        <h4>Endurecimiento y Escala</h4>
+        <p>Control de calidad QA, pipeline de verificación de datos, actualización de modelos (Qwen 3.5), auditoría de bugs (9 correcciones), inferencia streaming</p>
+      </div>
+      <div class="timeline-item current">
+        <div class="phase">Ahora</div>
+        <h4>Producción Continua</h4>
+        <p>54+ artículos en vivo, pipeline generando cada 30 min, auto-deploy a producción</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== DIAPOSITIVA 9: Presupuesto y Solicitud ====== -->
+<section class="slide" id="slide-9">
+  <span class="slide-number">09 / 10</span>
+  <div class="logo-bar"><span class="dot"></span> BASEFLOW INSTITUTE</div>
+  <div>
+    <span class="tag tag--amber">Inversión</span>
+    <h2>Presupuesto Operativo Mensual</h2>
+    <p class="subtitle">Nuestro modelo IA-first significa costos operativos radicalmente bajos comparados con think tanks tradicionales.</p>
+    <div style="max-width: 700px;">
+      <table class="budget-table">
+        <thead>
+          <tr>
+            <th>Concepto</th>
+            <th>Propósito</th>
+            <th>Costo Mensual</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>🤖 Claude Pro (CEO)</td>
+            <td>Ingeniería de plataforma, mantenimiento, mejoras</td>
+            <td class="amount">$20 USD/mes</td>
+          </tr>
+          <tr>
+            <td>🖥️ Servidor Dedicado</td>
+            <td>Host de inferencia GPU para Ollama — disponibilidad 24/7</td>
+            <td class="amount">$50–100 USD/mes</td>
+          </tr>
+          <tr>
+            <td>🌐 Dominio Personalizado</td>
+            <td>baseflow.institute o similar — credibilidad</td>
+            <td class="amount">$12 USD/año (~$1/mes)</td>
+          </tr>
+          <tr>
+            <td>☁️ Vercel Pro</td>
+            <td>CDN, funciones serverless, analíticas</td>
+            <td class="amount">$20 USD/mes</td>
+          </tr>
+          <tr>
+            <td>📧 Servicio de Email</td>
+            <td>Distribución de newsletter (Resend/Mailgun)</td>
+            <td class="amount">$0–20 USD/mes</td>
+          </tr>
+          <tr class="total">
+            <td colspan="2">Costo Operativo Mensual Total</td>
+            <td class="amount">~$91–161 USD/mes</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="grid-2" style="max-width: 700px; margin-top: 32px;">
+      <div class="card" style="border-color: var(--green);">
+        <h3 style="color: var(--green);">Costo por Artículo</h3>
+        <p style="font-size: 28px; font-weight: 900; color: var(--green); margin-top: 8px;">~$0.07 USD</p>
+        <p style="margin-top: 4px;">A 48 artículos/día × 30 días = 1,440 artículos/mes</p>
+      </div>
+      <div class="card" style="border-color: var(--red);">
+        <h3 style="color: var(--red);">Think Tank Tradicional</h3>
+        <p style="font-size: 28px; font-weight: 900; color: var(--red); margin-top: 8px;">$15,000+ USD</p>
+        <p style="margin-top: 4px;">Por un solo informe de políticas, con 2-6 meses de plazo</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== DIAPOSITIVA 10: Hoja de Ruta y CTA ====== -->
+<section class="slide" id="slide-10">
+  <span class="slide-number">10 / 10</span>
+  <div class="logo-bar"><span class="dot"></span> BASEFLOW INSTITUTE</div>
+  <div class="cta-section">
+    <span class="tag tag--accent">Lo Que Viene</span>
+    <h1>Hoja de <span class="accent">Ruta</span></h1>
+    <div style="text-align: left; max-width: 560px; margin: 32px auto 0;">
+      <div class="card" style="margin-bottom: 12px; padding: 18px;">
+        <h3 style="font-size: 14px;">🌐 Fase 1 — Dominio y Marca (Mes 1)</h3>
+        <p>Dominio personalizado, branding profesional, optimización SEO, indexación en Google Scholar</p>
+      </div>
+      <div class="card" style="margin-bottom: 12px; padding: 18px;">
+        <h3 style="font-size: 14px;">🖥️ Fase 2 — Servidor Dedicado (Mes 1-2)</h3>
+        <p>Migrar de Mac local a servidor GPU en la nube. Disponibilidad 24/7 sin depender de que una laptop esté encendida</p>
+      </div>
+      <div class="card" style="margin-bottom: 12px; padding: 18px;">
+        <h3 style="font-size: 14px;">📢 Fase 3 — Redes Sociales y Distribución (Mes 2)</h3>
+        <p>Activar auto-publicación en Bluesky, integración API de Twitter/X, automatización de LinkedIn, lanzamiento de newsletter</p>
+      </div>
+      <div class="card" style="margin-bottom: 12px; padding: 18px;">
+        <h3 style="font-size: 14px;">📊 Fase 4 — Investigación Multi-Track (Mes 3)</h3>
+        <p>Expandir más allá del clima: salud global, gobernanza, desarrollo económico. Múltiples líneas de investigación concurrentes</p>
+      </div>
+      <div class="card" style="padding: 18px;">
+        <h3 style="font-size: 14px;">💰 Fase 5 — Ingresos (Mes 3-6)</h3>
+        <p>Líneas de investigación patrocinadas, acceso API para organizaciones, tier premium de newsletter, informes de consultoría</p>
+      </div>
+    </div>
+    <div style="margin-top: 40px;">
+      <h3 style="color: var(--accent-2); font-size: 20px;">En vivo ahora en</h3>
+      <div class="contact-row">
+        <div class="contact-item">
+          🌐 <a href="https://policy-research-hub.vercel.app" target="_blank">policy-research-hub.vercel.app</a>
+        </div>
+        <div class="contact-item">
+          📂 <a href="https://github.com/streamlinecoreinitiative/policy-research-hub" target="_blank">Repositorio en GitHub</a>
+        </div>
+      </div>
+    </div>
+    <p style="margin-top: 32px; color: var(--text-dim); font-size: 14px;">
+      Baseflow Institute — Donde la inteligencia artificial se encuentra con el impacto en políticas públicas.
+    </p>
+  </div>
+</section>
+
+<script>
+  const slides = document.querySelectorAll('.slide');
+  const nav = document.getElementById('navDots');
+  slides.forEach((_, i) => {
+    const dot = document.createElement('button');
+    dot.className = 'nav-dot';
+    dot.onclick = () => slides[i].scrollIntoView({ behavior: 'smooth' });
+    nav.appendChild(dot);
+  });
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const idx = [...slides].indexOf(entry.target);
+        document.querySelectorAll('.nav-dot').forEach((d, i) => {
+          d.classList.toggle('active', i === idx);
+        });
+      }
+    });
+  }, { threshold: 0.5 });
+  slides.forEach(s => observer.observe(s));
+
+  document.addEventListener('keydown', e => {
+    const current = [...slides].findIndex(s => {
+      const r = s.getBoundingClientRect();
+      return r.top >= -100 && r.top < window.innerHeight / 2;
+    });
+    if (e.key === 'ArrowDown' || e.key === ' ' || e.key === 'ArrowRight') {
+      e.preventDefault();
+      if (current < slides.length - 1) slides[current + 1].scrollIntoView({ behavior: 'smooth' });
+    } else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
+      e.preventDefault();
+      if (current > 0) slides[current - 1].scrollIntoView({ behavior: 'smooth' });
+    }
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,1313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Baseflow Institute — Technical Architecture</title>
+<style>
+  :root {
+    --bg: #0a0e17;
+    --surface: #111827;
+    --surface-2: #1a2236;
+    --border: #1e293b;
+    --text: #e2e8f0;
+    --text-dim: #94a3b8;
+    --accent: #38bdf8;
+    --accent-2: #818cf8;
+    --cyan: #22d3ee;
+    --green: #34d399;
+    --orange: #fb923c;
+    --red: #f87171;
+    --pink: #f472b6;
+    --yellow: #fbbf24;
+    --mono: 'SF Mono', 'Fira Code', 'JetBrains Mono', 'Cascadia Code', monospace;
+    --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html {
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+  }
+
+  body {
+    background: var(--bg);
+  }
+
+  .slide {
+    min-height: 100vh;
+    scroll-snap-align: start;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 48px 80px;
+    position: relative;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .slide-number {
+    position: absolute;
+    top: 28px;
+    right: 40px;
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--text-dim);
+    letter-spacing: 2px;
+  }
+
+  .logo-bar {
+    position: absolute;
+    top: 28px;
+    left: 40px;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 4px;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .logo-bar .dot {
+    width: 6px; height: 6px;
+    background: var(--accent);
+    border-radius: 50%;
+    display: inline-block;
+  }
+
+  h1 {
+    font-size: 52px;
+    font-weight: 800;
+    letter-spacing: -1.5px;
+    line-height: 1.15;
+    margin-bottom: 20px;
+    background: linear-gradient(135deg, var(--accent), var(--accent-2));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  h2 {
+    font-size: 36px;
+    font-weight: 700;
+    letter-spacing: -0.8px;
+    line-height: 1.2;
+    margin-bottom: 12px;
+  }
+
+  h3 {
+    font-size: 17px;
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+
+  p { line-height: 1.7; color: var(--text-dim); }
+
+  .subtitle {
+    font-size: 18px;
+    color: var(--text-dim);
+    max-width: 750px;
+    margin-bottom: 28px;
+  }
+
+  .tag {
+    display: inline-block;
+    padding: 4px 14px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  .tag--accent { background: rgba(56,189,248,.12); color: var(--accent); border: 1px solid rgba(56,189,248,.25); }
+  .tag--green  { background: rgba(52,211,153,.12); color: var(--green); border: 1px solid rgba(52,211,153,.25); }
+  .tag--orange { background: rgba(251,146,60,.12); color: var(--orange); border: 1px solid rgba(251,146,60,.25); }
+  .tag--pink   { background: rgba(244,114,182,.12); color: var(--pink); border: 1px solid rgba(244,114,182,.25); }
+  .tag--purple { background: rgba(129,140,248,.12); color: var(--accent-2); border: 1px solid rgba(129,140,248,.25); }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px;
+    transition: border-color .2s;
+  }
+  .card:hover { border-color: var(--accent); }
+
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; }
+  .grid-4 { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 16px; }
+
+  code, .code {
+    font-family: var(--mono);
+    font-size: 13px;
+    background: var(--surface-2);
+    padding: 2px 8px;
+    border-radius: 4px;
+    color: var(--cyan);
+  }
+
+  .code-block {
+    font-family: var(--mono);
+    font-size: 12.5px;
+    line-height: 1.85;
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px 24px;
+    overflow-x: auto;
+    color: var(--text-dim);
+    white-space: pre;
+    tab-size: 2;
+  }
+  .code-block .kw   { color: var(--accent-2); }
+  .code-block .fn   { color: var(--cyan); }
+  .code-block .str  { color: var(--green); }
+  .code-block .cmt  { color: #475569; font-style: italic; }
+  .code-block .num  { color: var(--orange); }
+  .code-block .type { color: var(--pink); }
+
+  .stat-row {
+    display: flex;
+    gap: 40px;
+    margin: 28px 0;
+    flex-wrap: wrap;
+  }
+  .stat-item .value {
+    font-size: 40px;
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--accent), var(--green));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-family: var(--mono);
+  }
+  .stat-item .label {
+    font-size: 12px;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 4px;
+  }
+
+  /* Pipeline diagram */
+  .pipeline {
+    display: flex;
+    align-items: stretch;
+    gap: 0;
+    margin: 28px 0;
+    width: 100%;
+  }
+  .pipeline-stage {
+    flex: 1;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 20px 16px;
+    text-align: center;
+    position: relative;
+    transition: border-color .2s, background .2s;
+  }
+  .pipeline-stage:first-child { border-radius: 12px 0 0 12px; }
+  .pipeline-stage:last-child  { border-radius: 0 12px 12px 0; }
+  .pipeline-stage:hover { border-color: var(--accent); background: var(--surface-2); }
+  .pipeline-stage .icon { font-size: 24px; display: block; margin-bottom: 8px; }
+  .pipeline-stage .stage-name { font-weight: 600; font-size: 13px; display: block; color: var(--text); }
+  .pipeline-stage .stage-model { font-family: var(--mono); font-size: 10px; margin-top: 6px; color: var(--cyan); }
+  .pipeline-stage .stage-detail { font-size: 11px; margin-top: 6px; color: var(--text-dim); line-height: 1.5; }
+  .pipeline-arrow {
+    width: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent);
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+
+  /* File tree */
+  .file-tree {
+    font-family: var(--mono);
+    font-size: 12.5px;
+    line-height: 2;
+    color: var(--text-dim);
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px 24px;
+  }
+  .file-tree .dir  { color: var(--accent); }
+  .file-tree .file { color: var(--text-dim); }
+  .file-tree .desc { color: #475569; font-style: italic; }
+  .file-tree .highlight { color: var(--green); }
+
+  /* Flow diagram */
+  .flow-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 8px 0;
+  }
+  .flow-box {
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    white-space: nowrap;
+  }
+  .flow-arrow { color: var(--accent); font-size: 16px; }
+
+  /* Comparison table */
+  .compare-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    margin-top: 20px;
+  }
+  .compare-table th {
+    text-align: left;
+    padding: 10px 16px;
+    font-weight: 600;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-dim);
+    border-bottom: 1px solid var(--border);
+    background: var(--surface-2);
+  }
+  .compare-table td {
+    padding: 10px 16px;
+    border-bottom: 1px solid var(--border);
+    color: var(--text-dim);
+    vertical-align: top;
+  }
+  .compare-table tr:hover td { background: rgba(56,189,248,.03); }
+
+  /* Nav dots */
+  .nav-dots {
+    position: fixed;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    z-index: 100;
+  }
+  .nav-dots a {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--text-dim);
+    opacity: .3;
+    transition: opacity .2s, transform .2s, background .2s;
+    display: block;
+  }
+  .nav-dots a:hover,
+  .nav-dots a.active { opacity: 1; transform: scale(1.4); background: var(--accent); }
+
+  .badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 600;
+    font-family: var(--mono);
+  }
+  .badge--blue   { background: rgba(56,189,248,.15); color: var(--accent); }
+  .badge--green  { background: rgba(52,211,153,.15); color: var(--green); }
+  .badge--orange { background: rgba(251,146,60,.15); color: var(--orange); }
+  .badge--purple { background: rgba(129,140,248,.15); color: var(--accent-2); }
+  .badge--pink   { background: rgba(244,114,182,.15); color: var(--pink); }
+
+  .icon-lg { font-size: 28px; margin-bottom: 10px; display: block; }
+
+  ul.check-list {
+    list-style: none;
+    padding: 0;
+  }
+  ul.check-list li {
+    padding: 6px 0;
+    font-size: 14px;
+    color: var(--text-dim);
+  }
+  ul.check-list li::before {
+    content: '✓ ';
+    color: var(--green);
+    font-weight: 700;
+  }
+
+  .divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 24px 0;
+  }
+
+  .footnote {
+    font-size: 11px;
+    color: #475569;
+    margin-top: 16px;
+    font-family: var(--mono);
+  }
+</style>
+</head>
+<body>
+
+<!-- Navigation dots -->
+<nav class="nav-dots" id="navDots">
+  <a href="#slide-1" title="Overview"></a>
+  <a href="#slide-2" title="System Architecture"></a>
+  <a href="#slide-3" title="Agent Pipeline"></a>
+  <a href="#slide-4" title="Component Classification"></a>
+  <a href="#slide-5" title="Model Selection"></a>
+  <a href="#slide-6" title="Data Flow & APIs"></a>
+  <a href="#slide-7" title="Code Structure"></a>
+  <a href="#slide-8" title="Infrastructure"></a>
+  <a href="#slide-9" title="Throughput & Volume"></a>
+  <a href="#slide-10" title="Reliability & Quality"></a>
+  <a href="#slide-11" title="Deployment Architecture"></a>
+  <a href="#slide-12" title="Summary"></a>
+</nav>
+
+<!-- ====== SLIDE 1: Title ====== -->
+<section class="slide" id="slide-1">
+  <span class="slide-number">01 / 12</span>
+  <div class="logo-bar"><span class="dot"></span> BASEFLOW INSTITUTE</div>
+  <div>
+    <span class="tag tag--accent">Technical Architecture</span>
+    <h1>Baseflow Institute<br/>System Architecture &amp; Pipeline Design</h1>
+    <p class="subtitle">A deep dive into the orchestrated pipeline that autonomously researches, writes, fact-checks, and publishes policy analysis — 2 LLM agents, 1 NLI verifier, 2 generators, and 2 deterministic modules.</p>
+
+    <div class="stat-row">
+      <div class="stat-item">
+        <div class="value">7</div>
+        <div class="label">Pipeline Stages</div>
+      </div>
+      <div class="stat-item">
+        <div class="value">18</div>
+        <div class="label">Source Files</div>
+      </div>
+      <div class="stat-item">
+        <div class="value">~6K</div>
+        <div class="label">Lines of TypeScript</div>
+      </div>
+      <div class="stat-item">
+        <div class="value">0</div>
+        <div class="label">External Paid APIs</div>
+      </div>
+      <div class="stat-item">
+        <div class="value">54+</div>
+        <div class="label">Published Articles</div>
+      </div>
+    </div>
+
+    <p class="footnote">March 2026 · Baseflow Technical Briefing</p>
+  </div>
+</section>
+
+<!-- ====== SLIDE 2: System Architecture (High-Level) ====== -->
+<section class="slide" id="slide-2">
+  <span class="slide-number">02 / 12</span>
+  <div class="logo-bar"><span class="dot"></span> BASEFLOW INSTITUTE</div>
+  <div>
+    <span class="tag tag--accent">Architecture Overview</span>
+    <h2>High-Level System Architecture</h2>
+    <p class="subtitle">Three-layer design: Orchestration → Generation Pipeline → Output Distribution</p>
+
+    <div class="grid-3" style="margin-top: 28px;">
+      <!-- Layer 1 -->
+      <div class="card" style="border-left: 3px solid var(--accent);">
+        <span class="icon-lg">⏱️</span>
+        <h3>Layer 1 — Scheduler &amp; Orchestration</h3>
+        <p style="font-size: 13px; margin-top: 8px;">
+          <code>scheduler.ts</code> runs a persistent <code>setInterval</code> timer on <code>globalThis</code> (survives Next.js HMR). Ticks every 60s, checks overdue schedules, spawns pipeline runs. Merge-on-persist prevents stale writes.
+        </p>
+        <ul class="check-list" style="margin-top: 12px;">
+          <li>Cron-like with 30–60 min configurable intervals</li>
+          <li>Concurrency guard via <code>runningIds</code> Set</li>
+          <li>Auto model fallback on each tick</li>
+          <li>Async mutex for disk persistence</li>
+        </ul>
+      </div>
+      <!-- Layer 2 -->
+      <div class="card" style="border-left: 3px solid var(--green);">
+        <span class="icon-lg">🧠</span>
+        <h3>Layer 2 — Generation Pipeline</h3>
+        <p style="font-size: 13px; margin-top: 8px;">
+          <code>agents-v2.ts</code> (934 lines) orchestrates 7 sequential phases: 2 LLM agents, 1 NLI classifier, and 4 deterministic steps. Research phase is API-based (no LLM).
+        </p>
+        <ul class="check-list" style="margin-top: 12px;">
+          <li>Research → Plan → Write → Fact-Check → Edit → QA → Index</li>
+          <li>Conditional retry on QA failure</li>
+          <li>Streaming Ollama calls (avoids undici timeout)</li>
+          <li>Structured process logging at each phase</li>
+        </ul>
+      </div>
+      <!-- Layer 3 -->
+      <div class="card" style="border-left: 3px solid var(--orange);">
+        <span class="icon-lg">📡</span>
+        <h3>Layer 3 — Output Distribution</h3>
+        <p style="font-size: 13px; margin-top: 8px;">
+          Post-pipeline processes handle dissemination: social media queue, newsletter digest, Google Drive upload, git auto-commit → Vercel deploy, and the public article library.
+        </p>
+        <ul class="check-list" style="margin-top: 12px;">
+          <li>Social posts for 3 platforms (Twitter, LinkedIn, Bluesky)</li>
+          <li>Weekly newsletter digest with AI intro</li>
+          <li>Google Drive HTML upload + index backlink</li>
+          <li>Auto git push → Vercel CDN deploy</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== SLIDE 3: Agent Pipeline (Detailed) ====== -->
+<section class="slide" id="slide-3">
+  <span class="slide-number">03 / 12</span>
+  <div class="logo-bar"><span class="dot"></span> BASEFLOW INSTITUTE</div>
+  <div>
+    <span class="tag tag--green">Core Pipeline</span>
+    <h2>7-Phase Generation Pipeline</h2>
+    <p class="subtitle">Each phase is an isolated function with defined inputs, outputs, and failure handling. Only 2 phases are true LLM agents.</p>
+
+    <div class="pipeline" style="margin-top: 24px;">
+      <div class="pipeline-stage">
+        <span class="icon">🔍</span>
+        <span class="stage-name">Phase 1<br/>Research</span>
+        <div class="stage-model">Web APIs</div>
+        <div class="stage-detail">DuckDuckGo + Wikipedia + World Bank + fallback data sources</div>
+      </div>
+      <div class="pipeline-arrow">→</div>
+      <div class="pipeline-stage">
+        <span class="icon">📋</span>
+        <span class="stage-name">Phase 2<br/>Planning</span>
+        <div class="stage-model">qwen3.5:4b</div>
+        <div class="stage-detail">Topic angle, title, outline, data selection. Temperature 0.55</div>
+      </div>
+      <div class="pipeline-arrow">→</div>
+      <div class="pipeline-stage">
+        <span class="icon">✍️</span>
+        <span class="stage-name">Phase 3<br/>Writing</span>
+        <div class="stage-model">qwen3.5:9b</div>
+        <div class="stage-detail">Full article draft, 1200–1800 words. Template-driven. Temperature 0.35</div>
+      </div>
+      <div class="pipeline-arrow">→</div>
+      <div class="pipeline-stage">
+        <span class="icon">🔎</span>
+        <span class="stage-name">Phase 4a<br/>Fact-Check</span>
+        <div class="stage-model">minicheck:7b</div>
+        <div class="stage-detail">Per-claim NLI verification against research corpus. 30s/claim timeout</div>
+      </div>
+      <div class="pipeline-arrow">→</div>
+      <div class="pipeline-stage">
+        <span class="icon">✏️</span>
+        <span class="stage-name">Phase 4b<br/>Edit Pass</span>
+        <div class="stage-model">qwen3.5:9b</div>
+        <div class="stage-detail">Apply [VERIFY] flags, tighten prose, cite sources. Temperature 0.2</div>
+      </div>
+      <div class="pipeline-arrow">→</div>
+      <div class="pipeline-stage">
+        <span class="icon">🛡️</span>
+        <span class="stage-name">Phase 5<br/>QA Gate</span>
+        <div class="stage-model">Deterministic</div>
+        <div class="stage-detail">6 weighted checks: title, words, sections, sources, H1, repetition</div>
+      </div>
+      <div class="pipeline-arrow">→</div>
+      <div class="pipeline-stage">
+        <span class="icon">📤</span>
+        <span class="stage-name">Phase 6<br/>Publish</span>
+        <div class="stage-model">File I/O</div>
+        <div class="stage-detail">MD + HTML save, article index, social posts, Drive upload, git push</div>
+      </div>
+    </div>
+
+    <div class="grid-2" style="margin-top: 24px;">
+      <div class="card">
+        <h3>🔄 QA Retry Loop</h3>
+        <p style="font-size: 13px; margin-top: 8px;">If QA fails (score &lt;60/100), the pipeline feeds <code>qaResult.suggestions</code> back into a corrective rewrite with the writer model. Retry only fires once — if the retry scores higher, it replaces the original. If not, the article is saved as <code>draft</code> status.</p>
+      </div>
+      <div class="card">
+        <h3>📊 Title Validation Sub-Step</h3>
+        <p style="font-size: 13px; margin-top: 8px;">Between Phase 4b and Phase 5, the planner model validates the title is specific (not "Executive Summary" or "Policy Brief"). Also checks against <code>recent_titles.json</code> for topic similarity using keyword overlap ratio (&gt;0.55 = duplicate).</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== SLIDE 4: Why These Agents ====== -->
+<section class="slide" id="slide-4">
+  <span class="slide-number">04 / 12</span>
+  <div class="logo-bar"><span class="dot"></span> BASEFLOW INSTITUTE</div>
+  <div>
+    <span class="tag tag--purple">Design Decisions</span>
+    <h2>Pipeline Component Classification</h2>
+    <p class="subtitle">Industry-standard taxonomy. We don't call everything an "agent" — each component is classified by what it actually does.</p>
+
+    <table class="compare-table" style="margin-top: 24px;">
+      <thead>
+        <tr>
+          <th style="width: 16%;">Component</th>
+          <th style="width: 14%;">Type</th>
+          <th style="width: 20%;">Problem It Solves</th>
+          <th style="width: 22%;">Why This Classification?</th>
+          <th style="width: 16%;">Implementation</th>
+          <th style="width: 12%;">Key Params</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong style="color: var(--text);">Research</strong></td>
+          <td><span class="badge badge--orange" style="font-size: 10px;">DATA MODULE</span></td>
+          <td>LLMs hallucinate statistics</td>
+          <td>No LLM involved. Pure API orchestration with timeouts + fallbacks. This is a <em>tool</em>, not an agent — it has no reasoning capability.</td>
+          <td>DDG + Wikipedia + World Bank APIs</td>
+          <td>8s/6s/4.5s timeouts</td>
+        </tr>
+        <tr>
+          <td><strong style="color: var(--text);">Planner</strong></td>
+          <td><span class="badge badge--blue" style="font-size: 10px;">LLM AGENT</span></td>
+          <td>Topic repetition &amp; generic angles</td>
+          <td>True agent: uses LLM reasoning to select novel angles, consult history state, make autonomous decisions about content direction.</td>
+          <td>Qwen 3.5 4B, temp 0.55</td>
+          <td>900 tokens, dedup check</td>
+        </tr>
+        <tr>
+          <td><strong style="color: var(--text);">Writer + Editor</strong></td>
+          <td><span class="badge badge--blue" style="font-size: 10px;">LLM AGENT</span></td>
+          <td>Sloppy drafts; unsourced claims</td>
+          <td>True agent: autonomous two-pass generation. Pass 1 = creative draft. Pass 2 = self-revision with external fact-check feedback. Adjusts behavior based on verifier output.</td>
+          <td>Qwen 3.5 9B, temp 0.35→0.2</td>
+          <td>2200 tokens, /no_think</td>
+        </tr>
+        <tr>
+          <td><strong style="color: var(--text);">Fact-Checker</strong></td>
+          <td><span class="badge badge--pink" style="font-size: 10px;">NLI VERIFIER</span></td>
+          <td>Fabricated statistics</td>
+          <td>Not an agent — it's a classifier. Binary yes/no NLI inference per claim. No generative capability, no reasoning, no planning. Purpose-built for textual entailment.</td>
+          <td>Bespoke Minicheck 7B, temp 0.0</td>
+          <td>16 tokens, 30s/claim</td>
+        </tr>
+        <tr>
+          <td><strong style="color: var(--text);">QA Gate</strong></td>
+          <td><span class="badge badge--green" style="font-size: 10px;">RULE ENGINE</span></td>
+          <td>Inconsistent output quality</td>
+          <td>No ML at all. Deterministic scoring: word count, section completeness, source density, repetition ratio, title validation. Pure business logic.</td>
+          <td>6 weighted checks, JS/TS</td>
+          <td>≥60/100 to pass</td>
+        </tr>
+        <tr>
+          <td><strong style="color: var(--text);">Social Posts</strong></td>
+          <td><span class="badge badge--purple" style="font-size: 10px;">LLM GENERATOR</span></td>
+          <td>Manual marketing bottleneck</td>
+          <td>Not an agent — it's a <em>generator</em>. Given an article, it produces platform-specific posts. No planning, no tool use, no autonomous decisions. Single-turn LLM call.</td>
+          <td>Qwen 3.5 4B, per-platform</td>
+          <td>3 platforms, JSON queue</td>
+        </tr>
+        <tr>
+          <td><strong style="color: var(--text);">Newsletter</strong></td>
+          <td><span class="badge badge--purple" style="font-size: 10px;">LLM GENERATOR</span></td>
+          <td>No re-engagement loop</td>
+          <td>Not an agent — it's a <em>generator</em>. Aggregates recent articles and generates a digest intro. Single-turn LLM call + HTML template assembly.</td>
+          <td>Qwen 3.5 4B + HTML template</td>
+          <td>Weekly, last 7 days</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="footnote" style="margin-top: 20px;">
+      <strong>Why this matters:</strong> Calling an API wrapper or a classifier an "agent" erodes the term's meaning. Our 2 true agents (Planner, Writer) exhibit the key properties: LLM-powered reasoning, state awareness, and autonomous decision-making. The other 5 components are tools, verifiers, generators, and rules — essential to the pipeline, but honestly not agents.
+    </div>
+  </div>
+</section>
+
+<!-- ====== SLIDE 5: Model Selection & Toolkit ====== -->
+<section class="slide" id="slide-5">
+  <span class="slide-number">05 / 12</span>
+  <div class="logo-bar"><span class="dot"></span> BASEFLOW INSTITUTE</div>
+  <div>
+    <span class="tag tag--orange">Model Selection</span>
+    <h2>Model Toolkit &amp; Selection Logic</h2>
+    <p class="subtitle">Three models. Zero API keys. All running locally via Ollama on Apple Silicon.</p>
+
+    <div class="grid-3" style="margin-top: 28px;">
+      <div class="card" style="border-top: 3px solid var(--accent);">
+        <span class="badge badge--blue" style="margin-bottom: 12px;">AGENT (PLANNER) + GENERATORS</span>
+        <h3>Qwen 3.5 — 4B</h3>
+        <p style="font-size: 13px; margin-top: 8px; color: var(--text);">3.4 GB on disk</p>
+        <hr class="divider" />
+        <ul class="check-list">
+          <li>Fast inference (~5s for 900 tokens)</li>
+          <li>Strong at structured output (outlines, lists)</li>
+          <li>Good instruction following for short tasks</li>
+          <li>Low VRAM pressure — fits alongside 9B</li>
+        </ul>
+        <p style="font-size: 12px; margin-top: 12px;"><strong style="color: var(--text-dim);">Why 4B?</strong> Planning needs creativity + speed, not long-form coherence. 4B is 3× faster than 9B for structured output with comparable quality on outline tasks.</p>
+      </div>
+
+      <div class="card" style="border-top: 3px solid var(--green);">
+        <span class="badge badge--green" style="margin-bottom: 12px;">AGENT (WRITER / EDITOR)</span>
+        <h3>Qwen 3.5 — 9B</h3>
+        <p style="font-size: 13px; margin-top: 8px; color: var(--text);">6.6 GB on disk</p>
+        <hr class="divider" />
+        <ul class="check-list">
+          <li>Best open-source quality at this parameter count</li>
+          <li>Handles 2200-token generations without degradation</li>
+          <li>Strong citation adherence and formal tone</li>
+          <li>Runs on 16 GB unified memory (Apple M4)</li>
+        </ul>
+        <p style="font-size: 12px; margin-top: 12px;"><strong style="color: var(--text-dim);">Why 9B?</strong> Writing requires coherent long-form output with source attribution. 4B degrades on 1500+ word articles. 9B is the ceiling for single-GPU 16GB inference.</p>
+      </div>
+
+      <div class="card" style="border-top: 3px solid var(--pink);">
+        <span class="badge badge--pink" style="margin-bottom: 12px;">NLI VERIFIER</span>
+        <h3>Bespoke Minicheck — 7B</h3>
+        <p style="font-size: 13px; margin-top: 8px; color: var(--text);">4.7 GB on disk</p>
+        <hr class="divider" />
+        <ul class="check-list">
+          <li>Purpose-built NLI (Natural Language Inference) model</li>
+          <li>Binary yes/no output — no generation drift</li>
+          <li>30s timeout per claim — fast verification</li>
+          <li>Temperature 0.0 — fully deterministic</li>
+        </ul>
+        <p style="font-size: 12px; margin-top: 12px;"><strong style="color: var(--text-dim);">Why not use the writer?</strong> Generative models can't reliably distinguish supported vs. unsupported claims. Minicheck was trained specifically for NLI — it outputs "Yes" or "No" without hallucinating justifications.</p>
+      </div>
+    </div>
+
+    <div style="margin-top: 24px; padding: 20px; background: var(--surface-2); border: 1px solid var(--border); border-radius: 10px;">
+      <h3 style="font-size: 14px; color: var(--accent);">Model Resolution Logic (<code>ollama.ts</code>)</h3>
+      <p style="font-size: 13px; margin-top: 8px;">The system never hard-crashes on model unavailability. <code>resolveQwenModel()</code> checks installed models via <code>/api/tags</code>, tries exact match → candidate list → closest-by-parameter-size fallback. Model list is cached for 60s to avoid hammering the Ollama API on every pipeline phase.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ====== SLIDE 6: Data Flow & External APIs ====== -->
+<section class="slide" id="slide-6">
+  <span class="slide-number">06 / 12</span>
+  <div class="logo-bar"><span class="dot"></span> BASEFLOW INSTITUTE</div>
+  <div>
+    <span class="tag tag--green">Data Flow</span>
+    <h2>Data Sources &amp; API Integration</h2>
+    <p class="subtitle">All external data is fetched via free, open APIs — no API keys required for research.</p>
+
+    <div class="grid-2" style="margin-top: 24px;">
+      <div>
+        <h3 style="margin-bottom: 16px;">Research Data Sources</h3>
+        <table class="compare-table">
+          <thead>
+            <tr>
+              <th>Source</th>
+              <th>API</th>
+              <th>Data Type</th>
+              <th>Timeout</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong style="color: var(--text);">DuckDuckGo</strong></td>
+              <td>Instant Answers API</td>
+              <td>Search snippets, related topics</td>
+              <td>8,000ms</td>
+            </tr>
+            <tr>
+              <td><strong style="color: var(--text);">Wikipedia</strong></td>
+              <td>REST v1 + Search API</td>
+              <td>Article summaries, factual context</td>
+              <td>6,000ms</td>
+            </tr>
+            <tr>
+              <td><strong style="color: var(--text);">World Bank</strong></td>
+              <td>Data API v2</td>
+              <td>Development indicators (electricity, CO₂, forest, etc.)</td>
+              <td>4,500ms</td>
+            </tr>
+            <tr>
+              <td><strong style="color: var(--text);">Fallback</strong></td>
+              <td><code>dataSources.ts</code></td>
+              <td>Static API calls (World Bank SSA/WLD)</td>
+              <td>4,500ms</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div style="margin-top: 20px; padding: 16px; background: var(--surface-2); border-radius: 8px; border: 1px solid var(--border);">
+          <h3 style="font-size: 13px; color: var(--orange);">World Bank Indicator Map</h3>
+          <p style="font-size: 12px; margin-top: 6px;">Topic keyword matching selects relevant indicators:</p>
+          <div style="font-family: var(--mono); font-size: 11px; margin-top: 8px; color: var(--text-dim); line-height: 1.8;">
+            "water" → SH.H2O.SMDW.ZS, ER.H2O.FWTL.ZS<br/>
+            "energy" → EG.ELC.ACCS.ZS, EG.FEC.RNEW.ZS<br/>
+            "climate" → EN.ATM.CO2E.PC, AG.LND.FRST.ZS<br/>
+            "agriculture" → AG.LND.ARBL.ZS, AG.YLD.CREL.KG<br/>
+            "health" → SH.STA.STNT.ZS, SP.DYN.LE00.IN
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <h3 style="margin-bottom: 16px;">Output Distribution APIs</h3>
+        <table class="compare-table">
+          <thead>
+            <tr>
+              <th>Service</th>
+              <th>Protocol</th>
+              <th>Auth</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong style="color: var(--text);">Ollama</strong></td>
+              <td>HTTP REST (<code>/api/chat</code>, <code>/api/tags</code>)</td>
+              <td>None (localhost)</td>
+            </tr>
+            <tr>
+              <td><strong style="color: var(--text);">Google Drive</strong></td>
+              <td>googleapis v3 SDK</td>
+              <td>OAuth2 refresh token</td>
+            </tr>
+            <tr>
+              <td><strong style="color: var(--text);">Bluesky</strong></td>
+              <td>AT Protocol</td>
+              <td>Handle + app password</td>
+            </tr>
+            <tr>
+              <td><strong style="color: var(--text);">GitHub</strong></td>
+              <td>git CLI (push to main)</td>
+              <td>SSH key</td>
+            </tr>
+            <tr>
+              <td><strong style="color: var(--text);">Vercel</strong></td>
+              <td>Auto-deploy on push</td>
+              <td>GitHub integration</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div style="margin-top: 20px; padding: 16px; background: var(--surface-2); border-radius: 8px; border: 1px solid var(--border);">
+          <h3 style="font-size: 13px; color: var(--green);">Data Flow Summary</h3>
+          <div style="font-family: var(--mono); font-size: 11px; margin-top: 8px; color: var(--text-dim); line-height: 2;">
+            Web APIs → <span style="color: var(--accent);">ResearchData</span> → Planner prompt<br/>
+            Planner → <span style="color: var(--accent);">outline + title</span> → Writer prompt<br/>
+            Writer → <span style="color: var(--accent);">draft MD</span> → Fact-checker claims<br/>
+            Fact-checker → <span style="color: var(--accent);">flags[]</span> → Editor prompt<br/>
+            Editor → <span style="color: var(--accent);">final MD</span> → QA Gate<br/>
+            QA Gate → <span style="color: var(--accent);">score/pass</span> → Publish or Retry<br/>
+            Publish → <span style="color: var(--accent);">MD + HTML + Index + Social + Drive + Git</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== SLIDE 7: Code Structure ====== -->
+<section class="slide" id="slide-7">
+  <span class="slide-number">07 / 12</span>
+  <div class="logo-bar"><span class="dot"></span> BASEFLOW INSTITUTE</div>
+  <div>
+    <span class="tag tag--purple">Code Structure</span>
+    <h2>Codebase Architecture</h2>
+    <p class="subtitle">Monorepo. Next.js 14 App Router. 18 source modules under <code>src/lib/</code>.</p>
+
+    <div class="grid-2" style="margin-top: 24px;">
+      <div class="file-tree">
+<span class="dir">app/</span>                        <span class="desc">← Next.js App Router</span>
+  <span class="file">layout.tsx</span>               <span class="desc">← Root layout + metadata</span>
+  <span class="file">page.tsx</span>                 <span class="desc">← Public website (SSR)</span>
+  <span class="dir">api/</span>                      <span class="desc">← 9 API route groups</span>
+    <span class="dir">run/</span>                    <span class="desc">← POST /api/run — trigger pipeline</span>
+    <span class="dir">schedules/</span>              <span class="desc">← CRUD for scheduled jobs</span>
+    <span class="dir">articles/</span>               <span class="desc">← List/read published articles</span>
+    <span class="dir">social/</span>                 <span class="desc">← Social queue management</span>
+    <span class="dir">newsletter/</span>             <span class="desc">← Newsletter generation</span>
+    <span class="dir">drive/</span>                  <span class="desc">← Google Drive upload</span>
+    <span class="dir">admin/</span>                  <span class="desc">← Admin auth endpoints</span>
+    <span class="dir">refine/</span>                 <span class="desc">← Manual article refinement</span>
+    <span class="dir">subscribe/</span>              <span class="desc">← Email list subscription</span>
+
+<span class="dir">src/lib/</span>                    <span class="desc">← Core business logic (18 files)</span>
+  <span class="highlight">agents-v2.ts</span>        <span class="desc">← 934 lines — main pipeline</span>
+  <span class="highlight">ollama.ts</span>            <span class="desc">← 280 lines — Ollama client</span>
+  <span class="highlight">scheduler.ts</span>         <span class="desc">← 356 lines — job scheduler</span>
+  <span class="highlight">qaGate.ts</span>            <span class="desc">← 323 lines — quality gate</span>
+  <span class="highlight">webSearch.ts</span>         <span class="desc">← 341 lines — research APIs</span>
+  <span class="highlight">socialPostAgent.ts</span>   <span class="desc">← 226 lines — social agent</span>
+  <span class="highlight">newsletterAgent.ts</span>   <span class="desc">← 225 lines — digest agent</span>
+  <span class="highlight">htmlReport.ts</span>        <span class="desc">← 576 lines — HTML generator</span>
+  <span class="highlight">templates.ts</span>         <span class="desc">← 373 lines — report templates</span>
+  <span class="highlight">articleIndex.ts</span>      <span class="desc">← 356 lines — article index</span>
+  <span class="file">storage.ts</span>               <span class="desc">← Schedule persistence</span>
+  <span class="file">autoPublish.ts</span>           <span class="desc">← Git commit + push</span>
+  <span class="file">drive.ts</span>                 <span class="desc">← Google Drive SDK</span>
+  <span class="file">dataSources.ts</span>           <span class="desc">← Fallback World Bank data</span>
+  <span class="file">processLog.ts</span>            <span class="desc">← Unified activity log</span>
+  <span class="file">adminGuard.ts</span>            <span class="desc">← Admin auth middleware</span>
+  <span class="file">socialCredentials.ts</span>     <span class="desc">← Platform credential store</span>
+  <span class="file">agents.ts</span>                <span class="desc">← Legacy v1 (deprecated)</span>
+
+<span class="dir">data/</span>                       <span class="desc">← JSON persistence layer</span>
+  <span class="file">schedules.json</span>           <span class="desc">← Active schedule configs</span>
+  <span class="file">articles-index.json</span>      <span class="desc">← Published article metadata</span>
+  <span class="file">social-queue.json</span>        <span class="desc">← Pending social posts</span>
+  <span class="file">process-log.json</span>         <span class="desc">← Operation log (500 entries)</span>
+  <span class="file">recent_titles.json</span>       <span class="desc">← Last 12 titles (dedup)</span>
+  <span class="file">recent_outlines.json</span>     <span class="desc">← Last 10 outlines (dedup)</span>
+  <span class="dir">output/</span>                   <span class="desc">← 54+ MD + HTML article files</span>
+      </div>
+
+      <div>
+        <div class="card" style="margin-bottom: 20px;">
+          <h3>Key Design Patterns</h3>
+          <table class="compare-table" style="margin-top: 12px;">
+            <thead><tr><th>Pattern</th><th>Where</th></tr></thead>
+            <tbody>
+              <tr><td style="color: var(--text);">Async Mutex</td><td>articleIndex, processLog, storage — prevents concurrent read-modify-write corruption on JSON files</td></tr>
+              <tr><td style="color: var(--text);">globalThis persistence</td><td>scheduler.ts — interval survives Next.js HMR / hot reloads in dev</td></tr>
+              <tr><td style="color: var(--text);">Streaming accumulator</td><td>ollama.ts — reads NDJSON stream chunks with carry-over buffer to avoid undici headersTimeout</td></tr>
+              <tr><td style="color: var(--text);">Retry w/ backoff</td><td>ollama.ts — MAX_RETRIES=2, 1.2s × attempt delay, transient error detection</td></tr>
+              <tr><td style="color: var(--text);">Template registry</td><td>templates.ts — policy-brief, research-summary, grant-proposal — each defines sections, word targets, tone</td></tr>
+              <tr><td style="color: var(--text);">Merge-on-persist</td><td>scheduler.ts — merges in-memory state with disk state before writing to prevent stale overwrites</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="card">
+          <h3>Report Templates</h3>
+          <p style="font-size: 13px; margin-top: 8px;">Each template defines sections with word targets, required flags, and prompt hints:</p>
+          <div style="font-family: var(--mono); font-size: 11px; margin-top: 12px; color: var(--text-dim); line-height: 1.8;">
+            <span style="color: var(--accent);">policy-brief</span> — 1200 words, 6 sections, policy tone<br/>
+            <span style="color: var(--green);">research-summary</span> — 1500 words, 6 sections, academic tone<br/>
+            <span style="color: var(--orange);">grant-proposal</span> — 1800 words, 5+ sections, technical tone
+          </div>
+          <p style="font-size: 12px; margin-top: 12px; color: var(--text-dim);">Adding a new template = one object in <code>templates.ts</code>. The pipeline adapts automatically — word targets, section prompts, and QA thresholds all derive from the template config.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== SLIDE 8: Infrastructure ====== -->
+<section class="slide" id="slide-8">
+  <span class="slide-number">08 / 12</span>
+  <div class="logo-bar"><span class="dot"></span> BASEFLOW INSTITUTE</div>
+  <div>
+    <span class="tag tag--orange">Infrastructure</span>
+    <h2>Infrastructure &amp; Runtime Environment</h2>
+    <p class="subtitle">Local-first architecture with cloud edge delivery. Total monthly cost: $0–20.</p>
+
+    <div class="grid-2" style="margin-top: 24px;">
+      <div>
+        <div class="card" style="margin-bottom: 20px;">
+          <h3>🖥️ Compute Node (Local Mac)</h3>
+          <table class="compare-table" style="margin-top: 12px;">
+            <tbody>
+              <tr><td style="color:var(--text); width:35%;">Hardware</td><td>Apple M4, 16 GB unified RAM</td></tr>
+              <tr><td style="color:var(--text);">OS</td><td>macOS</td></tr>
+              <tr><td style="color:var(--text);">Runtime</td><td>Node.js (Next.js 14.2.3 standalone)</td></tr>
+              <tr><td style="color:var(--text);">LLM Runtime</td><td>Ollama v0.17.5 (Metal GPU acceleration)</td></tr>
+              <tr><td style="color:var(--text);">Model Memory</td><td>~14.7 GB total (3 models, swapped via keep_alive:0)</td></tr>
+              <tr><td style="color:var(--text);">Pipeline RAM</td><td>~1.2 GB (Node.js process + active model)</td></tr>
+              <tr><td style="color:var(--text);">Disk Footprint</td><td>~450 MB app + ~14.7 GB models</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="card">
+          <h3>⚡ Why Local, Not Cloud GPUs?</h3>
+          <ul class="check-list" style="margin-top: 12px;">
+            <li><strong style="color: var(--text);">$0 inference cost</strong> — no per-token billing</li>
+            <li><strong style="color: var(--text);">No rate limits</strong> — generate 48 articles/day</li>
+            <li><strong style="color: var(--text);">No API keys to manage</strong> — entire research pipeline runs on free open APIs</li>
+            <li><strong style="color: var(--text);">Data sovereignty</strong> — nothing leaves the machine until git push</li>
+            <li><strong style="color: var(--text);">Apple Silicon efficiency</strong> — 9B model at ~15 tok/s, 4B at ~40 tok/s</li>
+          </ul>
+        </div>
+      </div>
+
+      <div>
+        <div class="card" style="margin-bottom: 20px;">
+          <h3>☁️ Edge Delivery (Vercel)</h3>
+          <table class="compare-table" style="margin-top: 12px;">
+            <tbody>
+              <tr><td style="color:var(--text); width:35%;">Platform</td><td>Vercel Hobby (free tier)</td></tr>
+              <tr><td style="color:var(--text);">Framework</td><td>Next.js 14 App Router, <code>output: 'standalone'</code></td></tr>
+              <tr><td style="color:var(--text);">Deploy Trigger</td><td>Auto on git push to <code>main</code></td></tr>
+              <tr><td style="color:var(--text);">CDN</td><td>Global edge network, auto SSL</td></tr>
+              <tr><td style="color:var(--text);">Filesystem</td><td>Read-only — scheduler disabled on Vercel</td></tr>
+              <tr><td style="color:var(--text);">Build</td><td>~45s cold build</td></tr>
+              <tr><td style="color:var(--text);">URL</td><td>policy-research-hub.vercel.app</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="card">
+          <h3>💾 Persistence Layer</h3>
+          <p style="font-size: 13px; margin-top: 8px; color: var(--text-dim);">No database. All state lives in JSON files committed to git:</p>
+          <table class="compare-table" style="margin-top: 12px;">
+            <tbody>
+              <tr><td style="color:var(--text);">Articles</td><td><code>data/articles-index.json</code> — metadata, with MD+HTML in <code>data/output/</code></td></tr>
+              <tr><td style="color:var(--text);">Schedules</td><td><code>data/schedules.json</code> — cron-like job configs</td></tr>
+              <tr><td style="color:var(--text);">Social Queue</td><td><code>data/social-queue.json</code> — pending/posted tracking</td></tr>
+              <tr><td style="color:var(--text);">Activity Log</td><td><code>data/process-log.json</code> — last 500 events</td></tr>
+              <tr><td style="color:var(--text);">Dedup</td><td><code>recent_titles.json</code> (12) + <code>recent_outlines.json</code> (10)</td></tr>
+            </tbody>
+          </table>
+          <p style="font-size: 11px; margin-top: 8px; color: #475569;">Trade-off: JSON files cap at ~10K articles before git performance degrades. Migration path: SQLite → Postgres when needed.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== SLIDE 9: Throughput & Volume ====== -->
+<section class="slide" id="slide-9">
+  <span class="slide-number">09 / 12</span>
+  <div class="logo-bar"><span class="dot"></span> BASEFLOW INSTITUTE</div>
+  <div>
+    <span class="tag tag--green">Throughput</span>
+    <h2>Volume, Throughput &amp; Performance</h2>
+    <p class="subtitle">Current cadence: 1 article every 30 minutes. ~48 articles/day theoretical max.</p>
+
+    <div class="stat-row" style="margin-top: 20px;">
+      <div class="stat-item">
+        <div class="value">~8 min</div>
+        <div class="label">Avg Pipeline Duration</div>
+      </div>
+      <div class="stat-item">
+        <div class="value">30 min</div>
+        <div class="label">Schedule Interval</div>
+      </div>
+      <div class="stat-item">
+        <div class="value">1,200</div>
+        <div class="label">Avg Words / Article</div>
+      </div>
+      <div class="stat-item">
+        <div class="value">15</div>
+        <div class="label">Claims Fact-Checked</div>
+      </div>
+      <div class="stat-item">
+        <div class="value">3</div>
+        <div class="label">Social Posts / Article</div>
+      </div>
+    </div>
+
+    <div class="grid-2" style="margin-top: 28px;">
+      <div class="card">
+        <h3>⏱️ Phase Timing Breakdown</h3>
+        <table class="compare-table" style="margin-top: 12px;">
+          <thead><tr><th>Phase</th><th>Duration</th><th>Bottleneck</th></tr></thead>
+          <tbody>
+            <tr><td style="color:var(--text);">Research</td><td>3–8s</td><td>Network latency (3 API calls)</td></tr>
+            <tr><td style="color:var(--text);">Planning</td><td>5–15s</td><td>qwen3.5:4b inference (900 tokens)</td></tr>
+            <tr><td style="color:var(--text);">Writing</td><td>60–120s</td><td>qwen3.5:9b inference (2200 tokens)</td></tr>
+            <tr><td style="color:var(--text);">Fact-Check</td><td>30–90s</td><td>15 sequential claim checks × 2–6s each</td></tr>
+            <tr><td style="color:var(--text);">Edit Pass</td><td>60–120s</td><td>qwen3.5:9b inference (2200 tokens)</td></tr>
+            <tr><td style="color:var(--text);">Title Validation</td><td>2–5s</td><td>qwen3.5:4b (48 tokens)</td></tr>
+            <tr><td style="color:var(--text);">QA Gate</td><td>&lt;100ms</td><td>Deterministic — pure JS</td></tr>
+            <tr><td style="color:var(--text);">Publish + Index</td><td>1–3s</td><td>File I/O + social generation</td></tr>
+            <tr><td style="color:var(--text);">QA Retry (if needed)</td><td>60–120s</td><td>Only fires ~15% of runs</td></tr>
+            <tr style="font-weight: 600;"><td style="color:var(--accent);">Total (typical)</td><td style="color:var(--accent);">5–8 min</td><td style="color:var(--text-dim);">22 min idle before next interval</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="card">
+        <h3>📊 Production Volume (to date)</h3>
+        <table class="compare-table" style="margin-top: 12px;">
+          <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+          <tbody>
+            <tr><td style="color:var(--text);">Published articles</td><td>54+</td></tr>
+            <tr><td style="color:var(--text);">Social posts queued</td><td>135+ (across 3 platforms)</td></tr>
+            <tr><td style="color:var(--text);">LLM invocations per article</td><td>~20 (plan + write + 15 claims + edit + title)</td></tr>
+            <tr><td style="color:var(--text);">Total LLM calls (est.)</td><td>~1,080</td></tr>
+            <tr><td style="color:var(--text);">Total tokens generated (est.)</td><td>~400K</td></tr>
+            <tr><td style="color:var(--text);">Avg QA score</td><td>100/100 (steady state)</td></tr>
+            <tr><td style="color:var(--text);">QA retry rate</td><td>~15% of runs</td></tr>
+            <tr><td style="color:var(--text);">Draft (failed QA) rate</td><td>&lt;5% of runs</td></tr>
+          </tbody>
+        </table>
+        <p style="font-size: 12px; margin-top: 12px; color: var(--text-dim);">At $0.02/1K tokens (GPT-4o equivalent pricing), the same output would cost ~$8/article or ~$432 total. With local inference: <strong style="color: var(--green);">$0</strong>.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== SLIDE 10: Reliability & Quality ====== -->
+<section class="slide" id="slide-10">
+  <span class="slide-number">10 / 12</span>
+  <div class="logo-bar"><span class="dot"></span> BASEFLOW INSTITUTE</div>
+  <div>
+    <span class="tag tag--pink">Reliability</span>
+    <h2>Quality Assurance &amp; Reliability Engineering</h2>
+    <p class="subtitle">Multiple layers prevent hallucination, repetition, and silent failure.</p>
+
+    <div class="grid-3" style="margin-top: 24px;">
+      <div class="card">
+        <span class="icon-lg">🔎</span>
+        <h3>Fact-Check Layer</h3>
+        <p style="font-size: 13px; margin-top: 8px;">
+          Every statistical claim extracted from the draft is independently verified by Bespoke Minicheck against the original research corpus. Binary NLI — no generated justifications that could themselves hallucinate.
+        </p>
+        <div style="margin-top: 12px; font-family: var(--mono); font-size: 11px; color: var(--text-dim);">
+          up to 15 claims/article<br/>
+          temp 0.0 (deterministic)<br/>
+          30s timeout per claim<br/>
+          flags → [VERIFY] tags
+        </div>
+      </div>
+
+      <div class="card">
+        <span class="icon-lg">🛡️</span>
+        <h3>QA Gate (6 Checks)</h3>
+        <p style="font-size: 13px; margin-top: 8px;">
+          Deterministic, weighted scoring system. Must score ≥60/100 to auto-publish. Each check has defined pass/fail criteria:
+        </p>
+        <div style="margin-top: 12px; font-size: 12px; color: var(--text-dim); line-height: 1.9;">
+          <span style="color: var(--text);">title_quality</span> (w:20) — non-generic, ≥15 chars<br/>
+          <span style="color: var(--text);">word_count</span> (w:20) — ≥70% of target<br/>
+          <span style="color: var(--text);">sections_complete</span> (w:15) — all required present<br/>
+          <span style="color: var(--text);">source_citations</span> (w:15) — ≥3 sources cited<br/>
+          <span style="color: var(--text);">h1_consistency</span> (w:10) — proper article title<br/>
+          <span style="color: var(--text);">repetition</span> (w:20) — &lt;10% duplicate sentences
+        </div>
+      </div>
+
+      <div class="card">
+        <span class="icon-lg">🔄</span>
+        <h3>Fault Tolerance</h3>
+        <p style="font-size: 13px; margin-top: 8px;">
+          The system is designed to degrade gracefully, not crash:
+        </p>
+        <ul class="check-list" style="margin-top: 12px; font-size: 12px;">
+          <li><strong style="color:var(--text);">Model fallback</strong> — auto-resolves to available Qwen variant</li>
+          <li><strong style="color:var(--text);">Retry with backoff</strong> — 2 retries, 1.2s × attempt</li>
+          <li><strong style="color:var(--text);">Transient detection</strong> — ECONNRESET, socket hang up, etc.</li>
+          <li><strong style="color:var(--text);">Streaming mode</strong> — prevents undici 300s headersTimeout</li>
+          <li><strong style="color:var(--text);">AbortController</strong> — 5min timeout per LLM call</li>
+          <li><strong style="color:var(--text);">Research fallback</strong> — pipeline continues with stub data</li>
+          <li><strong style="color:var(--text);">keep_alive:0</strong> — frees VRAM between model swaps</li>
+          <li><strong style="color:var(--text);">Dedup deduplication</strong> — 12 titles + 10 outlines tracked</li>
+        </ul>
+      </div>
+    </div>
+
+    <div style="margin-top: 24px; padding: 20px; background: var(--surface-2); border: 1px solid var(--border); border-radius: 10px;">
+      <h3 style="font-size: 14px; color: var(--accent);">Unified Process Log (<code>processLog.ts</code>)</h3>
+      <p style="font-size: 13px; margin-top: 8px; color: var(--text-dim);">
+        Every phase emits structured log entries: <code>type</code> (pipeline-run, schedule, system, error), <code>status</code> (running, success, warning, error), <code>meta</code> (wordCount, score, model, phase). Last 500 entries persisted. Async mutex prevents log corruption under concurrent writes. Admin Command Center renders these in real-time.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ====== SLIDE 11: Deployment Architecture ====== -->
+<section class="slide" id="slide-11">
+  <span class="slide-number">11 / 12</span>
+  <div class="logo-bar"><span class="dot"></span> BASEFLOW INSTITUTE</div>
+  <div>
+    <span class="tag tag--accent">Deployment</span>
+    <h2>Deployment &amp; CI/CD Architecture</h2>
+    <p class="subtitle">Two-environment split: local dev/gen server + edge CDN for public serving.</p>
+
+    <div style="margin-top: 28px; padding: 28px; background: var(--surface); border: 1px solid var(--border); border-radius: 12px;">
+      <div style="display: flex; align-items: center; gap: 0; flex-wrap: wrap; justify-content: center;">
+
+        <div style="text-align: center; padding: 20px; min-width: 140px;">
+          <div style="font-size: 28px;">🖥️</div>
+          <div style="font-size: 13px; font-weight: 600; color: var(--text); margin-top: 6px;">Mac M4</div>
+          <div style="font-size: 11px; color: var(--text-dim);">Ollama + Next.js dev</div>
+          <div style="font-size: 10px; color: var(--cyan); font-family: var(--mono); margin-top: 4px;">localhost:3000</div>
+        </div>
+
+        <div style="color: var(--accent); font-size: 20px; padding: 0 8px;">→</div>
+
+        <div style="text-align: center; padding: 20px; min-width: 140px;">
+          <div style="font-size: 28px;">📝</div>
+          <div style="font-size: 13px; font-weight: 600; color: var(--text); margin-top: 6px;">Pipeline Output</div>
+          <div style="font-size: 11px; color: var(--text-dim);">MD + HTML + JSON</div>
+          <div style="font-size: 10px; color: var(--cyan); font-family: var(--mono); margin-top: 4px;">data/output/</div>
+        </div>
+
+        <div style="color: var(--accent); font-size: 20px; padding: 0 8px;">→</div>
+
+        <div style="text-align: center; padding: 20px; min-width: 140px;">
+          <div style="font-size: 28px;">🔀</div>
+          <div style="font-size: 13px; font-weight: 600; color: var(--text); margin-top: 6px;">Auto-Commit</div>
+          <div style="font-size: 11px; color: var(--text-dim);">git add + push main</div>
+          <div style="font-size: 10px; color: var(--cyan); font-family: var(--mono); margin-top: 4px;">autoPublish.ts</div>
+        </div>
+
+        <div style="color: var(--accent); font-size: 20px; padding: 0 8px;">→</div>
+
+        <div style="text-align: center; padding: 20px; min-width: 140px;">
+          <div style="font-size: 28px;">🐙</div>
+          <div style="font-size: 13px; font-weight: 600; color: var(--text); margin-top: 6px;">GitHub</div>
+          <div style="font-size: 11px; color: var(--text-dim);">Source + data repo</div>
+          <div style="font-size: 10px; color: var(--cyan); font-family: var(--mono); margin-top: 4px;">streamlinecoreinitiative/</div>
+        </div>
+
+        <div style="color: var(--accent); font-size: 20px; padding: 0 8px;">→</div>
+
+        <div style="text-align: center; padding: 20px; min-width: 140px;">
+          <div style="font-size: 28px;">▲</div>
+          <div style="font-size: 13px; font-weight: 600; color: var(--text); margin-top: 6px;">Vercel</div>
+          <div style="font-size: 11px; color: var(--text-dim);">Build + Edge CDN</div>
+          <div style="font-size: 10px; color: var(--cyan); font-family: var(--mono); margin-top: 4px;">policy-research-hub.vercel.app</div>
+        </div>
+      </div>
+
+      <hr class="divider" style="margin: 24px auto; max-width: 80%;" />
+
+      <div style="display: flex; gap: 24px; justify-content: center; flex-wrap: wrap;">
+        <div style="text-align: center; padding: 16px; min-width: 120px;">
+          <div style="font-size: 24px;">☁️</div>
+          <div style="font-size: 12px; font-weight: 600; color: var(--text); margin-top: 6px;">Google Drive</div>
+          <div style="font-size: 10px; color: var(--text-dim);">HTML backup</div>
+        </div>
+        <div style="text-align: center; padding: 16px; min-width: 120px;">
+          <div style="font-size: 24px;">🦋</div>
+          <div style="font-size: 12px; font-weight: 600; color: var(--text); margin-top: 6px;">Bluesky</div>
+          <div style="font-size: 10px; color: var(--text-dim);">AT Protocol posts</div>
+        </div>
+        <div style="text-align: center; padding: 16px; min-width: 120px;">
+          <div style="font-size: 24px;">📧</div>
+          <div style="font-size: 12px; font-weight: 600; color: var(--text); margin-top: 6px;">Newsletter</div>
+          <div style="font-size: 10px; color: var(--text-dim);">HTML email digests</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid-2" style="margin-top: 24px;">
+      <div class="card">
+        <h3>🔒 Security Model</h3>
+        <ul class="check-list" style="margin-top: 8px; font-size: 12px;">
+          <li>Admin routes protected by <code>adminGuard.ts</code> (env-based passkey)</li>
+          <li>All LLM inference on localhost — no data leaves machine</li>
+          <li>Social credentials stored in encrypted env vars</li>
+          <li>Vercel filesystem is read-only — scheduler only runs locally</li>
+          <li>Auto-commit debounced (2 min min interval)</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>🔧 Config via <code>next.config.mjs</code></h3>
+        <div class="code-block" style="margin-top: 8px; font-size: 11px;">
+<span class="kw">const</span> nextConfig = {
+  <span class="str">output</span>: <span class="str">'standalone'</span>,    <span class="cmt">// Optimized for Vercel</span>
+  <span class="str">experimental</span>: {
+    <span class="str">instrumentationHook</span>: <span class="num">true</span>,  <span class="cmt">// Scheduler init</span>
+    <span class="str">outputFileTracingIncludes</span>: {
+      <span class="str">'/api/**'</span>: [<span class="str">'./data/**/*'</span>],  <span class="cmt">// Bundle data/</span>
+    },
+  },
+};
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== SLIDE 12: Summary ====== -->
+<section class="slide" id="slide-12">
+  <span class="slide-number">12 / 12</span>
+  <div class="logo-bar"><span class="dot"></span> BASEFLOW INSTITUTE</div>
+  <div>
+    <span class="tag tag--accent">Summary</span>
+    <h2>Architecture Summary &amp; Scaling Path</h2>
+    <p class="subtitle">What we built, what it handles today, and where it goes next.</p>
+
+    <div class="grid-2" style="margin-top: 28px;">
+      <div class="card" style="border-left: 3px solid var(--accent);">
+        <h3 style="color: var(--accent);">Current Architecture — What Works</h3>
+        <ul class="check-list" style="margin-top: 12px; font-size: 13px;">
+          <li>Single-machine, zero-cost inference via Ollama + Apple Silicon</li>
+          <li>2 LLM agents + 1 NLI verifier + 2 generators + 2 deterministic modules</li>
+          <li>Multi-source research (4 APIs) prevents hallucination</li>
+          <li>NLI-based fact-checking (not generative verification)</li>
+          <li>Deterministic QA gate with automated retry loop</li>
+          <li>Git-based persistence → Vercel CDN deployment</li>
+          <li>54+ articles at 100/100 QA scores in production</li>
+          <li>Full audit trail via structured process logging</li>
+          <li>Template-driven — add new report types via config</li>
+        </ul>
+      </div>
+
+      <div class="card" style="border-left: 3px solid var(--green);">
+        <h3 style="color: var(--green);">Scaling Path — What's Next</h3>
+        <table class="compare-table" style="margin-top: 12px;">
+          <thead><tr><th>Constraint</th><th>Current</th><th>Upgrade Path</th></tr></thead>
+          <tbody>
+            <tr><td style="color:var(--text);">Storage</td><td>JSON files (git)</td><td>SQLite → Postgres</td></tr>
+            <tr><td style="color:var(--text);">Scheduler</td><td>setInterval on machine</td><td>BullMQ / cloud cron</td></tr>
+            <tr><td style="color:var(--text);">Inference</td><td>Single M4 Mac</td><td>Multi-GPU / RunPod</td></tr>
+            <tr><td style="color:var(--text);">Models</td><td>Qwen 3.5 (4B, 9B)</td><td>Qwen 3.5 32B / 72B</td></tr>
+            <tr><td style="color:var(--text);">Research</td><td>DDG + Wikipedia</td><td>Semantic Scholar + arXiv</td></tr>
+            <tr><td style="color:var(--text);">Distribution</td><td>Bluesky + queue</td><td>Twitter API + LinkedIn API</td></tr>
+            <tr><td style="color:var(--text);">Monitoring</td><td>JSON process log</td><td>Prometheus + Grafana</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div style="margin-top: 32px; padding: 28px; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; text-align: center;">
+      <h3 style="font-size: 20px; margin-bottom: 12px;">Tech Stack at a Glance</h3>
+      <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 16px;">
+        <span class="badge badge--blue" style="font-size: 12px; padding: 6px 14px;">Next.js 14</span>
+        <span class="badge badge--blue" style="font-size: 12px; padding: 6px 14px;">TypeScript 5.4</span>
+        <span class="badge badge--green" style="font-size: 12px; padding: 6px 14px;">Ollama v0.17</span>
+        <span class="badge badge--green" style="font-size: 12px; padding: 6px 14px;">Qwen 3.5</span>
+        <span class="badge badge--pink" style="font-size: 12px; padding: 6px 14px;">Minicheck 7B</span>
+        <span class="badge badge--orange" style="font-size: 12px; padding: 6px 14px;">React 18</span>
+        <span class="badge badge--purple" style="font-size: 12px; padding: 6px 14px;">Vercel CDN</span>
+        <span class="badge badge--blue" style="font-size: 12px; padding: 6px 14px;">Google Drive API</span>
+        <span class="badge badge--green" style="font-size: 12px; padding: 6px 14px;">AT Protocol</span>
+        <span class="badge badge--orange" style="font-size: 12px; padding: 6px 14px;">Zod</span>
+        <span class="badge badge--purple" style="font-size: 12px; padding: 6px 14px;">Apple Silicon</span>
+      </div>
+      <p style="margin-top: 20px; font-size: 15px; color: var(--text);">Zero external paid APIs · Zero database · Zero DevOps overhead</p>
+      <p style="margin-top: 8px; font-size: 13px; color: var(--text-dim);">18 TypeScript modules · 9 API routes · 2 LLM agents · 3 models · 7 pipeline stages · 1 Mac</p>
+    </div>
+  </div>
+</section>
+
+<!-- Nav dot active state tracking -->
+<script>
+  const dots = document.querySelectorAll('.nav-dots a');
+  const slides = document.querySelectorAll('.slide');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        dots.forEach(d => d.classList.remove('active'));
+        const id = entry.target.id;
+        const dot = document.querySelector(`.nav-dots a[href="#${id}"]`);
+        if (dot) dot.classList.add('active');
+      }
+    });
+  }, { threshold: 0.5 });
+  slides.forEach(s => observer.observe(s));
+
+  // Keyboard navigation
+  document.addEventListener('keydown', (e) => {
+    const currentSlide = [...slides].findIndex(s => {
+      const rect = s.getBoundingClientRect();
+      return rect.top >= -100 && rect.top < window.innerHeight / 2;
+    });
+    if (e.key === 'ArrowDown' || e.key === 'ArrowRight' || e.key === ' ') {
+      e.preventDefault();
+      const next = Math.min(currentSlide + 1, slides.length - 1);
+      slides[next].scrollIntoView({ behavior: 'smooth' });
+    }
+    if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
+      e.preventDefault();
+      const prev = Math.max(currentSlide - 1, 0);
+      slides[prev].scrollIntoView({ behavior: 'smooth' });
+    }
+  });
+</script>
+</body>
+</html>

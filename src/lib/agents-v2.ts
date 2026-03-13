@@ -271,7 +271,6 @@ export async function runAgents(params: AgentRunParams): Promise<AgentRunResult>
 
   const log: string[] = [];
   const warnings: string[] = [];
-  const lightweightModel = /tinyllama/i.test(effectiveWriterModel) || /tinyllama/i.test(effectiveFactCheckerModel);
   const template = getTemplate(templateId) || templates['policy-brief'];
   
   log.push(`[${timestamp()}] Starting ${template.name} generation`);
@@ -470,7 +469,7 @@ Include inline citations for all statistics.`
   
   const claimsToCheck = draftSentences.filter(s => 
     /\d+/.test(s) || /percent|million|billion|thousand|growth|decline|increase|decrease/i.test(s)
-  ).slice(0, lightweightModel ? 4 : 15); // Keep tiny models fast/stable.
+  ).slice(0, 15);
 
   const researchDoc = researchPrompt.slice(0, 6000); // Fit within context
   let flaggedClaims: string[] = [];
@@ -571,16 +570,7 @@ Return the revised document with:
   ];
 
   let factCheckedDraft = writerDraft;
-  if (lightweightModel) {
-    log.push(`[${timestamp()}] Lightweight mode: skipping editorial pass for speed.`);
-    addLogEntry({
-      type: 'pipeline-run',
-      status: 'info',
-      title: '✍️ Writer (edit pass): skipped in lightweight mode',
-      details: `Using ${effectiveWriterModel} in lightweight mode; preserving writer draft to keep scheduled runs responsive.`,
-      meta: { phase: 'editorial', model: effectiveWriterModel, skipped: true },
-    }).catch(() => {});
-  } else {
+  {
     factCheckedDraft = await callOllamaChat({ 
       model: effectiveWriterModel, 
       messages: factMessages, 
@@ -722,7 +712,7 @@ Return the revised document with:
   }).catch(() => {});
 
   // If QA fails, attempt ONE retry with corrective feedback
-  if (!qaResult.passed && qaResult.suggestions.length > 0 && !lightweightModel) {
+  if (!qaResult.passed && qaResult.suggestions.length > 0) {
     log.push(`[${timestamp()}] QA failed — attempting corrective retry...`);
 
     addLogEntry({

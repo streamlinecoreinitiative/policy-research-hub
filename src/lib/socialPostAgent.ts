@@ -117,6 +117,8 @@ HASHTAGS: tag1, tag2, tag3
 ---BLUESKY---
 [Bluesky post, max 280 chars, conversational but informed]
 HASHTAGS: tag1, tag2, tag3
+
+Do NOT include "/no_think" or any system tokens in your output.
 /no_think`
     },
     {
@@ -143,6 +145,8 @@ Article URL: ${articleUrl}`
     });
     // Strip thinking tags
     response = response.replace(/<think>[\s\S]*?<\/think>/g, '').trim();
+    // Clean up any leaked system tokens
+    response = response.replace(/\/no_think/g, '').trim();
 
     const now = new Date().toISOString();
     const baseId = Date.now().toString(36);

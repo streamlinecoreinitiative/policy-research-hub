@@ -16,3 +16,4 @@ data/schedules.json
 data/social-credentials.json
 data/process-log.json
 data/auto-publish-state.json
+.vercel

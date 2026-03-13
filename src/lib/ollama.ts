@@ -102,8 +102,8 @@ export async function resolveQwenModel(
   const preferredExact = findCandidateMatch(installed, preferredModel);
   if (preferredExact) return preferredExact;
 
-  const plannerCandidates = ['qwen3.5:4b', 'qwen3:4b'];
-  const writerCandidates = ['qwen3.5:9b', 'qwen3:8b', 'qwen3:4b'];
+  const plannerCandidates = ['qwen3.5:4b'];
+  const writerCandidates = ['qwen3.5:9b', 'qwen3.5:4b'];
   const candidates = role === 'planner' ? plannerCandidates : writerCandidates;
 
   for (const model of candidates) {
