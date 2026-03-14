@@ -1,0 +1,37 @@
+<svg width="640" height="480" viewBox="0 0 640 480" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="640" height="480" rx="36" fill="url(#bg)"/>
+  <rect x="44" y="48" width="552" height="384" rx="28" fill="white" fill-opacity="0.78"/>
+  <rect x="72" y="80" width="220" height="138" rx="24" fill="#0F172A"/>
+  <circle cx="124" cy="130" r="22" fill="#2DD4BF"/>
+  <rect x="160" y="116" width="92" height="10" rx="5" fill="#E2E8F0"/>
+  <rect x="160" y="136" width="62" height="10" rx="5" fill="#94A3B8"/>
+  <rect x="96" y="178" width="164" height="10" rx="5" fill="#1E293B"/>
+  <rect x="322" y="80" width="246" height="166" rx="24" fill="#F8FAFC"/>
+  <path d="M358 198C384 163 412 155 436 164C455 171 470 190 490 194C516 199 533 177 550 140" stroke="#174EA6" stroke-width="10" stroke-linecap="round"/>
+  <circle cx="358" cy="198" r="10" fill="#174EA6"/>
+  <circle cx="436" cy="164" r="10" fill="#2DD4BF"/>
+  <circle cx="490" cy="194" r="10" fill="#174EA6"/>
+  <circle cx="550" cy="140" r="10" fill="#0F172A"/>
+  <rect x="352" y="102" width="88" height="12" rx="6" fill="#CBD5E1"/>
+  <rect x="322" y="274" width="246" height="118" rx="24" fill="#EFF6FF"/>
+  <rect x="344" y="302" width="82" height="66" rx="18" fill="#DBEAFE"/>
+  <rect x="438" y="302" width="108" height="12" rx="6" fill="#174EA6"/>
+  <rect x="438" y="326" width="90" height="10" rx="5" fill="#64748B"/>
+  <rect x="438" y="348" width="70" height="10" rx="5" fill="#94A3B8"/>
+  <rect x="72" y="246" width="220" height="146" rx="24" fill="#F8FAFC"/>
+  <circle cx="112" cy="286" r="12" fill="#174EA6"/>
+  <rect x="136" y="278" width="124" height="10" rx="5" fill="#174EA6"/>
+  <rect x="96" y="312" width="164" height="10" rx="5" fill="#CBD5E1"/>
+  <rect x="96" y="334" width="144" height="10" rx="5" fill="#CBD5E1"/>
+  <rect x="96" y="356" width="96" height="10" rx="5" fill="#CBD5E1"/>
+  <path d="M266 150C328 150 310 150 322 150" stroke="#94A3B8" stroke-width="6" stroke-linecap="round" stroke-dasharray="10 10"/>
+  <path d="M266 320C328 320 310 320 322 320" stroke="#94A3B8" stroke-width="6" stroke-linecap="round" stroke-dasharray="10 10"/>
+  <path d="M430 246C430 266 430 248 430 274" stroke="#94A3B8" stroke-width="6" stroke-linecap="round" stroke-dasharray="10 10"/>
+  <defs>
+    <linearGradient id="bg" x1="43" y1="26" x2="595" y2="451" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#EEF4FF"/>
+      <stop offset="0.5" stop-color="#F7FBFF"/>
+      <stop offset="1" stop-color="#ECFEFF"/>
+    </linearGradient>
+  </defs>
+</svg>

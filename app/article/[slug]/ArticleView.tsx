@@ -135,7 +135,7 @@ export default function ArticleView({
   };
 
   return (
-    <main className="pub article-page">
+    <main className="pub article-page" id="main-content">
       <nav className="breadcrumb">
         <Link href="/">Home</Link>
         <span>/</span>

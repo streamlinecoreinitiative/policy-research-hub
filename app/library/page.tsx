@@ -102,7 +102,7 @@ function LibraryContent() {
   };
 
   return (
-    <main className="pub library-page">
+    <main className="pub library-page" id="main-content">
       <nav className="breadcrumb">
         <Link href="/">Home</Link> <span>/</span> <span>Research Library</span>
       </nav>

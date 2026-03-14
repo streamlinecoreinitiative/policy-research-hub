@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <main className="pub about-page">
+    <main className="pub about-page" id="main-content">
       <nav className="breadcrumb">
         <Link href="/">Home</Link> <span>/</span> <span>About</span>
       </nav>
